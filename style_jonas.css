@@ -10,15 +10,15 @@
 }
 
 .profile-lila {
-    background-color: var(--profile-lila);
+    background-color: rgba(147, 39, 255, 1);;
 }
 
 .profile-rosa {
-    background-color: var(--profile-rosa);
+    background-color: rgba(252, 113, 255, 1);
 }
 
 .profile-orange {
-    background-color: var(--profile-orange);
+    background-color: rgba(255, 187, 43, 1);
 }
 
 
@@ -93,8 +93,13 @@ h2, h3, p {
     padding: 0 16px;
 }
 
+.board-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
 .board-column-title {
-    padding: 16px 0;
     display: flex;
     justify-content: space-between;
 }
@@ -169,5 +174,17 @@ h2, h3, p {
     display: flex;
     justify-content: space-between;
 
+}
+
+.navbar-mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    background-color: rgba(42, 54, 71, 1);
+    padding: 0 16px;
 }
 
