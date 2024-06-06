@@ -10,6 +10,17 @@ body {
     src: local(''), url(./assets/fonts/Inter-VariableFont_slnt\,wght.ttf);
 }
 
+.main {
+    margin: 80px 14px;
+}
+
+.hide {
+    display: none;
+}
+
+
+/* Contacts */
+
 .contactsHeader {
     margin: 48px 0 48px 16px;
     display: flex;
@@ -27,7 +38,7 @@ body {
     font-weight: 400;
 }
 
-hr {
+.hrContacts {
     border: 3px solid rgba(41, 171, 226, 1);
     width: 90px;
     margin-left: 0;
@@ -82,4 +93,79 @@ hr {
 .contactInfoMail {
     color: rgba(0, 124, 238, 1);
     margin-bottom: 22px;
+}
+
+
+/* Contact List */
+
+.letter {
+    padding: 17px 36px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.hrContactList {
+    border: 1px solid rgba(209, 209, 209, 1);
+    width: 352px;
+    margin: 8px 24px;
+}
+
+.contactContainer {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    height: 78px;
+    padding: 15px 24px;
+}
+
+.contactDot {
+    height: 42px;
+    width: 42px;    
+    border: 2px solid rgba(255, 255, 255, 1);
+    color: rgba(255, 255, 255, 1);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.4px;
+    border-radius: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactDotOrange {
+    background-color: rgba(255, 122, 0, 1);
+}
+
+.contactDotPurple {
+    background-color: rgba(147, 39, 255, 1);
+}
+
+.contactDotBlue {
+    background-color: rgba(110, 82, 255, 1);
+}
+
+.contactDotPink {
+    background-color: rgba(252, 113, 255, 1);
+}
+
+.contactDotYellow {
+    background-color: rgba(255, 187, 43, 1);
+}
+
+.contactDotMint {
+    background-color: rgba(31, 215, 193, 1);
+}
+
+.contactName {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.contactMail {
+    color: rgba(0, 124, 238, 1);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
 }
