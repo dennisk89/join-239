@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style_jonas.css">
     <!-- <script src="board.js"></script> -->
 </head>
+
 <body>
 
     <header>
@@ -16,28 +18,140 @@
         </div>
     </header>
 
+    <!-- ANCHOR board -->
     <section class="board">
         <div class="board-headline">
             <h1>Board</h1>
-            <img src="assets/img/plus-add-task-mobile.svg" alt="">
+            <img class="clickable" src="assets/img/plus-add-task-mobile.svg" alt="">
         </div>
 
         <div class="board-search">
             <div class="search-box">
                 <input placeholder="Find Task" type="search">
-                <img src="assets/img/search-icon.svg" alt="">
+                <img class="clickable" src="assets/img/search-icon.svg" alt="">
             </div>
         </div>
 
-        <div class="board-column"></div>
-        <div class="board-column"></div>
-        <div class="board-column"></div>
+        <!-- ANCHOR in to do -->
+
+        <div class="board-columns">
+            <div class="board-column">
+                <div class="board-column-title">
+                    <h2>To do</h2>
+                    <img class="clickable" src="assets/img/plus-button-mobile-board-column.svg" alt="">
+                </div>
+                <div class="card clickable">
+                    <img src="assets/img/board-card-label-us.svg" alt="">
+                    <div class="card-text-box">
+                        <h3>profile Form & Imprint</h3>
+                        <p>Create a profile form and imprint page...</p>
+                    </div>
+                    <div class="card-progress-container">
+                        <progress id="subtaskBar" value="50" max="100"></progress>
+                        <label for="subtaskBar">1/2 Subtasks</label>
+                    </div>
+                    <div class="card-footer">
+                        <div class="circle-container">
+                            <div class="profile-batch profile-lila">AS</div>
+                            <div class="profile-batch profile-rosa overlap-1">DE</div>
+                            <div class="profile-batch profile-orange overlap-2">EF</div>
+                        </div>
+                        <img class="clickable" src="assets/img/card-priority-symbol.svg" alt="">
+                    </div>
+                </div>
+            </div>
+
+        <!-- ANCHOR in progress -->
+            <div class="board-column">
+                <div class="board-column-title">
+                    <h2>In progress</h2>
+                    <img class="clickable" src="assets/img/plus-button-mobile-board-column.svg" alt="">
+                </div>
+                <div class="card clickable">
+                    <img src="assets/img/board-card-label-us.svg" alt="">
+                    <div class="card-text-box">
+                        <h3>profile Form & Imprint</h3>
+                        <p>Create a profile form and imprint page...</p>
+                    </div>
+                    <div class="card-progress-container">
+                        <progress id="subtaskBar" value="0" max="100"></progress>
+                        <label for="subtaskBar">0/2 Subtasks</label>
+                    </div>
+                    <div class="card-footer">
+                        <div class="circle-container">
+                            <div class="profile-batch profile-lila">AS</div>
+                            <div class="profile-batch profile-rosa overlap-1">DE</div>
+                            <div class="profile-batch profile-orange overlap-2">EF</div>
+                        </div>
+                        <img class="clickable" src="assets/img/card-priority-symbol.svg" alt="">
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ANCHOR in feedback -->
+            <div class="board-column">
+                <div class="board-column-title">
+                    <h2>Await feedback</h2>
+                    <img class="clickable" src="assets/img/plus-button-mobile-board-column.svg" alt="">
+                </div>
+                <div class="card clickable">
+                    <img src="assets/img/board-card-label-tt.svg" alt="">
+                    <div class="card-text-box">
+                        <h3>profile Form & Imprint</h3>
+                        <p>Create a profile form and imprint page...</p>
+                    </div>
+                    <div class="card-progress-container">
+                        <progress id="subtaskBar" value="50" max="100"></progress>
+                        <label for="subtaskBar">1/2 Subtasks</label>
+                    </div>
+                    <div class="card-footer">
+                        <div class="circle-container">
+                            <div class="profile-batch profile-lila">AS</div>
+                            <div class="profile-batch profile-rosa overlap-1">DE</div>
+                            <div class="profile-batch profile-orange overlap-2">EF</div>
+                        </div>
+                        <img class="clickable" src="assets/img/card-priority-symbol.svg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANCHOR done -->
+            <div class="board-column">
+                <div class="board-column-title">
+                    <h2>Done</h2>
+                    <img class="clickable" src="assets/img/plus-button-mobile-board-column.svg" alt="">
+                </div>
+                <div class="card clickable">
+                    <img src="assets/img/board-card-label-us.svg" alt="">
+                    <div class="card-text-box">
+                        <h3>profile Form & Imprint</h3>
+                        <p>Create a profile form and imprint page...</p>
+                    </div>
+                    <div class="card-progress-container">
+                        <progress id="subtaskBar" value="100" max="100"></progress>
+                        <label for="subtaskBar">2/2 Subtasks</label>
+                    </div>
+                    <div class="card-footer">
+                        <div class="circle-container">
+                            <div class="profile-batch profile-lila">AS</div>
+                            <div class="profile-batch profile-rosa overlap-1">DE</div>
+                            <div class="profile-batch profile-orange overlap-2">EF</div>
+                        </div>
+                        <img class="clickable" src="assets/img/card-priority-symbol.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
     </section>
 
     <nav>
 
     </nav>
-    
+
 </body>
+
 </html>
