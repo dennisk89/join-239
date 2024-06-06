@@ -1,0 +1,6 @@
+.inner-header {
+    padding: 20px 16px 20px 16px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+}

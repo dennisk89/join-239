@@ -1,0 +1,15 @@
+.navbar-mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    background-color: rgba(42, 54, 71, 1);
+    padding: 0 16px;
+}
+
+.clickable {
+    cursor: pointer;
+}
