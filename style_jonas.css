@@ -5,6 +5,11 @@
     --profile-orange: rgba(255, 187, 43, 1);
 }
 
+@font-face {
+    font-family: 'inter';
+    src: url(assets/fonts/Inter-VariableFont_slnt\,wght.ttf);
+}
+
 .clickable {
     cursor: pointer;
 }
@@ -25,7 +30,7 @@
 
 body {
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'inter';
 }
 
 h1 {
@@ -174,18 +179,6 @@ h2, h3, p {
     display: flex;
     justify-content: space-between;
 
-}
-
-.navbar-mobile {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    background-color: rgba(42, 54, 71, 1);
-    padding: 0 16px;
 }
 
 .mobile-marg-btm-96 {
