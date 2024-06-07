@@ -268,6 +268,22 @@ body {
     width: 64px;
 }
 
+.edit-contact-dot {
+    width: 120px;
+    height: 120px;
+    border: 3px solid rgba(255, 255, 255, 1);
+    border-radius: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 292px;
+    left: 138px;
+    font-size: 47px;
+    font-weight: 500;
+    line-height: 56.4px;
+}
+
 .overlay-form-bg {
     background-color: rgba(255, 255, 255, 1);
     border-bottom-left-radius: 30px;
@@ -300,7 +316,7 @@ body {
     padding-left: 21px;
 }
 
-.overlay-form button {
+.create-contact-btn {
     background-color: rgba(42, 54, 71, 1);
     color: rgba(255, 255, 255, 1);
     font-size: 21px;
@@ -317,6 +333,43 @@ body {
     align-self: center;
     margin-bottom: 80px;
     margin-top: 32px;
+}
+
+.overlay-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* margin-bottom: 62px; */
+    margin-bottom: 80px;
+    margin-top: 32px;
+}
+
+.delete-btn {
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(42, 54, 71, 1);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    height: 51px;
+    width: 82px;
+    border: 1px solid rgba(42, 54, 71, 1);
+    border-radius: 10px;
+}
+
+.save-btn {
+    background-color: rgba(42, 54, 71, 1);
+    color: rgba(255, 255, 255, 1);
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 25.2px;
+    height: 51px;
+    width: 99px;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
 }
 
 .overlay-form button img {
