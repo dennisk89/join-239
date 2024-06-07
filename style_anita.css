@@ -306,6 +306,7 @@ body {
     font-weight: 400;
     line-height: 24px;
     padding-left: 21px;
+    color: rgba(0,0,0,1);
 }
 
 .overlay-form input:placeholder-shown {
@@ -314,6 +315,24 @@ body {
     line-height: 24px;
     color: rgba(209, 209, 209, 1);
     padding-left: 21px;
+}
+
+.input-name {
+    background-image: url(./assets/img/input_person.svg);
+    background-repeat: no-repeat;
+    background-position: 319px;
+}
+
+.input-mail {
+    background-image: url(./assets/img/input_mail.svg);
+    background-repeat: no-repeat;
+    background-position: 319px;
+}
+
+.input-phone {
+    background-image: url(./assets/img/input_call.svg);
+    background-repeat: no-repeat;
+    background-position: 319px;
 }
 
 .create-contact-btn {
