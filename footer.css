@@ -33,7 +33,7 @@ a {
     color: rgba(205, 205, 205);
 }
 
-.footer-menu{
+.footer-menu {
     display: flex;
     flex-direction: column;
     cursor: pointer;
@@ -44,7 +44,7 @@ a {
     border-radius: 16px;
 }
 
-.footer-menu img{
+.footer-menu img {
     height: 24px;
 }
 
@@ -63,7 +63,7 @@ a {
     background-color: rgba(9, 25, 49, 1);
 }
 
-.footer-menu p{
+.footer-menu p {
     margin-top: 8px;
     margin-bottom: 0;
     font-size: 14px;

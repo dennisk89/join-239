@@ -34,7 +34,7 @@ body {
     line-height: 56.4px;
 }
 
-.contacts-sub {
+.contacts-header-sub {
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
@@ -189,4 +189,137 @@ body {
     font-size: 16px;
     font-weight: 400;
     line-height: 19.2px;
+}
+
+
+/* Overlays */
+
+.overlay-bg {
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay-content {
+    display: flex;
+    flex-direction: column;
+    color: rgba(255, 255, 255, 1);
+    width: 396px;
+}
+
+.overlay-header {
+    position: relative;
+    background-color: rgba(42, 54, 71, 1);
+    height: 352px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.overlay-close-btn {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 28px;
+    right: 20px;
+}
+
+.overlay-header-text {
+    margin-left: 24px;
+}
+
+.overlay-header-bold {
+    font-size: 47px;
+    font-weight: 700;
+    line-height: 56.4px;
+    margin-bottom: 8px;
+    margin-top: 124px;
+}
+
+.overlay-header-sub {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 16px;
+}
+
+.new-contact-dot {
+    background-color: rgba(209, 209, 209, 1);
+    width: 120px;
+    height: 120px;
+    border: 3px solid rgba(255, 255, 255, 1);
+    border-radius: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 292px;
+    left: 138px;
+}
+
+.new-contact-dot img {
+    height: 64px;
+    width: 64px;
+}
+
+.overlay-form-bg {
+    background-color: rgba(255, 255, 255, 1);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.overlay-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 13px 21px;
+    margin-top: 92px;
+}
+
+.overlay-form input {
+    height: 41px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    padding-left: 21px;
+}
+
+.overlay-form input:placeholder-shown {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    color: rgba(209, 209, 209, 1);
+    padding-left: 21px;
+}
+
+.overlay-form button {
+    background-color: rgba(42, 54, 71, 1);
+    color: rgba(255, 255, 255, 1);
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 25.2px;
+    height: 51px;
+    width: 202px;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    align-self: center;
+    margin-bottom: 80px;
+    margin-top: 32px;
+}
+
+.overlay-form button img {
+    width: 24px;
+    height: 24px;
 }
