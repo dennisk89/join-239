@@ -1,0 +1,27 @@
+.mobile-footer {
+    background-color: rgba(42, 54, 71);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: rgba(205, 205, 205);
+    size: 14px;
+    font-weight: 400;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.footer-menu img {
+    height: 24px;
+    padding-top: 17.5px;
+}
+
+.footer-menu p {
+    margin-top: 8px;
+}
