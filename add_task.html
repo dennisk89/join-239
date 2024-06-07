@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Tasks</title>
+    <link rel="stylesheet" href="style_dennis.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="navbar.css">
+</head>
+
+<body>
+    <header>
+        <div class="inner-header">
+            <img src="assets/img/Capa 3.svg" alt="">
+            <img src="assets/img/header-profile-icon.svg" alt="">
+        </div>
+    </header>
+    <div class="padding-left-right-16px margin-bottom-96px">
+        <h1>Add Task</h1>
+        <form action="">
+            <p>Title<span class="color-red">*</span></p>
+            <input placeholder="Enter a title" type="text" name="Title" id="titleInput">
+            <p>Description</p>
+            <input placeholder="Enter a description" type="text" name="Description" id="descriptionInput">
+            <p>Assigned to</p>
+            <select name="select contacts" id="selectContactsInput">
+                <option value="Select contacts">Select contacts to assign</option>
+            </select>
+            <p>Due date <span class="color-red">*</span></p>
+            <input placeholder="dd/mm/yyyy" class="textbox-n" type="text" onfocus="(this.type='date')"
+                onblur="(this.type='text')" id="dateInput">
+            <p>Prio</p>
+            Urgent Medium Low
+            <div>
+                <p><span class="color-red">*</span>This field is requiered</p>
+            </div>
+        </form>
+    </div>
+    <footer class="mobile-footer">
+        <div class="footer-menu">
+            <img src="./assets/img/Vector.svg" alt="">
+            <p>Summary</p>
+        </div>
+        <div class="footer-menu">
+            <img src="./assets/img/Menu Icons (3).svg" alt="">
+            <p>Board</p>
+        </div>
+        <div class="footer-menu">
+            <img src="./assets/img/Menu Icons (2).svg" alt="">
+            <p>Add Tasks</p>
+        </div>
+        <div class="footer-menu">
+            <img src="./assets/img/Menu Icons (1).svg" alt="">
+            <p>Contacts</p>
+    </footer>
+</body>
+
+</html>

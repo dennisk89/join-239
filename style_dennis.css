@@ -63,3 +63,8 @@ body{
     cursor: pointer;
 }
 
+.color-red{
+    color: rgb(255, 129, 144);
+}
+
+
