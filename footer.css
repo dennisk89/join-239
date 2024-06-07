@@ -3,6 +3,11 @@
     display: none;
 }
 
+a {
+    text-decoration: none;
+    color: white;
+}
+
 .clickable {
     cursor: pointer;
 }
