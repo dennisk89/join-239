@@ -13,7 +13,8 @@
 
 
 .profile-lila {
-    background-color: rgba(147, 39, 255, 1);;
+    background-color: rgba(147, 39, 255, 1);
+    ;
 }
 
 .profile-rosa {
@@ -29,6 +30,7 @@
 body {
     margin: 0;
     font-family: 'inter';
+    background-color: var(--bg-color);
 }
 
 h1 {
@@ -37,8 +39,14 @@ h1 {
     font-weight: 700;
 }
 
-h2, h3, p {
+h2,
+h3,
+p {
     margin: 0;
+}
+
+.hide-under-1400p {
+    display: none;
 }
 
 /* ANCHOR header */
@@ -47,7 +55,6 @@ h2, h3, p {
 
 /* ANCHOR board */
 .board {
-    background-color: var(--bg-color);
     padding-top: 24px;
 }
 
@@ -56,6 +63,36 @@ h2, h3, p {
     margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.board-add-btn {
+    background-color: rgba(42, 54, 71, 1);
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: none;
+}
+
+.board-add-btn:hover {
+    background-color: rgba(41, 171, 226, 1);
+}
+
+.board-add-btn span {
+    color: white;
+    font-family: Inter;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 25.2px;
+    text-align: left;
+}
+
+.board-add-btn img {
+    height: 20px;
+    width: 20px;
 }
 
 .board-search {
@@ -64,6 +101,7 @@ h2, h3, p {
 }
 
 .search-box {
+    margin-top: 40px;
     width: 100%;
     height: 48px;
     border-radius: 10px;
@@ -76,7 +114,7 @@ h2, h3, p {
 }
 
 .search-box input {
-    flex: 1;   
+    flex: 1;
     border: none;
     height: 32px;
     border-right: solid 1px #A8A8A8;
@@ -107,6 +145,7 @@ h2, h3, p {
     background-color: white;
     border-radius: 24px;
     padding: 16px;
+    box-sizing: border-box;
 }
 
 
@@ -129,16 +168,18 @@ h2, h3, p {
 }
 
 .card-text-box p {
-   font-size: 16px; 
-   color: rgba(168, 168, 168, 1);
+    font-size: 16px;
+    color: rgba(168, 168, 168, 1);
 }
 
 .card-progress-container {
     margin-bottom: 24px;
+    font-size: 12px;
 }
 
 .card progress {
     width: 128px;
+    margin-right: 10px;
 }
 
 .circle-container {
@@ -175,4 +216,59 @@ h2, h3, p {
 
 .mobile-marg-btm-96 {
     margin-bottom: 96px;
+}
+
+
+/* ANCHOR Media querries */
+@media (min-width: 1400px) {
+    .board {
+        width: 1104px;
+        padding: 0 64px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .search-box {
+        width: 312px;
+        margin-top: 0;
+        order: 2;
+    }
+
+    .board-headline {
+        padding-left: 0;
+        padding-right: 0;
+        justify-content: start;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .board-headline h1 {
+        order: 1;
+        flex: 1;
+    }
+
+    .board-add-btn {
+        order: 3;
+        width: 160px;
+        height: 48px;
+    }
+
+    .board-add-btn img {
+        height: 18.67px;
+        width: 18.67px;
+    }
+
+    .hide-over-1400p {
+        display: none;
+    }
+
+    .hide-under-1400p {
+        display: block;
+    }
+
+    .board-columns {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0;
+    }
 }
