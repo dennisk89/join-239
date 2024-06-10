@@ -16,7 +16,7 @@ let taskObject = [
             status: [true, false],
             subTask: ['Link style.css in index.html.', 'Write a display flex class.']
         },
-        taskStatus: 'todo' //progress, feedback, done
+        taskStatus: 'todo'
     },
     {
         id: 2,
@@ -30,6 +30,20 @@ let taskObject = [
             status: [true, false],
             subTask: ['Link style.css in index.html.', 'Write a display flex class.']
         },
-        taskStatus: 'progrees' //progress, feedback, done
+        taskStatus: 'progress' //progress, feedback, done
     },
+    {
+        id: 3,
+        type: 'assets\img\board-card-label-us.svg',
+        title: 'Burger css',
+        description: 'Write a lot of css code.',
+        dueDate: '2024-7-1',
+        assigned: ['Marge Simpson', 'Alf', 'Max Mustermann'],
+        prio: 'High',
+        subTasks: {
+            status: [true, true],
+            subTask: ['Link style.css in index.html.', 'Write a display flex class.']
+        },
+        taskStatus: 'progress' //progress, feedback, done
+    }
 ]
