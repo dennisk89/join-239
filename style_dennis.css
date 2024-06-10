@@ -83,6 +83,10 @@ body{
     width: 396px;
 }
 
+.enter-title-input::placeholder{
+    color: rgb(209, 209, 209);
+}
+
 .select-contacts-field{
     border-radius: 10px;
     border: 1px solid rgba(209, 209, 209, 1);
@@ -98,6 +102,10 @@ body{
     background-position: right 24px top 50%;
     background-size: 0.65rem auto;
 }
+
+textarea::-webkit-input-placeholder {
+    color: rgb(209, 209, 209);
+    }
 
 .bg-orange{
     background-color: rgb(255, 168, 0) !important;
@@ -138,6 +146,18 @@ body{
     border-radius: 10px;
     padding-left: 21px;
     padding-right: 21px;
+    background-image: url("./assets/img/event.svg");
+    background-repeat: no-repeat;
+    background-position: right 24px top 50%;
+    font-size: 16px;
+}
+
+.date-input::placeholder{
+    color: rgb(209, 209, 209);
+}
+
+.date-input:focus{
+    background-image: none;
 }
 
 .priority-section{
@@ -149,8 +169,7 @@ body{
     font-size: 16px;
     height: 41px;
     border-radius: 10px;
-    width: 121px;
-    
+    width: 121px;  
 }
 
 .width-396px{
@@ -167,8 +186,16 @@ body{
     font-weight: 700;
     width: 183px;
     height: 56px;
-    border-radius: 10px;
-    
+    border-radius: 10px; 
 }
+
+@media (min-width: 768px) {
+    .add-task-desktop{
+        display: flex;
+    }
+}
+
+
+
 
 
