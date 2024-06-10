@@ -41,4 +41,73 @@ body{
     color: rgb(255, 129, 144);
 }
 
+.bg-add-task{
+    background-color: rgb(246, 247, 248);
+    
+}
+
+.add-task-headline{
+    font-size: 47px;
+    height: 56px;
+    font-weight: 700px;
+}
+
+.enter-title-input {
+    border-radius: 10px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    width: 340px;
+    height: 40px;
+    line-height: 24px;
+    padding-left: 21px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19.2px;
+    
+}
+
+.enter-description-input{
+    border-radius: 10px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    width: 340px;
+    height: 88px;
+    line-height: 24px;
+    padding-left: 21px;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.select-contacts-field{
+    border-radius: 10px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    width: 364px;
+    height: 48px;
+    line-height: 24px;
+    padding-left: 16px;
+    font-weight: 400;
+    font-size: 16px;
+    
+    
+}
+
+.date-input{
+    height: 40px;
+    width: 356px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    border-radius: 10px;
+}
+
+.create-task-btn{
+    background-color: rgba(42, 54, 71);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 21px;
+    font-weight: 700;
+    width: 183px;
+    height: 56px;
+    border-radius: 10px;
+    
+}
+
 

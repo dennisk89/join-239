@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="footer.css">
 </head>
 
-<body>
+<body class="bg-add-task">
     <header>
         <div class="inner-header">
             <p class="hide-on-mobile">Kanban Project Management Tool</p>
@@ -18,24 +18,28 @@
             <img src="assets/img/header-profile-icon.svg" alt="">
         </div>
     </header>
-    <div class="padding-left-right-16px margin-bottom-96px">
-        <h1>Add Task</h1>
+    <div class="padding-left-right-16px margin-bottom-96px bg-add-task">
+        <h1 class="add-task-headline">Add Task</h1>
         <form action="">
             <p>Title<span class="color-red">*</span></p>
-            <input placeholder="Enter a title" type="text" name="Title" id="titleInput">
+            <input class="enter-title-input" placeholder="Enter a title" type="text" name="Title" id="titleInput">
             <p>Description</p>
-            <input placeholder="Enter a description" type="text" name="Description" id="descriptionInput">
+            <input class="enter-description-input" placeholder="Enter a description" type="text" name="Description" id="descriptionInput">
             <p>Assigned to</p>
-            <select name="select contacts" id="selectContactsInput">
+            <select class="select-contacts-field" name="select contacts" id="selectContactsInput">
                 <option value="Select contacts">Select contacts to assign</option>
             </select>
             <p>Due date <span class="color-red">*</span></p>
-            <input placeholder="dd/mm/yyyy" class="textbox-n" type="text" onfocus="(this.type='date')"
+            <input class="date-input" placeholder="dd/mm/yyyy" class="textbox-n" type="text" onfocus="(this.type='date')"
                 onblur="(this.type='text')" id="dateInput">
             <p>Prio</p>
             Urgent Medium Low
-            <div>
+            <div class="justify-space-between">
                 <p><span class="color-red">*</span>This field is requiered</p>
+                <div class="create-task-btn">
+                    <span>Create Task</span>
+                    <img src="./assets/img/check.svg" alt="">
+                </div>
             </div>
         </form>
     </div>
@@ -51,7 +55,7 @@
                 <img src="./assets/img/Menu Icons (3).svg" alt="">
                 <p>Board</p>
             </a>
-            <a href="add_task.html"  class="footer-menu mobile-menu-selected">
+            <a href="add_task.html" class="footer-menu mobile-menu-selected">
                 <img src="./assets/img/Menu Icons (2).svg" alt="">
                 <p>Add Tasks</p>
             </a>
