@@ -214,6 +214,16 @@ body {
     width: 396px;
 }
 
+.overlay-new-contact-ok-content {
+    color: rgba(255, 255, 255, 1);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    background-color: rgba(42, 54, 71, 1);
+    padding: 25px;
+    border-radius: 20px;
+}
+
 .overlay-header {
     position: relative;
     background-color: rgba(42, 54, 71, 1);
