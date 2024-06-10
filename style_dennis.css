@@ -192,6 +192,39 @@ textarea::-webkit-input-placeholder {
 @media (min-width: 768px) {
     .add-task-desktop{
         display: flex;
+        
+    }
+    .add-task-desktop-gap{
+        margin-left: 90px;
+        margin-right: 48px;
+    }
+    .enter-title-input{
+        font-size: 20px;
+        height: 48px;
+        margin-bottom: 32px;
+    }
+    .enter-description-input{
+        font-size: 20px;
+        height: 120px;
+        margin-bottom: 32px;
+    }
+    .add-task-desktop-border{
+        margin-right: 48px;
+        height: 424px;
+        color: black;
+        border: 1px solid rgb(209, 209, 209);
+    }
+    .add-task-headline{
+        margin-left: 90px;
+        margin-top: 110px;
+        margin-bottom: 48px;
+    }
+    .enter-description-input{
+        resize: vertical;
+    }
+    .font-20px{
+        font-size: 20px;
+        margin-top: 0;
     }
 }
 

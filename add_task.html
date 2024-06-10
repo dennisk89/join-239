@@ -24,25 +24,26 @@
     <div class="padding-left-right-16px margin-bottom-96px bg-add-task">
         <h1 class="add-task-headline">Add Task</h1>
         <form class="add-task-desktop" class="width-396px" action="submit">
-            <div>
-                <p class="margin-8px">Title<span class="color-red">*</span></p>
+            <div class="add-task-desktop-gap">
+                <p class="margin-8px font-20px">Title<span class="color-red">*</span></p>
                 <input class="enter-title-input" placeholder="Enter a title" type="text" name="Title" id="titleInput">
                 <span class="warning-message-field-required d-none">This field is requiered</span>
-                <p class="margin-8px">Description</p>
+                <p class="margin-8px font-20px">Description</p>
                 <textarea class="enter-description-input" placeholder="Enter a description" name="Description"
                     id="descriptionInput"></textarea>
-                <p class="margin-8px">Assigned to</p>
+                <p class="margin-8px font-20px">Assigned to</p>
                 <select class="select-contacts-field" name="select contacts" id="selectContactsInput">
                     <option value="Select contacts">Select contacts to assign</option>
                 </select>
             </div>
+            <div class="add-task-desktop-border"></div>
             <div>
-                <p class="margin-8px">Due date <span class="color-red">*</span></p>
+                <p class="margin-8px font-20px">Due date <span class="color-red">*</span></p>
                 <input class="date-input" type="text" placeholder="dd/mm/yyyy" id="dateInput"
                     onfocus="(this.type='date')" onblur="(this.type='text'); this.placeholder='dd/mm/yyyy';">
                 <span class="warning-message-field-required d-none">This field is requiered</span>
                 <div class="height-88px">
-                    <p class="margin-8px">Prio</p>
+                    <p class="margin-8px font-20px">Prio</p>
                     <div class="justify-space-between width-396px">
                         <div class="priority-section">
                             <span>Urgent</span>
