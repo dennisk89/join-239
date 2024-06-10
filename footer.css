@@ -19,11 +19,6 @@ a {
     cursor: pointer;
 }
 
-.inner-header p {
-    font-size: 20px;
-    font-weight: 400;
-}
-
 .mobile-footer {
     background-color: rgba(42, 54, 71);
     size: 14px;
