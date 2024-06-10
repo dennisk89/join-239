@@ -37,9 +37,6 @@
             </div>
         </div>
 
-        <!-- <div class="board-search"> -->
-
-        </div>
 
         <!-- ANCHOR in to do -->
 
@@ -58,7 +55,7 @@
                             <p>Create a profile form and imprint page...</p>
                         </div>
                         <div class="card-progress-container">
-                            <progress id="subtaskBar" value="50" max="100"></progress>
+                            <div class="outer-pbar" id="subtaskBar"><div class="inner-pbar" style="width: 50%;"></div></div>
                             <label for="subtaskBar">1/2 Subtasks</label>
                         </div>
                         <div class="card-footer">
@@ -89,7 +86,7 @@
                             <p>Speghetti Bolo Rezept...</p>
                         </div>
                         <div class="card-progress-container">
-                            <progress id="subtaskBar" value="0" max="100"></progress>
+                            <div class="outer-pbar" id="subtaskBar"><div class="inner-pbar" style="width: 0%;"></div></div>
                             <label for="subtaskBar">0/2 Subtasks</label>
                         </div>
                         <div class="card-footer">
@@ -110,7 +107,7 @@
                             <p>create imprint and contact form...</p>
                         </div>
                         <div class="card-progress-container">
-                            <progress id="subtaskBar" value="33" max="100"></progress>
+                            <div class="outer-pbar" id="subtaskBar"><div class="inner-pbar" style="width: 33%;"></div></div>
                             <label for="subtaskBar">1/3 Subtasks</label>
                         </div>
                         <div class="card-footer">
@@ -137,14 +134,14 @@
 
                 <div class="flex-col-gap16" id="feedbackColumn">
                     <!-- ANCHOR card -->
-                    <div class="card clickable">
+                    <div onclick="openTask()" class="card clickable">
                         <img src="assets/img/board-card-label-tt.svg" alt="">
                         <div class="card-text-box">
                             <h3>Pokemon</h3>
                             <p>load pokemons into local storage...</p>
                         </div>
                         <div class="card-progress-container">
-                            <progress id="subtaskBar" value="50" max="100"></progress>
+                            <div class="outer-pbar" id="subtaskBar"><div class="inner-pbar" style="width: 50%;"></div></div>
                             <label for="subtaskBar">1/2 Subtasks</label>
                         </div>
                         <div class="card-footer">
@@ -161,10 +158,9 @@
             </div>
 
             <!-- ANCHOR done -->
-            <div class="board-column mobile-marg-btm-96">
+            <div class="flex-col-gap16 mobile-marg-btm-96">
                 <div class="board-column-title">
                     <h2>Done</h2>
-                    <!-- <img class="clickable" src="assets/img/plus-button-mobile-board-column.svg" alt=""> -->
                 </div>
                 <div class="flex-col-gap16" id="inProgressColumn">
                     <!-- ANCHOR card -->
@@ -175,7 +171,7 @@
                             <p>Create a shop...</p>
                         </div>
                         <div class="card-progress-container">
-                            <progress id="subtaskBar" value="100" max="100"></progress>
+                            <div class="outer-pbar" id="subtaskBar"><div class="inner-pbar" style="width: 100%;"></div></div>
                             <label for="subtaskBar">2/2 Subtasks</label>
                         </div>
                         <div class="card-footer">
