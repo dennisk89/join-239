@@ -38,12 +38,20 @@ body {
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
+    color: rgba(42, 54, 71, 1);
 }
 
-.hr-contacts {
+.hr-contacts-mobile {
     border: 3px solid rgba(41, 171, 226, 1);
     width: 90px;
     margin-left: 0;
+}
+
+.hr-contacts-desktop {
+    border: 3px solid rgba(41, 171, 226, 1);
+    height: 59px;
+    margin: 0;
+    display: none;
 }
 
 .contact-info-container {
@@ -74,6 +82,25 @@ body {
 .user-name {
     font-size: 36px;
     font-weight: 700;
+}
+
+.user-edit-delete-desktop-container {
+    display: none;
+}
+
+.user-edit-delete-desktop {
+    display: flex;
+    gap: 13px;
+}
+
+.user-edit-desktop-img {
+    width: 18.28px;
+    height: 18.25px;
+}
+
+.user-delete-desktop-img {
+    width: 16px;
+    height: 18px;    
 }
 
 .contact-info-header {
@@ -446,4 +473,62 @@ body {
 .overlay-form button img {
     width: 24px;
     height: 24px;
+}
+
+
+/* Responsiveness */
+
+@media screen and (min-width: 768px){
+
+    .contacts-header {
+        margin-top: 110px;
+        margin-left: 55px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 30px;
+    }
+    
+    .contacts-header-bold {
+        font-size: 61px;
+        line-height: 73.2px;
+    }
+    
+    .contacts-header-sub {
+        font-size: 27px;
+        line-height: 32.4px;
+    }
+
+    .hr-contacts-mobile {
+        display: none;
+    }
+
+    .hr-contacts-desktop {
+        display: unset;
+    }
+
+    .contact-info-container {
+        margin-left: 65px;
+    }
+
+    .user-dot {
+        height: 120px;
+        width: 120px;
+        font-size: 47px;
+        font-weight: 500;
+        line-height: 56.4px;
+    }
+
+    .user-name {
+        font-size: 47px;
+        font-weight: 500;
+        line-height: 56.4px;
+        margin-bottom: 8px;
+    }
+
+    .user-edit-delete-desktop-container {
+        display: flex;
+        gap: 16px;
+    }
+
 }
