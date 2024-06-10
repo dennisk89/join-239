@@ -174,11 +174,22 @@ h2,h3,p {
 .card-progress-container {
     margin-bottom: 24px;
     font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.card progress {
+.outer-pbar {
     width: 128px;
-    margin-right: 10px;
+    height: 8px;
+    border-radius: 8px;
+    background: rgba(244, 244, 244, 1);
+}
+
+.inner-pbar {
+    height: 8px;
+    border-radius: 8px;
+    background: rgba(69, 137, 255, 1);
 }
 
 .circle-container {
