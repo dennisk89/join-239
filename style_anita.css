@@ -581,4 +581,43 @@ body {
         display: unset;
     }
 
+    .overlay-content {
+        flex-direction: row;
+    }
+
+    .overlay-header {
+        height: 594px;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 30px;
+    }
+
+    .overlay-form-bg {
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 30px;
+    }
+
+    .overlay-form {
+        gap: 32px;
+    }
+
+    .overlay-buttons {
+        gap: 25px;
+        /* margin-bottom: 62px; */
+        margin-bottom: 80px;
+        margin-top: 32px;
+    }
+
+    .delete-btn {
+        font-size: 21px;
+        line-height: 25.2px;
+        height: 55px;
+        width: 113px;
+        border-radius: 8px;
+    }
+
+    .save-btn {
+        height: 57px;
+        width: 111px;
+    }
+
 }
