@@ -106,6 +106,7 @@ body {
 .contact-info-header {
     font-size: 20px;
     font-weight: 400;
+    line-height: 24px;
     margin-bottom: 21px;
 }
 
@@ -529,6 +530,11 @@ body {
     .user-edit-delete-desktop-container {
         display: flex;
         gap: 16px;
+    }
+
+    .contact-info-header {
+        padding-top: 25px;
+        padding-bottom: 25px;
     }
 
 }
