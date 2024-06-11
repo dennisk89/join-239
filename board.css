@@ -176,6 +176,13 @@ p {
     justify-content: space-between;
 }
 
+.open-task h1 {
+    font-family: Inter;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 43.2px;
+}
+
 .open-task p {
     font-family: 'Inter';
     font-size: 16px;
@@ -317,7 +324,27 @@ p {
 
 
 /* ANCHOR Media querries */
-@media (min-width: 1400px) {
+@media (min-width: 768px) {
+    .open-task {
+        max-width: none;
+        width: 525px;
+        margin-left: 252px;
+        gap: 24px;
+    }
+
+    .open-task h1 {
+        font-family: Inter;
+        font-size: 61px;
+        font-weight: 700;
+        line-height: 73.2px;
+    }
+
+    .open-task p {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 1464px) {
     body {
         display: flex;
         flex-direction: column;
