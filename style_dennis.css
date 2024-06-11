@@ -262,6 +262,9 @@ textarea::-webkit-input-placeholder {
        font-size: 27px; 
        font-weight: 700;
     }
+    .justify-space-between img{
+       width: 37px;
+    }
     
 }
 
