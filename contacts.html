@@ -34,7 +34,7 @@
         <div class="overlay-bg">
             <div class="overlay-content">
                 <div class="overlay-header">
-                    <img class="overlay-close-btn-mobile" src="./assets/img/close.svg">                    
+                    <img class="overlay-close-btn-mobile pointer" src="./assets/img/close.svg">                    
                     <div class="overlay-header-content">
                         <img class="overlay-logo" src="./assets/img/Capa1.svg">
                         <div class="overlay-header-bold">Edit contact</div>
@@ -43,15 +43,15 @@
                     <div class="edit-contact-dot-mobile contact-dot-orange">AM</div>
                 </div>
                 <div class="overlay-form-bg">
-                    <img class="overlay-close-btn-desktop" src="./assets/img/close.svg">
+                    <img class="overlay-close-btn-desktop pointer" src="./assets/img/close.svg">
                     <div class="edit-contact-dot-desktop contact-dot-orange">AM</div>
                     <form class="overlay-form">
                         <input class="input-name" placeholder="Name">
                         <input class="input-mail" placeholder="Email">
                         <input class="input-phone" placeholder="Phone">
                         <div class="overlay-buttons">
-                            <button class="delete-btn">Delete</button>
-                            <button class="save-btn">Save<img src="./assets/img/check.svg"></button>
+                            <button class="delete-btn pointer">Delete</button>
+                            <button class="save-btn pointer">Save<img src="./assets/img/check.svg"></button>
                         </div>                        
                     </form>
                 </div>                
@@ -63,7 +63,7 @@
 
         <div class="contact-list-desktop">
 
-            <button class="add-contact-btn-desktop">Add new contact <img src="./assets/img/person_add.svg"></button>
+            <button class="add-contact-btn-desktop pointer">Add new contact <img src="./assets/img/person_add.svg"></button>
 
             <div class="letter">A</div>
             <hr class="hr-contact-list">
@@ -197,7 +197,7 @@
                 </div>
             </div>
         
-            <div class="contact-menu-btn">
+            <div class="contact-menu-btn pointer" onclick="showOverlayEditDelete()">
                 <img src="./assets/img/more_vert.svg">
             </div>
 
@@ -206,12 +206,12 @@
                     <div class="overlay-edit-delete-content">
                         <table class="overlay-edit-delete-table">
                             <tr>
-                                <td><img src="./assets/img/edit.svg" class="overlay-edit-img"></td>
-                                <td>Edit</td>
+                                <td><img src="./assets/img/edit.svg" class="overlay-edit-img pointer" onclick="showOverlayEditContact()"></td>
+                                <td class="pointer" onclick="showOverlayEditContact()">Edit</td>
                             </tr>
                             <tr>
-                                <td><img src="./assets/img/delete.svg" class="overlay-delete-img"></td>
-                                <td>Delete</td>
+                                <td><img src="./assets/img/delete.svg" class="overlay-delete-img pointer"></td>
+                                <td class="pointer">Delete</td>
                             </tr>
                         </table>
                     </div>
