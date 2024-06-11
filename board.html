@@ -59,12 +59,12 @@
             <p class="task-p-bold">Subtasks</p>
             <div>
                 <div class="check-list-row">
-                    <input type="checkbox" id="sub1">
-                    <label for="sub1">Subtask text</label>
+                    <img onclick="checkSubTask(event)" value='true' id="sub1" class="clickable" src="assets/img/checkbox-checked.svg" alt="checkbox-checked">
+                    <p>Subtask text</p>
                 </div>
                 <div class="check-list-row">
-                    <input type="checkbox" id="sub2">
-                    <label for="sub1">Subtask text2</label>
+                    <img onclick="checkSubTask(event)" value='false' id="sub2" class="clickable" src="assets/img/checkbox.svg" alt="checkbox-empty">
+                    <p>Subtask text2</p>
                 </div>
             </div>
             <div class="task-footer clickable">
@@ -103,7 +103,7 @@
                 </div>
                 <div class="flex-col-gap16" id="toDoColumn">
                     <!-- ANCHOR card -->
-                    <div onclick="openTask()" class="card clickable">
+                    <div onclick="openTask(); stopP(event)" class="card clickable">
                         <img src="assets/img/board-card-label-us.svg" alt="">
                         <div class="card-text-box">
                             <h3>profile Form & Imprint</h3>
@@ -136,7 +136,7 @@
                 </div>
                 <div class="flex-col-gap16" id="inProgressColumn">
                     <!-- ANCHOR card -->
-                    <div onclick="openTask()" class="card clickable">
+                    <div onclick="openTask(); stopP(event)" class="card clickable">
                         <img src="assets/img/board-card-label-us.svg" alt="">
                         <div class="card-text-box">
                             <h3>Kochwelt</h3>
@@ -159,7 +159,7 @@
                     </div>
 
                     <!-- ANCHOR card -->
-                    <div onclick="openTask()" class="card clickable">
+                    <div onclick="openTask(); stopP(event)" class="card clickable">
                         <img src="assets/img/board-card-label-us.svg" alt="">
                         <div class="card-text-box">
                             <h3>Kochwelt</h3>
@@ -195,7 +195,7 @@
 
                 <div class="flex-col-gap16" id="feedbackColumn">
                     <!-- ANCHOR card -->
-                    <div onclick="openTask()" class="card clickable">
+                    <div onclick="openTask(); stopP(event)" class="card clickable">
                         <img src="assets/img/board-card-label-tt.svg" alt="">
                         <div class="card-text-box">
                             <h3>Pokemon</h3>
@@ -227,7 +227,7 @@
                 </div>
                 <div class="flex-col-gap16" id="inProgressColumn">
                     <!-- ANCHOR card -->
-                    <div onclick="openTask()" class="card clickable">
+                    <div onclick="openTask(); stopP(event)" class="card clickable">
                         <img src="assets/img/board-card-label-us.svg" alt="">
                         <div class="card-text-box">
                             <h3>Lieferando order</h3>

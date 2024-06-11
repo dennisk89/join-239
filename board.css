@@ -151,7 +151,6 @@ p {
     right: 0;
     bottom: 0;
     top: 0;
-    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -222,6 +221,10 @@ p {
 
 .check-list-row {
     padding-left: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 4px;
 }
 
 .task-footer {
@@ -333,7 +336,7 @@ p {
     }
 
     .open-task h1 {
-        font-family: Inter;
+        font-family: 'Inter';
         font-size: 61px;
         font-weight: 700;
         line-height: 73.2px;
