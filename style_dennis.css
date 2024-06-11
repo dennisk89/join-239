@@ -62,7 +62,20 @@ body{
     font-weight: 400;
     font-size: 16px;
     line-height: 19.2px;
-    
+}
+
+.enter-subtask-input{
+    border-radius: 10px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    width: 371px;
+    height: 40px;
+    padding-left: 21px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19.2px;
+    background-image: url("./assets/img/Property\ 1=add.svg");
+    background-repeat: no-repeat;
+    background-position: right 24px top 50%;
 }
 
 .enter-description-input{
@@ -84,6 +97,10 @@ body{
 }
 
 .enter-title-input::placeholder{
+    color: rgb(209, 209, 209);
+}
+
+.enter-subtask-input::placeholder{
     color: rgb(209, 209, 209);
 }
 
@@ -214,11 +231,16 @@ textarea::-webkit-input-placeholder {
         font-size: 20px;
         height: 48px;
         margin-bottom: 32px;
+        width: 416px;
     }
     .enter-description-input{
         font-size: 20px;
         height: 120px;
         margin-bottom: 32px;
+        width: 440px;
+    }
+    .select-contacts-field{
+        width: 440px;
     }
     .add-task-desktop-border{
         margin-right: 48px;
@@ -262,10 +284,76 @@ textarea::-webkit-input-placeholder {
        font-size: 27px; 
        font-weight: 700;
     }
-    .justify-space-between img{
-       width: 37px;
+    .priority-section img{
+       width: 20px;
     }
+    .date-input{
+        margin-bottom: 40px;
+        width: 396px;
+    }
+    .priority-section{
+        font-size: 20px;
+        height: 56px;
+        width: 136px;
+        gap: 8px;
+    }
+    .width-396px{
+        width: 440px;
+    }
+    .legal-notice-arrow-left{
+        height: 37px;
+    }
+    .color-blue{
+        color: rgb(42, 54, 71);
+    }
+    .category-input{
+        display: flex;
+        flex-direction: column;
+        margin-top: 24px;
+        gap: 8px;
+        margin-bottom: 24px;
+    }
+    .enter-subtask-input{
+    font-size: 20px;
+    height: 48px;
+    margin-bottom: 32px;
+    width: 416px;
     
+    }
+    .d-none-desktop{
+        display: none;
+    }
+    .subtask{
+        display: flex;
+        flex-direction: column;  
+        gap: 8px;
+    }
+    .required-text{
+        padding-top: 170px;
+        font-size: 20px;
+    }
+    .create-task-btn{
+        margin-top: 146px;
+    }
+    .clear-task-btn{
+        background-color: white;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        width: 110px;
+        justify-content: center;
+        border: 1px solid rgb(42, 54, 71);
+        border-radius: 10px;
+        margin-top: 146px;
+        color: rgb(42, 54, 71);
+        font-size: 20px;
+    }
+    .desktop-btns{
+        display: flex;
+        justify-content: flex-end;
+        gap: 16px;
+    }
 }
 
 
