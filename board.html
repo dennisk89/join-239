@@ -29,37 +29,55 @@
     </header>
 
     <!-- ANCHOR Task overlay -->
-    <section id="taskOverlay" class="open-task">
-        <div class="task-header">
-            <img src="assets/img/board-card-label-tt.svg" alt="">
-            <img class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask()">
-        </div>
-        <h1>title</h1>
-        <p>description</p>
-        <div class="task-line">
-            <p class="task-p-bold">Due date:</p>
-            <p>date</p>
-        </div>
-        <div class="task-line">
-            <p class="task-p-bold">Priority:</p>
-            <p>Prio <img src="assets/img/card-priority-symbol.svg" alt=""></p>
-        </div>
-        <p class="task-p-bold">Assigned To:</p>
-        <div class="task-assigned">
-            <div class="profile-batch profile-lila">AS</div>
-            <p class="assigned-name">Alfred Schulz</p>
-        </div>
-        <p class="task-p-bold">Subtasks</p>
-        <div class="check-list">
-            <input type="checkbox" id="sub1">
-            <label for="sub1">Subtask text</label>
-        </div>
-        <div class="task-footer">
-            <img src="assets/img/delete.svg" alt="">
-            <p>Delete</p>
-            <img src="assets/img/edit.svg" alt="">
-            <p>Edit</p>
-        </div>
+    <section id="taskOverlay" class="overlay-bg">
+        <div class="open-task">
+            <div class="task-header">
+                <img src="assets/img/board-card-label-tt.svg" alt="">
+                <img class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask()">
+            </div>
+            <h1>This is a very informative Title</h1>
+            <p>A very good description that describes what we need to do in this task.</p>
+            <div class="task-line">
+                <p class="task-p-bold">Due date:</p>
+                <p>date</p>
+            </div>
+            <div class="task-line">
+                <p class="task-p-bold">Priority:</p>
+                <p class="prio-text">Prio <img src="assets/img/card-priority-symbol.svg" alt=""></p>
+            </div>
+            <p class="task-p-bold">Assigned To:</p>
+            <div>
+                <div class="task-assigned">
+                    <div class="profile-batch profile-lila">AS</div>
+                    <p class="assigned-name">Alfred Schulz</p>
+                </div>
+                <div class="task-assigned">
+                    <div class="profile-batch profile-orange">HS</div>
+                    <p class="assigned-name">Homer Simpson</p>
+                </div>
+            </div>
+            <p class="task-p-bold">Subtasks</p>
+            <div>
+                <div class="check-list-row">
+                    <input type="checkbox" id="sub1">
+                    <label for="sub1">Subtask text</label>
+                </div>
+                <div class="check-list-row">
+                    <input type="checkbox" id="sub2">
+                    <label for="sub1">Subtask text2</label>
+                </div>
+            </div>
+            <div class="task-footer clickable">
+                <div class="task-footer">
+                    <img src="assets/img/delete.svg" alt="">
+                    <p>Delete</p>
+                </div>
+                <div class="task-footer clickable">
+                    <img src="assets/img/edit.svg" alt="">
+                    <p>Edit</p>
+                </div>
+            </div>
+        </div>    
     </section>
 
     <!-- ANCHOR board -->
