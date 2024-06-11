@@ -188,6 +188,18 @@ textarea::-webkit-input-placeholder {
     height: 56px;
     border-radius: 10px; 
 }
+.h1-d{
+    font-size: 47px;
+}
+
+.h2-d{
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.margin-bottom0{
+    margin-bottom: 0px;
+}
 
 @media (min-width: 768px) {
     .add-task-desktop{
@@ -226,6 +238,31 @@ textarea::-webkit-input-placeholder {
         font-size: 20px;
         margin-top: 0;
     }
+    .desktop-help{
+        width: 1014px;
+        margin-left: 96px;
+    }
+    .h1-d{
+        font-size: 61px;
+        margin-top: 110px;
+        margin-bottom: 32px;
+    }
+    .align-center{
+        display: flex;
+        align-items: center;
+        
+    }
+    .legal-notice-arrow-left{
+        margin-top: 78px;
+    }
+    .font-weight400{
+        font-weight: 400;
+    }
+    .h2-d{
+       font-size: 27px; 
+       font-weight: 700;
+    }
+    
 }
 
 
