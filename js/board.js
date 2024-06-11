@@ -1,5 +1,10 @@
 function openTask() {
     console.log('Task öffnen');
+    document.getElementById('taskOverlay').style.display = 'flex'
+}
+
+function closeTask() {
+    document.getElementById('taskOverlay').style.display = 'none'
 }
 
 

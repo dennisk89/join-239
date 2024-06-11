@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join -Board</title>
-    <link rel="stylesheet" href="style_jonas.css">
+    <link rel="stylesheet" href="board.css">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="footer.css">
     <script defer src="js/board.js"></script>
@@ -18,12 +18,49 @@
             <p class="hide-on-mobile">Kanban Project Management Tool</p>
             <img src="assets/img/join-logo.svg" class="hide-on-desktop" alt="">
             <div class="flex-all-center gap-16">
-                <a class="hide-on-mobile clickable" href="help.html" a><img class="hover-scale" src="assets/img/header-help-icon.svg" alt="help"></a>
-                <div class="profile-icon flex-all-center"><p id="userIcon">SM</p></div>
+                <a class="hide-on-mobile clickable" href="help.html" a><img class="hover-scale"
+                        src="assets/img/header-help-icon.svg" alt="help"></a>
+                <div class="profile-icon flex-all-center">
+                    <p id="userIcon">SM</p>
+                </div>
             </div>
-            
+
         </div>
     </header>
+
+    <!-- ANCHOR Task overlay -->
+    <section id="taskOverlay" class="open-task">
+        <div class="task-header">
+            <img src="assets/img/board-card-label-tt.svg" alt="">
+            <img class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask()">
+        </div>
+        <h1>title</h1>
+        <p>description</p>
+        <div class="task-line">
+            <p class="task-p-bold">Due date:</p>
+            <p>date</p>
+        </div>
+        <div class="task-line">
+            <p class="task-p-bold">Priority:</p>
+            <p>Prio <img src="assets/img/card-priority-symbol.svg" alt=""></p>
+        </div>
+        <p class="task-p-bold">Assigned To:</p>
+        <div class="task-assigned">
+            <div class="profile-batch profile-lila">AS</div>
+            <p class="assigned-name">Alfred Schulz</p>
+        </div>
+        <p class="task-p-bold">Subtasks</p>
+        <div class="check-list">
+            <input type="checkbox" id="sub1">
+            <label for="sub1">Subtask text</label>
+        </div>
+        <div class="task-footer">
+            <img src="assets/img/delete.svg" alt="">
+            <p>Delete</p>
+            <img src="assets/img/edit.svg" alt="">
+            <p>Edit</p>
+        </div>
+    </section>
 
     <!-- ANCHOR board -->
     <section class="board">
@@ -48,14 +85,16 @@
                 </div>
                 <div class="flex-col-gap16" id="toDoColumn">
                     <!-- ANCHOR card -->
-                    <div class="card clickable">
+                    <div onclick="openTask()" class="card clickable">
                         <img src="assets/img/board-card-label-us.svg" alt="">
                         <div class="card-text-box">
                             <h3>profile Form & Imprint</h3>
                             <p>Create a profile form and imprint page...</p>
                         </div>
                         <div class="card-progress-container">
-                            <div class="outer-pbar" id="subtaskBar"><div class="inner-pbar" style="width: 50%;"></div></div>
+                            <div class="outer-pbar" id="subtaskBar">
+                                <div class="inner-pbar" style="width: 50%;"></div>
+                            </div>
                             <label for="subtaskBar">1/2 Subtasks</label>
                         </div>
                         <div class="card-footer">
@@ -79,14 +118,16 @@
                 </div>
                 <div class="flex-col-gap16" id="inProgressColumn">
                     <!-- ANCHOR card -->
-                    <div class="card clickable">
+                    <div onclick="openTask()" class="card clickable">
                         <img src="assets/img/board-card-label-us.svg" alt="">
                         <div class="card-text-box">
                             <h3>Kochwelt</h3>
                             <p>Speghetti Bolo Rezept...</p>
                         </div>
                         <div class="card-progress-container">
-                            <div class="outer-pbar" id="subtaskBar"><div class="inner-pbar" style="width: 0%;"></div></div>
+                            <div class="outer-pbar" id="subtaskBar">
+                                <div class="inner-pbar" style="width: 0%;"></div>
+                            </div>
                             <label for="subtaskBar">0/2 Subtasks</label>
                         </div>
                         <div class="card-footer">
@@ -100,14 +141,16 @@
                     </div>
 
                     <!-- ANCHOR card -->
-                    <div class="card clickable">
+                    <div onclick="openTask()" class="card clickable">
                         <img src="assets/img/board-card-label-us.svg" alt="">
                         <div class="card-text-box">
                             <h3>Kochwelt</h3>
                             <p>create imprint and contact form...</p>
                         </div>
                         <div class="card-progress-container">
-                            <div class="outer-pbar" id="subtaskBar"><div class="inner-pbar" style="width: 33%;"></div></div>
+                            <div class="outer-pbar" id="subtaskBar">
+                                <div class="inner-pbar" style="width: 33%;"></div>
+                            </div>
                             <label for="subtaskBar">1/3 Subtasks</label>
                         </div>
                         <div class="card-footer">
@@ -141,7 +184,9 @@
                             <p>load pokemons into local storage...</p>
                         </div>
                         <div class="card-progress-container">
-                            <div class="outer-pbar" id="subtaskBar"><div class="inner-pbar" style="width: 50%;"></div></div>
+                            <div class="outer-pbar" id="subtaskBar">
+                                <div class="inner-pbar" style="width: 50%;"></div>
+                            </div>
                             <label for="subtaskBar">1/2 Subtasks</label>
                         </div>
                         <div class="card-footer">
@@ -164,14 +209,16 @@
                 </div>
                 <div class="flex-col-gap16" id="inProgressColumn">
                     <!-- ANCHOR card -->
-                    <div class="card clickable">
+                    <div onclick="openTask()" class="card clickable">
                         <img src="assets/img/board-card-label-us.svg" alt="">
                         <div class="card-text-box">
                             <h3>Lieferando order</h3>
                             <p>Create a shop...</p>
                         </div>
                         <div class="card-progress-container">
-                            <div class="outer-pbar" id="subtaskBar"><div class="inner-pbar" style="width: 100%;"></div></div>
+                            <div class="outer-pbar" id="subtaskBar">
+                                <div class="inner-pbar" style="width: 100%;"></div>
+                            </div>
                             <label for="subtaskBar">2/2 Subtasks</label>
                         </div>
                         <div class="card-footer">
