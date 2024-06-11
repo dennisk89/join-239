@@ -7,8 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="style_anita.css">
+    <link rel="stylesheet" href="style_anita_overlays.css">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="footer.css">
+
+    <script src="./js/contacts.js"></script>
 
     <title>Join: Contacts</title>
 
@@ -26,6 +29,35 @@
             </div>
         </div>
     </header>
+
+    <div id="overlayEditContact" class="hide">
+        <div class="overlay-bg">
+            <div class="overlay-content">
+                <div class="overlay-header">
+                    <img class="overlay-close-btn-mobile" src="./assets/img/close.svg">                    
+                    <div class="overlay-header-content">
+                        <img class="overlay-logo" src="./assets/img/Capa1.svg">
+                        <div class="overlay-header-bold">Edit contact</div>
+                        <hr class="hr-contacts-mobile">
+                    </div>                    
+                    <div class="edit-contact-dot-mobile contact-dot-orange">AM</div>
+                </div>
+                <div class="overlay-form-bg">
+                    <img class="overlay-close-btn-desktop" src="./assets/img/close.svg">
+                    <div class="edit-contact-dot-desktop contact-dot-orange">AM</div>
+                    <form class="overlay-form">
+                        <input class="input-name" placeholder="Name">
+                        <input class="input-mail" placeholder="Email">
+                        <input class="input-phone" placeholder="Phone">
+                        <div class="overlay-buttons">
+                            <button class="delete-btn">Delete</button>
+                            <button class="save-btn">Save<img src="./assets/img/check.svg"></button>
+                        </div>                        
+                    </form>
+                </div>                
+            </div>
+        </div>
+    </div>
 
     <div class="main-contacts">
 
@@ -145,11 +177,11 @@
                     <div>
                         <div class="user-name">Tatjana Wolf</div>
                         <div class="user-edit-delete-desktop-container">
-                            <div class="user-edit-delete-desktop">
+                            <div class="user-edit-delete-desktop pointer" onclick="showOverlayEditContact()">
                                 <img src="./assets/img/edit.svg" class="user-edit-desktop-img">
                                 <div>Edit</div>
                             </div>
-                            <div class="user-edit-delete-desktop">
+                            <div class="user-edit-delete-desktop pointer">
                                 <img src="./assets/img/delete.svg" class="user-delete-desktop-img">
                                 <div>Delete</div>
                             </div>                    
@@ -188,36 +220,7 @@
 
         </div>
 
-    </div>
-
-    <div id="overlayEditContact" class="">
-        <div class="overlay-bg">
-            <div class="overlay-content">
-                <div class="overlay-header">
-                    <img class="overlay-close-btn-mobile" src="./assets/img/close.svg">                    
-                    <div class="overlay-header-content">
-                        <img class="overlay-logo" src="./assets/img/Capa1.svg">
-                        <div class="overlay-header-bold">Edit contact</div>
-                        <hr class="hr-contacts-mobile">
-                    </div>                    
-                    <div class="edit-contact-dot-mobile contact-dot-orange">AM</div>
-                </div>
-                <div class="overlay-form-bg">
-                    <img class="overlay-close-btn-desktop" src="./assets/img/close.svg">
-                    <div class="edit-contact-dot-desktop contact-dot-orange">AM</div>
-                    <form class="overlay-form">
-                        <input class="input-name" placeholder="Name">
-                        <input class="input-mail" placeholder="Email">
-                        <input class="input-phone" placeholder="Phone">
-                        <div class="overlay-buttons">
-                            <button class="delete-btn">Delete</button>
-                            <button class="save-btn">Save<img src="./assets/img/check.svg"></button>
-                        </div>                        
-                    </form>
-                </div>                
-            </div>
-        </div>
-    </div>
+    </div>    
 
     <footer class="mobile-footer">
         <img class="logo hide-on-mobile" src="assets/img/join-logo-big.svg" alt="">
