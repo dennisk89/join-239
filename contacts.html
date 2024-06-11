@@ -30,6 +30,207 @@
         </div>
     </header>
 
+    <div class="main">
+
+        <div class="main-contact-list">
+
+            <button class="add-contact-btn-desktop pointer">Add new contact <img src="./assets/img/person_add.svg"></button>
+
+            <div class="contact-list-letter">A</div>
+            <hr class="hr-contact-list">
+            <div class="contact-container">
+                <div class="contact-dot contact-dot-orange">AM</div>
+                <div>
+                    <div class="contact-name">Anton Mayer</div>
+                    <div class="contact-mail">antom@gmail.com</div>
+                </div>
+            </div>
+            <div class="contact-container">
+                <div class="contact-dot contact-dot-purple">AS</div>
+                <div>
+                    <div class="contact-name">Anja Schulz</div>
+                    <div class="contact-mail">schulz@hotmail.com</div>
+                </div>
+            </div>
+            <div class="contact-list-letter">B</div>
+            <hr class="hr-contact-list">
+            <div class="contact-container">
+                <div class="contact-dot contact-dot-blue">BZ</div>
+                <div>
+                    <div class="contact-name">Benedikt Ziegler</div>
+                    <div class="contact-mail">benedikt@gmail.com</div>
+                </div>
+            </div>
+            <div class="contact-list-letter hide">C</div>
+            <hr class="hr-contact-list hide">
+            <div class="contact-list-letter">D</div>
+            <hr class="hr-contact-list">
+            <div class="contact-container">
+                <div class="contact-dot contact-dot-pink">DE</div>
+                <div>
+                    <div class="contact-name">David Eisenberg</div>
+                    <div class="contact-mail">davidberg@gmail.com</div>
+                </div>
+            </div>
+            <div class="contact-list-letter">E</div>
+            <hr class="hr-contact-list">
+            <div class="contact-container">
+                <div class="contact-dot contact-dot-yellow">EF</div>
+                <div>
+                    <div class="contact-name">Eva Fischer</div>
+                    <div class="contact-mail">eva@gmail.com</div>
+                </div>
+            </div>
+            <div class="contact-container">
+                <div class="contact-dot contact-dot-mint">EM</div>
+                <div>
+                    <div class="contact-name">Emmanuel Mauer</div>
+                    <div class="contact-mail">emmanuelma@gmail.com</div>
+                </div>
+            </div>
+            <div class="contact-list-letter">F</div>
+            <hr class="hr-contact-list">
+            <div class="contact-list-letter">G</div>
+            <hr class="hr-contact-list">
+            <div class="contact-list-letter">H</div>
+            <hr class="hr-contact-list">
+            <div class="contact-list-letter">I</div>
+            <hr class="hr-contact-list">
+            <div class="contact-list-letter">J</div>
+            <hr class="hr-contact-list">
+            <div class="contact-list-letter">K</div>
+            <hr class="hr-contact-list">
+            <div class="contact-list-letter">L</div>
+            <hr class="hr-contact-list">
+            <div class="contact-list-letter">M</div>
+            <hr class="hr-contact-list">
+            <div class="contact-list-letter">N</div>
+            <hr class="hr-contact-list">
+            <div class="contact-list-letter">O</div>
+            <hr class="hr-contact-list">
+            <div class="contact-list-letter">P</div>
+            <hr class="hr-contact-list">
+            <div class="contact-list-letter">Q</div>
+            <hr class="hr-contact-list">
+            <div class="contact-list-letter">R</div>
+            <hr class="hr-contact-list">
+            <div class="contact-list-letter">S</div>
+            <hr class="hr-contact-list">
+            <div class="contact-list-letter">T</div>
+            <hr class="hr-contact-list">
+            <div class="contact-list-letter">U</div>
+            <hr class="hr-contact-list">
+            <div class="contact-list-letter">V</div>
+            <hr class="hr-contact-list">
+            <div class="contact-list-letter">W</div>
+            <hr class="hr-contact-list">
+            <div class="contact-list-letter">X</div>
+            <hr class="hr-contact-list">
+            <div class="contact-list-letter">Y</div>
+            <hr class="hr-contact-list">
+            <div class="contact-list-letter">Z</div>
+            <hr class="hr-contact-list">
+
+            <div class="add-contact-btn">
+                <img src="./assets/img/person_add.svg">
+            </div>
+
+        </div> <!-- end .main-contact-list -->
+
+        <div class="main-contacts">
+
+            <div class="contacts-header">
+                <div class="contacts-header-bold">Contacts</div>
+                <hr class="hr-contacts-desktop">
+                <div class="contacts-header-sub">Better with a team</div>
+                <hr class="hr-contacts-mobile">
+            </div>
+                
+            <div class="contact-info-container">
+                <div class="user-name-container">
+                    <div class="user-dot">TW</div>
+                    <div>
+                        <div class="user-name">Tatjana Wolf</div>
+                        <div class="user-edit-delete-desktop-container">
+                            <div class="user-edit-delete-desktop pointer" onclick="showOverlayEditContact()">
+                                <img src="./assets/img/edit.svg" class="user-edit-desktop-img">
+                                <div>Edit</div>
+                            </div>
+                            <div class="user-edit-delete-desktop pointer">
+                                <img src="./assets/img/delete.svg" class="user-delete-desktop-img">
+                                <div>Delete</div>
+                            </div>                    
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-info-header">Contact Information</div>
+                <div class="contact-info-content">
+                    <div class="contact-info-bold">Email</div>
+                    <div class="contact-info-mail">wolf@gmail.com</div>
+                    <div class="contact-info-bold">Phone</div>
+                    <div>+49 2222 222 22 2</div>
+                </div>
+            </div>
+            
+            <div class="contact-menu-btn pointer" onclick="showOverlayEditDelete()">
+                <img src="./assets/img/more_vert.svg">
+            </div>
+
+            <div id="overlayEditDelete" class="hide">
+                <div class="overlay-edit-delete-bg">
+                    <div class="overlay-edit-delete-content">
+                        <table class="overlay-edit-delete-table">
+                            <tr>
+                                <td><img src="./assets/img/edit.svg" class="overlay-edit-img pointer" onclick="showOverlayEditContact()"></td>
+                                <td class="pointer" onclick="showOverlayEditContact()">Edit</td>
+                            </tr>
+                            <tr>
+                                <td><img src="./assets/img/delete.svg" class="overlay-delete-img pointer"></td>
+                                <td class="pointer">Delete</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- end .main-contacts -->
+    
+    </div> <!-- end .main -->
+
+    <div id="overlayAddContact" class="hide">
+        <div class="overlay-bg">
+            <div class="overlay-content">
+                <div class="overlay-header">
+                    <img class="overlay-close-btn" src="./assets/img/close.svg">
+                    <div class="overlay-header-content">
+                        <div class="overlay-header-bold">Add contact</div>
+                        <div class="overlay-header-sub">Tasks are better with a team!</div>
+                        <hr class="hr-contacts-mobile">
+                    </div>                    
+                    <div class="new-contact-dot">
+                        <img src="./assets/img/person.svg">
+                    </div>
+                </div>
+                <div class="overlay-form-bg">
+                    <form class="overlay-form">
+                        <input class="input-name" placeholder="Name">
+                        <input class="input-mail" placeholder="Email">
+                        <input class="input-phone" placeholder="Phone">
+                        <button class="create-contact-btn">Create Contact<img src="./assets/img/check.svg"></button>
+                    </form>
+                </div>                
+            </div>
+        </div>
+    </div>
+
+    <div id="overlayNewContactOk" class="hide">
+        <div class="overlay-bg">
+            <div class="overlay-new-contact-ok-content">
+                Contact successfully created
+            </div>
+        </div>
+    </div>
+
     <div id="overlayEditContact" class="hide">
         <div class="overlay-bg">
             <div class="overlay-content">
@@ -58,169 +259,6 @@
             </div>
         </div>
     </div>
-
-    <div class="main-contacts">
-
-        <div class="contact-list-desktop">
-
-            <button class="add-contact-btn-desktop pointer">Add new contact <img src="./assets/img/person_add.svg"></button>
-
-            <div class="letter">A</div>
-            <hr class="hr-contact-list">
-            <div class="contact-container">
-                <div class="contact-dot contact-dot-orange">AM</div>
-                <div>
-                    <div class="contact-name">Anton Mayer</div>
-                    <div class="contact-mail">antom@gmail.com</div>
-                </div>
-            </div>
-            <div class="contact-container">
-                <div class="contact-dot contact-dot-purple">AS</div>
-                <div>
-                    <div class="contact-name">Anja Schulz</div>
-                    <div class="contact-mail">schulz@hotmail.com</div>
-                </div>
-            </div>
-            <div class="letter">B</div>
-            <hr class="hr-contact-list">
-            <div class="contact-container">
-                <div class="contact-dot contact-dot-blue">BZ</div>
-                <div>
-                    <div class="contact-name">Benedikt Ziegler</div>
-                    <div class="contact-mail">benedikt@gmail.com</div>
-                </div>
-            </div>
-            <div class="letter hide">C</div>
-            <hr class="hr-contact-list hide">
-            <div class="letter">D</div>
-            <hr class="hr-contact-list">
-            <div class="contact-container">
-                <div class="contact-dot contact-dot-pink">DE</div>
-                <div>
-                    <div class="contact-name">David Eisenberg</div>
-                    <div class="contact-mail">davidberg@gmail.com</div>
-                </div>
-            </div>
-            <div class="letter">E</div>
-            <hr class="hr-contact-list">
-            <div class="contact-container">
-                <div class="contact-dot contact-dot-yellow">EF</div>
-                <div>
-                    <div class="contact-name">Eva Fischer</div>
-                    <div class="contact-mail">eva@gmail.com</div>
-                </div>
-            </div>
-            <div class="contact-container">
-                <div class="contact-dot contact-dot-mint">EM</div>
-                <div>
-                    <div class="contact-name">Emmanuel Mauer</div>
-                    <div class="contact-mail">emmanuelma@gmail.com</div>
-                </div>
-            </div>
-            <div class="letter">F</div>
-            <hr class="hr-contact-list">
-            <div class="letter">G</div>
-            <hr class="hr-contact-list">
-            <div class="letter">H</div>
-            <hr class="hr-contact-list">
-            <div class="letter">I</div>
-            <hr class="hr-contact-list">
-            <div class="letter">J</div>
-            <hr class="hr-contact-list">
-            <div class="letter">K</div>
-            <hr class="hr-contact-list">
-            <div class="letter">L</div>
-            <hr class="hr-contact-list">
-            <div class="letter">M</div>
-            <hr class="hr-contact-list">
-            <div class="letter">N</div>
-            <hr class="hr-contact-list">
-            <div class="letter">O</div>
-            <hr class="hr-contact-list">
-            <div class="letter">P</div>
-            <hr class="hr-contact-list">
-            <div class="letter">Q</div>
-            <hr class="hr-contact-list">
-            <div class="letter">R</div>
-            <hr class="hr-contact-list">
-            <div class="letter">S</div>
-            <hr class="hr-contact-list">
-            <div class="letter">T</div>
-            <hr class="hr-contact-list">
-            <div class="letter">U</div>
-            <hr class="hr-contact-list">
-            <div class="letter">V</div>
-            <hr class="hr-contact-list">
-            <div class="letter">W</div>
-            <hr class="hr-contact-list">
-            <div class="letter">X</div>
-            <hr class="hr-contact-list">
-            <div class="letter">Y</div>
-            <hr class="hr-contact-list">
-            <div class="letter">Z</div>
-            <hr class="hr-contact-list">
-
-        </div>
-
-        <div class="contacts-main">
-
-            <div class="contacts-header">
-                <div class="contacts-header-bold">Contacts</div>
-                <hr class="hr-contacts-desktop">
-                <div class="contacts-header-sub">Better with a team</div>
-                <hr class="hr-contacts-mobile">
-            </div>
-            
-            <div class="contact-info-container">
-                <div class="user-name-container">
-                    <div class="user-dot">TW</div>
-                    <div>
-                        <div class="user-name">Tatjana Wolf</div>
-                        <div class="user-edit-delete-desktop-container">
-                            <div class="user-edit-delete-desktop pointer" onclick="showOverlayEditContact()">
-                                <img src="./assets/img/edit.svg" class="user-edit-desktop-img">
-                                <div>Edit</div>
-                            </div>
-                            <div class="user-edit-delete-desktop pointer">
-                                <img src="./assets/img/delete.svg" class="user-delete-desktop-img">
-                                <div>Delete</div>
-                            </div>                    
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-info-header">Contact Information</div>
-                <div class="contact-info-content">
-                    <div class="contact-info-bold">Email</div>
-                    <div class="contact-info-mail">wolf@gmail.com</div>
-                    <div class="contact-info-bold">Phone</div>
-                    <div>+49 2222 222 22 2</div>
-                </div>
-            </div>
-        
-            <div class="contact-menu-btn pointer" onclick="showOverlayEditDelete()">
-                <img src="./assets/img/more_vert.svg">
-            </div>
-
-            <div id="overlayEditDelete" class="hide">
-                <div class="overlay-edit-delete-bg">
-                    <div class="overlay-edit-delete-content">
-                        <table class="overlay-edit-delete-table">
-                            <tr>
-                                <td><img src="./assets/img/edit.svg" class="overlay-edit-img pointer" onclick="showOverlayEditContact()"></td>
-                                <td class="pointer" onclick="showOverlayEditContact()">Edit</td>
-                            </tr>
-                            <tr>
-                                <td><img src="./assets/img/delete.svg" class="overlay-delete-img pointer"></td>
-                                <td class="pointer">Delete</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </div>    
 
     <footer class="mobile-footer">
         <img class="logo hide-on-mobile" src="assets/img/join-logo-big.svg" alt="">

@@ -11,10 +11,6 @@ body {
 }
 
 .main {
-    margin: 80px 14px;
-}
-
-.main-contacts {
     display: flex;
 }
 
@@ -27,7 +23,110 @@ body {
 }
 
 
+/* Contact List */
+
+.main-contact-list {
+    margin: 80px 14px;
+}
+
+.add-contact-btn-desktop {
+    width: 352px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 25.2px;
+    background-color: rgba(42, 54, 71, 1);
+    border: 1px solid rgba(42, 54, 71, 1);
+    border-radius: 10px;
+    padding: 12px 0;
+    margin-top: 22.5px;
+    margin-left: 25.5px;
+    display: none;
+}
+
+.add-contact-btn-desktop img {
+    width: 32px;
+    height: 32px;
+}
+
+.contact-list-letter {
+    padding: 17px 36px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.hr-contact-list {
+    border: 1px solid rgba(209, 209, 209, 1);
+    width: 352px;
+    margin: 8px 24px;
+}
+
+.contact-container {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    height: 78px;
+    padding: 15px 24px;
+}
+
+.contact-dot {
+    height: 42px;
+    width: 42px;
+    border: 2px solid rgba(255, 255, 255, 1);
+    color: rgba(255, 255, 255, 1);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.4px;
+    border-radius: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-dot-orange {
+    background-color: rgba(255, 122, 0, 1);
+}
+
+.contact-dot-purple {
+    background-color: rgba(147, 39, 255, 1);
+}
+
+.contact-dot-blue {
+    background-color: rgba(110, 82, 255, 1);
+}
+
+.contact-dot-pink {
+    background-color: rgba(252, 113, 255, 1);
+}
+
+.contact-dot-yellow {
+    background-color: rgba(255, 187, 43, 1);
+}
+
+.contact-dot-mint {
+    background-color: rgba(31, 215, 193, 1);
+}
+
+.contact-name {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.contact-mail {
+    color: rgba(0, 124, 238, 1);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+}
+
+
 /* Contacts */
+
+.main-contacts {
+    display: none;
+}
 
 .contacts-header {
     margin: 48px 0 48px 16px;
@@ -42,6 +141,13 @@ body {
     line-height: 56.4px;
 }
 
+.hr-contacts-desktop {
+    border: 3px solid rgba(41, 171, 226, 1);
+    height: 59px;
+    margin: 0;
+    display: none;
+}
+
 .contacts-header-sub {
     font-size: 20px;
     font-weight: 400;
@@ -53,13 +159,6 @@ body {
     border: 3px solid rgba(41, 171, 226, 1);
     width: 90px;
     margin-left: 0;
-}
-
-.hr-contacts-desktop {
-    border: 3px solid rgba(41, 171, 226, 1);
-    height: 59px;
-    margin: 0;
-    display: none;
 }
 
 .contact-info-container {
@@ -133,6 +232,9 @@ body {
     margin-bottom: 22px;
 }
 
+
+/* Buttons */
+
 .contact-menu-btn, .add-contact-btn {
     position: fixed;
     right: 16px;
@@ -152,117 +254,37 @@ body {
     height: 32px;
 }
 
-.add-contact-btn-desktop {
-    width: 352px;
-    color: rgba(255, 255, 255, 1);
-    font-size: 21px;
-    font-weight: 700;
-    line-height: 25.2px;
-    background-color: rgba(42, 54, 71, 1);
-    border: 1px solid rgba(42, 54, 71, 1);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    padding: 12px 0;
-    margin-top: 22.5px;
-    margin-left: 25.5px;
-}
-
-.add-contact-btn-desktop img {
-    width: 32px;
-    height: 32px;
-}
-
-
-/* Contact List */
-
-.contact-list-desktop {
-    margin-left: 26.5px;
-    margin-bottom: 32px;
-    height: 100vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    display: none;
-}
-
-.letter {
-    padding: 17px 36px;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 24px;
-}
-
-.hr-contact-list {
-    border: 1px solid rgba(209, 209, 209, 1);
-    width: 352px;
-    margin: 8px 24px;
-}
-
-.contact-container {
-    display: flex;
-    align-items: center;
-    gap: 35px;
-    height: 78px;
-    padding: 15px 24px;
-}
-
-.contact-dot {
-    height: 42px;
-    width: 42px;
-    border: 2px solid rgba(255, 255, 255, 1);
-    color: rgba(255, 255, 255, 1);
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 14.4px;
-    border-radius: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.contact-dot-orange {
-    background-color: rgba(255, 122, 0, 1);
-}
-
-.contact-dot-purple {
-    background-color: rgba(147, 39, 255, 1);
-}
-
-.contact-dot-blue {
-    background-color: rgba(110, 82, 255, 1);
-}
-
-.contact-dot-pink {
-    background-color: rgba(252, 113, 255, 1);
-}
-
-.contact-dot-yellow {
-    background-color: rgba(255, 187, 43, 1);
-}
-
-.contact-dot-mint {
-    background-color: rgba(31, 215, 193, 1);
-}
-
-.contact-name {
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 24px;
-}
-
-.contact-mail {
-    color: rgba(0, 124, 238, 1);
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 19.2px;
-}
-
 
 /* Responsiveness */
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) {
+
+
+    /* Contact List */
+
+    .main-contact-list {
+        margin: 0 0 32px 26.5px;
+        width: 456px;
+        /* height: 100vh; */
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    .add-contact-btn-desktop {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+    }
+
+
+    /* Contacts */
+
+    .main-contacts {
+        display: flex;
+        flex-direction: column;
+        align-items: first baseline;
+    }
 
     .contacts-header {
         margin-top: 110px;
@@ -277,6 +299,10 @@ body {
         font-size: 61px;
         line-height: 73.2px;
     }
+
+    .hr-contacts-desktop {
+        display: unset;
+    }
     
     .contacts-header-sub {
         font-size: 27px;
@@ -285,10 +311,6 @@ body {
 
     .hr-contacts-mobile {
         display: none;
-    }
-
-    .hr-contacts-desktop {
-        display: unset;
     }
 
     .contact-info-container {
@@ -320,12 +342,11 @@ body {
         padding-bottom: 25px;
     }
 
+
+    /* Buttons */
+
     .contact-menu-btn, .add-contact-btn {
         display: none;
     }
-
-    .contact-list-desktop {
-        display: unset;
-    }    
 
 }
