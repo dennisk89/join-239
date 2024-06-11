@@ -218,6 +218,109 @@ textarea::-webkit-input-placeholder {
     margin-bottom: 0px;
 }
 
+
+.login-headline{
+    font-size: 47px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 16px;  
+}
+
+.blue-underline{
+    width: 88px;
+    border: 2px solid rgb(41, 171, 221);
+    border-radius: 3px;
+}
+
+.login-form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.email{
+    border-radius: 10px;
+    border: 1px solid rgb(209, 209, 209);
+    width: 341px;
+    height: 48px;
+    padding-left: 21px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 19.2px;
+    margin-top: 32px;
+    background-image: url("./assets/img/mail.svg");
+    background-repeat: no-repeat;
+    background-position: right 24px top 50%;
+}
+
+.email::placeholder{
+    color: rgb(209, 209, 209);
+}
+
+.password{
+    border-radius: 10px;
+    border: 1px solid rgb(209, 209, 209);
+    width: 341px;
+    height: 48px;
+    padding-left: 21px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 19.2px;
+    margin-top: 32px;
+    background-image: url("./assets/img/lock.svg");
+    background-repeat: no-repeat;
+    background-position: right 24px top 50%;
+}
+
+.password::placeholder{
+    color: rgb(209, 209, 209);
+}
+
+.remember-me{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-top: 40px;
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 32px;
+}
+
+.join-logo-login-signup{
+    width: 64px;
+    margin-top: 37px;
+    margin-left: 38px;
+    margin-bottom: 90px;
+}
+
+.login-white-bg{
+    background-color: white;
+    border-radius: 30px;
+}
+
+.login-signup-btn{
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    background-color: rgba(42, 54, 71);
+    width: 48px;
+    height: 19px;
+}
+
+.login-btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+
 @media (min-width: 768px) {
     .add-task-desktop{
         display: flex;
