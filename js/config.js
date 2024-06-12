@@ -1,3 +1,10 @@
+const prioIcons = {
+    'low': 'assets/img/priority-low.svg', 
+    'medium': 'assets/img/priority-medium.svg',
+    'urgent': 'assets/img/priority-urgent.svg'
+}
+
+
 class Task {
     constructor(id, type, title, description, dueDate, assigned, prio, status, subTask, taskStatus) {
         this.id = id,
