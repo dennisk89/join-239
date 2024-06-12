@@ -69,7 +69,6 @@ body {
 
 .contact-container {
     display: flex;
-    align-items: center;
     gap: 35px;
     height: 78px;
     padding: 15px 24px;
@@ -177,10 +176,9 @@ body {
     margin-bottom: 21px;
 }
 
-.user-dot {
+.contact-info-dot {
     height: 80px;
     width: 80px;
-    background-color: rgba(255, 199, 0, 1);
     border: 3px solid rgba(255, 255, 255, 1);
     color: rgba(255, 255, 255, 1);
     font-size: 27px;

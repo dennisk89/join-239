@@ -55,29 +55,9 @@
             </div>
                 
             <div class="contact-info-container">
-                <div class="user-name-container">
-                    <div class="user-dot">TW</div>
-                    <div>
-                        <div class="user-name">Tatjana Wolf</div>
-                        <div class="user-edit-delete-desktop-container">
-                            <div class="user-edit-delete-desktop pointer" onclick="handleOverlayEditContact()">
-                                <img src="./assets/img/edit.svg" class="user-edit-desktop-img">
-                                <div>Edit</div>
-                            </div>
-                            <div class="user-edit-delete-desktop pointer">
-                                <img src="./assets/img/delete.svg" class="user-delete-desktop-img">
-                                <div>Delete</div>
-                            </div>                    
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-info-header">Contact Information</div>
-                <div class="contact-info-content">
-                    <div class="contact-info-bold">Email</div>
-                    <div class="contact-info-mail">wolf@gmail.com</div>
-                    <div class="contact-info-bold">Phone</div>
-                    <div>+49 2222 222 22 2</div>
-                </div>
+                <div id="userNameContainer" class="user-name-container"></div>
+                <div id="contactInfoHeader" class="contact-info-header hide">Contact Information</div>
+                <div id="contactInfoContent" class="contact-info-content"></div>
             </div>
             
             <div class="contact-menu-btn pointer" onclick="showOverlayEditDelete()">

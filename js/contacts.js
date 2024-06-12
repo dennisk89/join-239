@@ -73,8 +73,8 @@ function showContactListContent() {
         let firstInitial = userName.charAt(0);
         let initials = getInitials(userName);
         let color = user['color'];
-        let contactContainer = document.getElementById('contactContainer' + firstInitial);
-        contactContainer.innerHTML += generateContactListContentHTML(user, initials, color);
+        let contactsContainer = document.getElementById('contactsContainer' + firstInitial);
+        contactsContainer.innerHTML += generateContactListContentHTML(user, initials, color);
     }
 }
 
@@ -95,4 +95,15 @@ function getInitials(userName) {
         .map (word => word.charAt(0))
         .join('');
     return initials;
+}
+
+function showUserName(userName, initials, color, email, phone) {
+    let userNameContainer = document.getElementById('userNameContainer');
+    userNameContainer.innerHTML = '';
+    userNameContainer.innerHTML = generateUserNameHTML(userName, initials, color);
+    let contactInfoContent = document.getElementById('contactInfoContent');
+    contactInfoContent.innerHTML = '';
+    contactInfoContent.innerHTML = generateContactInfoHTML(email, phone);
+    let contactInfoHeader = document.getElementById('contactInfoHeader');
+    contactInfoHeader.classList.remove('hide');
 }
