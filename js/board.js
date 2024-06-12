@@ -1,38 +1,41 @@
 
 // ANCHOR load Tasks
-function callAddCardsByStatus() {
+function callAddCardsWithFilteredArrays() {
     addCardsToBoards('toDoColumn', todoTasks, 'To do');
     addCardsToBoards('inProgressColumn', progressTasks, 'In progress');
     addCardsToBoards('feedbackColumn', feedbackTasks, 'Await feedback');
     addCardsToBoards('doneColumn', doneTasks, 'Done');
+    addContactLabels();
 }
 
 
-function addCardsToBoards(columnID, taskArray, stringForEmptyColumn) {
+function addCardsToBoards(columnID, filterArray, stringForEmptyColumn) {
     let element = document.getElementById(columnID);
-    element.innerHTML = ''
-    if (taskArray.length == 0) {
+    element.innerHTML = '';
+    if (filterArray.length == 0) {
         element.innerHTML = boardPlaceholderHTML(stringForEmptyColumn);
     } else {
-        for (let i = 0; i < taskArray.length; i++) {
-            element.innerHTML += taskCardHTML(taskArray[i].id, taskArray[i].type, taskArray[i].title, taskArray[i].description, prioIcons[taskArray[i].prio]); 
-            addContactLabels(taskArray[i].id, i);
+        for (let i = 0; i < filterArray.length; i++) {
+            element.innerHTML += taskCardHTML(filterArray[i].id, filterArray[i].type, filterArray[i].title, filterArray[i].description, prioIcons[filterArray[i].prio]); 
         }
     }
 }
 
 
-function addContactLabels(id, index) {
-    let endLoop = getLabelMaximum(taskArray[index].assigned)
-    for (let j = 0; j < endLoop; j++) {
-        let initials = getInitials(taskArray[index].assigned[j]);
-        let container = document.getElementById(id).children[3].children[0];
-        container.innerHTML += addAssignHTML(initials);   
+function addContactLabels() {
+    for (let i = 0; i < taskArray.length; i++) {
+        let max = getLabelMaximum(taskArray[i].assigned)
+        for (let j = 0; j < max; j++) {
+            let initials = getInitials(taskArray[i].assigned[j]);
+            let container = document.getElementById(taskArray[i].id).children[3].children[0];
+            container.innerHTML += addAssignHTML(initials); 
+        }
     }
 }
 
 
 function getLabelMaximum(contacts) {
+    // debugger
     if (contacts.length >= 3) {
         return 3;
     } else {
@@ -41,7 +44,7 @@ function getLabelMaximum(contacts) {
 }
 
 
-function addSubTaskProgressToCards(id) {
+function addSubTaskProgressToCards() {
     
 }
 
