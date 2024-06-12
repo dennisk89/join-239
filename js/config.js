@@ -1,3 +1,4 @@
+
 const prioIcons = {
     'low': 'assets/img/priority-low.svg', 
     'medium': 'assets/img/priority-medium.svg',
@@ -19,7 +20,6 @@ class Task {
         this.taskStatus = taskStatus
     }
 }
-
 
 
 let taskArray = [
@@ -60,3 +60,8 @@ let taskArray = [
         taskStatus: 'progress' //progress, feedback, done
     }
 ]
+
+let todoTasks = taskArray.filter(t => t.taskStatus == 'todo');
+let progressTasks = taskArray.filter(t => t.taskStatus == 'progress');
+let feedbackTasks = taskArray.filter(t => t.taskStatus == 'feedback');
+let doneTasks = taskArray.filter(t => t.taskStatus == 'done');

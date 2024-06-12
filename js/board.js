@@ -1,18 +1,28 @@
 
 // ANCHOR load Tasks
-function getTasksByStatus() {
-    let todos = taskArray.filter(t => t.taskStatus == 'todo');
-    let progress = taskArray.filter(t => t.taskStatus == 'progress');
-    addCardsToBoards('toDoColumn', todos);
-    addCardsToBoards('inProgressColumn', progress);
+function callAddCardsByStatus() {
+    addCardsToBoards('toDoColumn', todoTasks, 'To do');
+    addCardsToBoards('inProgressColumn', progressTasks, 'In progress');
+    addCardsToBoards('feedbackColumn', feedbackTasks, 'Await feedback');
+    addCardsToBoards('doneColumn', doneTasks, 'Done');
 }
 
-function addCardsToBoards(columnID, taskArray) {
+
+function addCardsToBoards(columnID, taskArray, stringForEmptyColumn) {
     let element = document.getElementById(columnID);
     element.innerHTML = ''
-    for (let i = 0; i < taskArray.length; i++) {
-        element.innerHTML += taskCardHTML(taskArray[i].id, taskArray[i].type, taskArray[i].title, taskArray[i].description, prioIcons[taskArray[i].prio]); 
+    if (taskArray.length == 0) {
+        element.innerHTML = boardPlaceholderHTML(stringForEmptyColumn)
+    } else {
+        for (let i = 0; i < taskArray.length; i++) {
+            element.innerHTML += taskCardHTML(taskArray[i].id, taskArray[i].type, taskArray[i].title, taskArray[i].description, prioIcons[taskArray[i].prio]); 
+        }
     }
+}
+
+
+function getInitials(name) {
+    return String(name[0]).toUpperCase() + String(name[name.indexOf(' ') + 1]).toUpperCase()
 }
 
 

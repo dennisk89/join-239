@@ -24,6 +24,15 @@ function taskCardHTML(id, type, title, description, prioIcon) {
 
 function addAssignHTML(initials) {
     return /*html*/`
-        <div class="profile-batch">${initials}</div>
+        <div class="profile-batch profile-lila">${initials}</div>
+    `
+}
+
+
+function boardPlaceholderHTML(column) {
+    return /*html*/`
+        <div class="column-placeholder">
+            <p>No tasks ${column}</p>
+        </div>
     `
 }
