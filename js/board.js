@@ -1,32 +1,3 @@
-function stopP(event) {
-    event.stopPropagation();
-}
-
-
-// ANCHOR Menu funczionality
-function openTask() {
-    console.log('Task öffnen');
-    document.getElementById('taskOverlay').style.display = 'flex'
-}
-
-function closeTask() {
-    document.getElementById('taskOverlay').style.display = 'none'
-}
-
-
-function checkSubTask(e) {
-    let checkbox = document.getElementById(e.target.id);
-    console.log(checkbox.attributes.value.value == 'true');
-    if (checkbox.attributes.value.value) {
-        checkbox.src = 'assets/img/checkbox.svg';
-        checkbox.attributes.value.value = false;
-    } else {
-        checkbox.src = 'assets/img/checkbox-checked.svg';
-        checkbox.attributes.value.value = true;
-    }
-}
-
-
 
 
 
@@ -74,3 +45,33 @@ let taskObject = [
         taskStatus: 'progress' //progress, feedback, done
     }
 ]
+
+
+
+
+// ANCHOR Menu funczionality
+function stopP(event) {
+    event.stopPropagation();
+}
+
+
+function openTask() {
+    console.log('Task öffnen');
+    document.getElementById('taskOverlay').style.display = 'flex';
+}
+
+function closeTask() {
+    document.getElementById('taskOverlay').style.display = 'none';
+}
+
+
+function checkSubTask(e) {
+    let checkbox = document.getElementById(e.target.id);
+    if (checkbox.src == './assets/img/checkbox.svg') {
+        console.log('check');
+        checkbox.src = 'assets/img/checkbox-checked.svg';
+    } else {
+        console.log('uncheck');
+        checkbox.src = 'assets/img/checkbox.svg';
+    }
+}
