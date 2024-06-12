@@ -6,40 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join</title>
     <link rel="stylesheet" href="style_dennis.css">
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="style_dennis_login.css">
 </head>
 
 <body class="bg-add-task">
-    <img class="join-logo-login-signup" src="./assets/img/join-logo.svg" alt="">
+    <div class="d-none">
+        <div class="align-center">
+            <img class="join-logo-login-signup" src="./assets/img/join-logo.svg" alt="">
+            <div class="not-a-user hide-on-mobile">
+                <span>Not a Join user?</span>
+                <div class="small-signup-btn">Sign up</div>
+            </div>
+        </div>
+        <div class="login-white-bg">
+            <div class="login-headline">
+                <span>Log in</span>
+                <div class="blue-underline"></div>
+            </div>
+            <form class="login-form">
+                <input placeholder="Email" class="email" type="email" id="email">
+                <input placeholder="Password" class="password" type="text" id="password">
+            </form>
+            <div class="remember-me">
+                <img src="./assets/img/Check button mobile.svg" alt="">
+                <span>Remember me</span>
+            </div>
+            <div class="login-btns">
+                <div class="login-btn">Log in</div>
+                <div class="guest-login">Guest Log in</div>
+            </div>
+        </div>
+
+        <div class="not-a-user hide-on-desktop">
+            <span>Not a Join user?</span>
+            <div class="small-signup-btn">Sign up</div>
+        </div>
+        <div class="login-links-align">
+            <a class="login-links" href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy
+                Policy</a>
+            <a class="login-links" href="legal_notice.html" target="_blank" rel="noopener noreferrer">Legal Notice</a>
+        </div>
+    </div>
+    <div class="align-center">
+        <img class="join-logo-login-signup" src="./assets/img/join-logo.svg" alt="">
+        <div class="not-a-user hide-on-mobile">
+            <span>Not a Join user?</span>
+            <div class="small-signup-btn">Sign up</div>
+        </div>
+    </div>
     <div class="login-white-bg">
-        <div class="login-headline">
-            <span>Log in</span>
+        <div class="login-headline arrow-align">
+                <img class="login-arrow-back" src="./assets/img/arrow-left-line.svg" alt="">
+            <span>Sign up</span>
             <div class="blue-underline"></div>
         </div>
         <form class="login-form">
+            <input placeholder="Name" class="name-input" type="text" id="name">
             <input placeholder="Email" class="email" type="email" id="email">
             <input placeholder="Password" class="password" type="text" id="password">
+            <input placeholder="Confirm Password" class="password" type="text" id="confirmPassword">
         </form>
-        <div class="remember-me">
+        <div class="accept-terms">
             <img src="./assets/img/Check button mobile.svg" alt="">
-            <span>Remember me</span>
+            <span class="color-grey">I accept the <a class="highlighted-text no-decoration" href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a></span>
         </div>
         <div class="login-btns">
-            <div class="login-btn">Log in</div>
-            <div class="guest-login">Guest Log in</div>
+            <div class="login-btn margin-bottom32px">Sign up</div>
         </div>
     </div>
-    <div class="not-a-user">
-        <span>Not a Join user?</span>
-        <div class="small-signup-btn">Sign up</div>
+    <div class="login-links-align margin-top108">
+        <a class="login-links" href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy policy</a>
+        <a class="login-links" href="legal_notice.html" target="_blank" rel="noopener noreferrer">Legal Notice</a>
     </div>
-    <div class="login-links-align">
-        <a class="login-links" href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
-        <a class="login-links" href="legal_notice.html" target="_blank" rel="noopener noreferrer">Legal Notive</a>
-    </div>
-
-
 </body>
 
 </html>
