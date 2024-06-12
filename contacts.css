@@ -23,7 +23,7 @@ body {
 }
 
 
-/* Contact List */
+/* ANCHOR Contact List */
 
 .main-contact-list {
     margin: 80px 14px;
@@ -122,7 +122,7 @@ body {
 }
 
 
-/* Contacts */
+/* ANCHOR Contacts */
 
 .main-contacts {
     display: none;
@@ -233,7 +233,7 @@ body {
 }
 
 
-/* Buttons */
+/* ANCHOR Buttons */
 
 .contact-menu-btn, .add-contact-btn {
     position: fixed;
@@ -255,12 +255,12 @@ body {
 }
 
 
-/* Responsiveness */
+/* ANCHOR Responsiveness */
 
 @media screen and (min-width: 768px) {
 
 
-    /* Contact List */
+    /* ANCHOR Contact List */
 
     .main-contact-list {
         margin: 0 0 32px 26.5px;
@@ -278,7 +278,7 @@ body {
     }
 
 
-    /* Contacts */
+    /* ANCHOR Contacts */
 
     .main-contacts {
         display: flex;
@@ -343,7 +343,7 @@ body {
     }
 
 
-    /* Buttons */
+    /* ANCHOR Buttons */
 
     .contact-menu-btn, .add-contact-btn {
         display: none;

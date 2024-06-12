@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style_anita.css">
-    <link rel="stylesheet" href="style_anita_overlays.css">
+    <link rel="stylesheet" href="contacts.css">
+    <link rel="stylesheet" href="contacts_overlays.css">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="footer.css">
 
@@ -34,7 +34,7 @@
 
         <div class="main-contact-list">
 
-            <button class="add-contact-btn-desktop pointer">Add new contact <img src="./assets/img/person_add.svg"></button>
+            <button class="add-contact-btn-desktop pointer" onclick="handleOverlayAddContact()">Add new contact <img src="./assets/img/person_add.svg"></button>
 
             <div class="contact-list-letter">A</div>
             <hr class="hr-contact-list">
@@ -131,7 +131,7 @@
             <div class="contact-list-letter">Z</div>
             <hr class="hr-contact-list">
 
-            <div class="add-contact-btn">
+            <div class="add-contact-btn pointer" onclick="handleOverlayAddContact()">
                 <img src="./assets/img/person_add.svg">
             </div>
 
@@ -152,7 +152,7 @@
                     <div>
                         <div class="user-name">Tatjana Wolf</div>
                         <div class="user-edit-delete-desktop-container">
-                            <div class="user-edit-delete-desktop pointer" onclick="showOverlayEditContact()">
+                            <div class="user-edit-delete-desktop pointer" onclick="handleOverlayEditContact()">
                                 <img src="./assets/img/edit.svg" class="user-edit-desktop-img">
                                 <div>Edit</div>
                             </div>
@@ -181,8 +181,8 @@
                     <div class="overlay-edit-delete-content">
                         <table class="overlay-edit-delete-table">
                             <tr>
-                                <td><img src="./assets/img/edit.svg" class="overlay-edit-img pointer" onclick="showOverlayEditContact()"></td>
-                                <td class="pointer" onclick="showOverlayEditContact()">Edit</td>
+                                <td><img src="./assets/img/edit.svg" class="overlay-edit-img pointer" onclick="handleOverlayEditContact()"></td>
+                                <td class="pointer" onclick="handleOverlayEditContact()">Edit</td>
                             </tr>
                             <tr>
                                 <td><img src="./assets/img/delete.svg" class="overlay-delete-img pointer"></td>
@@ -200,18 +200,22 @@
     <div id="overlayAddContact" class="hide">
         <div class="overlay-bg">
             <div class="overlay-content">
+                <img class="overlay-close-btn pointer" src="./assets/img/close.svg" onclick="handleOverlayAddContact()">
                 <div class="overlay-header">
-                    <img class="overlay-close-btn" src="./assets/img/close.svg">
                     <div class="overlay-header-content">
+                        <div><img src="./assets/img/join-logo-overlays.svg" class="overlay-logo"></div>
                         <div class="overlay-header-bold">Add contact</div>
                         <div class="overlay-header-sub">Tasks are better with a team!</div>
-                        <hr class="hr-contacts-mobile">
-                    </div>                    
-                    <div class="new-contact-dot">
+                        <hr class="hr-contacts-overlays">
+                    </div>
+                    <div class="new-contact-dot new-contact-dot-mobile">
                         <img src="./assets/img/person.svg">
                     </div>
                 </div>
                 <div class="overlay-form-bg">
+                    <div class="new-contact-dot new-contact-dot-desktop">
+                        <img src="./assets/img/person.svg">
+                    </div>
                     <form class="overlay-form">
                         <input class="input-name" placeholder="Name">
                         <input class="input-mail" placeholder="Email">
@@ -234,18 +238,17 @@
     <div id="overlayEditContact" class="hide">
         <div class="overlay-bg">
             <div class="overlay-content">
-                <div class="overlay-header">
-                    <img class="overlay-close-btn-mobile pointer" src="./assets/img/close.svg">                    
+                <img class="overlay-close-btn pointer" src="./assets/img/close.svg" onclick="handleOverlayEditContact()">
+                <div class="overlay-header">  
                     <div class="overlay-header-content">
                         <img class="overlay-logo" src="./assets/img/Capa1.svg">
                         <div class="overlay-header-bold">Edit contact</div>
-                        <hr class="hr-contacts-mobile">
+                        <hr class="hr-contacts-overlays">
                     </div>                    
-                    <div class="edit-contact-dot-mobile contact-dot-orange">AM</div>
+                    <div class="edit-contact-dot edit-contact-dot-mobile contact-dot-orange">AM</div>
                 </div>
                 <div class="overlay-form-bg">
-                    <img class="overlay-close-btn-desktop pointer" src="./assets/img/close.svg">
-                    <div class="edit-contact-dot-desktop contact-dot-orange">AM</div>
+                    <div class="edit-contact-dot edit-contact-dot-desktop contact-dot-orange">AM</div>
                     <form class="overlay-form">
                         <input class="input-name" placeholder="Name">
                         <input class="input-mail" placeholder="Email">
