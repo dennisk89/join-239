@@ -12,12 +12,13 @@
     <link rel="stylesheet" href="footer.css">
 
     <script src="./js/contacts.js"></script>
+    <script src="./js/contacts_templates.js"></script>
 
     <title>Join: Contacts</title>
 
 </head>
 
-<body>
+<body onload="showContactList()">
 
     <header>
         <div class="inner-header">
@@ -36,100 +37,7 @@
 
             <button class="add-contact-btn-desktop pointer" onclick="handleOverlayAddContact()">Add new contact <img src="./assets/img/person_add.svg"></button>
 
-            <div class="contact-list-letter">A</div>
-            <hr class="hr-contact-list">
-            <div class="contact-container">
-                <div class="contact-dot contact-dot-orange">AM</div>
-                <div>
-                    <div class="contact-name">Anton Mayer</div>
-                    <div class="contact-mail">antom@gmail.com</div>
-                </div>
-            </div>
-            <div class="contact-container">
-                <div class="contact-dot contact-dot-purple">AS</div>
-                <div>
-                    <div class="contact-name">Anja Schulz</div>
-                    <div class="contact-mail">schulz@hotmail.com</div>
-                </div>
-            </div>
-            <div class="contact-list-letter">B</div>
-            <hr class="hr-contact-list">
-            <div class="contact-container">
-                <div class="contact-dot contact-dot-blue">BZ</div>
-                <div>
-                    <div class="contact-name">Benedikt Ziegler</div>
-                    <div class="contact-mail">benedikt@gmail.com</div>
-                </div>
-            </div>
-            <div class="contact-list-letter hide">C</div>
-            <hr class="hr-contact-list hide">
-            <div class="contact-list-letter">D</div>
-            <hr class="hr-contact-list">
-            <div class="contact-container">
-                <div class="contact-dot contact-dot-pink">DE</div>
-                <div>
-                    <div class="contact-name">David Eisenberg</div>
-                    <div class="contact-mail">davidberg@gmail.com</div>
-                </div>
-            </div>
-            <div class="contact-list-letter">E</div>
-            <hr class="hr-contact-list">
-            <div class="contact-container">
-                <div class="contact-dot contact-dot-yellow">EF</div>
-                <div>
-                    <div class="contact-name">Eva Fischer</div>
-                    <div class="contact-mail">eva@gmail.com</div>
-                </div>
-            </div>
-            <div class="contact-container">
-                <div class="contact-dot contact-dot-mint">EM</div>
-                <div>
-                    <div class="contact-name">Emmanuel Mauer</div>
-                    <div class="contact-mail">emmanuelma@gmail.com</div>
-                </div>
-            </div>
-            <div class="contact-list-letter">F</div>
-            <hr class="hr-contact-list">
-            <div class="contact-list-letter">G</div>
-            <hr class="hr-contact-list">
-            <div class="contact-list-letter">H</div>
-            <hr class="hr-contact-list">
-            <div class="contact-list-letter">I</div>
-            <hr class="hr-contact-list">
-            <div class="contact-list-letter">J</div>
-            <hr class="hr-contact-list">
-            <div class="contact-list-letter">K</div>
-            <hr class="hr-contact-list">
-            <div class="contact-list-letter">L</div>
-            <hr class="hr-contact-list">
-            <div class="contact-list-letter">M</div>
-            <hr class="hr-contact-list">
-            <div class="contact-list-letter">N</div>
-            <hr class="hr-contact-list">
-            <div class="contact-list-letter">O</div>
-            <hr class="hr-contact-list">
-            <div class="contact-list-letter">P</div>
-            <hr class="hr-contact-list">
-            <div class="contact-list-letter">Q</div>
-            <hr class="hr-contact-list">
-            <div class="contact-list-letter">R</div>
-            <hr class="hr-contact-list">
-            <div class="contact-list-letter">S</div>
-            <hr class="hr-contact-list">
-            <div class="contact-list-letter">T</div>
-            <hr class="hr-contact-list">
-            <div class="contact-list-letter">U</div>
-            <hr class="hr-contact-list">
-            <div class="contact-list-letter">V</div>
-            <hr class="hr-contact-list">
-            <div class="contact-list-letter">W</div>
-            <hr class="hr-contact-list">
-            <div class="contact-list-letter">X</div>
-            <hr class="hr-contact-list">
-            <div class="contact-list-letter">Y</div>
-            <hr class="hr-contact-list">
-            <div class="contact-list-letter">Z</div>
-            <hr class="hr-contact-list">
+            <div id="contactListContent"></div>            
 
             <div class="add-contact-btn pointer" onclick="handleOverlayAddContact()">
                 <img src="./assets/img/person_add.svg">

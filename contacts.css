@@ -62,6 +62,11 @@ body {
     margin: 8px 24px;
 }
 
+.contact-list-content {
+    display: flex;
+    flex-direction: column;
+}
+
 .contact-container {
     display: flex;
     align-items: center;
