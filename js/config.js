@@ -41,7 +41,7 @@ let taskArray = [
         title: 'Sakura css',
         description: 'Write a lot of css code.',
         dueDate: '2024-7-1',
-        assigned: ['Lisa Simpson', 'Gordon Shumway'],
+        assigned: ['Lisa Simpson', 'Gordon Shumway', 'Bart Simpson', 'Barney Gumble'],
         prio: 'low',
         subTaskStatus: [true, false],
         subTask: ['Link style.css in index.html.', 'Write a display flex class.'],

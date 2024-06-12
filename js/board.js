@@ -12,13 +12,39 @@ function addCardsToBoards(columnID, taskArray, stringForEmptyColumn) {
     let element = document.getElementById(columnID);
     element.innerHTML = ''
     if (taskArray.length == 0) {
-        element.innerHTML = boardPlaceholderHTML(stringForEmptyColumn)
+        element.innerHTML = boardPlaceholderHTML(stringForEmptyColumn);
     } else {
         for (let i = 0; i < taskArray.length; i++) {
             element.innerHTML += taskCardHTML(taskArray[i].id, taskArray[i].type, taskArray[i].title, taskArray[i].description, prioIcons[taskArray[i].prio]); 
+            addContactLabels(taskArray[i].id, i);
         }
     }
 }
+
+
+function addContactLabels(id, index) {
+    let endLoop = getLabelMaximum(taskArray[index].assigned)
+    for (let j = 0; j < endLoop; j++) {
+        let initials = getInitials(taskArray[index].assigned[j]);
+        let container = document.getElementById(id).children[3].children[0];
+        container.innerHTML += addAssignHTML(initials);   
+    }
+}
+
+
+function getLabelMaximum(contacts) {
+    if (contacts.length >= 3) {
+        return 3;
+    } else {
+        return contacts.length;
+    }
+}
+
+
+function addSubTaskProgressToCards(id) {
+    
+}
+
 
 
 function getInitials(name) {
