@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="footer.css">
 </head>
 
-<body>
+<body class="bg-add-task">
     <header>
         <div class="inner-header">
             <p class="hide-on-mobile">Kanban Project Management Tool</p>
@@ -33,26 +33,46 @@
     <div class="d-none greet-user">
         <span class="font36">Good morning!</span>
     </div>
-<!-- ANCHOR Summary User -->
+    <!-- ANCHOR Summary User -->
     <div class="summary-headline">
         <span class="font47">Join 239</span>
         <span class="font20 margin-bottom8px">Key Metrics at a Glance</span>
         <div class="blue-line90px"></div>
     </div>
-    <div>
-        <div>
+    <div class="width-396px summary-container">
+        <div class="todo-done-container">
             <div class="summary-todo">
                 <img src="./assets/img/pencil.svg" alt="">
             </div>
-            <span></span>
-            <span></span>
+            <div class="display-flex">
+                <span class="font47-weight600">1</span>
+                <span class="font14">To-do</span>
+            </div>
         </div>
-        <div>
+        <div class="todo-done-container">
             <div class="summary-todo">
                 <img src="./assets/img/check summary.svg" alt="">
             </div>
-            <span></span>
-            <span></span>
+            <div class="display-flex">
+                <span class="font47-weight600">1</span>
+                <span class="font14">Done</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="priority-container width-396px">
+            <div class="priority-urgent">
+                <img src="./assets/img/priority-urgent-white.svg" alt="">
+            </div>
+            <div class="display-flex">
+                <span class="font47-weight600">1</span>
+                <span class="font14">Urgent</span>
+            </div>
+            <div class="middle-line"></div>
+            <div class="display-flex date">
+                <span class="date-text">October 16, 2022</span>
+                <span class="font14">Upcoming Deadline</span>
+            </div>
         </div>
     </div>
 
