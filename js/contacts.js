@@ -37,6 +37,7 @@ let users = [
     }    
 ];
 
+let colors = ['orange', 'purple', 'blue', 'pink', 'yellow', 'mint'];
 let usedLetters = [];
 let contactListLetters = [];
 
@@ -106,4 +107,22 @@ function showUserName(userName, initials, color, email, phone) {
     contactInfoContent.innerHTML = generateContactInfoHTML(email, phone);
     let contactInfoHeader = document.getElementById('contactInfoHeader');
     contactInfoHeader.classList.remove('hide');
+}
+
+function addNewContact() {
+    let addContactInputName = document.getElementById('addContactInputName');
+    let addContactInputMail = document.getElementById('addContactInputMail');
+    let addContactInputPhone = document.getElementById('addContactInputPhone');
+    let randomColor = colors[Math.floor(Math.random() * colors.length)];
+    let newContact = {
+        'name': addContactInputName.value,
+        'email': addContactInputMail.value,
+        'phone': addContactInputPhone.value,
+        'color': randomColor
+    };
+    // console.log(newContact);
+    users.push(newContact);
+    addContactInputName.value = '';
+    addContactInputMail.value = '';
+    addContactInputPhone.value = '';
 }
