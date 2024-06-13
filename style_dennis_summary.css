@@ -1,0 +1,57 @@
+body{
+    margin: 0;
+    font-family: 'Inter-VariableFont', sans-serif;
+}
+
+@font-face {
+    font-family: 'Inter-VariableFont';
+    src: local(''), url(./assets/fonts/Inter-VariableFont_slnt,wght.ttf);
+}
+
+.d-none{
+    display: none !important;
+}
+
+.greet-user{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: 274px;
+}
+
+.font36{
+    font-size: 36px;
+    font-weight: 400;
+}
+
+.user-name{
+    color: rgb(92, 190, 232);
+    font-size: 47px;
+    font-weight: 700;
+}
+
+.blue-line90px{
+    border: 1px solid rgb(92, 190, 232);
+    width: 90px;
+}
+
+.font20{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.font47{
+    font-size: 47px;
+    font-weight: 700;
+}
+
+.summary-headline{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
