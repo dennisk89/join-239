@@ -6,6 +6,7 @@ function callAddCardsWithFilteredArrays() {
     addCardsToBoards('feedbackColumn', feedbackTasks, 'Await feedback');
     addCardsToBoards('doneColumn', doneTasks, 'Done');
     addContactLabels();
+    addSubTaskProgressToCards();
 }
 
 
@@ -28,14 +29,17 @@ function addContactLabels() {
         for (let j = 0; j < max; j++) {
             let initials = getInitials(taskArray[i].assigned[j]);
             let container = document.getElementById(taskArray[i].id).children[3].children[0];
-            container.innerHTML += addAssignHTML(initials); 
+            if (j == 0) {
+                container.innerHTML += addAssignHTML(initials); 
+            } else {
+                container.innerHTML += addAssignWithOverlapHTML(initials, j);
+            }
         }
     }
 }
 
 
 function getLabelMaximum(contacts) {
-    // debugger
     if (contacts.length >= 3) {
         return 3;
     } else {
@@ -45,7 +49,13 @@ function getLabelMaximum(contacts) {
 
 
 function addSubTaskProgressToCards() {
-    
+    for (let i = 0; i < taskArray.length; i++) {
+        let pbar = document.getElementById(taskArray[i].id).children[2].children[0].children[0];
+        let label = document.getElementById(taskArray[i].id).children[2].children[1];
+        let done = taskArray[i].subTaskStatus.filter(s => s == true);
+        label.innerHTML = /*html*/`${done.length}/${taskArray[i].subTask.length} Subtasks`;
+        pbar.style.width = ((done.length / taskArray[i].subTask.length) * 100) +'%'; 
+    }
 }
 
 

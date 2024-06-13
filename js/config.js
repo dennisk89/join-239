@@ -55,8 +55,8 @@ let taskArray = [
         dueDate: '2024-7-1',
         assigned: ['Marge Simpson', 'Gordon Shumway', 'Max Mustermann'],
         prio: 'urgent',
-        subTaskStatus: [true, false],
-        subTask: ['Link style.css in index.html.', 'Write a display flex class.'],
+        subTaskStatus: [true, true, false],
+        subTask: ['Link style.css in index.html.', 'Write a display flex class.', 'css button effect'],
         taskStatus: 'progress' //progress, feedback, done
     }
 ]

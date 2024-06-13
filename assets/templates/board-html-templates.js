@@ -29,6 +29,13 @@ function addAssignHTML(initials) {
 }
 
 
+function addAssignWithOverlapHTML(initials, i) {
+    return /*html*/`
+        <div class="profile-batch profile-lila overlap-${i}">${initials}</div>
+    `
+}
+
+
 function boardPlaceholderHTML(column) {
     return /*html*/`
         <div class="column-placeholder">
