@@ -192,7 +192,7 @@ textarea::-webkit-input-placeholder {
 }
 
 .create-task-btn{
-    background-color: rgba(42, 54, 71);
+    background-color: rgb(42, 54, 71);
     display: flex;
     justify-content: center;
     align-items: center;
