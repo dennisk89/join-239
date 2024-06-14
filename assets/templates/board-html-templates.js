@@ -46,9 +46,8 @@ function boardPlaceholderHTML(column) {
 
 
 function taskHTML(id) {
-    console.log(id);
     return /*html*/`
-        <div class="open-task">
+        <div id="task${id}" class="open-task">
             <div class="task-header">
                 <img src="${taskArray[id].type}" alt="">
                 <img class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask()">
@@ -76,13 +75,9 @@ function taskHTML(id) {
             </div>
             <p class="task-p-bold">Subtasks</p>
             <div id="taskOverlaySubtasks">
-                <div class="check-list-row">
-                    <img onclick="checkSubTask(event)" id="sub1" class="clickable" src="assets/img/checkbox-checked.svg" alt="checkbox-checked">
+                <div id="sub1" class="check-list-row">
+                    <img onclick="checkSubTask(event)" class="clickable" src="assets/img/checkbox-checked.svg" alt="checkbox-checked">
                     <p>Subtask text</p>
-                </div>
-                <div class="check-list-row">
-                    <img onclick="checkSubTask(event)" id="sub2" class="clickable" src="assets/img/checkbox.svg" alt="checkbox-empty">
-                    <p>Subtask text2</p>
                 </div>
             </div>
             <div class="task-footer clickable">
@@ -96,5 +91,25 @@ function taskHTML(id) {
                 </div>
             </div>
         </div>  
+    `
+}
+
+
+function taskSubTaskHTML(i, subtaskText) {
+    return /*html*/`
+        <div id="sub${i}" class="check-list-row">
+            <img onclick="checkSubTask('sub${i}')" class="clickable" src="assets/img/checkbox.svg" alt="checkbox-empty">
+            <p>${subtaskText}</p>
+        </div>
+    `
+}
+
+
+function taskSubTaskDoneHTML(i, subtaskText) {
+    return /*html*/`
+        <div id="sub${i}" class="check-list-row">
+            <img onclick="checkSubTask('sub${i}')" class="clickable" src="assets/img/checkbox-checked.svg" alt="checkbox-checked">
+            <p>${subtaskText}</p>
+        </div>
     `
 }

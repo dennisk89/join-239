@@ -68,9 +68,9 @@ function getInitials(name) {
 }
 
 
-function saveTasks() {
+function createTask() {
     let newTask = new Task(
-        taskArray.length + 1,
+        getNewTaskArrayIndex(),
         'assets\img\board-card-label-us.svg',
         'Kochwelt html',
         'Write html code for Kochwelt',
@@ -84,6 +84,29 @@ function saveTasks() {
     taskArray.push(newTask)
 }
 
+function getNewTaskArrayIndex() {
+    if (taskArray.length == 0) {
+        return 0;
+    } else {
+        return taskArray.length + 1
+    }
+}
+
+
+// ANCHOR open Task details
+function renderSubTasks(taskArrayIndex) {
+    let array = taskArray[taskArrayIndex].subTask;
+    let subtaskContainer = document.getElementById('taskOverlaySubtasks');
+    subtaskContainer.innerHTML = '';
+    for (let i = 0; i < array.length; i++) {
+        if (taskArray[taskArrayIndex].subTaskStatus[i]) {
+            subtaskContainer.innerHTML += taskSubTaskDoneHTML(i, array[i]);
+        } else {
+            subtaskContainer.innerHTML += taskSubTaskHTML(i, array[i]);
+        };
+    }
+}
+
 
 // ANCHOR Menu functionality
 function stopP(event) {
@@ -91,10 +114,10 @@ function stopP(event) {
 }
 
 
-function openTask(id) {
-    console.log(id);
+function openTask(taskArrayIndex) {
     document.getElementById('taskOverlay').style.display = 'flex';
-    document.getElementById('taskOverlay').innerHTML = taskHTML(id - 1);
+    document.getElementById('taskOverlay').innerHTML = taskHTML(taskArrayIndex);
+    renderSubTasks(taskArrayIndex);
 }
 
 function closeTask() {
@@ -102,13 +125,18 @@ function closeTask() {
 }
 
 
-function checkSubTask(e) {
-    let checkbox = document.getElementById(e.target.id);
-    if (checkbox.src == './assets/img/checkbox.svg') {
-        console.log('check');
-        checkbox.src = 'assets/img/checkbox-checked.svg';
+function checkSubTask(id) {
+    let taskArrayIndex = document.getElementById('taskOverlay').children[0].id.charAt(4);
+    let subTaskId = id.charAt(3);
+    taskArray[taskArrayIndex].subTaskStatus[subTaskId] = changeSubTaskStatus(taskArray[taskArrayIndex].subTaskStatus[subTaskId]);
+    renderSubTasks(taskArrayIndex);
+}
+
+
+function changeSubTaskStatus(currentStatusBoolean) {
+    if (currentStatusBoolean) {
+        return false;
     } else {
-        console.log('uncheck');
-        checkbox.src = 'assets/img/checkbox.svg';
+        return true;
     }
 }

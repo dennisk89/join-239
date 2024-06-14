@@ -24,22 +24,22 @@ class Task {
 
 let taskArray = [
     {
-        id: 1,
+        id: 0,
         type: 'assets/img/board-card-label-tt.svg',
-        title: 'Kochwelt css',
-        description: 'Write a lot of css code.',
+        title: 'Prepare a css file for the Kochwelt page',
+        description: 'We need to link a style.css and wirte some basic utility classes, setup the font etc..',
         dueDate: '2024-7-1',
         assigned: ['Homer Simpson', 'Gordon Shumway'],
         prio: 'medium',
         subTaskStatus: [true, false],
-        subTask: ['Link style.css in index.html.', 'Write a display flex class.'],
+        subTask: ['Link style.css in index.html.', 'Write a display flex class.', 'implement the font'],
         taskStatus: 'todo'
     },
     {
-        id: 2,
+        id: 1,
         type: 'assets/img/board-card-label-us.svg',
-        title: 'Sakura css',
-        description: 'Write a lot of css code.',
+        title: 'Ad the menu to "Sakura" page',
+        description: 'As a User, I want to see the offered food and the prices.',
         dueDate: '2024-7-1',
         assigned: ['Lisa Simpson', 'Gordon Shumway', 'Bart Simpson', 'Barney Gumble'],
         prio: 'low',
@@ -48,10 +48,10 @@ let taskArray = [
         taskStatus: 'progress' //progress, feedback, done
     },
     {
-        id: 3,
+        id: 2,
         type: 'assets/img/board-card-label-us.svg',
-        title: 'Burger css',
-        description: 'Write a lot of css code.',
+        title: 'Add imgages to the Burger restaurant page',
+        description: 'As a User, I want to see how the Burgers look',
         dueDate: '2024-7-1',
         assigned: ['Marge Simpson', 'Gordon Shumway', 'Max Mustermann'],
         prio: 'urgent',
