@@ -68,8 +68,6 @@ function getInitials(name) {
 }
 
 
-
-
 function saveTasks() {
     let newTask = new Task(
         taskArray.length + 1,
@@ -93,9 +91,10 @@ function stopP(event) {
 }
 
 
-function openTask() {
-    console.log('Task öffnen');
+function openTask(id) {
+    console.log(id);
     document.getElementById('taskOverlay').style.display = 'flex';
+    document.getElementById('taskOverlay').innerHTML = taskHTML(id - 1);
 }
 
 function closeTask() {
