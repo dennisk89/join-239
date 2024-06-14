@@ -152,6 +152,39 @@ body{
 
 .date{
     display: flex;
-    text-align: start;
+    align-items: flex-start;
+}
+
+.task-summary{
+    display: flex;
+    width: 396px;
+    height: 116px;
+    justify-content: space-between;
+    margin-left: 16px;
+    margin-top: 18px;
+}
+  
+.tasks-in-board{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    height: 116px;
+    width: 116px;
+    background-color: white;
+    border-radius: 20px;
+    gap: 13px;
+} 
+
+@media (min-width: 768px){
+    .summary-headline{
+        display: flex;
+        flex-direction: unset;
+
+    }
+    .blue-line90px{
+        order: 2;
+    }
+    
 }
 
