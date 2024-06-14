@@ -32,9 +32,10 @@ function addInfosToCards() {
 
 function addContactLabelsToCards(i) {
     let max = getLabelMaximum(taskArray[i].assigned)
+    let container = document.getElementById(taskArray[i].id).children[3].children[0];
+    container.innerHTML = '';
     for (let j = 0; j < max; j++) {
         let initials = getInitials(taskArray[i].assigned[j]);
-        let container = document.getElementById(taskArray[i].id).children[3].children[0];
         if (j == 0) {
             container.innerHTML += addAssignHTML(initials);
         } else {
@@ -130,6 +131,7 @@ function checkSubTask(id) {
     let subTaskId = id.charAt(3);
     taskArray[taskArrayIndex].subTaskStatus[subTaskId] = changeSubTaskStatus(taskArray[taskArrayIndex].subTaskStatus[subTaskId]);
     renderSubTasks(taskArrayIndex);
+    addSubTaskProgressToCards(taskArrayIndex)
 }
 
 
