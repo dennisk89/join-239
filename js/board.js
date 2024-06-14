@@ -24,13 +24,13 @@ function addCardsToBoards(columnID, filterArray, stringForEmptyColumn) {
 
 function addInfosToCards() {
     for (let i = 0; i < taskArray.length; i++) {
-        addContactLabels(i);
+        addContactLabelsToCards(i);
         addSubTaskProgressToCards(i);
     }
 }
 
 
-function addContactLabels(i) {
+function addContactLabelsToCards(i) {
     let max = getLabelMaximum(taskArray[i].assigned)
     for (let j = 0; j < max; j++) {
         let initials = getInitials(taskArray[i].assigned[j]);
