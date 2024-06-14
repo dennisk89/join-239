@@ -85,7 +85,8 @@ function taskHTML(id) {
                     <img src="assets/img/delete.svg" alt="">
                     <p>Delete</p>
                 </div>
-                <div class="task-footer clickable">
+                <div class="divider"></div>
+                <div class="task-footer">
                     <img src="assets/img/edit.svg" alt="">
                     <p>Edit</p>
                 </div>
