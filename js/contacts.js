@@ -86,6 +86,7 @@ function addNewContact() {
         'initials': getInitials(addContactInputName.value)
     };
     contacts.push(newContact);
+    putData(endpointContacts, contacts);
     addContactInputName.value = '';
     addContactInputMail.value = '';
     addContactInputPhone.value = '';
