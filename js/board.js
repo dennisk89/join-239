@@ -127,7 +127,7 @@ function openTasks(taskArrayIndex) {
 
 function openAddTaskOverlay() {
     document.getElementById('taskOverlay').style.display = 'flex';
-    document.getElementById('taskOverlay').innerHTML = addTaskOverlayHTML;
+    document.getElementById('taskOverlay').innerHTML = addTaskOverlayHTML();
 }
 
 

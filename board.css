@@ -77,6 +77,12 @@ p {
     align-items: center;
     justify-content: space-evenly;
     border: none;
+    color: white;
+    font-family: 'Inter';
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 25.2px;
+    text-align: left;
 }
 
 .board-add-btn:hover {
@@ -168,9 +174,9 @@ p {
     color: rgba(168, 168, 168, 1);
 }
 
-/* ANCHOR Task details */
+/* ANCHOR Task details overlay*/
 .overlay-bg {
-    display: flex;
+    display: none;
     background-color: rgba(0, 0, 0, 0.2);
     z-index: 999;
     position: fixed;
@@ -372,9 +378,8 @@ p {
     display: flex;
     flex-direction: column;
     border-radius: 30px;
-    height: 600px;
-    min-width: 400px;
-    padding: 64px 74px;
+    min-height: 64vh;
+    padding: 64px;
 }
 
 .add-Task-header {
@@ -388,18 +393,120 @@ p {
     align-self: flex-start;
 }
 
-.enter-title-input {
+.overlay-form {
+    display: flex;
+    gap: 48px;
+}
+
+.form-half-side {
+    width: 440px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-divider {
+    width: 1px;
+    height: 424px;
+    background-color: rgba(209, 209, 209, 1);
+    ;
+}
+
+.enter-input {
     box-sizing: border-box;
     border-radius: 10px;
     border: 1px solid rgba(209, 209, 209, 1);
     height: 40px;
-    padding-left: 21px;
+    padding: 0 21px;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 19.2px;
+    font-size: 20px;
+    line-height: 24px;
 }
 
+.enter-description-input {
+    border-radius: 10px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    height: 136px;
+    line-height: 24px;
+    padding: 18px 16px 18px 16px;
+    font-weight: 400;
+    resize: none;
+    box-sizing: border-box;
+    font-family: 'Inter-VariableFont', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
 
+.select-input {
+    appearance: none;
+    background-image: url('./assets/img/arrow_drop_down.svg');
+    background-repeat: no-repeat;
+    background-position: right 24px top 50%;
+    background-size: 0.65rem auto;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.color-red {
+    color: rgb(255, 129, 144);
+}
+
+.prio-container {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.priority-btn {
+    width: 136px;
+    height: 56px;
+    padding: 16px 10px 16px 10px;
+    gap: 8px;
+    border-radius: 10px;
+    opacity: 0px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.priority-btn span {
+    font-family: 'Inter';
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 25.2px;
+}
+
+.prio-btn-selected {
+    background: rgba(255, 168, 0, 1);
+    color: white;
+}
+
+.prio-btn-selected span {
+    font-weight: 700;
+}
+
+.subtask-enter {
+    background-image: url('./assets/img/Property 1=add.svg');
+    background-repeat: no-repeat;
+    background-position: right 16px top 50%;
+}
+
+.form-btn-container {
+    align-self: flex-end;
+    padding-top: 60px;
+}
 
 /* ANCHOR Media querries */
 @media (min-width: 768px) {

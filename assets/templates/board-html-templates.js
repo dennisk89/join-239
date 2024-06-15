@@ -119,69 +119,69 @@ function taskSubTaskDoneHTML(i, subtaskText) {
 
 function addTaskOverlayHTML() {
     return /*html*/`
-        <div class="padding-left-right-16px margin-bottom-96px bg-add-task">
-        <h1 class="add-task-headline">Add Task</h1>
-        <form class="add-task-desktop" class="width-396px" action="submit">
-            <div class="add-task-desktop-gap">
-                <p class="margin-8px font-20px">Title<span class="color-red">*</span></p>
-                <input class="enter-title-input" placeholder="Enter a title" type="text" name="Title" id="titleInput">
-                <span class="warning-message-field-required d-none">This field is requiered</span>
-                <p class="margin-8px font-20px">Description</p>
-                <textarea class="enter-description-input" placeholder="Enter a description" name="Description"
-                    id="descriptionInput"></textarea>
-                <p class="margin-8px font-20px">Assigned to</p>
-                <select class="select-contacts-field" name="select contacts" id="selectContactsInput">
-                    <option value="Select contacts">Select contacts to assign</option>
-                </select>
-                <p class="required-text"><span class="color-red">*</span>This field is requiered</p>
+        <div class="add-task-container">
+            <div class="add-Task-header">
+                <h1 class="add-task-headline">Add Task</h1>
+                <img class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask()">
             </div>
-            <div class="add-task-desktop-border"></div>
-            <div>
-                <p class="margin-8px font-20px">Due date <span class="color-red">*</span></p>
-                <input class="date-input" type="text" placeholder="dd/mm/yyyy" id="dateInput"
-                    onfocus="(this.type='date')" onblur="(this.type='text'); this.placeholder='dd/mm/yyyy';">
-                <span class="warning-message-field-required d-none">This field is requiered</span>
-                <div class="height-88px">
-                    <p class="margin-8px font-20px">Prio</p>
-                    <div class="justify-space-between">
-                        <div class="priority-section">
-                            <span>Urgent</span>
-                            <img src="./assets/img/priority-low.svg" alt="">
-                        </div>
-                        <div class="bg-orange priority-section">
-                            <span>Medium</span>
-                            <img src="./assets/img/priority-medium-white.svg" alt="">
-                        </div>
-                        <div class="priority-section">
-                            <Span>Low</Span>
-                            <img src="./assets/img/priority-urgent.svg" alt="">
-                        </div>
+            <form class="overlay-form">
+                <div class="form-half-side">
+                    <div class="input-group">
+                        <label for="titleInput">Title<span class="color-red">*</span></label>
+                        <input id="titleInput" class="enter-input" placeholder="Enter a title" type="text" name="Title"
+                            id="titleInput" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="descriptionInput">Description</label>
+                        <textarea class="enter-description-input" placeholder="Enter a description" name="Description"
+                            id="descriptionInput"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="selectContactsInput">Assigned to</label>
+                        <select class="enter-input select-input" name="select contacts" id="selectContactsInput">
+                            <option value="Select contacts">Select contacts to assign</option>
+                        </select>
                     </div>
                 </div>
-                <div class="category-input d-none">
-                    <span class="font-20px color-blue">Category <span class="color-red">*</span></span>
-                    <select class="select-contacts-field" name="select contacts" id="selectTasksInput">
-                        <option value="Select contacts">Select task Category</option>
-                    </select>
-                </div>
-                <div class="subtask d-none">
-                    <span class="font-20px color-blue">
-                        Subtasks
-                    </span>
-                    <input class="enter-subtask-input" placeholder="Enter a subtask" type="text" name="Subtask" id="subtaskInput">
-                </div>
-                <div class="justify-space-between height-88px desktop-btns">
-                    <p class="d-none-desktop"><span class="color-red">*</span>This field is requiered</p>
-                    <div class="clear-task-btn d-none">
-                        <span>Clear</span><img src="./assets/img/Vector (1).svg" alt="">
+                <div class="form-divider"></div>
+                <div class="form-half-side">
+                    <div class="input-group">
+                        <label for="dateInput">Due date<span class="color-red">*</span></label>
+                        <input id="dateInput" class="enter-input" placeholder="dd/mm/yyyy" type="text"
+                            onfocus="(this.type='date')" onblur="(this.type='text'); this.placeholder='dd/mm/yyyy';">
                     </div>
-                    <div class="create-task-btn">
-                        <span>Create Task</span>
-                        <img src="./assets/img/check.svg" alt="">
+                    <div class="input-group">
+                        <label class="">Prio</label>
+                        <div class="prio-container">
+                            <div class="priority-btn clickable">
+                                <span>Urgent</span>
+                                <img src="./assets/img/priority-low.svg" alt="">
+                            </div>
+                            <div class="prio-btn-selected priority-btn clickable">
+                                <span>Medium</span>
+                                <img src="./assets/img/priority-medium-white.svg" alt="">
+                            </div>
+                            <div class="priority-btn clickable">
+                                <span>Low</span>
+                                <img src="./assets/img/priority-urgent.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="selectCategory">Category<span class="color-red">*</span></label>
+                        <select class="enter-input select-input" name="select category" id="selectCategory">
+                            <option value="Select task category">Select contacts to assign</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="subtaskInput">Subtaks</label>
+                        <input class="enter-input subtask-enter" placeholder="Enter a subtask" type="text" name="Subtask" id="subtaskInput">
+                    </div>
+                    <div class="form-btn-container">
+                        <button class="board-add-btn clickable" type="submit">Create Task</button>
                     </div>
                 </div>
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
     `
 }
