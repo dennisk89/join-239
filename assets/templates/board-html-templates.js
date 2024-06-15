@@ -1,6 +1,6 @@
 function taskCardHTML(id, type, title, description, prioIcon) {
     return /*html*/`
-    <div id=${id} onclick="openTask(${id}); stopP(event)" class="card clickable">
+    <div id=${id} onclick="openOverlay(taskDetails(${id})); stopP(event)" class="card clickable">
         <img src='${type}' alt="ticket-type">
         <div class="card-text-box">
             <h3>${title}</h3>

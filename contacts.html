@@ -104,7 +104,7 @@
                     <div class="new-contact-dot new-contact-dot-desktop">
                         <img src="./assets/img/person.svg">
                     </div>
-                    <form class="overlay-form" onsubmit="addNewContact()">
+                    <form class="overlay-form" onsubmit="addNewContact(); return false">
                         <input id="addContactInputName" class="input-name" placeholder="Name" required type="text" pattern="[A-Za-z]{2,} [A-Za-z]{2,}" title="Please insert your first and last name (at least two characters each).">
                         <input id="addContactInputMail" class="input-mail" placeholder="Email" required type="email">
                         <input id="addContactInputPhone" class="input-phone" placeholder="Phone" required type="number" pattern="+[0-9]">

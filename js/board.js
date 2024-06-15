@@ -1,6 +1,9 @@
 
+
+
 // ANCHOR load Tasks
-function initBoard() {
+async function initBoard() {
+    await getTasks();
     addCardsToBoards('toDoColumn', todoTasks, 'To do');
     addCardsToBoards('inProgressColumn', progressTasks, 'In progress');
     addCardsToBoards('feedbackColumn', feedbackTasks, 'Await feedback');
@@ -115,11 +118,22 @@ function stopP(event) {
 }
 
 
-function openTask(taskArrayIndex) {
+function openOverlay(functionForOverlayContent) {
     document.getElementById('taskOverlay').style.display = 'flex';
-    document.getElementById('taskOverlay').innerHTML = taskHTML(taskArrayIndex);
-    renderSubTasks(taskArrayIndex);
+    functionForOverlayContent => {};
 }
+
+
+function taskDetails(taskArrayIndex) {
+    document.getElementById('taskOverlay').innerHTML = taskHTML(taskArrayIndex);
+    renderSubTasks(taskArrayIndex); 
+}
+
+
+function initAddTaskForm(params) {
+    
+}
+
 
 function closeTask() {
     document.getElementById('taskOverlay').style.display = 'none';
