@@ -3,7 +3,7 @@
 
 // ANCHOR load Tasks
 async function initBoard() {
-    await getTasks();
+    await initJoin();
     addCardsToBoards('toDoColumn', todoTasks, 'To do');
     addCardsToBoards('inProgressColumn', progressTasks, 'In progress');
     addCardsToBoards('feedbackColumn', feedbackTasks, 'Await feedback');
@@ -92,7 +92,7 @@ function getNewTaskArrayIndex() {
     if (taskArray.length == 0) {
         return 0;
     } else {
-        return taskArray.length + 1
+        return taskArray.length;
     }
 }
 
@@ -118,20 +118,16 @@ function stopP(event) {
 }
 
 
-function openOverlay(functionForOverlayContent) {
+function openTasks(taskArrayIndex) {
     document.getElementById('taskOverlay').style.display = 'flex';
-    functionForOverlayContent => {};
-}
-
-
-function taskDetails(taskArrayIndex) {
     document.getElementById('taskOverlay').innerHTML = taskHTML(taskArrayIndex);
     renderSubTasks(taskArrayIndex); 
 }
 
 
-function initAddTaskForm(params) {
-    
+function openAddTaskOverlay() {
+    document.getElementById('taskOverlay').style.display = 'flex';
+    document.getElementById('taskOverlay').innerHTML = addTaskOverlayHTML;
 }
 
 

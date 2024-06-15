@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="board.css">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="footer.css">
+    <!-- <link rel="stylesheet" href="style-add-task-overlay.css"> -->
     <link rel="icon" type="image/x-icon" href="assets/img/join-logo.svg">
     <script defer src="js/config.js"></script>
     <script defer src="assets/templates/board-html-templates.js"></script>
     <script defer src="js/board.js"></script>
 </head>
 
-<body onload="initJoin(); initBoard()">
+<body onload="initBoard()">
 
 
     <header>
@@ -33,13 +34,29 @@
     </header>
 
     <!-- ANCHOR Task overlay -->
-    <section id="taskOverlay" class="overlay-bg"></section>
+    <section id="taskOverlay" class="overlay-bg">
+        <div class="add-task-container">
+            <div class="add-Task-header">
+                <h1 class="add-task-headline">Add Task</h1>
+                <img class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask()">
+            </div>
+            <form>
+                <div class="form-left-side">
+                    <input class="enter-title-input" placeholder="Enter a title" type="text" name="Title" id="titleInput">
+                </div>
+                <div class="form-right-side"></div>
+            </form>
+
+       
+        </div>
+
+    </section>
 
     <!-- ANCHOR board -->
     <section class="board">
         <div class="board-headline">
             <h1>Board</h1>
-            <button onclick="" class="board-add-btn clickable"><span class="clickable hide-under-1400p">Add task</span><img
+            <button onclick="openAddTaskOverlay()" class="board-add-btn clickable"><span class="clickable hide-under-1400p">Add task</span><img
                     src="assets/img/board-add-task-plus.svg" alt=""></button>
             <div class="search-box">
                 <input placeholder="Find Task" type="search">

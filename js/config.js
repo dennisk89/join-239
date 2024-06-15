@@ -8,6 +8,7 @@ let progressTasks;
 let feedbackTasks;
 let doneTasks;
 
+
 async function initJoin() {
     contacts = await getData(endpointContacts);
     taskArray = await getData(endpointTasks);
@@ -18,24 +19,29 @@ async function initJoin() {
 }
 
 
-async function getContacts() {
-    contacts = await getData(endpointContacts);
-}
-
-
-async function getTasks() {
-    taskArray = await getData(endpointTasks);
-}
-
-
-
-
-
 
 async function getData(url) {
     let response = await fetch(url + ".json").catch(errorFunction);
     console.log(response.status);
     return await response.json();
+}
+
+
+async function putData(url, data = {}) {
+    let response = await fetch(url + ".json", {
+        method: 'PUT',
+        header: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).catch(errorFunction);
+    console.log(response.status);
+    return await response.json();
+}
+
+
+function errorFunction() {
+    console.error('Fehler aufgetreten');
 }
 
 
@@ -84,19 +90,3 @@ class Task {
 
 
 
-async function putData(url, data = {}) {
-    let response = await fetch(url + ".json", {
-        method: 'PUT',
-        header: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    }).catch(errorFunction);
-    console.log(response.status);
-    return await response.json();
-}
-
-
-function errorFunction() {
-    console.error('Fehler aufgetreten',);
-}

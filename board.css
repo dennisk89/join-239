@@ -170,7 +170,7 @@ p {
 
 /* ANCHOR Task details */
 .overlay-bg {
-    display: none;
+    display: flex;
     background-color: rgba(0, 0, 0, 0.2);
     z-index: 999;
     position: fixed;
@@ -366,13 +366,46 @@ p {
     margin-bottom: 96px;
 }
 
+/* ANCHOR Add Task overlay */
+.add-task-container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    height: 600px;
+    min-width: 400px;
+    padding: 64px 74px;
+}
+
+.add-Task-header {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}
+
+.add-Task-header img {
+    align-self: flex-start;
+}
+
+.enter-title-input {
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    height: 40px;
+    padding-left: 21px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19.2px;
+}
+
+
 
 /* ANCHOR Media querries */
 @media (min-width: 768px) {
     .open-task {
         max-width: none;
         width: 525px;
-        margin-left: 252px;
         gap: 24px;
     }
 
