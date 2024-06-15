@@ -37,6 +37,9 @@ let users = [
     }    
 ];
 
+// ID zu den contacts
+// Initialen automatisch ins Array
+
 let colors = ['orange', 'purple', 'blue', 'pink', 'yellow', 'mint'];
 let usedLetters = [];
 let contactListLetters = [];
