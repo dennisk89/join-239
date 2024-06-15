@@ -177,6 +177,17 @@ body {
     gap: 13px;
 }
 
+.flex-align-center{
+    display: flex;
+    align-items: center;
+}
+
+.greet-user-desktop{
+    display: flex;
+    flex-direction: column;
+    margin-left: 80px;
+}
+
 @media (min-width: 768px) {
     .summary-headline {
         display: flex;
@@ -258,5 +269,41 @@ body {
         font-weight: 400;
         font-size: 20px;  
     }
+    .font36{
+        font-size: 47px;
+        font-weight: 500;
+    }
+    .user-name{
+        font-size: 64px;
+        font-weight: 700;
+    }
+    .greet-user-desktop{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 560px;
+        margin-left: 45px;
+        margin-top: 20px;
+    }
 
+
+}
+
+@media (max-width: 1440px){
+    .hide-under-1440px{
+        display: none !important;
+        }
+        
+}
+
+@media (min-width: 1440px) {
+    .greet-user-desktop{
+        display: flex;
+        flex-direction: column;
+        margin-left: 0px;
+        width: 540px;
+    }
+    .hide-over-1440px{
+        display: none !important;
+    }
 }
