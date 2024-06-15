@@ -75,7 +75,10 @@ function addNewContact() {
     let addContactInputName = document.getElementById('addContactInputName');
     let addContactInputMail = document.getElementById('addContactInputMail');
     let addContactInputPhone = document.getElementById('addContactInputPhone');
-    let randomColor = colors[Math.floor(Math.random() * colors.length)];
+    let randomColor = getRandomColor();
+    for (let i = 0; i < 10; i++) { // Damit der zufällige Index mehrmals generiert wird -> besserer Zufallsgenerator.
+        randomColor = getRandomColor();
+    }
     let newID = 'c' + (contacts.length + 1);
     let newContact = {
         'id': newID,
@@ -90,4 +93,9 @@ function addNewContact() {
     addContactInputName.value = '';
     addContactInputMail.value = '';
     addContactInputPhone.value = '';
+}
+
+function getRandomColor() {
+    let randomIndex = Math.floor(Math.random() * colors.length);
+    return colors[randomIndex];
 }
