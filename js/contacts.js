@@ -49,7 +49,8 @@ function excerptContactListLetters() {
         usedLetters.push(firstInitial);
     }
     let usedLettersUnique = [...new Set(usedLetters)];
-    contactListLetters.push(usedLettersUnique);
+    let usedLettersUniqueSorted = usedLettersUnique.sort();
+    contactListLetters.push(usedLettersUniqueSorted);
 }
 
 function getInitials(contactName) {
