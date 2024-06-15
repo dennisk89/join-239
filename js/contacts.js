@@ -1,43 +1,53 @@
 let contacts = [
     {
+        id: 'c1',
         name: 'Anton Mayer',
         email: 'antom@gmail.com',
         phone: '+49 1111 111 11 1',
-        color: 'orange'
+        color: 'orange',
+        initials: 'AM'
     },
     {
+        id: 'c2',
         name: 'Anja Schulz',
         email: 'schulz@hotmail.com',
         phone: '+49 123 456 789',
-        color: 'purple'
+        color: 'purple',
+        initials: 'AS'
     },
     {
+        id: 'c3',
         name: 'Benedikt Ziegler',
         email: 'benedikt@gmail.com',
         phone: '+43 123 456 789',
-        color: 'blue'
+        color: 'blue',
+        initials: 'BZ'
     },
     {
+        id: 'c4',
         name: 'Eva Fischer',
         email: 'eva@gmail.com',
         phone: '+43 3333 333 33 3',
-        color: 'pink'
+        color: 'pink',
+        initials: 'EF'
     },
     {
+        id: 'c5',
         name: 'Tatjana Wolf',
         email: 'wolf@gmail.com',
         phone: '+49 2222 222 22 2',
-        color: 'yellow'
+        color: 'yellow',
+        initials: 'TW'
     },
     {
+        id: 'c6',
         name: 'Marcel Bauer',
         email: 'bauer@gmail.com',
         phone: '+43 987 654 321',
-        color: 'mint'
+        color: 'mint',
+        initials: 'MB'
     }    
 ];
-
-// ID zu den contacts
 // Initialen automatisch ins Array
 
 let colors = ['orange', 'purple', 'blue', 'pink', 'yellow', 'mint'];
@@ -71,40 +81,40 @@ function showContactList() {
 }
 
 function showContactListContent() {
-    for (i = 0; i < users.length; i++) {
-        let user = users[i];
-        let userName = user['name'];
-        let firstInitial = userName.charAt(0);
-        let initials = getInitials(userName);
-        let color = user['color'];
+    for (i = 0; i < contacts.length; i++) {
+        let contact = contacts[i];
+        let contactName = contact['name'];
+        let firstInitial = contactName.charAt(0);
+        let initials = getInitials(contactName);
+        let color = contact['color'];
         let contactsContainer = document.getElementById('contactsContainer' + firstInitial);
-        contactsContainer.innerHTML += generateContactListContentHTML(user, initials, color);
+        contactsContainer.innerHTML += generateContactListContentHTML(contact, initials, color);
     }
 }
 
 function excerptContactListLetters() {
-    for (i = 0; i < users.length; i++) {
-        let user = users[i];
-        let userName = user['name'];
-        let firstInitial = userName.charAt(0);
+    for (i = 0; i < contacts.length; i++) {
+        let contact = contacts[i];
+        let contactName = contact['name'];
+        let firstInitial = contactName.charAt(0);
         usedLetters.push(firstInitial);
     }
     let usedLettersUnique = [...new Set(usedLetters)];
     contactListLetters.push(usedLettersUnique);
 }
 
-function getInitials(userName) {
-    let initials = userName
+function getInitials(contactName) {
+    let initials = contactName
         .split(' ')
         .map (word => word.charAt(0))
         .join('');
     return initials;
 }
 
-function showUserName(userName, initials, color, email, phone) {
-    let userNameContainer = document.getElementById('userNameContainer');
-    userNameContainer.innerHTML = '';
-    userNameContainer.innerHTML = generateUserNameHTML(userName, initials, color);
+function showContactName(contactName, initials, color, email, phone) {
+    let contactNameContainer = document.getElementById('contactNameContainer');
+    contactNameContainer.innerHTML = '';
+    contactNameContainer.innerHTML = generateContactNameHTML(contactName, initials, color);
     let contactInfoContent = document.getElementById('contactInfoContent');
     contactInfoContent.innerHTML = '';
     contactInfoContent.innerHTML = generateContactInfoHTML(email, phone);
@@ -124,7 +134,7 @@ function addNewContact() {
         'color': randomColor
     };
     // console.log(newContact);
-    users.push(newContact);
+    contacts.push(newContact);
     addContactInputName.value = '';
     addContactInputMail.value = '';
     addContactInputPhone.value = '';

@@ -169,7 +169,7 @@ body {
     margin-left: 16px;
 }
 
-.user-name-container {
+.contact-name-container {
     display: flex;
     align-items: center;
     gap: 20px;
@@ -189,26 +189,26 @@ body {
     justify-content: center;
 }
 
-.user-name {
+.contact-name {
     font-size: 36px;
     font-weight: 700;
 }
 
-.user-edit-delete-desktop-container {
+.contact-edit-delete-desktop-container {
     display: none;
 }
 
-.user-edit-delete-desktop {
+.contact-edit-delete-desktop {
     display: flex;
     gap: 13px;
 }
 
-.user-edit-desktop-img {
+.contact-edit-desktop-img {
     width: 18.28px;
     height: 18.25px;
 }
 
-.user-delete-desktop-img {
+.contact-delete-desktop-img {
     width: 16px;
     height: 18px;    
 }
@@ -320,7 +320,7 @@ body {
         margin-left: 65px;
     }
 
-    .user-dot {
+    .contact-dot {
         height: 120px;
         width: 120px;
         font-size: 47px;
@@ -328,14 +328,14 @@ body {
         line-height: 56.4px;
     }
 
-    .user-name {
+    .contact-name {
         font-size: 47px;
         font-weight: 500;
         line-height: 56.4px;
         margin-bottom: 8px;
     }
 
-    .user-edit-delete-desktop-container {
+    .contact-edit-delete-desktop-container {
         display: flex;
         gap: 16px;
     }

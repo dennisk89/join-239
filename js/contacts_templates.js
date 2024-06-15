@@ -6,30 +6,30 @@ function generateContactListHTML(contactListLetter) {
     `;
 }
 
-function generateContactListContentHTML(user, initials, color) {
+function generateContactListContentHTML(contact, initials, color) {
     return /*html*/`
-        <div class="contact-container pointer" onclick="showUserName('${user['name']}', '${initials}', '${color}', '${user['email']}', '${user['phone']}')">
+        <div class="contact-container pointer" onclick="showContactName('${contact['name']}', '${initials}', '${color}', '${contact['email']}', '${contact['phone']}')">
             <div class="contact-dot contact-dot-${color}">${initials}</div>
             <div>
-                <div class="contact-name">${user['name']}</div>
-                <div class="contact-mail">${user['email']}</div>
+                <div class="contact-name">${contact['name']}</div>
+                <div class="contact-mail">${contact['email']}</div>
             </div>
         </div>
     `;
 }
 
-function generateUserNameHTML(userName, initials, color) {
+function generateContactNameHTML(contactName, initials, color) {
     return /*html*/`
         <div class="contact-info-dot contact-dot-${color}">${initials}</div>
         <div>
-            <div class="user-name">${userName}</div>
-            <div class="user-edit-delete-desktop-container">
-                <div class="user-edit-delete-desktop pointer" onclick="handleOverlayEditContact()">
-                    <img src="./assets/img/edit.svg" class="user-edit-desktop-img">
+            <div class="contact-name">${contactName}</div>
+            <div class="contact-edit-delete-desktop-container">
+                <div class="contact-edit-delete-desktop pointer" onclick="handleOverlayEditContact()">
+                    <img src="./assets/img/edit.svg" class="contact-edit-desktop-img">
                     <div>Edit</div>
                 </div>
-                <div class="user-edit-delete-desktop pointer">
-                    <img src="./assets/img/delete.svg" class="user-delete-desktop-img">
+                <div class="contact-edit-delete-desktop pointer">
+                    <img src="./assets/img/delete.svg" class="contact-delete-desktop-img">
                     <div>Delete</div>
                 </div>                    
             </div>
