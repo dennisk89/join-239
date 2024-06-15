@@ -8,12 +8,14 @@
     <link rel="stylesheet" href="board.css">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="footer.css">
+    <link rel="icon" type="image/x-icon" href="assets/img/join-logo.svg">
     <script defer src="js/config.js"></script>
     <script defer src="assets/templates/board-html-templates.js"></script>
     <script defer src="js/board.js"></script>
 </head>
 
-<body onload="callAddCardsWithFilteredArrays()">
+<body onload="initJoin(); initBoard()">
+
 
     <header>
         <div class="inner-header">
@@ -31,62 +33,13 @@
     </header>
 
     <!-- ANCHOR Task overlay -->
-    <section id="taskOverlay" class="overlay-bg">
-        <div class="open-task">
-            <div class="task-header">
-                <img src="assets/img/board-card-label-tt.svg" alt="">
-                <img class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask()">
-            </div>
-            <h1>This is a very informative Title</h1>
-            <p>A very good description that describes what we need to do in this task.</p>
-            <div class="task-line">
-                <p class="task-p-bold">Due date:</p>
-                <p>date</p>
-            </div>
-            <div class="task-line">
-                <p class="task-p-bold">Priority:</p>
-                <p class="prio-text">Prio <img src="assets/img/card-priority-symbol.svg" alt=""></p>
-            </div>
-            <p class="task-p-bold">Assigned To:</p>
-            <div>
-                <div class="task-assigned">
-                    <div class="profile-batch profile-lila">AS</div>
-                    <p class="assigned-name">Alfred Schulz</p>
-                </div>
-                <div class="task-assigned">
-                    <div class="profile-batch profile-orange">HS</div>
-                    <p class="assigned-name">Homer Simpson</p>
-                </div>
-            </div>
-            <p class="task-p-bold">Subtasks</p>
-            <div>
-                <div class="check-list-row">
-                    <img onclick="checkSubTask(event)" id="sub1" class="clickable" src="assets/img/checkbox-checked.svg" alt="checkbox-checked">
-                    <p>Subtask text</p>
-                </div>
-                <div class="check-list-row">
-                    <img onclick="checkSubTask(event)" id="sub2" class="clickable" src="assets/img/checkbox.svg" alt="checkbox-empty">
-                    <p>Subtask text2</p>
-                </div>
-            </div>
-            <div class="task-footer clickable">
-                <div class="task-footer">
-                    <img src="assets/img/delete.svg" alt="">
-                    <p>Delete</p>
-                </div>
-                <div class="task-footer clickable">
-                    <img src="assets/img/edit.svg" alt="">
-                    <p>Edit</p>
-                </div>
-            </div>
-        </div>    
-    </section>
+    <section id="taskOverlay" class="overlay-bg"></section>
 
     <!-- ANCHOR board -->
     <section class="board">
         <div class="board-headline">
             <h1>Board</h1>
-            <button class="board-add-btn clickable"><span class="clickable hide-under-1400p">Add task</span><img
+            <button onclick="" class="board-add-btn clickable"><span class="clickable hide-under-1400p">Add task</span><img
                     src="assets/img/board-add-task-plus.svg" alt=""></button>
             <div class="search-box">
                 <input placeholder="Find Task" type="search">
@@ -105,7 +58,7 @@
                 </div>
                 <div class="card-container" id="toDoColumn">
                     <!-- ANCHOR card -->
-                    <div onclick="openTask(); stopP(event)" class="card clickable">
+                    <div onclick="openOverlay(); stopP(event)" class="card clickable">
                         <img src="assets/img/board-card-label-us.svg" alt="">
                         <div class="card-text-box">
                             <h3>profile Form & Imprint</h3>
@@ -138,7 +91,7 @@
                 </div>
                 <div class="card-container" id="inProgressColumn">
                     <!-- ANCHOR card -->
-                    <div onclick="openTask(); stopP(event)" class="card clickable">
+                    <div onclick="openOverlay(); stopP(event)" class="card clickable">
                         <img src="assets/img/board-card-label-us.svg" alt="">
                         <div class="card-text-box">
                             <h3>Kochwelt</h3>
@@ -161,7 +114,7 @@
                     </div>
 
                     <!-- ANCHOR card -->
-                    <div onclick="openTask(); stopP(event)" class="card clickable">
+                    <div onclick="openOverlay(); stopP(event)" class="card clickable">
                         <img src="assets/img/board-card-label-us.svg" alt="">
                         <div class="card-text-box">
                             <h3>Kochwelt</h3>
@@ -197,7 +150,7 @@
 
                 <div class="card-container" id="feedbackColumn">
                     <!-- ANCHOR card -->
-                    <div onclick="openTask(); stopP(event)" class="card clickable">
+                    <div onclick="openOverlay(); stopP(event)" class="card clickable">
                         <img src="assets/img/board-card-label-tt.svg" alt="">
                         <div class="card-text-box">
                             <h3>Pokemon</h3>
@@ -229,7 +182,7 @@
                 </div>
                 <div class="card-container" id="doneColumn">
                     <!-- ANCHOR card -->
-                    <div onclick="openTask(); stopP(event)" class="card clickable">
+                    <div onclick="openOverlay(); stopP(event)" class="card clickable">
                         <img src="assets/img/board-card-label-us.svg" alt="">
                         <div class="card-text-box">
                             <h3>Lieferando order</h3>

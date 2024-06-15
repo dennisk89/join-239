@@ -1,12 +1,14 @@
 
+
+
 // ANCHOR load Tasks
-function callAddCardsWithFilteredArrays() {
+async function initBoard() {
+    await getTasks();
     addCardsToBoards('toDoColumn', todoTasks, 'To do');
     addCardsToBoards('inProgressColumn', progressTasks, 'In progress');
     addCardsToBoards('feedbackColumn', feedbackTasks, 'Await feedback');
     addCardsToBoards('doneColumn', doneTasks, 'Done');
-    addContactLabels();
-    addSubTaskProgressToCards();
+    addInfosToCards();
 }
 
 
@@ -17,23 +19,30 @@ function addCardsToBoards(columnID, filterArray, stringForEmptyColumn) {
         element.innerHTML = boardPlaceholderHTML(stringForEmptyColumn);
     } else {
         for (let i = 0; i < filterArray.length; i++) {
-            element.innerHTML += taskCardHTML(filterArray[i].id, filterArray[i].type, filterArray[i].title, filterArray[i].description, prioIcons[filterArray[i].prio]); 
+            element.innerHTML += taskCardHTML(filterArray[i].id, filterArray[i].type, filterArray[i].title, filterArray[i].description, prioIcons[filterArray[i].prio]);
         }
     }
 }
 
 
-function addContactLabels() {
+function addInfosToCards() {
     for (let i = 0; i < taskArray.length; i++) {
-        let max = getLabelMaximum(taskArray[i].assigned)
-        for (let j = 0; j < max; j++) {
-            let initials = getInitials(taskArray[i].assigned[j]);
-            let container = document.getElementById(taskArray[i].id).children[3].children[0];
-            if (j == 0) {
-                container.innerHTML += addAssignHTML(initials); 
-            } else {
-                container.innerHTML += addAssignWithOverlapHTML(initials, j);
-            }
+        addContactLabelsToCards(i);
+        addSubTaskProgressToCards(i);
+    }
+}
+
+
+function addContactLabelsToCards(i) {
+    let max = getLabelMaximum(taskArray[i].assigned)
+    let container = document.getElementById(taskArray[i].id).children[3].children[0];
+    container.innerHTML = '';
+    for (let j = 0; j < max; j++) {
+        let initials = getInitials(taskArray[i].assigned[j]);
+        if (j == 0) {
+            container.innerHTML += addAssignHTML(initials);
+        } else {
+            container.innerHTML += addAssignWithOverlapHTML(initials, j);
         }
     }
 }
@@ -48,14 +57,12 @@ function getLabelMaximum(contacts) {
 }
 
 
-function addSubTaskProgressToCards() {
-    for (let i = 0; i < taskArray.length; i++) {
-        let pbar = document.getElementById(taskArray[i].id).children[2].children[0].children[0];
-        let label = document.getElementById(taskArray[i].id).children[2].children[1];
-        let done = taskArray[i].subTaskStatus.filter(s => s == true);
-        label.innerHTML = /*html*/`${done.length}/${taskArray[i].subTask.length} Subtasks`;
-        pbar.style.width = ((done.length / taskArray[i].subTask.length) * 100) +'%'; 
-    }
+function addSubTaskProgressToCards(i) {
+    let pbar = document.getElementById(taskArray[i].id).children[2].children[0].children[0];
+    let label = document.getElementById(taskArray[i].id).children[2].children[1];
+    let done = taskArray[i].subTaskStatus.filter(s => s == true);
+    label.innerHTML = /*html*/`${done.length}/${taskArray[i].subTask.length} Subtasks`;
+    pbar.style.width = ((done.length / taskArray[i].subTask.length) * 100) + '%';
 }
 
 
@@ -65,13 +72,11 @@ function getInitials(name) {
 }
 
 
-
-
-function saveTasks() {
+function createTask() {
     let newTask = new Task(
-        taskArray.length + 1, 
-        'assets\img\board-card-label-us.svg', 
-        'Kochwelt html', 
+        getNewTaskArrayIndex(),
+        'assets\img\board-card-label-us.svg',
+        'Kochwelt html',
         'Write html code for Kochwelt',
         '2024-7-1',
         ['Homer Simpson', 'Gordon Shumway'],
@@ -83,6 +88,29 @@ function saveTasks() {
     taskArray.push(newTask)
 }
 
+function getNewTaskArrayIndex() {
+    if (taskArray.length == 0) {
+        return 0;
+    } else {
+        return taskArray.length + 1
+    }
+}
+
+
+// ANCHOR open Task details
+function renderSubTasks(taskArrayIndex) {
+    let array = taskArray[taskArrayIndex].subTask;
+    let subtaskContainer = document.getElementById('taskOverlaySubtasks');
+    subtaskContainer.innerHTML = '';
+    for (let i = 0; i < array.length; i++) {
+        if (taskArray[taskArrayIndex].subTaskStatus[i]) {
+            subtaskContainer.innerHTML += taskSubTaskDoneHTML(i, array[i]);
+        } else {
+            subtaskContainer.innerHTML += taskSubTaskHTML(i, array[i]);
+        };
+    }
+}
+
 
 // ANCHOR Menu functionality
 function stopP(event) {
@@ -90,23 +118,41 @@ function stopP(event) {
 }
 
 
-function openTask() {
-    console.log('Task öffnen');
+function openOverlay(functionForOverlayContent) {
     document.getElementById('taskOverlay').style.display = 'flex';
+    functionForOverlayContent => {};
 }
+
+
+function taskDetails(taskArrayIndex) {
+    document.getElementById('taskOverlay').innerHTML = taskHTML(taskArrayIndex);
+    renderSubTasks(taskArrayIndex); 
+}
+
+
+function initAddTaskForm(params) {
+    
+}
+
 
 function closeTask() {
     document.getElementById('taskOverlay').style.display = 'none';
 }
 
 
-function checkSubTask(e) {
-    let checkbox = document.getElementById(e.target.id);
-    if (checkbox.src == './assets/img/checkbox.svg') {
-        console.log('check');
-        checkbox.src = 'assets/img/checkbox-checked.svg';
+function checkSubTask(id) {
+    let taskArrayIndex = document.getElementById('taskOverlay').children[0].id.charAt(4);
+    let subTaskId = id.charAt(3);
+    taskArray[taskArrayIndex].subTaskStatus[subTaskId] = changeSubTaskStatus(taskArray[taskArrayIndex].subTaskStatus[subTaskId]);
+    renderSubTasks(taskArrayIndex);
+    addSubTaskProgressToCards(taskArrayIndex)
+}
+
+
+function changeSubTaskStatus(currentStatusBoolean) {
+    if (currentStatusBoolean) {
+        return false;
     } else {
-        console.log('uncheck');
-        checkbox.src = 'assets/img/checkbox.svg';
+        return true;
     }
 }

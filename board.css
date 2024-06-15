@@ -168,7 +168,7 @@ p {
     color: rgba(168, 168, 168, 1);
 }
 
-/* ANCHOR open task */
+/* ANCHOR Task details */
 .overlay-bg {
     display: none;
     background-color: rgba(0, 0, 0, 0.2);
@@ -202,6 +202,11 @@ p {
     justify-content: space-between;
 }
 
+.task-header .clickable:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 100%;
+}
+
 .open-task h1 {
     font-family: Inter;
     font-size: 36px;
@@ -226,7 +231,10 @@ p {
     display: flex;
     align-items: center;
     padding: 0 18px;
+}
 
+.prio-text img {
+    margin-left: 10px;
 }
 
 .task-p-bold {
@@ -259,6 +267,12 @@ p {
     gap: 8px;
     justify-content: end;
     align-items: center;
+}
+
+.divider {
+    height: 24px;
+    width: 1px;
+    background-color: rgba(209, 209, 209, 1);
 }
 
 

@@ -1,67 +1,102 @@
+const endpointTasks = 'https://join-239-default-rtdb.europe-west1.firebasedatabase.app/tasks';
+const endpointContacts = 'https://join-239-default-rtdb.europe-west1.firebasedatabase.app/contacts';
+const endpointUser = 'https://join-239-default-rtdb.europe-west1.firebasedatabase.app/users';
+let contacts;
+let taskArray;
+let todoTasks; 
+let progressTasks;
+let feedbackTasks;
+let doneTasks;
+
+async function initJoin() {
+    contacts = await getData(endpointContacts);
+    taskArray = await getData(endpointTasks);
+    todoTasks = taskArray.filter(t => t.taskStatus == 'todo');
+    progressTasks = taskArray.filter(t => t.taskStatus == 'progress');
+    feedbackTasks = taskArray.filter(t => t.taskStatus == 'feedback');
+    doneTasks = taskArray.filter(t => t.taskStatus == 'done');
+}
+
+
+async function getContacts() {
+    contacts = await getData(endpointContacts);
+}
+
+
+async function getTasks() {
+    taskArray = await getData(endpointTasks);
+}
+
+
+
+
+
+
+async function getData(url) {
+    let response = await fetch(url + ".json").catch(errorFunction);
+    console.log(response.status);
+    return await response.json();
+}
+
+
+
 
 const prioIcons = {
-    'low': 'assets/img/priority-low.svg', 
+    'low': 'assets/img/priority-low.svg',
     'medium': 'assets/img/priority-medium.svg',
     'urgent': 'assets/img/priority-urgent.svg'
 }
 
 
+
+
+// putData(endpointTasks, taskArray)
+
+
+// putData(endpointContacts, contacts)
+
+
+// putData(endpointUser, users)
+
+
+
+
+
+
 class Task {
     constructor(id, type, title, description, dueDate, assigned, prio, status, subTask, taskStatus) {
         this.id = id,
-        this.type = type,
-        this.title = title,
-        this.description = description,
-        this.dueDate = dueDate,
-        this.assigned = assigned,
-        this.prio = prio,
-        this.status = status,
-        this.subTask = subTask,
-        this.taskStatus = taskStatus
+            this.type = type,
+            this.title = title,
+            this.description = description,
+            this.dueDate = dueDate,
+            this.assigned = assigned,
+            this.prio = prio,
+            this.status = status,
+            this.subTask = subTask,
+            this.taskStatus = taskStatus
     }
 }
 
 
-let taskArray = [
-    {
-        id: 1,
-        type: 'assets/img/board-card-label-tt.svg',
-        title: 'Kochwelt css',
-        description: 'Write a lot of css code.',
-        dueDate: '2024-7-1',
-        assigned: ['Homer Simpson', 'Gordon Shumway'],
-        prio: 'medium',
-        subTaskStatus: [true, false],
-        subTask: ['Link style.css in index.html.', 'Write a display flex class.'],
-        taskStatus: 'todo'
-    },
-    {
-        id: 2,
-        type: 'assets/img/board-card-label-us.svg',
-        title: 'Sakura css',
-        description: 'Write a lot of css code.',
-        dueDate: '2024-7-1',
-        assigned: ['Lisa Simpson', 'Gordon Shumway', 'Bart Simpson', 'Barney Gumble'],
-        prio: 'low',
-        subTaskStatus: [true, false],
-        subTask: ['Link style.css in index.html.', 'Write a display flex class.'],
-        taskStatus: 'progress' //progress, feedback, done
-    },
-    {
-        id: 3,
-        type: 'assets/img/board-card-label-us.svg',
-        title: 'Burger css',
-        description: 'Write a lot of css code.',
-        dueDate: '2024-7-1',
-        assigned: ['Marge Simpson', 'Gordon Shumway', 'Max Mustermann'],
-        prio: 'urgent',
-        subTaskStatus: [true, true, false],
-        subTask: ['Link style.css in index.html.', 'Write a display flex class.', 'css button effect'],
-        taskStatus: 'progress' //progress, feedback, done
-    }
-]
 
-let todoTasks = taskArray.filter(t => t.taskStatus == 'todo');
-let progressTasks = taskArray.filter(t => t.taskStatus == 'progress');
-let feedbackTasks = taskArray.filter(t => t.taskStatus == 'feedback');
-let doneTasks = taskArray.filter(t => t.taskStatus == 'done');
+
+
+
+
+async function putData(url, data = {}) {
+    let response = await fetch(url + ".json", {
+        method: 'PUT',
+        header: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).catch(errorFunction);
+    console.log(response.status);
+    return await response.json();
+}
+
+
+function errorFunction() {
+    console.error('Fehler aufgetreten',);
+}
