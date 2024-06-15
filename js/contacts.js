@@ -30,15 +30,29 @@ async function showContactList() {
 }
 
 function showContactListContent() {
+    sortContacts();    
     for (i = 0; i < contacts.length; i++) {
         let contact = contacts[i];
         let contactName = contact['name'];
         let firstInitial = contactName.charAt(0);
+        let firstInitialUpper = firstInitial.toUpperCase();
         let initials = getInitials(contactName);
         let color = contact['color'];
-        let contactsContainer = document.getElementById('contactsContainer' + firstInitial);
+        let contactsContainer = document.getElementById('contactsContainer' + firstInitialUpper);
         contactsContainer.innerHTML += generateContactListContentHTML(contact, initials, color);
     }
+}
+
+function sortContacts() {
+    contacts.sort(function(a, b) {
+        return compareStrings(a.name, b.name);
+    });
+}
+
+function compareStrings(a, b) {
+    a = a.toLowerCase();
+    b = b.toLowerCase();
+    return (a < b) ? -1 : (a > b) ? 1 : 0;
 }
 
 function excerptContactListLetters() {
@@ -46,7 +60,8 @@ function excerptContactListLetters() {
         let contact = contacts[i];
         let contactName = contact['name'];
         let firstInitial = contactName.charAt(0);
-        usedLetters.push(firstInitial);
+        let firstInitialUpper = firstInitial.toUpperCase();
+        usedLetters.push(firstInitialUpper);
     }
     let usedLettersUnique = [...new Set(usedLetters)];
     let usedLettersUniqueSorted = usedLettersUnique.sort();
