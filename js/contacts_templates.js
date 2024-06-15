@@ -9,9 +9,9 @@ function generateContactListHTML(contactListLetter) {
 function generateContactListContentHTML(contact, initials, color) {
     return /*html*/`
         <div class="contact-container pointer" onclick="showContactName('${contact['name']}', '${initials}', '${color}', '${contact['email']}', '${contact['phone']}')">
-            <div class="contact-dot contact-dot-${color}">${initials}</div>
+            <div class="contact-list-dot contact-dot-${color}">${initials}</div>
             <div>
-                <div class="contact-name">${contact['name']}</div>
+                <div class="contact-list-name">${contact['name']}</div>
                 <div class="contact-mail">${contact['email']}</div>
             </div>
         </div>
@@ -22,7 +22,7 @@ function generateContactNameHTML(contactName, initials, color) {
     return /*html*/`
         <div class="contact-info-dot contact-dot-${color}">${initials}</div>
         <div>
-            <div class="contact-name">${contactName}</div>
+            <div class="contact-info-name">${contactName}</div>
             <div class="contact-edit-delete-desktop-container">
                 <div class="contact-edit-delete-desktop pointer" onclick="handleOverlayEditContact()">
                     <img src="./assets/img/edit.svg" class="contact-edit-desktop-img">
