@@ -24,16 +24,16 @@ function taskCardHTML(id, type, title, description, prioIcon) {
 }
 
 
-function addAssignHTML(initials) {
+function addAssignHTML(initials, contactColor) {
     return /*html*/`
-        <div class="profile-batch profile-lila">${initials}</div>
+        <div class="profile-batch ${contactColor}">${initials}</div>
     `
 }
 
 
-function addAssignWithOverlapHTML(initials, i) {
+function addAssignWithOverlapHTML(initials, contactColor, i) {
     return /*html*/`
-        <div class="profile-batch profile-lila overlap-${i}">${initials}</div>
+        <div class="profile-batch ${contactColor} overlap-${i}">${initials}</div>
     `
 }
 
@@ -65,16 +65,7 @@ function taskHTML(id) {
                 <p class="prio-text">Prio <img src=${prioIcons[taskArray[id].prio]} alt=""></p>
             </div>
             <p class="task-p-bold">Assigned To:</p>
-            <div>
-                <div class="task-assigned">
-                    <div class="profile-batch profile-lila">AS</div>
-                    <p class="assigned-name">Alfred Schulz</p>
-                </div>
-                <div class="task-assigned">
-                    <div class="profile-batch profile-orange">HS</div>
-                    <p class="assigned-name">Homer Simpson</p>
-                </div>
-            </div>
+            <div id="taskAssign"></div>
             <p class="task-p-bold">Subtasks</p>
             <div id="taskOverlaySubtasks">
                 <div id="sub1" class="check-list-row">
@@ -94,6 +85,16 @@ function taskHTML(id) {
                 </div>
             </div>
         </div>  
+    `
+}
+
+
+function taskAssignHTML(color, initials, name) {
+    return /*html*/`
+        <div class="task-assigned">
+            <div class="profile-batch ${color}">${initials}</div>
+            <p class="assigned-name">${name}</p>
+        </div>
     `
 }
 

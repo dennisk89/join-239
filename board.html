@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="board.css">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="footer.css">
-    <!-- <link rel="stylesheet" href="style-add-task-overlay.css"> -->
     <link rel="icon" type="image/x-icon" href="assets/img/join-logo.svg">
     <script defer src="js/config.js"></script>
     <script defer src="assets/templates/board-html-templates.js"></script>
@@ -53,7 +52,6 @@
 
 
         <!-- ANCHOR in to do -->
-
         <div class="board-columns">
             <div class="flex-col-gap16">
                 <div class="board-column-title">
@@ -62,29 +60,7 @@
                 </div>
                 <div class="card-container" id="toDoColumn">
                     <!-- ANCHOR card -->
-                    <div onclick="openOverlay(); stopP(event)" class="card clickable">
-                        <img src="assets/img/board-card-label-us.svg" alt="">
-                        <div class="card-text-box">
-                            <h3>profile Form & Imprint</h3>
-                            <p>Create a profile form and imprint page...</p>
-                        </div>
-                        <div class="card-progress-container">
-                            <div class="outer-pbar" id="subtaskBar">
-                                <div class="inner-pbar" style="width: 50%;"></div>
-                            </div>
-                            <label for="subtaskBar">1/2 Subtasks</label>
-                        </div>
-                        <div class="card-footer">
-                            <div class="circle-container">
-                                <div class="profile-batch profile-lila">AS</div>
-                                <div class="profile-batch profile-rosa overlap-1">DE</div>
-                                <div class="profile-batch profile-orange overlap-2">EF</div>
-                            </div>
-                            <img class="clickable" src="assets/img/priority-low.svg" alt="">
-                        </div>
-                    </div>
                 </div>
-
             </div>
 
             <!-- ANCHOR in progress -->
@@ -95,53 +71,7 @@
                 </div>
                 <div class="card-container" id="inProgressColumn">
                     <!-- ANCHOR card -->
-                    <div onclick="openOverlay(); stopP(event)" class="card clickable">
-                        <img src="assets/img/board-card-label-us.svg" alt="">
-                        <div class="card-text-box">
-                            <h3>Kochwelt</h3>
-                            <p>Speghetti Bolo Rezept...</p>
-                        </div>
-                        <div class="card-progress-container">
-                            <div class="outer-pbar" id="subtaskBar">
-                                <div class="inner-pbar" style="width: 0%;"></div>
-                            </div>
-                            <label for="subtaskBar">0/2 Subtasks</label>
-                        </div>
-                        <div class="card-footer">
-                            <div class="circle-container">
-                                <div class="profile-batch profile-lila">AS</div>
-                                <div class="profile-batch profile-rosa overlap-1">DE</div>
-                                <div class="profile-batch profile-orange overlap-2">EF</div>
-                            </div>
-                            <img class="clickable" src="assets/img/priority-medium.svg" alt="">
-                        </div>
-                    </div>
-
-                    <!-- ANCHOR card -->
-                    <div onclick="openOverlay(); stopP(event)" class="card clickable">
-                        <img src="assets/img/board-card-label-us.svg" alt="">
-                        <div class="card-text-box">
-                            <h3>Kochwelt</h3>
-                            <p>create imprint and contact form...</p>
-                        </div>
-                        <div class="card-progress-container">
-                            <div class="outer-pbar" id="subtaskBar">
-                                <div class="inner-pbar" style="width: 33%;"></div>
-                            </div>
-                            <label for="subtaskBar">1/3 Subtasks</label>
-                        </div>
-                        <div class="card-footer">
-                            <div class="circle-container">
-                                <div class="profile-batch profile-lila">AS</div>
-                                <div class="profile-batch profile-rosa overlap-1">DE</div>
-                                <div class="profile-batch profile-orange overlap-2">EF</div>
-                            </div>
-                            <img class="clickable" src="assets/img/priority-urgent.svg" alt="">
-                        </div>
-                    </div>
                 </div>
-
-
             </div>
 
 
@@ -151,32 +81,9 @@
                     <h2>Await feedback</h2>
                     <img class="clickable" src="assets/img/plus-button-mobile-board-column.svg" alt="">
                 </div>
-
                 <div class="card-container" id="feedbackColumn">
                     <!-- ANCHOR card -->
-                    <div onclick="openOverlay(); stopP(event)" class="card clickable">
-                        <img src="assets/img/board-card-label-tt.svg" alt="">
-                        <div class="card-text-box">
-                            <h3>Pokemon</h3>
-                            <p>load pokemons into local storage...</p>
-                        </div>
-                        <div class="card-progress-container">
-                            <div class="outer-pbar" id="subtaskBar">
-                                <div class="inner-pbar" style="width: 50%;"></div>
-                            </div>
-                            <label for="subtaskBar">1/2 Subtasks</label>
-                        </div>
-                        <div class="card-footer">
-                            <div class="circle-container">
-                                <div class="profile-batch profile-lila">AS</div>
-                                <div class="profile-batch profile-rosa overlap-1">DE</div>
-                                <div class="profile-batch profile-orange overlap-2">EF</div>
-                            </div>
-                            <img class="clickable" src="assets/img/card-priority-symbol.svg" alt="">
-                        </div>
-                    </div>
                 </div>
-
             </div>
 
             <!-- ANCHOR done -->
@@ -186,29 +93,7 @@
                 </div>
                 <div class="card-container" id="doneColumn">
                     <!-- ANCHOR card -->
-                    <div onclick="openOverlay(); stopP(event)" class="card clickable">
-                        <img src="assets/img/board-card-label-us.svg" alt="">
-                        <div class="card-text-box">
-                            <h3>Lieferando order</h3>
-                            <p>Create a shop...</p>
-                        </div>
-                        <div class="card-progress-container">
-                            <div class="outer-pbar" id="subtaskBar">
-                                <div class="inner-pbar" style="width: 100%;"></div>
-                            </div>
-                            <label for="subtaskBar">2/2 Subtasks</label>
-                        </div>
-                        <div class="card-footer">
-                            <div class="circle-container">
-                                <div class="profile-batch profile-lila">AS</div>
-                                <div class="profile-batch profile-rosa overlap-1">DE</div>
-                                <div class="profile-batch profile-orange overlap-2">EF</div>
-                            </div>
-                            <img class="clickable" src="assets/img/card-priority-symbol.svg" alt="">
-                        </div>
-                    </div>
                 </div>
-
             </div>
         </div>
 

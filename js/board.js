@@ -1,6 +1,3 @@
-
-
-
 // ANCHOR load Tasks
 async function initBoard() {
     await initJoin();
@@ -38,13 +35,19 @@ function addContactLabelsToCards(i) {
     let container = document.getElementById(taskArray[i].id).children[3].children[0];
     container.innerHTML = '';
     for (let j = 0; j < max; j++) {
-        let initials = getInitials(taskArray[i].assigned[j]);
+        let assignee = getContactByContactID(taskArray[i].assigned[j]);
         if (j == 0) {
-            container.innerHTML += addAssignHTML(initials);
+            container.innerHTML += addAssignHTML(assignee.initials, assignee.color);
         } else {
-            container.innerHTML += addAssignWithOverlapHTML(initials, j);
+            container.innerHTML += addAssignWithOverlapHTML(assignee.initials, assignee.color, j);
         }
     }
+}
+
+
+function getContactByContactID(contactID) {
+    let contactArray = contacts.filter(c => c.id == contactID);
+    return contactArray[0];
 }
 
 
@@ -63,12 +66,6 @@ function addSubTaskProgressToCards(i) {
     let done = taskArray[i].subTaskStatus.filter(s => s == true);
     label.innerHTML = /*html*/`${done.length}/${taskArray[i].subTask.length} Subtasks`;
     pbar.style.width = ((done.length / taskArray[i].subTask.length) * 100) + '%';
-}
-
-
-
-function getInitials(name) {
-    return String(name[0]).toUpperCase() + String(name[name.indexOf(' ') + 1]).toUpperCase()
 }
 
 
@@ -98,6 +95,31 @@ function getNewTaskArrayIndex() {
 
 
 // ANCHOR open Task details
+function openTasks(taskArrayIndex) {
+    document.getElementById('taskOverlay').style.display = 'flex';
+    document.getElementById('taskOverlay').innerHTML = taskHTML(taskArrayIndex);
+    renderAssignees(taskArrayIndex);
+    renderSubTasks(taskArrayIndex); 
+}
+
+
+function renderAssignees(taskArrayIndex) {
+    let taskAssignees = pushTaskAssigneesToArray(taskArrayIndex);
+    for (let i = 0; i < taskAssignees.length; i++) {
+        document.getElementById('taskAssign').innerHTML += taskAssignHTML(taskAssignees[i].color, taskAssignees[i].initials, taskAssignees[i].name)
+    }
+}
+
+
+function pushTaskAssigneesToArray(taskArrayIndex) {
+    let taskAssignees = [];
+    for (let i = 0; i < taskArray[taskArrayIndex].assigned.length; i++) {
+        taskAssignees.push(getContactByContactID(taskArray[taskArrayIndex].assigned[i]));
+    }
+    return taskAssignees   
+}
+
+
 function renderSubTasks(taskArrayIndex) {
     let array = taskArray[taskArrayIndex].subTask;
     let subtaskContainer = document.getElementById('taskOverlaySubtasks');
@@ -115,13 +137,6 @@ function renderSubTasks(taskArrayIndex) {
 // ANCHOR Menu functionality
 function stopP(event) {
     event.stopPropagation();
-}
-
-
-function openTasks(taskArrayIndex) {
-    document.getElementById('taskOverlay').style.display = 'flex';
-    document.getElementById('taskOverlay').innerHTML = taskHTML(taskArrayIndex);
-    renderSubTasks(taskArrayIndex); 
 }
 
 

@@ -12,22 +12,6 @@
 }
 
 
-
-.profile-lila {
-    background-color: rgba(147, 39, 255, 1);
-    ;
-}
-
-.profile-rosa {
-    background-color: rgba(252, 113, 255, 1);
-}
-
-.profile-orange {
-    background-color: rgba(255, 187, 43, 1);
-}
-
-
-
 body {
     margin: 0;
     font-family: 'inter';
@@ -46,12 +30,33 @@ p {
     margin: 0;
 }
 
-
 .hide-under-1400p {
     display: none;
 }
 
-/* ANCHOR header */
+.orange {
+    background-color: rgba(255, 122, 0, 1);
+}
+
+.purple {
+    background-color: rgba(147, 39, 255, 1);
+}
+
+.blue {
+    background-color: rgba(110, 82, 255, 1);
+}
+
+.pink {
+    background-color: rgba(252, 113, 255, 1);
+}
+
+.yellow {
+    background-color: rgba(255, 187, 43, 1);
+}
+
+.mint {
+    background-color: rgba(31, 215, 193, 1);
+}
 
 
 
