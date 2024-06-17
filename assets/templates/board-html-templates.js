@@ -125,7 +125,7 @@ function addTaskOverlayHTML() {
                 <h1 class="add-task-headline">Add Task</h1>
                 <img class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask()">
             </div>
-            <form class="overlay-form">
+            <form class="overlay-form" onsubmit="console.log('add'); return false">
                 <div class="form-half-side">
                     <div class="input-group">
                         <label for="titleInput">Title<span class="color-red">*</span></label>
@@ -149,7 +149,7 @@ function addTaskOverlayHTML() {
                     <div class="input-group">
                         <label for="dateInput">Due date<span class="color-red">*</span></label>
                         <input id="dateInput" class="enter-input" placeholder="dd/mm/yyyy" type="text"
-                            onfocus="(this.type='date')" onblur="(this.type='text'); this.placeholder='dd/mm/yyyy';">
+                            onfocus="(this.type='date')" onblur="(this.type='text'); this.placeholder='dd/mm/yyyy';" required>
                     </div>
                     <div class="input-group">
                         <label class="">Prio</label>
@@ -170,8 +170,10 @@ function addTaskOverlayHTML() {
                     </div>
                     <div class="input-group">
                         <label for="selectCategory">Category<span class="color-red">*</span></label>
-                        <select class="enter-input select-input" name="select category" id="selectCategory">
-                            <option value="Select task category">Select contacts to assign</option>
+                        <select class="enter-input select-input" name="select category" id="selectCategory" required>
+                            <option value="">Select task category</option>
+                            <option value="tt">Technical task</option>
+                            <option value="us">User story</option>
                         </select>
                     </div>
                     <div class="input-group">
