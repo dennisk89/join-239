@@ -110,15 +110,12 @@ function showContactName(contactId, contactName, initials, color, email, phone) 
     contactInfoHeader.classList.remove('hide');
 }
 
-function addNewContact() {
+function createNewContactArray() {
     let addContactInputName = document.getElementById('addContactInputName');
     let addContactInputMail = document.getElementById('addContactInputMail');
-    let addContactInputPhone = document.getElementById('addContactInputPhone');
-    let randomColor = getRandomColor();
-    for (let i = 0; i < 10; i++) { // Damit der zufällige Index mehrmals generiert wird -> besserer Zufallsgenerator.
-        randomColor = getRandomColor();
-    }
+    let addContactInputPhone = document.getElementById('addContactInputPhone');        
     let newId = generateUniqueId('c', contacts);
+    let randomColor = getRandomColor();
     let newContact = {
         'id': newId,
         'name': addContactInputName.value,
@@ -127,16 +124,27 @@ function addNewContact() {
         'color': randomColor,
         'initials': getInitials(addContactInputName.value)
     };
-    contacts.push(newContact);
-    putData(endpointContacts, contacts);
-    addContactInputName.value = '';
-    addContactInputMail.value = '';
-    addContactInputPhone.value = '';
+    addNewContact(newContact);
 }
 
 function getRandomColor() {
-    let randomIndex = Math.floor(Math.random() * colors.length);
+    let randomIndex;
+    for (let i = 0; i < 20; i++) { // Damit der zufällige Index mehrmals generiert wird -> besserer Zufallsgenerator.
+        randomIndex = Math.floor(Math.random() * colors.length);        
+    }    
     return colors[randomIndex];
+}
+
+function addNewContact(newContact) {
+    contacts.push(newContact);
+    putData(endpointContacts, contacts);
+    emptyAddContactForm();
+}
+
+function emptyAddContactForm() {
+    document.getElementById('addContactInputName').value = '';
+    document.getElementById('addContactInputMail').value = '';
+    document.getElementById('addContactInputPhone').value = '';
 }
 
 function deleteContact(contactId) {
@@ -144,13 +152,19 @@ function deleteContact(contactId) {
     putData(endpointContacts, contactsRemaining);
 }
 
-async function editContact(contactId, initials, color) {
-    contacts = await getData(endpointContacts);
+async function saveEditedContact(newContactData, contactId) {
+    contacts = await getData(endpointContacts);    
+    let indexOfChangedContact = contacts.findIndex(x => x.id === contactId);
+    contacts.splice(indexOfChangedContact, 1);
+    contacts.push(newContactData);
+    putData(endpointContacts, contacts);
+    emptyEditContactForm();
+}
+
+function editContact(contactId, initials, color) {
     let editContactInputName = document.getElementById('editContactInputName');
     let editContactInputMail = document.getElementById('editContactInputMail');
     let editContactInputPhone = document.getElementById('editContactInputPhone');
-    let indexOfChangedContact = contacts.findIndex(x => x.id === contactId);
-    contacts.splice(indexOfChangedContact, 1);
     let newContactData = {
         'id': contactId,
         'name': editContactInputName.value,
@@ -159,9 +173,11 @@ async function editContact(contactId, initials, color) {
         'color': color,
         'initials': initials
     };
-    contacts.push(newContactData);
-    putData(endpointContacts, contacts);
-    editContactInputName.value = '';
-    editContactInputMail.value = '';
-    editContactInputPhone.value = '';
+    saveEditedContact(newContactData, contactId);
+}
+
+function emptyEditContactForm() {
+    document.getElementById('editContactInputName').value = '';
+    document.getElementById('editContactInputMail').value = '';
+    document.getElementById('editContactInputPhone').value = '';
 }
