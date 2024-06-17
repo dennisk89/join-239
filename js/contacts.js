@@ -1,4 +1,4 @@
-let colors = ['orange', 'purple', 'blue', 'pink', 'yellow', 'mint'];
+let colors = ['orange', 'purple', 'blue', 'pink', 'yellow', 'mint', 'green'];
 let usedLetters = [];
 let contactListLetters = [];
 
@@ -95,9 +95,9 @@ function addNewContact() {
     for (let i = 0; i < 10; i++) { // Damit der zufällige Index mehrmals generiert wird -> besserer Zufallsgenerator.
         randomColor = getRandomColor();
     }
-    let newID = 'c' + (contacts.length + 1);
+    let newId = generateUniqueId();
     let newContact = {
-        'id': newID,
+        'id': newId,
         'name': addContactInputName.value,
         'email': addContactInputMail.value,
         'phone': addContactInputPhone.value,
@@ -114,4 +114,12 @@ function addNewContact() {
 function getRandomColor() {
     let randomIndex = Math.floor(Math.random() * colors.length);
     return colors[randomIndex];
+}
+
+function generateUniqueId() {
+    let newId;
+    do { // Do-While-Schleife: Sie sorgt dafür, dass so lange eine neue ID generiert wird, bis eine ID gefunden wurde, die noch nicht vergeben ist.
+        newId = 'c' + Math.floor(Math.random() * 10000); // Math.random() erzeugt eine Zufallszahl zwischen 0 (inkl.) und 1 (exkl.); durch * 10000 wird auf einen Bereich von 0 bis 9999.999... skaliert. Math.floor rundet die Zufallszahl auf die nächste ganze Zahl ab, sodass eine Zahl zwischen 0 und 9999 entsteht.
+    } while (contacts.some(contact => contact.id === newId)); // Überprüfung, ob die neu generierte ID bereits vergeben ist.
+    return newId;
 }

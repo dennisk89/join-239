@@ -1,6 +1,7 @@
 const endpointTasks = 'https://join-239-default-rtdb.europe-west1.firebasedatabase.app/tasks';
 const endpointContacts = 'https://join-239-default-rtdb.europe-west1.firebasedatabase.app/contacts';
 const endpointUser = 'https://join-239-default-rtdb.europe-west1.firebasedatabase.app/users';
+
 let contacts;
 let taskArray;
 let todoTasks; 
@@ -8,7 +9,6 @@ let progressTasks;
 let feedbackTasks;
 let doneTasks;
 let urgentTasks;
-
 
 async function initJoin() {
     contacts = await getData(endpointContacts);
@@ -20,14 +20,11 @@ async function initJoin() {
     urgentTasks = taskArray.filter(t => t.prio === 'urgent' && t.dueDate);
 }
 
-
-
 async function getData(url) {
     let response = await fetch(url + ".json").catch(errorFunction);
     console.log(response.status);
     return await response.json();
 }
-
 
 async function putData(url, data = {}) {
     let response = await fetch(url + ".json", {
@@ -41,13 +38,9 @@ async function putData(url, data = {}) {
     return await response.json();
 }
 
-
 function errorFunction() {
     console.error('Fehler aufgetreten');
 }
-
-
-
 
 const prioIcons = {
     'low': 'assets/img/priority-low.svg',
@@ -55,21 +48,11 @@ const prioIcons = {
     'urgent': 'assets/img/priority-urgent.svg'
 }
 
-
-
-
 // putData(endpointTasks, taskArray)
-
 
 // putData(endpointContacts, contacts)
 
-
 // putData(endpointUser, users)
-
-
-
-
-
 
 class Task {
     constructor(id, type, title, description, dueDate, assigned, prio, status, subTask, taskStatus) {
@@ -85,10 +68,3 @@ class Task {
             this.taskStatus = taskStatus
     }
 }
-
-
-
-
-
-
-
