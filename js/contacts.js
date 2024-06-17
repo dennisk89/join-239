@@ -30,7 +30,7 @@ async function showContactList() {
 }
 
 function showContactListContent() {
-    sortContacts();    
+    sortContacts();
     for (i = 0; i < contacts.length; i++) {
         let contact = contacts[i];
         let contactName = contact['name'];
@@ -117,5 +117,11 @@ function getRandomColor() {
 }
 
 function deleteContact(contactId) {
-    console.log('Delete-Function activated for Contact with ID ' + contactId);
+    console.log(contactId);
+    // let indexOfContactToDelete = contacts.findIndex(x => x.id === contactId);
+    // console.log(indexOfContactToDelete);
+    // let pathOfContactToDelete = endpointContacts + "/" + indexOfContactToDelete;
+    let contactsActualized = contacts.filter(contact => contact.id !== contactId);
+    console.log(contactsActualized);
+    putData(endpointContacts, contactsActualized);
 }
