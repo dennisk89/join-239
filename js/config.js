@@ -60,7 +60,7 @@ function errorFunction() {
 // putData(endpointUser, users)
 
 class Task {
-    constructor(id, type, title, description, dueDate, assigned, prio, status, subTask, taskStatus) {
+    constructor(id, type, title, description, dueDate, assigned, prio, taskStatus, subTask, subtaskStatus) {
         this.id = id,
             this.type = type,
             this.title = title,
@@ -68,9 +68,9 @@ class Task {
             this.dueDate = dueDate,
             this.assigned = assigned,
             this.prio = prio,
-            this.status = status,
+            this.taskStatus = taskStatus,
             this.subTask = subTask,
-            this.taskStatus = taskStatus
+            this.subTaskStatus = subtaskStatus
     }
 }
 

@@ -2,7 +2,7 @@
 
 function taskCardHTML(id, type, title, description, prioIcon) {
     return /*html*/`
-    <div id=${id} onclick="openTasks(${id}); stopP(event)" class="card clickable">
+    <div id=${id} onclick="openTasks('${id}'); stopP(event)" class="card clickable">
         <img src='${type}' alt="ticket-type">
         <div class="card-text-box">
             <h3>${title}</h3>
@@ -47,22 +47,22 @@ function boardPlaceholderHTML(column) {
 }
 
 
-function taskHTML(id) {
+function taskHTML(id, type, title, description, dueDate, prio) {
     return /*html*/`
-        <div id="task${id}" class="open-task">
+        <div id="detailsFor${id}" class="open-task">
             <div class="task-header">
-                <img src="${taskType[taskArray[id].type]}" alt="">
+                <img src="${type}" alt="">
                 <img class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask()">
             </div>
-            <h1>${taskArray[id].title}</h1>
-            <p>${taskArray[id].description}</p>
+            <h1>${title}</h1>
+            <p>${description}</p>
             <div class="task-line">
                 <p class="task-p-bold">Due date:</p>
-                <p>${taskArray[id].dueDate}</p>
+                <p>${dueDate}</p>
             </div>
             <div class="task-line">
                 <p class="task-p-bold">Priority:</p>
-                <p class="prio-text">Prio <img src=${prioIcons[taskArray[id].prio]} alt=""></p>
+                <p class="prio-text">Prio <img src=${prio} alt=""></p>
             </div>
             <p class="task-p-bold">Assigned To:</p>
             <div id="taskAssign"></div>

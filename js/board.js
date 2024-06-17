@@ -1,3 +1,7 @@
+// function taskChanger() {
+
+// }
+
 
 // ANCHOR load Tasks
 async function initBoard() {
@@ -70,71 +74,58 @@ function addSubTaskProgressToCards(i) {
 }
 
 
-function createTask() {
-    let newTask = new Task(
-        getNewTaskArrayIndex(),
-        'us',
-        'Kochwelt html',
-        'Write html code for Kochwelt',
-        '2024-7-1',
-        ['Homer Simpson', 'Gordon Shumway'],
-        'Urgent',
-        [false, false],
-        ['Link style.css in index.html.', 'Write all html elements.'],
-        'todo'
-    );
-    taskArray.push(newTask)
+async function createTask(type, title, description, date, assignees, prio, status, subtasks, subtaskStatus) {
+    let newTask = new Task(generateUniqueId('t', taskArray), type, title, description, date, assignees, prio, status, subtasks, subtaskStatus);
+    taskArray.push(newTask);
+    await putData(endpointTasks, taskArray);
+    initBoard();
 }
 
-
-function getNewTaskArrayIndex() {
-    if (taskArray.length == 0) {
-        return 0;
-    } else {
-        return taskArray.length;
-    }
-}
 
 
 // ANCHOR open Task details
-function openTasks(taskArrayIndex) {
+function openTasks(id) {
+    let task = getTaskById(id);
     document.getElementById('taskOverlay').style.display = 'flex';
-    document.getElementById('taskOverlay').innerHTML = taskHTML(taskArrayIndex);
-    renderAssignees(taskArrayIndex);
-    renderSubTasks(taskArrayIndex); 
+    document.getElementById('taskOverlay').innerHTML = taskHTML(task.id, taskType[task.type], task.title, task.description, task.dueDate, prioIcons[task.prio]);
+    renderAssignees(task);
+    renderSubTasks(task); 
 }
 
 
-function renderAssignees(taskArrayIndex) {
-    let taskAssignees = pushTaskAssigneesToArray(taskArrayIndex);
+function renderAssignees(task) {
+    let taskAssignees = pushTaskAssigneeInfosToArray(task);
     for (let i = 0; i < taskAssignees.length; i++) {
         document.getElementById('taskAssign').innerHTML += taskAssignHTML(taskAssignees[i].color, taskAssignees[i].initials, taskAssignees[i].name)
     }
 }
 
 
-function pushTaskAssigneesToArray(taskArrayIndex) {
+function pushTaskAssigneeInfosToArray(task) {
     let taskAssignees = [];
-    for (let i = 0; i < taskArray[taskArrayIndex].assigned.length; i++) {
-        taskAssignees.push(getContactByContactID(taskArray[taskArrayIndex].assigned[i]));
+    for (let i = 0; i < task.assigned.length; i++) {
+        taskAssignees.push(getContactByContactID(task.assigned[i]));
     }
     return taskAssignees   
 }
 
 
-function renderSubTasks(taskArrayIndex) {
-    let array = taskArray[taskArrayIndex].subTask;
+function renderSubTasks(task) {
     let subtaskContainer = document.getElementById('taskOverlaySubtasks');
     subtaskContainer.innerHTML = '';
-    for (let i = 0; i < array.length; i++) {
-        if (taskArray[taskArrayIndex].subTaskStatus[i]) {
-            subtaskContainer.innerHTML += taskSubTaskDoneHTML(i, array[i]);
+    for (let i = 0; i < task.subTask.length; i++) {
+        if (task.subTaskStatus[i]) {
+            subtaskContainer.innerHTML += taskSubTaskDoneHTML(i, task.subTask[i]);
         } else {
-            subtaskContainer.innerHTML += taskSubTaskHTML(i, array[i]);
-        };
+            subtaskContainer.innerHTML += taskSubTaskHTML(i, task.subTask[i]);
+        }
     }
 }
 
+
+function getTaskById(id) {
+    return taskArray[taskArray.findIndex(t => t.id === id)]
+}
 
 // ANCHOR Menu functionality
 function stopP(event) {
@@ -153,12 +144,13 @@ function closeTask() {
 }
 
 
-function checkSubTask(id) {
-    let taskArrayIndex = document.getElementById('taskOverlay').children[0].id.charAt(4);
-    let subTaskId = id.charAt(3);
-    taskArray[taskArrayIndex].subTaskStatus[subTaskId] = changeSubTaskStatus(taskArray[taskArrayIndex].subTaskStatus[subTaskId]);
-    renderSubTasks(taskArrayIndex);
-    addSubTaskProgressToCards(taskArrayIndex)
+function checkSubTask(subtaskId) {
+    let taskId = document.getElementsByClassName('open-task')[0].id.replace('detailsFor', '');
+    let taskArrayIndex = taskArray.findIndex(t => t.id === taskId)
+    subtaskId = subtaskId.replace('sub', '');
+    taskArray[taskArrayIndex].subTaskStatus[subtaskId] = changeSubTaskStatus(taskArray[taskArrayIndex].subTaskStatus[subtaskId]);
+    renderSubTasks(getTaskById(taskId));
+    addSubTaskProgressToCards(taskArrayIndex);
 }
 
 
