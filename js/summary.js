@@ -1,21 +1,51 @@
-async function initSummary(){
+async function initSummary() {
     await initJoin();
-    showTodosCount()
-    showDoneTasksCount()
-    showUrgentTasksCount()
+    showTodosCount();
+    showDoneTasksCount();
+    showUrgentTasksCount();
+    showTasksInBoardCount();
+    showTasksInProgressCount();
+    showTasksAwaitingFeedbackCount();
+    findEarliestDate();
 }
 
-function showTodosCount(){
+function showTodosCount() {
     let todos = todoTasks.length;
     document.getElementById('todos').innerHTML = todos;
 }
 
-function showDoneTasksCount(){
+function showDoneTasksCount() {
     let doneTasksCount = doneTasks.length;
     document.getElementById('doneTasks').innerHTML = doneTasksCount;
 }
 
-function showUrgentTasksCount(){
+function showUrgentTasksCount() {
     let urgentTasksCount = urgentTasks.length;
     document.getElementById('urgentTasks').innerHTML = urgentTasksCount;
 }
+
+function showTasksInBoardCount() {
+    let tasksInBoardCount = taskArray.length;
+    document.getElementById('tasksInBoard').innerHTML = tasksInBoardCount;
+}
+
+function showTasksInProgressCount() {
+    let showTasksInProgressCount = progressTasks.length;
+    document.getElementById('tasksInProgress').innerHTML = showTasksInProgressCount;
+}
+
+function showTasksAwaitingFeedbackCount() {
+    let feedbackTasksCount = feedbackTasks.length;
+    document.getElementById('tasksAwaitingFeedback').innerHTML = feedbackTasksCount;
+}
+
+function findEarliestDate() {
+    let earliestDueDate = null;
+    for (let task of urgentTasks) {
+        if (!earliestDueDate || new Date(task.dueDate) < new Date(earliestDueDate)) {
+            earliestDueDate = task.dueDate;
+        }
+    }
+    console.log(earliestDueDate);
+}
+

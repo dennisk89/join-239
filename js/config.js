@@ -17,7 +17,7 @@ async function initJoin() {
     progressTasks = taskArray.filter(t => t.taskStatus == 'progress');
     feedbackTasks = taskArray.filter(t => t.taskStatus == 'feedback');
     doneTasks = taskArray.filter(t => t.taskStatus == 'done');
-    urgentTasks = taskArray.filter(t => t.prio == 'urgent');
+    urgentTasks = taskArray.filter(t => t.prio === 'urgent' && t.dueDate);
 }
 
 
