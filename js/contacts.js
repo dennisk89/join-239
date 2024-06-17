@@ -117,7 +117,7 @@ function addNewContact() {
     for (let i = 0; i < 10; i++) { // Damit der zufällige Index mehrmals generiert wird -> besserer Zufallsgenerator.
         randomColor = getRandomColor();
     }
-    let newId = generateUniqueId('c');
+    let newId = generateUniqueId('c', contacts);
     let newContact = {
         'id': newId,
         'name': addContactInputName.value,
