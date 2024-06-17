@@ -69,6 +69,10 @@
     background-position: right 24px top 50%;
 }
 
+.password:focus {
+    background-image: url("./assets/img/visibility_off.svg");
+}
+
 .password::placeholder{
     color: rgb(209, 209, 209);
 }

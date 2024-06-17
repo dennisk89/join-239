@@ -46,6 +46,11 @@ function findEarliestDate() {
             earliestDueDate = task.dueDate;
         }
     }
-    console.log(earliestDueDate);
+    let formattedDueDate = new Date(earliestDueDate).toLocaleDateString('en-US', {
+        month: 'long', 
+        day: 'numeric',
+        year: 'numeric' 
+    });
+    document.getElementById('dueDate').innerHTML = formattedDueDate;
 }
 

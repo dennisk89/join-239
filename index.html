@@ -8,15 +8,17 @@
     <link rel="stylesheet" href="style_dennis.css">
     <link rel="icon" type="image/x-icon" href="assets/img/join-logo.svg">
     <link rel="stylesheet" href="style_dennis_login.css">
+    <script defer src="js/config.js"></script>
+    <script defer src="js/index.js"></script>
 </head>
 
 <body class="bg-add-task">
-    <div class="">
+    <div id="start-page-login">
         <div class="align-center">
             <img class="join-logo-login-signup" src="./assets/img/join-logo.svg" alt="">
             <div class="not-a-user hide-on-mobile">
                 <span>Not a Join user?</span>
-                <div class="small-signup-btn">Sign up</div>
+                <div onclick="openSignup()" class="small-signup-btn">Sign up</div>
             </div>
         </div>
         <div class="login-white-bg">
@@ -26,7 +28,7 @@
             </div>
             <form class="login-form">
                 <input placeholder="Email" class="email" type="email" id="email">
-                <input placeholder="Password" class="password" type="text" id="password">
+                <input onclick="showPassword()" placeholder="Password" class="password" type="password" id="password">
             </form>
             <div class="remember-me">
                 <img src="./assets/img/Check button mobile.svg" alt="">
@@ -37,10 +39,9 @@
                 <div class="guest-login">Guest Log in</div>
             </div>
         </div>
-
         <div class="not-a-user hide-on-desktop">
             <span>Not a Join user?</span>
-            <div class="small-signup-btn">Sign up</div>
+            <div class="small-signup-btn clickable" onclick="openSignup()">Sign up</div>
         </div>
         <div class="login-links-align">
             <a class="login-links" href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy
@@ -48,34 +49,38 @@
             <a class="login-links" href="legal_notice.html" target="_blank" rel="noopener noreferrer">Legal Notice</a>
         </div>
     </div>
-    <div class="align-center">
-        <img class="join-logo-login-signup" src="./assets/img/join-logo.svg" alt="">
-    </div>
-    <div class="login-white-bg">
-        <div class="arrow-align">
-            <img class="login-arrow-back" src="./assets/img/arrow-left-line.svg" alt="">
-            <div class="flexdirection-column">
-            <span>Sign up</span>
-            <div class="blue-underline"></div>
+    <div id="signup-startpage" class="d-none">
+        <div class="align-center">
+            <img class="join-logo-login-signup" src="./assets/img/join-logo.svg" alt="">
         </div>
+        <div class="login-white-bg">
+            <div class="arrow-align">
+                <img onclick="backToLogin()" class="login-arrow-back clickable" src="./assets/img/arrow-left-line.svg" alt="">
+                <div class="flexdirection-column">
+                    <span>Sign up</span>
+                    <div class="blue-underline"></div>
+                </div>
+            </div>
+            <form class="login-form">
+                <input placeholder="Name" class="name-input" type="text" id="name">
+                <input placeholder="Email" class="email" type="email" id="e-mail">
+                <input placeholder="Password" class="password" type="password" id="password-form">
+                <input placeholder="Confirm Password" class="password" type="password" id="confirmPassword">
+            </form>
+            <div class="accept-terms">
+                <img src="./assets/img/Check button mobile.svg" alt="">
+                <span class="color-grey">I accept the <a class="highlighted-text no-decoration"
+                        href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a></span>
+            </div>
+            <div class="login-btns">
+                <div class="login-btn margin-bottom32px">Sign up</div>
+            </div>
         </div>
-        <form class="login-form">
-            <input placeholder="Name" class="name-input" type="text" id="name">
-            <input placeholder="Email" class="email" type="email" id="email">
-            <input placeholder="Password" class="password" type="text" id="password">
-            <input placeholder="Confirm Password" class="password" type="text" id="confirmPassword">
-        </form>
-        <div class="accept-terms">
-            <img src="./assets/img/Check button mobile.svg" alt="">
-            <span class="color-grey">I accept the <a class="highlighted-text no-decoration" href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a></span>
+        <div class="login-links-align margin-top108">
+            <a class="login-links" href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy
+                policy</a>
+            <a class="login-links" href="legal_notice.html" target="_blank" rel="noopener noreferrer">Legal Notice</a>
         </div>
-        <div class="login-btns">
-            <div class="login-btn margin-bottom32px">Sign up</div>
-        </div>
-    </div>
-    <div class="login-links-align margin-top108">
-        <a class="login-links" href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy policy</a>
-        <a class="login-links" href="legal_notice.html" target="_blank" rel="noopener noreferrer">Legal Notice</a>
     </div>
 </body>
 
