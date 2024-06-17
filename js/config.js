@@ -1,6 +1,15 @@
 const endpointTasks = 'https://join-239-default-rtdb.europe-west1.firebasedatabase.app/tasks';
 const endpointContacts = 'https://join-239-default-rtdb.europe-west1.firebasedatabase.app/contacts';
 const endpointUser = 'https://join-239-default-rtdb.europe-west1.firebasedatabase.app/users';
+const prioIcons = {
+    'low': 'assets/img/priority-low.svg',
+    'medium': 'assets/img/priority-medium.svg',
+    'urgent': 'assets/img/priority-urgent.svg'
+};
+const taskType = {
+    'tt': 'assets/img/board-card-label-tt.svg',
+    'us': 'assets/img/board-card-label-us.svg'
+}
 
 let contacts;
 let taskArray;
@@ -42,11 +51,7 @@ function errorFunction() {
     console.error('Fehler aufgetreten');
 }
 
-const prioIcons = {
-    'low': 'assets/img/priority-low.svg',
-    'medium': 'assets/img/priority-medium.svg',
-    'urgent': 'assets/img/priority-urgent.svg'
-}
+
 
 // putData(endpointTasks, taskArray)
 
@@ -69,10 +74,10 @@ class Task {
     }
 }
 
-function generateUniqueId(initLetter) {
+function generateUniqueId(initLetter, array) {
     let newId;
     do { // Do-While-Schleife: Sie sorgt dafür, dass so lange eine neue ID generiert wird, bis eine ID gefunden wurde, die noch nicht vergeben ist.
         newId = initLetter + Math.floor(Math.random() * 10000); // Math.random() erzeugt eine Zufallszahl zwischen 0 (inkl.) und 1 (exkl.); durch * 10000 wird auf einen Bereich von 0 bis 9999.999... skaliert. Math.floor rundet die Zufallszahl auf die nächste ganze Zahl ab, sodass eine Zahl zwischen 0 und 9999 entsteht.
-    } while (contacts.some(contact => contact.id === newId)); // Überprüfung, ob die neu generierte ID bereits vergeben ist.
+    } while (array.some(a => a.id === newId)); // Überprüfung, ob die neu generierte ID bereits vergeben ist.
     return newId;
 }

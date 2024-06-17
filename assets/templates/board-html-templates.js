@@ -51,7 +51,7 @@ function taskHTML(id) {
     return /*html*/`
         <div id="task${id}" class="open-task">
             <div class="task-header">
-                <img src="${taskArray[id].type}" alt="">
+                <img src="${taskType[taskArray[id].type]}" alt="">
                 <img class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask()">
             </div>
             <h1>${taskArray[id].title}</h1>

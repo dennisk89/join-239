@@ -1,3 +1,4 @@
+
 // ANCHOR load Tasks
 async function initBoard() {
     await initJoin();
@@ -16,7 +17,7 @@ function addCardsToBoards(columnID, filterArray, stringForEmptyColumn) {
         element.innerHTML = boardPlaceholderHTML(stringForEmptyColumn);
     } else {
         for (let i = 0; i < filterArray.length; i++) {
-            element.innerHTML += taskCardHTML(filterArray[i].id, filterArray[i].type, filterArray[i].title, filterArray[i].description, prioIcons[filterArray[i].prio]);
+            element.innerHTML += taskCardHTML(filterArray[i].id, taskType[filterArray[i].type], filterArray[i].title, filterArray[i].description, prioIcons[filterArray[i].prio]);
         }
     }
 }
@@ -72,7 +73,7 @@ function addSubTaskProgressToCards(i) {
 function createTask() {
     let newTask = new Task(
         getNewTaskArrayIndex(),
-        'assets\img\board-card-label-us.svg',
+        'us',
         'Kochwelt html',
         'Write html code for Kochwelt',
         '2024-7-1',
@@ -84,6 +85,7 @@ function createTask() {
     );
     taskArray.push(newTask)
 }
+
 
 function getNewTaskArrayIndex() {
     if (taskArray.length == 0) {
