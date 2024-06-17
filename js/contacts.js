@@ -2,9 +2,31 @@ let colors = ['orange', 'purple', 'blue', 'pink', 'yellow', 'mint', 'green'];
 let usedLetters = [];
 let contactListLetters = [];
 
-function handleOverlayEditContact() {
+function hideOverlayEditContact() {
     let overlayEditContact = document.getElementById('overlayEditContact');
-    overlayEditContact.classList.toggle('hide');
+    overlayEditContact.classList.add('hide');
+    document.getElementById('editContactInputName').value = '';
+    document.getElementById('editContactInputMail').value = '';
+    document.getElementById('editContactInputPhone').value= '';
+}
+
+function showOverlayEditContact(contactId, contactName, initials, color, email, phone) {
+    let overlayEditContact = document.getElementById('overlayEditContact');
+    overlayEditContact.classList.remove('hide');
+    createOverlayEditContactDot(initials, color);
+    insertInputValues(contactName, email, phone);
+    console.log(contactId);
+}
+
+function createOverlayEditContactDot(initials, color) {
+    document.getElementById('editContactDotMobile').innerHTML = generateEditContactDotMobileHTML(initials, color);
+    document.getElementById('editContactDotDesktop').innerHTML = generateEditContactDotDesktopHTML(initials, color);
+}
+
+function insertInputValues(contactName, email, phone) {
+    document.getElementById('editContactInputName').value = contactName;
+    document.getElementById('editContactInputMail').value = email;
+    document.getElementById('editContactInputPhone').value = phone;
 }
 
 function showOverlayEditDelete() {
@@ -79,7 +101,7 @@ function getInitials(contactName) {
 function showContactName(contactId, contactName, initials, color, email, phone) {
     let contactNameContainer = document.getElementById('contactNameContainer');
     contactNameContainer.innerHTML = '';
-    contactNameContainer.innerHTML = generateContactNameHTML(contactId, contactName, initials, color);
+    contactNameContainer.innerHTML = generateContactNameHTML(contactId, contactName, initials, color, email, phone);
     let contactInfoContent = document.getElementById('contactInfoContent');
     contactInfoContent.innerHTML = '';
     contactInfoContent.innerHTML = generateContactInfoHTML(email, phone);
@@ -117,11 +139,6 @@ function getRandomColor() {
 }
 
 function deleteContact(contactId) {
-    console.log(contactId);
-    // let indexOfContactToDelete = contacts.findIndex(x => x.id === contactId);
-    // console.log(indexOfContactToDelete);
-    // let pathOfContactToDelete = endpointContacts + "/" + indexOfContactToDelete;
-    let contactsActualized = contacts.filter(contact => contact.id !== contactId);
-    console.log(contactsActualized);
-    putData(endpointContacts, contactsActualized);
+    let contactsRemaining = contacts.filter(contact => contact.id !== contactId);
+    putData(endpointContacts, contactsRemaining);
 }

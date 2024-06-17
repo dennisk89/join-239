@@ -18,13 +18,13 @@ function generateContactListContentHTML(contact, initials, color) {
     `;
 }
 
-function generateContactNameHTML(contactId, contactName, initials, color) {
+function generateContactNameHTML(contactId, contactName, initials, color, email, phone) {
     return /*html*/`
         <div class="contact-info-dot contact-dot-${color}">${initials}</div>
         <div>
             <div class="contact-info-name">${contactName}</div>
             <div class="contact-edit-delete-desktop-container">
-                <div class="contact-edit-delete-desktop pointer" onclick="handleOverlayEditContact()">
+                <div class="contact-edit-delete-desktop pointer" onclick="showOverlayEditContact('${contactId}', '${contactName}', '${initials}', '${color}', '${email}', '${phone}')">
                     <img src="./assets/img/edit.svg" class="contact-edit-desktop-img">
                     <div>Edit</div>
                 </div>
@@ -43,5 +43,17 @@ function generateContactInfoHTML(email, phone) {
         <div class="contact-info-mail">${email}</div>
         <div class="contact-info-bold">Phone</div>
         <div>${phone}</div>
+    `;
+}
+
+function generateEditContactDotMobileHTML(initials, color) {
+    return /*html*/`
+        <div class="edit-contact-dot edit-contact-dot-mobile contact-dot-${color}">${initials}</div>
+    `;
+}
+
+function generateEditContactDotDesktopHTML(initials, color) {
+    return /*html*/`
+        <div class="edit-contact-dot edit-contact-dot-desktop contact-dot-${color}">${initials}</div>
     `;
 }

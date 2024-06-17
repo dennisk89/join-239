@@ -70,8 +70,8 @@
                     <div class="overlay-edit-delete-content">
                         <table class="overlay-edit-delete-table">
                             <tr>
-                                <td><img src="./assets/img/edit.svg" class="overlay-edit-img pointer" onclick="handleOverlayEditContact()"></td>
-                                <td class="pointer" onclick="handleOverlayEditContact()">Edit</td>
+                                <td><img src="./assets/img/edit.svg" class="overlay-edit-img pointer"></td>
+                                <td class="pointer">Edit</td>
                             </tr>
                             <tr>
                                 <td><img src="./assets/img/delete.svg" class="overlay-delete-img pointer"></td>
@@ -130,21 +130,21 @@
     <div id="overlayEditContact" class="hide">
         <div class="overlay-bg">
             <div class="overlay-content">
-                <img class="overlay-close-btn pointer" src="./assets/img/close.svg" onclick="handleOverlayEditContact()">
+                <img class="overlay-close-btn pointer" src="./assets/img/close.svg" onclick="hideOverlayEditContact()">
                 <div class="overlay-header">  
                     <div class="overlay-header-content">
                         <img class="overlay-logo" src="./assets/img/Capa1.svg">
                         <div class="overlay-header-bold">Edit contact</div>
                         <hr class="hr-contacts-overlays">
                     </div>                    
-                    <div class="edit-contact-dot edit-contact-dot-mobile contact-dot-orange">AM</div>
+                    <div id="editContactDotMobile"></div>
                 </div>
                 <div class="overlay-form-bg">
-                    <div class="edit-contact-dot edit-contact-dot-desktop contact-dot-orange">AM</div>
+                    <div id="editContactDotDesktop"></div>
                     <form class="overlay-form">
-                        <input class="input-name" placeholder="Name">
-                        <input class="input-mail" placeholder="Email">
-                        <input class="input-phone" placeholder="Phone">
+                        <input id="editContactInputName" class="input-name" placeholder="Name">
+                        <input id="editContactInputMail" class="input-mail" placeholder="Email">
+                        <input id="editContactInputPhone" class="input-phone" placeholder="Phone">
                         <div class="edit-contact-overlay-buttons">
                             <button class="delete-btn pointer">Delete</button>
                             <button class="save-btn pointer">Save<img src="./assets/img/check.svg"></button>
