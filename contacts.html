@@ -141,12 +141,12 @@
                 </div>
                 <div class="overlay-form-bg">
                     <div id="editContactDotDesktop"></div>
-                    <form class="overlay-form">
+                    <form id="editContactForm" class="overlay-form">
                         <input id="editContactInputName" class="input-name" placeholder="Name">
                         <input id="editContactInputMail" class="input-mail" placeholder="Email">
                         <input id="editContactInputPhone" class="input-phone" placeholder="Phone">
                         <div class="edit-contact-overlay-buttons">
-                            <button class="delete-btn pointer">Delete</button>
+                            <button formnovalidate id="editContactDeleteBtn" class="delete-btn pointer">Delete</button>
                             <button class="save-btn pointer">Save<img src="./assets/img/check.svg"></button>
                         </div>                        
                     </form>

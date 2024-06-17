@@ -15,7 +15,8 @@ function showOverlayEditContact(contactId, contactName, initials, color, email, 
     overlayEditContact.classList.remove('hide');
     createOverlayEditContactDot(initials, color);
     insertInputValues(contactName, email, phone);
-    console.log(contactId);
+    document.getElementById('editContactDeleteBtn').onclick = function() {deleteContact(contactId);};
+    document.getElementById('editContactForm').onsubmit = function() {editContact(contactId, initials, color); return false;};
 }
 
 function createOverlayEditContactDot(initials, color) {
@@ -141,4 +142,26 @@ function getRandomColor() {
 function deleteContact(contactId) {
     let contactsRemaining = contacts.filter(contact => contact.id !== contactId);
     putData(endpointContacts, contactsRemaining);
+}
+
+async function editContact(contactId, initials, color) {
+    contacts = await getData(endpointContacts);
+    let editContactInputName = document.getElementById('editContactInputName');
+    let editContactInputMail = document.getElementById('editContactInputMail');
+    let editContactInputPhone = document.getElementById('editContactInputPhone');
+    let indexOfChangedContact = contacts.findIndex(x => x.id === contactId);
+    contacts.splice(indexOfChangedContact, 1);
+    let newContactData = {
+        'id': contactId,
+        'name': editContactInputName.value,
+        'email': editContactInputMail.value,
+        'phone': editContactInputPhone.value,
+        'color': color,
+        'initials': initials
+    };
+    contacts.push(newContactData);
+    putData(endpointContacts, contacts);
+    editContactInputName.value = '';
+    editContactInputMail.value = '';
+    editContactInputPhone.value = '';
 }
