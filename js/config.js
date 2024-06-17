@@ -7,6 +7,7 @@ let todoTasks;
 let progressTasks;
 let feedbackTasks;
 let doneTasks;
+let urgentTasks;
 
 
 async function initJoin() {
@@ -16,6 +17,7 @@ async function initJoin() {
     progressTasks = taskArray.filter(t => t.taskStatus == 'progress');
     feedbackTasks = taskArray.filter(t => t.taskStatus == 'feedback');
     doneTasks = taskArray.filter(t => t.taskStatus == 'done');
+    urgentTasks = taskArray.filter(t => t.prio == 'urgent');
 }
 
 

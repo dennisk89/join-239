@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="style_dennis_summary.css">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="footer.css">
+    <script defer src="js/config.js"></script>
+    <script defer src="js/summary.js"></script>
 </head>
 
-<body class="bg-add-task">
+<body class="bg-add-task" onload="initJoin(),initSummary()">
     <header>
         <div class="inner-header">
             <p class="hide-on-mobile">Kanban Project Management Tool</p>
@@ -63,7 +65,7 @@
                 <img class="pencil-img-desktop hide-on-mobile" src="./assets/img/editDesktop.svg" alt="">
             </div>
             <div class="display-flex">
-                <span class="font47-weight600">1</span>
+                <span id="todos" class="font47-weight600">0</span>
                 <span class="font14">To-do</span>
             </div>
         </div>
@@ -72,7 +74,7 @@
                 <img src="./assets/img/check summary.svg" alt="">
             </div>
             <div class="display-flex">
-                <span class="font47-weight600">1</span>
+                <span id="doneTasks" class="font47-weight600">3</span>
                 <span class="font14">Done</span>
             </div>
         </div>
@@ -83,7 +85,7 @@
                 <img src="./assets/img/priority-urgent-white.svg" alt="">
             </div>
             <div class="display-flex">
-                <span class="font47-weight600">1</span>
+                <span id="urgentTasks" class="font47-weight600">4</span>
                 <span class="font14">Urgent</span>
             </div>
             <div class="middle-line"></div>
