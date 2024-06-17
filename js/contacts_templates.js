@@ -8,7 +8,7 @@ function generateContactListHTML(contactListLetter) {
 
 function generateContactListContentHTML(contact, initials, color) {
     return /*html*/`
-        <div class="contact-container pointer" onclick="showContactName('${contact['name']}', '${initials}', '${color}', '${contact['email']}', '${contact['phone']}')">
+        <div class="contact-container pointer" onclick="showContactName('${contact['id']}', '${contact['name']}', '${initials}', '${color}', '${contact['email']}', '${contact['phone']}')">
             <div class="contact-list-dot contact-dot-${color}">${initials}</div>
             <div>
                 <div class="contact-list-name">${contact['name']}</div>
@@ -18,7 +18,7 @@ function generateContactListContentHTML(contact, initials, color) {
     `;
 }
 
-function generateContactNameHTML(contactName, initials, color) {
+function generateContactNameHTML(contactId, contactName, initials, color) {
     return /*html*/`
         <div class="contact-info-dot contact-dot-${color}">${initials}</div>
         <div>
@@ -28,7 +28,7 @@ function generateContactNameHTML(contactName, initials, color) {
                     <img src="./assets/img/edit.svg" class="contact-edit-desktop-img">
                     <div>Edit</div>
                 </div>
-                <div class="contact-edit-delete-desktop pointer">
+                <div class="contact-edit-delete-desktop pointer" onclick="deleteContact('${contactId}')">
                     <img src="./assets/img/delete.svg" class="contact-delete-desktop-img">
                     <div>Delete</div>
                 </div>                    
