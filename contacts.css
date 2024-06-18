@@ -1,27 +1,8 @@
-body {
-    font-family: 'Inter-VariableFont', sans-serif;
-    color: rgba(0, 0, 0, 1);
-    margin: 0;
-    background-color: rgb(246,247,248, 1);
-}
-
-@font-face {
-    font-family: 'Inter-VariableFont';
-    src: local(''), url(./assets/fonts/Inter-VariableFont_slnt\,wght.ttf);
-}
+/* ANCHOR Main */
 
 .main {
     display: flex;
 }
-
-.hide {
-    display: none;
-}
-
-.pointer {
-    cursor: pointer;
-}
-
 
 /* ANCHOR Contact List */
 
@@ -272,7 +253,6 @@ body {
     .main-contact-list {
         margin: 0 0 32px 26.5px;
         width: 456px;
-        /* height: 100vh; */
         overflow-y: scroll;
         overflow-x: hidden;
     }
@@ -291,6 +271,10 @@ body {
         display: flex;
         flex-direction: column;
         align-items: first baseline;
+    }
+
+    .contacts-content {
+        position: fixed;
     }
 
     .contacts-header {

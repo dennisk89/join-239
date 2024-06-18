@@ -5,7 +5,10 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="icon" type="image/x-icon" href="assets/img/join-logo.svg">
+
+    <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="contacts.css">
     <link rel="stylesheet" href="contacts_overlays.css">
     <link rel="stylesheet" href="header.css">
@@ -36,11 +39,11 @@
 
         <div class="main-contact-list">
 
-            <button class="add-contact-btn-desktop pointer" onclick="handleOverlayAddContact()">Add new contact <img src="./assets/img/person_add.svg"></button>
+            <button class="add-contact-btn-desktop clickable" onclick="handleOverlayAddContact()">Add new contact <img src="./assets/img/person_add.svg"></button>
 
             <div id="contactListContent"></div>            
 
-            <div class="add-contact-btn pointer" onclick="handleOverlayAddContact()">
+            <div class="add-contact-btn clickable" onclick="handleOverlayAddContact()">
                 <img src="./assets/img/person_add.svg">
             </div>
 
@@ -48,21 +51,25 @@
 
         <div class="main-contacts">
 
-            <div class="contacts-header">
-                <div class="contacts-header-bold">Contacts</div>
-                <hr class="hr-contacts-desktop">
-                <div class="contacts-header-sub">Better with a team</div>
-                <hr class="hr-contacts-mobile">
-            </div>
+            <div class="contacts-content">
+
+                <div class="contacts-header">
+                    <div class="contacts-header-bold">Contacts</div>
+                    <hr class="hr-contacts-desktop">
+                    <div class="contacts-header-sub">Better with a team</div>
+                    <hr class="hr-contacts-mobile">
+                </div>
+                    
+                <div class="contact-info-container">
+                    <div id="contactNameContainer" class="contact-name-container"></div>
+                    <div id="contactInfoHeader" class="contact-info-header hide">Contact Information</div>
+                    <div id="contactInfoContent" class="contact-info-content"></div>
+                </div>
                 
-            <div class="contact-info-container">
-                <div id="contactNameContainer" class="contact-name-container"></div>
-                <div id="contactInfoHeader" class="contact-info-header hide">Contact Information</div>
-                <div id="contactInfoContent" class="contact-info-content"></div>
-            </div>
-            
-            <div class="contact-menu-btn pointer" onclick="showOverlayEditDelete()">
-                <img src="./assets/img/more_vert.svg">
+                <div class="contact-menu-btn clickable" onclick="showOverlayEditDelete()">
+                    <img src="./assets/img/more_vert.svg">
+                </div>
+
             </div>
 
             <div id="overlayEditDelete" class="hide">
@@ -70,12 +77,12 @@
                     <div class="overlay-edit-delete-content">
                         <table class="overlay-edit-delete-table">
                             <tr>
-                                <td><img src="./assets/img/edit.svg" class="overlay-edit-img pointer"></td>
-                                <td class="pointer">Edit</td>
+                                <td><img src="./assets/img/edit.svg" class="overlay-edit-img clickable"></td>
+                                <td class="clickable">Edit</td>
                             </tr>
                             <tr>
-                                <td><img src="./assets/img/delete.svg" class="overlay-delete-img pointer"></td>
-                                <td class="pointer">Delete</td>
+                                <td><img src="./assets/img/delete.svg" class="overlay-delete-img clickable"></td>
+                                <td class="clickable">Delete</td>
                             </tr>
                         </table>
                     </div>
@@ -89,7 +96,7 @@
     <div id="overlayAddContact" class="hide">
         <div class="overlay-bg">
             <div class="overlay-content">
-                <img class="overlay-close-btn pointer" src="./assets/img/close.svg" onclick="handleOverlayAddContact()">
+                <img class="overlay-close-btn clickable" src="./assets/img/close.svg" onclick="handleOverlayAddContact()">
                 <div class="overlay-header">
                     <div class="overlay-header-content">
                         <div><img src="./assets/img/join-logo-overlays.svg" class="overlay-logo"></div>
@@ -110,8 +117,8 @@
                         <input id="addContactInputMail" class="input-mail" placeholder="Email" required type="email">
                         <input id="addContactInputPhone" class="input-phone" placeholder="Phone" required type="number" pattern="[0-9]">
                         <div class="add-contact-overlay-buttons">
-                            <button formnovalidate class="cancel-btn pointer">Cancel <img src="./assets/img/close.svg"></button>
-                            <button type="submit" class="create-contact-btn pointer">Create Contact<img src="./assets/img/check.svg"></button>
+                            <button formnovalidate class="cancel-btn clickable">Cancel <img src="./assets/img/close.svg"></button>
+                            <button type="submit" class="create-contact-btn clickable">Create Contact<img src="./assets/img/check.svg"></button>
                         </div>                        
                     </form>
                 </div>                
@@ -130,7 +137,7 @@
     <div id="overlayEditContact" class="hide">
         <div class="overlay-bg">
             <div class="overlay-content">
-                <img class="overlay-close-btn pointer" src="./assets/img/close.svg" onclick="hideOverlayEditContact()">
+                <img class="overlay-close-btn clickable" src="./assets/img/close.svg" onclick="hideOverlayEditContact()">
                 <div class="overlay-header">  
                     <div class="overlay-header-content">
                         <img class="overlay-logo" src="./assets/img/Capa1.svg">
@@ -146,8 +153,8 @@
                         <input id="editContactInputMail" class="input-mail" placeholder="Email">
                         <input id="editContactInputPhone" class="input-phone" placeholder="Phone">
                         <div class="edit-contact-overlay-buttons">
-                            <button formnovalidate id="editContactDeleteBtn" class="delete-btn pointer">Delete</button>
-                            <button class="save-btn pointer">Save<img src="./assets/img/check.svg"></button>
+                            <button formnovalidate id="editContactDeleteBtn" class="delete-btn clickable">Delete</button>
+                            <button class="save-btn clickable">Save<img src="./assets/img/check.svg"></button>
                         </div>                        
                     </form>
                 </div>                
