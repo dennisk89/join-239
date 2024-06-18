@@ -8,7 +8,7 @@ function generateContactListHTML(contactListLetter) {
 
 function generateContactListContentHTML(contact, initials, color) {
     return /*html*/`
-        <div class="contact-container pointer" onclick="showContactName('${contact['id']}', '${contact['name']}', '${initials}', '${color}', '${contact['email']}', '${contact['phone']}')">
+        <div class="contact-container clickable" onclick="showContactName('${contact['id']}', '${contact['name']}', '${initials}', '${color}', '${contact['email']}', '${contact['phone']}')">
             <div class="contact-list-dot contact-dot-${color}">${initials}</div>
             <div>
                 <div class="contact-list-name">${contact['name']}</div>
@@ -24,11 +24,11 @@ function generateContactNameHTML(contactId, contactName, initials, color, email,
         <div>
             <div class="contact-info-name">${contactName}</div>
             <div class="contact-edit-delete-desktop-container">
-                <div class="contact-edit-delete-desktop pointer" onclick="showOverlayEditContact('${contactId}', '${contactName}', '${initials}', '${color}', '${email}', '${phone}')">
+                <div class="contact-edit-delete-desktop clickable" onclick="showOverlayEditContact('${contactId}', '${contactName}', '${initials}', '${color}', '${email}', '${phone}')">
                     <img src="./assets/img/edit.svg" class="contact-edit-desktop-img">
                     <div>Edit</div>
                 </div>
-                <div class="contact-edit-delete-desktop pointer" onclick="deleteContact('${contactId}')">
+                <div class="contact-edit-delete-desktop clickable" onclick="deleteContact('${contactId}')">
                     <img src="./assets/img/delete.svg" class="contact-delete-desktop-img">
                     <div>Delete</div>
                 </div>                    

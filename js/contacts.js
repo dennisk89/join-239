@@ -35,9 +35,20 @@ function showOverlayEditDelete() {
     overlayEditDelete.classList.remove('hide');
 }
 
-function handleOverlayAddContact() {
+function hideOverlayAddContact() {
     let overlayAddContact = document.getElementById('overlayAddContact');
-    overlayAddContact.classList.toggle('hide');
+    overlayAddContact.classList.remove('slide-in');
+    overlayAddContact.classList.add('slide-out');
+    setTimeout(() => {
+        overlayAddContact.classList.add('hide');
+    }, 500); /* same duration as slide out animation */
+}
+
+function showOverlayAddContact() {
+    let overlayAddContact = document.getElementById('overlayAddContact');
+    overlayAddContact.classList.remove('hide');
+    overlayAddContact.classList.add('slide-in');
+    overlayAddContact.classList.remove('slide-out');
 }
 
 async function showContactList() {

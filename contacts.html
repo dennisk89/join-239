@@ -39,11 +39,11 @@
 
         <div class="main-contact-list">
 
-            <button class="add-contact-btn-desktop clickable" onclick="handleOverlayAddContact()">Add new contact <img src="./assets/img/person_add.svg"></button>
+            <button class="add-contact-btn-desktop clickable" onclick="showOverlayAddContact()">Add new contact <img src="./assets/img/person_add.svg"></button>
 
             <div id="contactListContent"></div>            
 
-            <div class="add-contact-btn clickable" onclick="handleOverlayAddContact()">
+            <div class="add-contact-btn clickable" onclick="showOverlayAddContact()">
                 <img src="./assets/img/person_add.svg">
             </div>
 
@@ -95,8 +95,8 @@
 
     <div id="overlayAddContact" class="hide">
         <div class="overlay-bg">
-            <div class="overlay-content">
-                <img class="overlay-close-btn clickable" src="./assets/img/close.svg" onclick="handleOverlayAddContact()">
+            <div id="overlayContent" class="overlay-content">
+                <img class="overlay-close-btn clickable" src="./assets/img/close.svg" onclick="hideOverlayAddContact()">
                 <div class="overlay-header">
                     <div class="overlay-header-content">
                         <div><img src="./assets/img/join-logo-overlays.svg" class="overlay-logo"></div>
@@ -117,7 +117,7 @@
                         <input id="addContactInputMail" class="input-mail" placeholder="Email" required type="email">
                         <input id="addContactInputPhone" class="input-phone" placeholder="Phone" required type="number" pattern="[0-9]">
                         <div class="add-contact-overlay-buttons">
-                            <button formnovalidate class="cancel-btn clickable">Cancel <img src="./assets/img/close.svg"></button>
+                            <button type="submit" formnovalidate class="cancel-btn clickable" onclick="hideOverlayAddContact()">Cancel <img src="./assets/img/close.svg"></button>
                             <button type="submit" class="create-contact-btn clickable">Create Contact<img src="./assets/img/check.svg"></button>
                         </div>                        
                     </form>

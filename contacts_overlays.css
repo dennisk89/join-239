@@ -1,16 +1,17 @@
 /* ANCHOR Overall */
 
 .overlay-bg {
-    background-color: rgba(0, 0, 0, 0.2);
     z-index: 999;
     position: fixed;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0); /* Initial color bevore sliding in */
+    transition: background-color 0.5s ease-in-out;
 }
 
 .overlay-content {
@@ -19,6 +20,39 @@
     color: rgba(255, 255, 255, 1);
     width: 396px;
     position: relative;
+    transform: translateX(150%); /* Initial position, bevore sliding in */
+}
+
+@keyframes slideIn { /* Keyframe animation for sliding in */
+    from {
+        transform: translateX(150%);
+    } to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut { /* Keyframe animation for sliding out */
+    from {
+        transform: translateX(0);
+    } to {
+        transform: translateX(150%);
+    }
+}
+
+#overlayAddContact.slide-in .overlay-content { /* Active state for sliding in */
+    animation: slideIn 0.5s ease-in-out forwards;
+}
+
+#overlayAddContact.slide-in .overlay-bg {
+    background-color: rgba(0, 0, 0, 0.2);    
+}
+
+#overlayAddContact.slide-out .overlay-content { /* Active state for sliding in */
+    animation: slideOut 0.5s ease-in-out forwards;
+}
+
+#overlayAddContact.slide-out .overlay-bg {
+    background-color: rgba(0, 0, 0, 0);    
 }
 
 .overlay-close-btn {
