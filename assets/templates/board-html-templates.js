@@ -149,6 +149,7 @@ function addTaskOverlayHTML() {
                 </div>
 
                 <div class="form-divider"></div>
+                
                 <div class="form-half-side">
                     <div class="input-group">
                         <label for="dateInput">Due date<span class="color-red">*</span></label>
@@ -195,5 +196,12 @@ function addTaskOverlayHTML() {
                 </div>
             </form>
         </div>
+    `
+}
+
+
+function editTaksOverlayHTML() {
+    return /*html*/`
+        
     `
 }

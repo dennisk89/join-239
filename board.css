@@ -181,7 +181,7 @@ p {
 
 /* ANCHOR Task details overlay*/
 .overlay-bg {
-    display: none;
+    display: flex;
     background-color: rgba(0, 0, 0, 0.2);
     z-index: 999;
     position: fixed;
@@ -204,7 +204,10 @@ p {
     position: relative;
     max-width: 396px;
     box-sizing: border-box;
+    max-height: 95vh;
+    overflow-y:scroll
 }
+
 
 .task-header {
     display: flex;
@@ -543,6 +546,20 @@ p {
     color: rgb(42, 54, 71);
     font-size: 20px;
     box-sizing: border-box;
+}
+
+.edit label {
+    font-family: 'Inter';
+    font-size: 16px;
+    line-height: 19.2px;
+    text-align: left;
+}
+
+.enter-input .edit {
+    font-family: 'Inter';
+    font-size: 16px;
+    line-height: 19.2px;
+    text-align: left;
 }
 
 /* ANCHOR Media querries */

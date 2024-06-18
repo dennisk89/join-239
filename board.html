@@ -34,7 +34,63 @@
 
     <!-- ANCHOR Task overlay -->
     <section id="taskOverlay" class="overlay-bg">
-
+        <div id="editFor${id}" class="open-task">
+            <div class="task-header">
+                <img class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask()">
+            </div>
+            <form class="overlay-form" onsubmit="console.log('add'); return false">
+                <div class="form-half-side">
+                    <div class="input-group edit">
+                        <label for="titleInput">Title<span class="color-red">*</span></label>
+                        <input id="titleInput" class="enter-input" placeholder="Enter a title" type="text" name="Title"
+                            id="titleInput" required>
+                    </div>
+                    <div class="input-group edit">
+                        <label for="descriptionInput">Description</label>
+                        <textarea class="enter-description-input" placeholder="Enter a description" name="Description"
+                            id="descriptionInput"></textarea>
+                    </div>
+                    <div class="input-group edit">
+                        <label for="dateInput">Due date<span class="color-red">*</span></label>
+                        <input id="dateInput" class="enter-input" placeholder="dd/mm/yyyy" type="text"
+                            onfocus="(this.type='date')" onblur="(this.type='text'); this.placeholder='dd/mm/yyyy';" required>
+                    </div>
+                    <div class="input-group edit">
+                        <label class="">Prio</label>
+                        <div class="prio-container">
+                            <div class="priority-btn clickable">
+                                <span>Urgent</span>
+                                <img src="./assets/img/priority-low.svg" alt="">
+                            </div>
+                            <div class="prio-btn-selected priority-btn clickable">
+                                <span>Medium</span>
+                                <img src="./assets/img/priority-medium-white.svg" alt="">
+                            </div>
+                            <div class="priority-btn clickable">
+                                <span>Low</span>
+                                <img src="./assets/img/priority-urgent.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="selectContactsInput">Assigned to</label>
+                        <select class="enter-input select-input" name="select contacts" id="selectContactsInput">
+                            <option value="Select contacts">Select contacts to assign</option>
+                        </select>
+                    </div>
+                    <div class="task-assigned">
+                        <div class="profile-batch orange">${AM}</div>
+                        <div class="profile-batch blue">${CK}</div>
+                    </div>
+                    <div class="input-group">
+                        <label for="subtaskInput">Subtaks</label>
+                        <input class="enter-input subtask-enter" placeholder="Enter a subtask" type="text" name="Subtask" id="subtaskInput">
+                    </div>
+                    <ul>
+                        <li>task</li>
+                    </ul>
+            </form>
+        </div>
     </section>
 
     <!-- ANCHOR board -->
