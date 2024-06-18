@@ -4,19 +4,25 @@ let contactListLetters = [];
 
 function hideOverlayEditContact() {
     let overlayEditContact = document.getElementById('overlayEditContact');
-    overlayEditContact.classList.add('hide');
+    overlayEditContact.classList.remove('slide-in');
+    overlayEditContact.classList.add('slide-out');
+    setTimeout(() => {
+        overlayEditContact.classList.add('hide');
+    }, 500); /* same duration as slide out animation */
     document.getElementById('editContactInputName').value = '';
     document.getElementById('editContactInputMail').value = '';
     document.getElementById('editContactInputPhone').value= '';
 }
 
 function showOverlayEditContact(contactId, contactName, initials, color, email, phone) {
-    let overlayEditContact = document.getElementById('overlayEditContact');
-    overlayEditContact.classList.remove('hide');
     createOverlayEditContactDot(initials, color);
     insertInputValues(contactName, email, phone);
     document.getElementById('editContactDeleteBtn').onclick = function() {deleteContact(contactId);};
     document.getElementById('editContactForm').onsubmit = function() {editContact(contactId, initials, color); return false;};
+    let overlayEditContact = document.getElementById('overlayEditContact');
+    overlayEditContact.classList.remove('hide');
+    overlayEditContact.classList.add('slide-in');
+    overlayEditContact.classList.remove('slide-out');
 }
 
 function createOverlayEditContactDot(initials, color) {

@@ -55,6 +55,22 @@
     background-color: rgba(0, 0, 0, 0);    
 }
 
+#overlayEditContact.slide-in .overlay-content { /* Active state for sliding in */
+    animation: slideIn 0.5s ease-in-out forwards;
+}
+
+#overlayEditContact.slide-in .overlay-bg {
+    background-color: rgba(0, 0, 0, 0.2);    
+}
+
+#overlayEditContact.slide-out .overlay-content { /* Active state for sliding in */
+    animation: slideOut 0.5s ease-in-out forwards;
+}
+
+#overlayEditContact.slide-out .overlay-bg {
+    background-color: rgba(0, 0, 0, 0);    
+}
+
 .overlay-close-btn {
     position: absolute;
     top: 24px;
