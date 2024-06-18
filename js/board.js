@@ -89,7 +89,7 @@ function openTasks(id) {
     document.getElementById('taskOverlay').style.display = 'flex';
     document.getElementById('taskOverlay').innerHTML = taskHTML(task.id, taskType[task.type], task.title, task.description, task.dueDate, prioIcons[task.prio]);
     renderAssignees(task);
-    renderSubTasks(task); 
+    renderSubTasks(task);
 }
 
 
@@ -106,7 +106,7 @@ function pushTaskAssigneeInfosToArray(task) {
     for (let i = 0; i < task.assigned.length; i++) {
         taskAssignees.push(getContactByContactID(task.assigned[i]));
     }
-    return taskAssignees   
+    return taskAssignees
 }
 
 
@@ -133,9 +133,15 @@ function stopP(event) {
 }
 
 
+function openEdit(id) {
+    document.getElementById('taskOverlay').innerHTML = editTaksOverlayHTML(id);
+}
+
+
 function openAddTaskOverlay() {
     document.getElementById('taskOverlay').style.display = 'flex';
     document.getElementById('taskOverlay').innerHTML = addTaskOverlayHTML();
+    setEventListenerForPrio();
 }
 
 
@@ -155,9 +161,32 @@ function checkSubTask(subtaskId) {
 
 
 function changeSubTaskStatus(currentStatusBoolean) {
-    if (currentStatusBoolean) {
-        return false;
-    } else {
-        return true;
-    }
+    return !currentStatusBoolean;
+}
+
+
+
+function setPrioBtn(id, cssClass, iconPath) {
+    ['prioUrgent', 'prioMedium', 'prioLow'].forEach(idInArray => {
+        document.getElementById(idInArray).classList.remove('low-selected', 'medium-selected', 'urgent-selected');
+        setPrioBtnStandardIcon();
+    });
+    document.getElementById(id).classList.add(cssClass);
+    document.getElementById(id).children[1].src = iconPath
+}
+
+
+function setPrioBtnStandardIcon() {
+    document.getElementById('prioUrgent').children[1].src = './assets/img/priority-urgent.svg';
+    document.getElementById('prioMedium').children[1].src = './assets/img/priority-medium.svg';
+    document.getElementById('prioLow').children[1].src = './assets/img/priority-low.svg';
+}
+
+
+// ANCHOR eventListener 
+function setEventListenerForPrio() {
+    document.getElementById('prioUrgent').addEventListener('click', () => setPrioBtn('prioUrgent', 'urgent-selected', './assets/img/priority-urgent-white.svg'));
+    document.getElementById('prioMedium').addEventListener('click', () => setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg'));
+    document.getElementById('prioLow').addEventListener('click', () => setPrioBtn('prioLow', 'low-selected', './assets/img/priority-low-white.svg'));
+
 }

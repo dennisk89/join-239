@@ -79,7 +79,7 @@ function taskHTML(id, type, title, description, dueDate, prio) {
                     <p>Delete</p>
                 </div>
                 <div class="divider"></div>
-                <div class="task-footer">
+                <div onclick="openEdit(${id})" class="task-footer">
                     <img src="assets/img/edit.svg" alt="">
                     <p>Edit</p>
                 </div>
@@ -128,18 +128,18 @@ function addTaskOverlayHTML() {
             <form class="overlay-form" onsubmit="console.log('add'); return false">
                 <div class="form-half-side">
                     <div class="input-group">
-                        <label for="titleInput">Title<span class="color-red">*</span></label>
-                        <input id="titleInput" class="enter-input" placeholder="Enter a title" type="text" name="Title"
+                        <label class="font-20" for="titleInput">Title<span class="color-red">*</span></label>
+                        <input id="titleInput" class="enter-input font-20" placeholder="Enter a title" type="text" name="Title"
                             id="titleInput" required>
                     </div>
                     <div class="input-group">
-                        <label for="descriptionInput">Description</label>
-                        <textarea class="enter-description-input" placeholder="Enter a description" name="Description"
+                        <label class="font-20" for="descriptionInput">Description</label>
+                        <textarea class="enter-description-input font-20" placeholder="Enter a description" name="Description"
                             id="descriptionInput"></textarea>
                     </div>
                     <div class="input-group">
-                        <label for="selectContactsInput">Assigned to</label>
-                        <select class="enter-input select-input" name="select contacts" id="selectContactsInput">
+                        <label class="font-20" for="selectContactsInput">Assigned to</label>
+                        <select class="enter-input select-input font-20" name="select contacts" id="selectContactsInput">
                             <option value="Select contacts">Select contacts to assign</option>
                         </select>
                     </div>
@@ -149,32 +149,32 @@ function addTaskOverlayHTML() {
                 </div>
 
                 <div class="form-divider"></div>
-                
+
                 <div class="form-half-side">
                     <div class="input-group">
-                        <label for="dateInput">Due date<span class="color-red">*</span></label>
-                        <input id="dateInput" class="enter-input" placeholder="dd/mm/yyyy" type="text"
+                        <label class="font-20" for="dateInput">Due date<span class="color-red">*</span></label>
+                        <input id="dateInput" class="enter-input font-20" placeholder="dd/mm/yyyy" type="text"
                             onfocus="(this.type='date')" onblur="(this.type='text'); this.placeholder='dd/mm/yyyy';" required>
                     </div>
                     <div class="input-group">
                         <label class="">Prio</label>
                         <div class="prio-container">
-                            <div class="priority-btn clickable">
+                            <div id="prioUrgent" class="priority-btn clickable">
                                 <span>Urgent</span>
-                                <img src="./assets/img/priority-low.svg" alt="">
+                                <img src="./assets/img/priority-urgent.svg" alt="">
                             </div>
-                            <div class="prio-btn-selected priority-btn clickable">
+                            <div id="prioMedium" class="medium-selected priority-btn clickable">
                                 <span>Medium</span>
                                 <img src="./assets/img/priority-medium-white.svg" alt="">
                             </div>
-                            <div class="priority-btn clickable">
+                            <div id="prioLow" class="priority-btn clickable">
                                 <span>Low</span>
-                                <img src="./assets/img/priority-urgent.svg" alt="">
+                                <img src="./assets/img/priority-low.svg" alt="">
                             </div>
                         </div>
                     </div>
                     <div class="input-group">
-                        <label for="selectCategory">Category<span class="color-red">*</span></label>
+                        <label class="font-20" for="selectCategory">Category<span class="color-red">*</span></label>
                         <select class="enter-input select-input" name="select category" id="selectCategory" required>
                             <option value="">Select task category</option>
                             <option value="tt">Technical task</option>
@@ -182,8 +182,8 @@ function addTaskOverlayHTML() {
                         </select>
                     </div>
                     <div class="input-group">
-                        <label for="subtaskInput">Subtaks</label>
-                        <input class="enter-input subtask-enter" placeholder="Enter a subtask" type="text" name="Subtask" id="subtaskInput">
+                        <label class="font-20" for="subtaskInput">Subtaks</label>
+                        <input class="enter-input subtask-enter font-20" placeholder="Enter a subtask" type="text" name="Subtask" id="subtaskInput">
                     </div>
                     <div class="form-btn-container">
                         <button class="cancel-btn clickable">
@@ -200,8 +200,70 @@ function addTaskOverlayHTML() {
 }
 
 
-function editTaksOverlayHTML() {
+function editTaksOverlayHTML(id) {
     return /*html*/`
-        
+        <div id="editFor${id}" class="open-task">
+            <div class="task-header flex-end">
+                <img class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask()">
+            </div>
+            <form class="edit-form" onsubmit="console.log('edit'); return false">
+                <div class="input-group">
+                    <label class="font-16" for="titleInput">Title<span class="color-red">*</span></label>
+                    <input id="titleInput" class="enter-input font-16" placeholder="Enter a title" type="text"
+                        name="Title" id="titleInput" required>
+                </div>
+                <div class="input-group">
+                    <label class="font-16" for="descriptionInput">Description</label>
+                    <textarea class="enter-description-input font-16" placeholder="Enter a description"
+                        name="Description" id="descriptionInput"></textarea>
+                </div>
+                <div class="input-group font-16">
+                    <label class="font-16" for="dateInput">Due date<span class="color-red">*</span></label>
+                    <input id="dateInput" class="enter-input font-16" placeholder="dd/mm/yyyy" type="text"
+                        onfocus="(this.type='date')" onblur="(this.type='text'); this.placeholder='dd/mm/yyyy';"
+                        required>
+                </div>
+                <div class="input-group">
+                    <label class="font-16">Prio</label>
+                    <div class="prio-container">
+                        <div id="prioUrgent" class="priority-btn-edit clickable">
+                            <span>Urgent</span>
+                            <img src="./assets/img/priority-urgent.svg" alt="">
+                        </div>
+                        <div id="prioMedium" class="medium-selected priority-btn-edit clickable">
+                            <span>Medium</span>
+                            <img src="./assets/img/priority-medium-white.svg" alt="">
+                        </div>
+                        <div id="prioLow" class="priority-btn-edit clickable">
+                            <span>Low</span>
+                            <img src="./assets/img/priority-low.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label class="font-16" for="selectContactsInput">Assigned to</label>
+                    <select class="enter-input select-input font-16" name="select contacts" id="selectContactsInput">
+                        <option value="Select contacts">Select contacts to assign</option>
+                    </select>
+                    <div class="task-assigned">
+                        <div class="profile-batch orange">AM</div>
+                        <div class="profile-batch blue">CK</div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label class="font-16" for="subtaskInput">Subtaks</label>
+                    <input class="enter-input subtask-enter font-16 clickable" placeholder="Enter a subtask" type="text"
+                        name="Subtask" id="subtaskInput">
+                    <ul>
+                        <li>task</li>
+                    </ul>
+                </div>
+                <div class="form-btn-container padding-top-0">
+                    <button class="board-btn-dark board-edit-btn clickable" type="submit">
+                        <span>Ok</span><img src="assets/img/check.svg" alt="">
+                    </button>
+                </div>
+            </form>
+        </div>
     `
 }

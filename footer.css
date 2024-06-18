@@ -15,10 +15,6 @@ a {
     color: white;
 }
 
-.clickable {
-    cursor: pointer;
-}
-
 .mobile-footer {
     background-color: rgba(42, 54, 71);
     size: 14px;
