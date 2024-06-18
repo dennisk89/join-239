@@ -59,7 +59,6 @@ body {
     display: none;
 }
 
-
 /* .d-none ist doppelt vergeben: */
 /* Welches sollen wir behalten? */
 
@@ -73,3 +72,27 @@ body {
 /* .d-none {
     display: none !important;
 } */
+
+
+
+.btn-color {
+    background-color: var(--buttons-dark);
+    border: 1px solid var(--buttons-dark);
+}
+
+.btn-color:hover {
+    border-color: var(--highlight);
+    background-color: var(--highlight);
+    box-shadow: 0 5px 5px rgba(42, 54, 71, 0.5);
+}
+
+.btn-white {
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid var(--buttons-dark);
+}
+
+.btn-white:hover {
+    color: var(--highlight);
+    border: 2px solid var(--highlight);
+    box-shadow: 0 5px 5px rgba(42, 54, 71, 0.5);    
+}

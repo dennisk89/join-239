@@ -15,20 +15,12 @@
     color: rgba(255, 255, 255, 1);
     font-size: 21px;
     font-weight: 700;
-    line-height: 25.2px;
-    background-color: var(--buttons-dark);
-    border: 1px solid var(--buttons-dark);
+    line-height: 25.2px;    
     border-radius: 10px;
     padding: 12px 0;
     margin-top: 22.5px;
     margin-left: 25.5px;
     display: none;
-}
-
-.add-contact-btn-desktop:hover {
-    border-color: var(--highlight);
-    background-color: var(--highlight);
-    box-shadow: 0 5px 5px rgba(42, 54, 71, 0.5);
 }
 
 .add-contact-btn-desktop img {

@@ -257,31 +257,41 @@
 }
 
 .cancel-btn {
-    background-color: rgba(255, 255, 255, 1);
     color: rgba(42, 54, 71, 1);
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
     height: 56px;
     width: 126px;
-    border: 1px solid rgba(42, 54, 71, 1);
     border-radius: 10px;
     display: none;
 }
 
 .cancel-btn img {
-    filter: invert(100%);
+    padding-left: 4px;
+    width: 24px;
+    height: 24px;
+}
+
+.cancel-btn .cancel-btn-img-blue {
+    display: none;
+}
+
+.cancel-btn:hover .cancel-btn-img-blue {
+    display: unset;
+}
+
+.cancel-btn:hover .cancel-btn-img-dark {
+    display: none;
 }
 
 .create-contact-btn {
-    background-color: rgba(42, 54, 71, 1);
     color: rgba(255, 255, 255, 1);
     font-size: 21px;
     font-weight: 700;
     line-height: 25.2px;
     height: 51px;
     width: 202px;
-    border: none;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -329,26 +339,22 @@
 }
 
 .delete-btn {
-    background-color: rgba(255, 255, 255, 1);
     color: rgba(42, 54, 71, 1);
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
     height: 51px;
     width: 82px;
-    border: 1px solid rgba(42, 54, 71, 1);
     border-radius: 10px;
 }
 
 .save-btn {
-    background-color: rgba(42, 54, 71, 1);
     color: rgba(255, 255, 255, 1);
     font-size: 21px;
     font-weight: 700;
     line-height: 25.2px;
     height: 51px;
     width: 99px;
-    border: none;
     border-radius: 10px;
     display: flex;
     align-items: center;
