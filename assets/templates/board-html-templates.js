@@ -143,7 +143,11 @@ function addTaskOverlayHTML() {
                             <option value="Select contacts">Select contacts to assign</option>
                         </select>
                     </div>
+                    <div class="hint-container">
+                        <p><span class="color-red">*</span>This field is required</p>
+                    </div>
                 </div>
+
                 <div class="form-divider"></div>
                 <div class="form-half-side">
                     <div class="input-group">
@@ -181,7 +185,12 @@ function addTaskOverlayHTML() {
                         <input class="enter-input subtask-enter" placeholder="Enter a subtask" type="text" name="Subtask" id="subtaskInput">
                     </div>
                     <div class="form-btn-container">
-                        <button class="board-add-btn clickable" type="submit">Create Task</button>
+                        <button class="cancel-btn clickable">
+                            <span>Cancel</span><img src="./assets/img/Vector (1).svg" alt="">
+                        </button>
+                        <button class="board-btn-dark board-create-btn clickable" type="submit">
+                            <span>Create Task</span><img src="assets/img/check.svg" alt="">
+                        </button>
                     </div>
                 </div>
             </form>
