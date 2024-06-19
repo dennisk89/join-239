@@ -1,5 +1,10 @@
-// function taskChanger() {
-
+// async function taskChanger() {
+//     taskArray[0].assigned = ['c5878', 'c349'];
+//     taskArray[1].assigned = ['c9396', 'c9217', 'c8258'];
+//     taskArray[2].assigned = ['c9989', 'c946'];
+//     taskArray[3].assigned = ['c5570', 'c8868', 'c946', 'c349'];
+//     taskArray[4].assigned = ['c8258', 'c9396'];
+//     await putData(endpointTasks, taskArray);
 // }
 
 
@@ -127,6 +132,48 @@ function getTaskById(id) {
     return taskArray[taskArray.findIndex(t => t.id === id)]
 }
 
+
+
+// ANCHOR edit Tasks
+function fillEditForm(taskIndex) {
+    let editInputIds = ['titleInput', 'descriptionInput', 'dateInput'];
+    let content = [taskArray[taskIndex].title, taskArray[taskIndex].description, taskArray[taskIndex].dueDate];
+    for (let j = 0; j < editInputIds.length; j++) {
+        document.getElementById(editInputIds[j]).value = content[j]; 
+    }
+    setTaskPrio(taskArray[taskIndex].prio);
+    renderAssigneesToTaskEdit(taskArray[taskIndex]);
+    renderEditSubtasks(taskArray[taskIndex])
+}
+
+
+function setTaskPrio(prio) {
+    currentTaskPrio = prio
+    const prioFunctions = {
+        'low': () => setPrioBtn('prioLow', 'low-selected', './assets/img/priority-low-white.svg'),
+        'medium': () => setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg'),
+        'urgent': () => setPrioBtn('prioUrgent', 'urgent-selected', './assets/img/priority-urgent-white.svg')
+        // prio: function
+    }
+    prioFunctions[prio]();
+}
+
+
+function renderAssigneesToTaskEdit(task) {
+    let taskAssignees = pushTaskAssigneeInfosToArray(task);
+    for (let i = 0; i < taskAssignees.length; i++) {
+        document.getElementById('assigneesEdit').innerHTML += taskAssignEditHTML(taskAssignees[i].color, taskAssignees[i].initials)
+    }
+}
+
+
+function renderEditSubtasks(task) {
+    for (let i = 0; i < task.subTask.length; i++) {
+        document.getElementById('subtaskEditList').innerHTML += editSubtaskListHTML(task.subTask[i]);
+    }
+}
+
+
 // ANCHOR Menu functionality
 function stopP(event) {
     event.stopPropagation();
@@ -135,13 +182,13 @@ function stopP(event) {
 
 function openEdit(id) {
     document.getElementById('taskOverlay').innerHTML = editTaksOverlayHTML(id);
+    fillEditForm(taskArray.findIndex(t => t.id === id));
 }
 
 
 function openAddTaskOverlay() {
     document.getElementById('taskOverlay').style.display = 'flex';
     document.getElementById('taskOverlay').innerHTML = addTaskOverlayHTML();
-    setEventListenerForPrio();
 }
 
 
@@ -184,9 +231,3 @@ function setPrioBtnStandardIcon() {
 
 
 // ANCHOR eventListener 
-function setEventListenerForPrio() {
-    document.getElementById('prioUrgent').addEventListener('click', () => setPrioBtn('prioUrgent', 'urgent-selected', './assets/img/priority-urgent-white.svg'));
-    document.getElementById('prioMedium').addEventListener('click', () => setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg'));
-    document.getElementById('prioLow').addEventListener('click', () => setPrioBtn('prioLow', 'low-selected', './assets/img/priority-low-white.svg'));
-
-}

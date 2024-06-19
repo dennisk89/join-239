@@ -79,7 +79,7 @@ function taskHTML(id, type, title, description, dueDate, prio) {
                     <p>Delete</p>
                 </div>
                 <div class="divider"></div>
-                <div onclick="openEdit(${id})" class="task-footer">
+                <div onclick="openEdit('${id}')" class="task-footer">
                     <img src="assets/img/edit.svg" alt="">
                     <p>Edit</p>
                 </div>
@@ -117,6 +117,7 @@ function taskSubTaskDoneHTML(i, subtaskText) {
         </div>
     `
 }
+
 
 function addTaskOverlayHTML() {
     return /*html*/`
@@ -159,15 +160,15 @@ function addTaskOverlayHTML() {
                     <div class="input-group">
                         <label class="">Prio</label>
                         <div class="prio-container">
-                            <div id="prioUrgent" class="priority-btn clickable">
+                            <div onclick="setTaskPrio('urgent')" id="prioUrgent" class="priority-btn clickable">
                                 <span>Urgent</span>
                                 <img src="./assets/img/priority-urgent.svg" alt="">
                             </div>
-                            <div id="prioMedium" class="medium-selected priority-btn clickable">
+                            <div onclick="setTaskPrio('medium')" id="prioMedium" class="medium-selected priority-btn clickable">
                                 <span>Medium</span>
                                 <img src="./assets/img/priority-medium-white.svg" alt="">
                             </div>
-                            <div id="prioLow" class="priority-btn clickable">
+                            <div onclick="setTaskPrio('low')" id="prioLow" class="priority-btn clickable">
                                 <span>Low</span>
                                 <img src="./assets/img/priority-low.svg" alt="">
                             </div>
@@ -226,15 +227,15 @@ function editTaksOverlayHTML(id) {
                 <div class="input-group">
                     <label class="font-16">Prio</label>
                     <div class="prio-container">
-                        <div id="prioUrgent" class="priority-btn-edit clickable">
+                        <div onclick="setTaskPrio('urgent')" id="prioUrgent" class="priority-btn-edit clickable">
                             <span>Urgent</span>
                             <img src="./assets/img/priority-urgent.svg" alt="">
                         </div>
-                        <div id="prioMedium" class="medium-selected priority-btn-edit clickable">
+                        <div onclick="setTaskPrio('medium')" id="prioMedium" class="medium-selected priority-btn-edit clickable">
                             <span>Medium</span>
                             <img src="./assets/img/priority-medium-white.svg" alt="">
                         </div>
-                        <div id="prioLow" class="priority-btn-edit clickable">
+                        <div onclick="setTaskPrio('low')" id="prioLow" class="priority-btn-edit clickable">
                             <span>Low</span>
                             <img src="./assets/img/priority-low.svg" alt="">
                         </div>
@@ -245,17 +246,14 @@ function editTaksOverlayHTML(id) {
                     <select class="enter-input select-input font-16" name="select contacts" id="selectContactsInput">
                         <option value="Select contacts">Select contacts to assign</option>
                     </select>
-                    <div class="task-assigned">
-                        <div class="profile-batch orange">AM</div>
-                        <div class="profile-batch blue">CK</div>
+                    <div id="assigneesEdit" class="task-assigned">
                     </div>
                 </div>
                 <div class="input-group">
                     <label class="font-16" for="subtaskInput">Subtaks</label>
                     <input class="enter-input subtask-enter font-16 clickable" placeholder="Enter a subtask" type="text"
                         name="Subtask" id="subtaskInput">
-                    <ul>
-                        <li>task</li>
+                    <ul class="subtask-ul" id="subtaskEditList">
                     </ul>
                 </div>
                 <div class="form-btn-container padding-top-0">
@@ -264,6 +262,26 @@ function editTaksOverlayHTML(id) {
                     </button>
                 </div>
             </form>
+        </div>
+    `
+}
+
+
+function taskAssignEditHTML(color, initials) {
+    return /*html*/`
+        <div class="profile-batch ${color} clickable">${initials}</div>
+    `
+}
+
+
+function editSubtaskListHTML(subtask) {
+    return /*html*/`
+        <div class="subtask-list-row clickable">
+            <li>${subtask}</li>
+            <div class="flex-all-center">
+                <img class="hide-for-hover border-divider" src="assets/img/edit.svg" alt="Edit subtask">
+                <img class="hide-for-hover" src="assets/img/delete.svg" alt="Delete subtask">
+            </div>
         </div>
     `
 }
