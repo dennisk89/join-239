@@ -89,15 +89,6 @@ function addSubTaskProgressToCards(i) {
 }
 
 
-async function createTask(type, title, description, date, assignees, prio, status, subtasks, subtaskStatus) {
-    let newTask = new Task(generateUniqueId('t', taskArray), type, title, description, date, assignees, prio, status, subtasks, subtaskStatus);
-    taskArray.push(newTask);
-    await putData(endpointTasks, taskArray);
-    initBoard();
-}
-
-
-
 // ANCHOR open Task details
 function openTasks(id) {
     let task = getTaskById(id);
@@ -189,7 +180,7 @@ function openEdit(id) {
 }
 
 
-function openAddTaskOverlay() {
+function openAddTaskOverlay() { 
     document.getElementById('taskOverlay').style.display = 'flex';
     document.getElementById('taskOverlay').innerHTML = addTaskOverlayHTML();
 }

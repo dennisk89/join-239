@@ -126,7 +126,7 @@ function addTaskOverlayHTML() {
                 <h1 class="add-task-headline">Add Task</h1>
                 <img class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask()">
             </div>
-            <form class="overlay-form" onsubmit="console.log('add'); return false">
+            <form class="overlay-form" onsubmit="createTask(initBoard); return false">
                 <div class="form-half-side">
                     <div class="input-group">
                         <label class="font-20" for="titleInput">Title<span class="color-red">*</span></label>
@@ -160,15 +160,15 @@ function addTaskOverlayHTML() {
                     <div class="input-group">
                         <label class="">Prio</label>
                         <div class="prio-container">
-                            <div onclick="setTaskPrio('urgent')" id="prioUrgent" class="priority-btn clickable">
+                            <div onclick="setPrioBtn('prioUrgent', 'urgent-selected', './assets/img/priority-urgent-white.svg', 'urgent')" id="prioUrgent" class="priority-btn clickable">
                                 <span>Urgent</span>
                                 <img src="./assets/img/priority-urgent.svg" alt="">
                             </div>
-                            <div onclick="setTaskPrio('medium')" id="prioMedium" class="medium-selected priority-btn clickable">
+                            <div onclick="setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg', 'medium')" id="prioMedium" class="medium-selected priority-btn clickable">
                                 <span>Medium</span>
                                 <img src="./assets/img/priority-medium-white.svg" alt="">
                             </div>
-                            <div onclick="setTaskPrio('low')" id="prioLow" class="priority-btn clickable">
+                            <div onclick="setPrioBtn('prioLow', 'low-selected', './assets/img/priority-low-white.svg', 'low')" id="prioLow" class="priority-btn clickable">
                                 <span>Low</span>
                                 <img src="./assets/img/priority-low.svg" alt="">
                             </div>

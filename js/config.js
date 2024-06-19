@@ -18,7 +18,7 @@ let progressTasks;
 let feedbackTasks;
 let doneTasks;
 let urgentTasks;
-let currentTaskPrio;
+let currentTaskPrio = 'medium';
 
 async function initJoin() {
     contacts = await getData(endpointContacts);
@@ -30,11 +30,13 @@ async function initJoin() {
     urgentTasks = taskArray.filter(t => t.prio === 'urgent' && t.dueDate);
 }
 
+
 async function getData(url) {
     let response = await fetch(url + ".json").catch(errorFunction);
     console.log(response.status);
     return await response.json();
 }
+
 
 async function putData(url, data = {}) {
     let response = await fetch(url + ".json", {
@@ -47,6 +49,7 @@ async function putData(url, data = {}) {
     console.log(response.status);
     return await response.json();
 }
+
 
 function errorFunction() {
     console.error('Fehler aufgetreten');
@@ -75,10 +78,28 @@ class Task {
     }
 }
 
+
 function generateUniqueId(initLetter, array) {
     let newId;
     do { // Do-While-Schleife: Sie sorgt dafür, dass so lange eine neue ID generiert wird, bis eine ID gefunden wurde, die noch nicht vergeben ist.
         newId = initLetter + Math.floor(Math.random() * 10000); // Math.random() erzeugt eine Zufallszahl zwischen 0 (inkl.) und 1 (exkl.); durch * 10000 wird auf einen Bereich von 0 bis 9999.999... skaliert. Math.floor rundet die Zufallszahl auf die nächste ganze Zahl ab, sodass eine Zahl zwischen 0 und 9999 entsteht.
     } while (array.some(a => a.id === newId)); // Überprüfung, ob die neu generierte ID bereits vergeben ist.
     return newId;
+}
+
+
+async function createTask(nextFunction) {
+    let newTask = new Task(generateUniqueId('t', taskArray), 
+        document.getElementById('selectCategory').value, 
+        document.getElementById('titleInput').value, 
+        document.getElementById('descriptionInput').value, 
+        document.getElementById('dateInput').value, 
+        ['c5570', 'c9989'], 
+        currentTaskPrio, 
+        'todo', 
+        ['Ein subtask'], 
+        [false]);
+    taskArray.push(newTask);
+    await putData(endpointTasks, taskArray);
+    nextFunction();
 }
