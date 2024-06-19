@@ -18,6 +18,7 @@ let progressTasks;
 let feedbackTasks;
 let doneTasks;
 let urgentTasks;
+let currentTaskPrio;
 
 async function initJoin() {
     contacts = await getData(endpointContacts);

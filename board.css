@@ -421,6 +421,10 @@ p {
     background-size: 0.65rem auto;
 }
 
+.select-input:hover {
+    background-image: url('./assets/img/edit.svg');
+}
+
 .input-group {
     display: flex;
     flex-direction: column;
@@ -570,7 +574,11 @@ p {
 
 .subtask-ul {
     margin: 0 12px;
-    padding-inline-start: 12px;
+    padding-inline-start: 0px;
+}
+
+.subtask-ul li {
+    margin-left: 16px;
 }
 
 .subtask-list-row {

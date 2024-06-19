@@ -7,6 +7,9 @@
 //     await putData(endpointTasks, taskArray);
 // }
 
+let tempSubtasks = [];
+let tempAssignees = [];
+
 
 // ANCHOR load Tasks
 async function initBoard() {
@@ -160,16 +163,17 @@ function setTaskPrio(prio) {
 
 
 function renderAssigneesToTaskEdit(task) {
-    let taskAssignees = pushTaskAssigneeInfosToArray(task);
-    for (let i = 0; i < taskAssignees.length; i++) {
-        document.getElementById('assigneesEdit').innerHTML += taskAssignEditHTML(taskAssignees[i].color, taskAssignees[i].initials)
+    tempAssignees = pushTaskAssigneeInfosToArray(task);
+    for (let i = 0; i < tempAssignees.length; i++) {
+        document.getElementById('assigneesEdit').innerHTML += taskAssignEditHTML(tempAssignees[i].color, tempAssignees[i].initials)
     }
 }
 
 
 function renderEditSubtasks(task) {
-    for (let i = 0; i < task.subTask.length; i++) {
-        document.getElementById('subtaskEditList').innerHTML += editSubtaskListHTML(task.subTask[i]);
+    tempSubtasks = task.subTask;
+    for (let i = 0; i < tempSubtasks.length; i++) {
+        document.getElementById('subtaskEditList').innerHTML += editSubtaskListHTML(tempSubtasks[i]);
     }
 }
 
@@ -183,6 +187,7 @@ function stopP(event) {
 function openEdit(id) {
     document.getElementById('taskOverlay').innerHTML = editTaksOverlayHTML(id);
     fillEditForm(taskArray.findIndex(t => t.id === id));
+    document.getElementById('closeEditOverlay').addEventListener('click', resetGlobalTaskVariables);
 }
 
 
@@ -231,3 +236,10 @@ function setPrioBtnStandardIcon() {
 
 
 // ANCHOR eventListener 
+
+
+function resetGlobalTaskVariables() {
+    tempSubtasks = [];
+    tempAssignees = [];
+    currentTaskPrio = 'medium'
+}

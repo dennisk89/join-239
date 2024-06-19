@@ -205,7 +205,7 @@ function editTaksOverlayHTML(id) {
     return /*html*/`
         <div id="editFor${id}" class="open-task">
             <div class="task-header flex-end">
-                <img class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask()">
+                <img id="closeEditOverlay" class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask()">
             </div>
             <form class="edit-form" onsubmit="console.log('edit'); return false">
                 <div class="input-group">
@@ -243,9 +243,8 @@ function editTaksOverlayHTML(id) {
                 </div>
                 <div class="input-group">
                     <label class="font-16" for="selectContactsInput">Assigned to</label>
-                    <select class="enter-input select-input font-16" name="select contacts" id="selectContactsInput">
-                        <option value="Select contacts">Select contacts to assign</option>
-                    </select>
+                    <input id="titleInput" class="select-input enter-input font-16" placeholder="Select contacts to assign" type="text"
+                        name="select contacts" id="selectContactsInput" required>
                     <div id="assigneesEdit" class="task-assigned">
                     </div>
                 </div>
@@ -274,14 +273,21 @@ function taskAssignEditHTML(color, initials) {
 }
 
 
-function editSubtaskListHTML(subtask) {
+function editSubtaskListHTML(subtask, i) {
     return /*html*/`
         <div class="subtask-list-row clickable">
             <li>${subtask}</li>
             <div class="flex-all-center">
-                <img class="hide-for-hover border-divider" src="assets/img/edit.svg" alt="Edit subtask">
+                <img onclick="editSubtask(${i})" class="hide-for-hover border-divider" src="assets/img/edit.svg" alt="Edit subtask">
                 <img class="hide-for-hover" src="assets/img/delete.svg" alt="Delete subtask">
             </div>
         </div>
+    `
+}
+
+
+function optionInDropAssignedMenuHTML() {
+    /*html*/`
+        <option value="${value}">Select contacts to assign</option>
     `
 }
