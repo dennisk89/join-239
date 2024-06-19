@@ -10,7 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0); /* Initial color bevore sliding in */
+    background-color: rgba(0, 0, 0, 0); /* Initial color before sliding in */
     transition: background-color 0.5s ease-in-out;
 }
 
@@ -20,10 +20,10 @@
     color: rgba(255, 255, 255, 1);
     width: 396px;
     position: relative;
-    transform: translateX(150%); /* Initial position, bevore sliding in */
+    transform: translateX(150%); /* Initial position, before sliding in */
 }
 
-@keyframes slideIn { /* Keyframe animation for sliding in */
+@keyframes overlaySlideIn { /* Keyframe animation for sliding in */
     from {
         transform: translateX(150%);
     } to {
@@ -31,7 +31,7 @@
     }
 }
 
-@keyframes slideOut { /* Keyframe animation for sliding out */
+@keyframes overlaySlideOut { /* Keyframe animation for sliding out */
     from {
         transform: translateX(0);
     } to {
@@ -39,35 +39,35 @@
     }
 }
 
-#overlayAddContact.slide-in .overlay-content { /* Active state for sliding in */
-    animation: slideIn 0.5s ease-in-out forwards;
+#overlayAddContact.overlay-slide-in .overlay-content { /* Active state for sliding in */
+    animation: overlaySlideIn 0.5s ease-in-out forwards;
 }
 
-#overlayAddContact.slide-in .overlay-bg {
+#overlayAddContact.overlay-slide-in .overlay-bg {
     background-color: rgba(0, 0, 0, 0.2);    
 }
 
-#overlayAddContact.slide-out .overlay-content { /* Active state for sliding in */
-    animation: slideOut 0.5s ease-in-out forwards;
+#overlayAddContact.overlay-slide-out .overlay-content { /* Active state for sliding out */
+    animation: overlaySlideOut 0.5s ease-in-out forwards;
 }
 
-#overlayAddContact.slide-out .overlay-bg {
+#overlayAddContact.overlay-slide-out .overlay-bg {
     background-color: rgba(0, 0, 0, 0);    
 }
 
-#overlayEditContact.slide-in .overlay-content { /* Active state for sliding in */
-    animation: slideIn 0.5s ease-in-out forwards;
+#overlayEditContact.overlay-slide-in .overlay-content { /* Active state for sliding in */
+    animation: overlaySlideIn 0.5s ease-in-out forwards;
 }
 
-#overlayEditContact.slide-in .overlay-bg {
+#overlayEditContact.overlay-slide-in .overlay-bg {
     background-color: rgba(0, 0, 0, 0.2);    
 }
 
-#overlayEditContact.slide-out .overlay-content { /* Active state for sliding in */
-    animation: slideOut 0.5s ease-in-out forwards;
+#overlayEditContact.overlay-slide-out .overlay-content { /* Active state for sliding out */
+    animation: overlaySlideOut 0.5s ease-in-out forwards;
 }
 
-#overlayEditContact.slide-out .overlay-bg {
+#overlayEditContact.overlay-slide-out .overlay-bg {
     background-color: rgba(0, 0, 0, 0);    
 }
 

@@ -4,8 +4,8 @@ let contactListLetters = [];
 
 function hideOverlayEditContact() {
     let overlayEditContact = document.getElementById('overlayEditContact');
-    overlayEditContact.classList.remove('slide-in');
-    overlayEditContact.classList.add('slide-out');
+    overlayEditContact.classList.remove('overlay-slide-in');
+    overlayEditContact.classList.add('overlay-slide-out');
     setTimeout(() => {
         overlayEditContact.classList.add('hide');
     }, 500); /* same duration as slide out animation */
@@ -21,8 +21,8 @@ function showOverlayEditContact(contactId, contactName, initials, color, email, 
     document.getElementById('editContactForm').onsubmit = function() {editContact(contactId, initials, color); return false;};
     let overlayEditContact = document.getElementById('overlayEditContact');
     overlayEditContact.classList.remove('hide');
-    overlayEditContact.classList.add('slide-in');
-    overlayEditContact.classList.remove('slide-out');
+    overlayEditContact.classList.add('overlay-slide-in');
+    overlayEditContact.classList.remove('overlay-slide-out');
 }
 
 function createOverlayEditContactDot(initials, color) {
@@ -43,8 +43,8 @@ function showOverlayEditDelete() {
 
 function hideOverlayAddContact() {
     let overlayAddContact = document.getElementById('overlayAddContact');
-    overlayAddContact.classList.remove('slide-in');
-    overlayAddContact.classList.add('slide-out');
+    overlayAddContact.classList.remove('overlay-slide-in');
+    overlayAddContact.classList.add('overlay-slide-out');
     setTimeout(() => {
         overlayAddContact.classList.add('hide');
     }, 500); /* same duration as slide out animation */
@@ -53,8 +53,8 @@ function hideOverlayAddContact() {
 function showOverlayAddContact() {
     let overlayAddContact = document.getElementById('overlayAddContact');
     overlayAddContact.classList.remove('hide');
-    overlayAddContact.classList.add('slide-in');
-    overlayAddContact.classList.remove('slide-out');
+    overlayAddContact.classList.add('overlay-slide-in');
+    overlayAddContact.classList.remove('overlay-slide-out');
 }
 
 async function showContactList() {
@@ -116,15 +116,22 @@ function getInitials(contactName) {
     return initials;
 }
 
-function showContactName(contactId, contactName, initials, color, email, phone) {
-    let contactNameContainer = document.getElementById('contactNameContainer');
-    contactNameContainer.innerHTML = '';
-    contactNameContainer.innerHTML = generateContactNameHTML(contactId, contactName, initials, color, email, phone);
-    let contactInfoContent = document.getElementById('contactInfoContent');
-    contactInfoContent.innerHTML = '';
-    contactInfoContent.innerHTML = generateContactInfoHTML(email, phone);
-    let contactInfoHeader = document.getElementById('contactInfoHeader');
-    contactInfoHeader.classList.remove('hide');
+function showContactDetails(contactId, contactName, initials, color, email, phone) {
+    let contactDetailsContainer = document.getElementById('contactDetailsContainer');
+    contactDetailsContainer.innerHTML = '';
+    contactDetailsContainer.classList.remove('contact-details-slide-in');
+    contactDetailsContainer.classList.remove('contact-details-show');
+    contactDetailsContainer.innerHTML = generateContactDetailsContainerHTML(contactId, contactName, initials, color, email, phone);
+    void contactDetailsContainer.offsetWidth; /* Force reflow to reset the animation */
+    contactDetailsContainer.classList.add('contact-details-slide-in');
+    setTimeout(() => {
+        contactDetailsContainer.classList.remove('contact-details-slide-in');
+        contactDetailsContainer.classList.add('contact-details-show');
+    }, 500);
+    highlightContactContainer(contactId);
+}
+
+function highlightContactContainer(contactId) {
     let contactContainers = document.getElementsByClassName('contact-container');
     for (i = 0; i < contactContainers.length; i++) {
         let contactContainer = contactContainers[i];
@@ -133,7 +140,7 @@ function showContactName(contactId, contactName, initials, color, email, phone) 
         } else {
             contactContainer.classList.remove('highlightContact');
         }
-    }    
+    }
 }
 
 function createNewContactArray() {

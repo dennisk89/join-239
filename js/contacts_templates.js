@@ -8,7 +8,7 @@ function generateContactListHTML(contactListLetter) {
 
 function generateContactListContentHTML(contact, initials, color) {
     return /*html*/`
-        <div id="contactContainer${contact['id']}" class="contact-container clickable" onclick="showContactName('${contact['id']}', '${contact['name']}', '${initials}', '${color}', '${contact['email']}', '${contact['phone']}')">
+        <div id="contactContainer${contact['id']}" class="contact-container clickable" onclick="showContactDetails('${contact['id']}', '${contact['name']}', '${initials}', '${color}', '${contact['email']}', '${contact['phone']}')">
             <div class="contact-list-dot contact-dot-${color}">${initials}</div>
             <div>
                 <div class="contact-list-name">${contact['name']}</div>
@@ -18,31 +18,31 @@ function generateContactListContentHTML(contact, initials, color) {
     `;
 }
 
-function generateContactNameHTML(contactId, contactName, initials, color, email, phone) {
+function generateContactDetailsContainerHTML(contactId, contactName, initials, color, email, phone) {
     return /*html*/`
-        <div class="contact-info-dot contact-dot-${color}">${initials}</div>
-        <div>
-            <div class="contact-info-name">${contactName}</div>
-            <div class="contact-edit-delete-desktop-container">
-                <div class="contact-edit-delete-desktop clickable" onclick="showOverlayEditContact('${contactId}', '${contactName}', '${initials}', '${color}', '${email}', '${phone}')">
-                    <img src="./assets/img/edit.svg" class="contact-edit-desktop-img">
-                    <div>Edit</div>
+        <div class="contact-name-container">
+            <div class="contact-info-dot contact-dot-${color}">${initials}</div>
+            <div>
+                <div class="contact-info-name">${contactName}</div>
+                <div class="contact-edit-delete-desktop-container">
+                    <div class="contact-edit-delete-desktop clickable" onclick="showOverlayEditContact('${contactId}', '${contactName}', '${initials}', '${color}', '${email}', '${phone}')">
+                        <img src="./assets/img/edit.svg" class="contact-edit-desktop-img">
+                        <div>Edit</div>
+                    </div>
+                    <div class="contact-edit-delete-desktop clickable" onclick="deleteContact('${contactId}')">
+                        <img src="./assets/img/delete.svg" class="contact-delete-desktop-img">
+                        <div>Delete</div>
+                    </div>                    
                 </div>
-                <div class="contact-edit-delete-desktop clickable" onclick="deleteContact('${contactId}')">
-                    <img src="./assets/img/delete.svg" class="contact-delete-desktop-img">
-                    <div>Delete</div>
-                </div>                    
             </div>
         </div>
-    `;
-}
-
-function generateContactInfoHTML(email, phone) {
-    return /*html*/`
-        <div class="contact-info-bold">Email</div>
-        <div class="contact-info-mail">${email}</div>
-        <div class="contact-info-bold">Phone</div>
-        <div>${phone}</div>
+        <div class="contact-info-header">Contact Information</div>
+        <div class="contact-info-content">
+            <div class="contact-info-bold">Email</div>
+            <div class="contact-info-mail">${email}</div>
+            <div class="contact-info-bold">Phone</div>
+            <div>${phone}</div>
+        </div>
     `;
 }
 
