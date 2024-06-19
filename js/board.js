@@ -142,13 +142,23 @@ function fillEditForm(taskIndex) {
     for (let j = 0; j < editInputIds.length; j++) {
         document.getElementById(editInputIds[j]).value = content[j]; 
     }
+    setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg', 'medium')
     setTaskPrio(taskArray[taskIndex].prio);
-    renderAssigneesToTaskEdit(taskArray[taskIndex]);
     renderEditSubtasks(taskArray[taskIndex])
 }
 
 
 
+function setTaskPrio(prio) {
+    currentTaskPrio = prio
+    const prioFunctions = {
+        'low': () => setPrioBtn('prioLow', 'low-selected', './assets/img/priority-low-white.svg', 'low'),
+        'medium': () => setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg', 'medium'),
+        'urgent': () => setPrioBtn('prioUrgent', 'urgent-selected', './assets/img/priority-urgent-white.svg', 'urgent')
+        // prio: function
+    }
+    prioFunctions[prio]();
+}
 
 
 function renderAssigneesToTaskEdit(task) {

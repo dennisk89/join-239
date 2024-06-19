@@ -417,23 +417,23 @@ p {
     appearance: none;
     background-image: url('./assets/img/arrow_drop_down.svg');
     background-repeat: no-repeat;
-    background-position: right 24px top 50%;
-    background-size: 0.65rem auto;
+    background-position: right 16px top 50%;
+    background-size: 24px auto;
 }
 
-#selectImage {
+.select-image {
     width: 48px;
     height: 100%;
     background-image: url("./assets/img/arrow_drop_down.svg");
     background-repeat: no-repeat;
-    background-position: right 50% top 50%;
+    background-position: right 0 top 50%;
     background-size: 24px auto;
 }
 
-#selectImage:hover {
+.select-image:hover {
     background-image: url("./assets/img/arrow_drop_down-bg.svg");
     background-size: 24px auto;
-    background-position: right 50% top 50%;
+    background-position: right 0 top 50%;
 }
 
 textarea:focus, input:focus{

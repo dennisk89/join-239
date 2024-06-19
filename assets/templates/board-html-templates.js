@@ -140,9 +140,12 @@ function addTaskOverlayHTML() {
                     </div>
                     <div class="input-group">
                         <label class="font-20" for="selectContactsInput">Assigned to</label>
-                        <select class="enter-input select-input font-20" name="select contacts" id="selectContactsInput">
-                            <option value="Select contacts">Select contacts to assign</option>
-                        </select>
+                        <div class="enter-input outer-input">
+                            <input id="titleInput" class="inner-input font-16" placeholder="Select contacts to assign" type="text"
+                            name="select contacts" id="selectContactsInput" required>
+                            <div class="select-image clickable">
+                        </div>
+                    </div>
                     </div>
                     <div class="hint-container">
                         <p><span class="color-red">*</span>This field is required</p>
@@ -176,7 +179,7 @@ function addTaskOverlayHTML() {
                     </div>
                     <div class="input-group">
                         <label class="font-20" for="selectCategory">Category<span class="color-red">*</span></label>
-                        <select class="enter-input select-input" name="select category" id="selectCategory" required>
+                        <select class="enter-input select-input font-16" name="select category" id="selectCategory" required>
                             <option value="">Select task category</option>
                             <option value="tt">Technical task</option>
                             <option value="us">User story</option>
@@ -243,11 +246,10 @@ function editTaksOverlayHTML(id) {
                 </div>
                 <div class="input-group">
                     <label class="font-16" for="selectContactsInput">Assigned to</label>
-                    
                     <div class="enter-input outer-input">
                         <input id="titleInput" class="inner-input font-16" placeholder="Select contacts to assign" type="text"
                         name="select contacts" id="selectContactsInput" required>
-                        <div id="selectImage">
+                        <div class="select-image clickable">
                         </div>
                     </div>
                     <div id="assigneesEdit" class="task-assigned">
