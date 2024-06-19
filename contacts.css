@@ -48,9 +48,17 @@
 
 .contact-container {
     display: flex;
+    align-items: center;
     gap: 35px;
     height: 78px;
     padding: 15px 24px;
+}
+
+.highlightContact {
+    background-color: var(--buttons-dark);
+    border: 1px solid var(--buttons-dark);
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 1);
 }
 
 .contact-list-dot {

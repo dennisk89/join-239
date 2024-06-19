@@ -8,7 +8,7 @@ function generateContactListHTML(contactListLetter) {
 
 function generateContactListContentHTML(contact, initials, color) {
     return /*html*/`
-        <div class="contact-container clickable" onclick="showContactName('${contact['id']}', '${contact['name']}', '${initials}', '${color}', '${contact['email']}', '${contact['phone']}')">
+        <div id="contactContainer${contact['id']}" class="contact-container clickable" onclick="showContactName('${contact['id']}', '${contact['name']}', '${initials}', '${color}', '${contact['email']}', '${contact['phone']}')">
             <div class="contact-list-dot contact-dot-${color}">${initials}</div>
             <div>
                 <div class="contact-list-name">${contact['name']}</div>

@@ -125,6 +125,15 @@ function showContactName(contactId, contactName, initials, color, email, phone) 
     contactInfoContent.innerHTML = generateContactInfoHTML(email, phone);
     let contactInfoHeader = document.getElementById('contactInfoHeader');
     contactInfoHeader.classList.remove('hide');
+    let contactContainers = document.getElementsByClassName('contact-container');
+    for (i = 0; i < contactContainers.length; i++) {
+        let contactContainer = contactContainers[i];
+        if (contactContainer.id == 'contactContainer' + contactId) {
+            contactContainer.classList.add('highlightContact');
+        } else {
+            contactContainer.classList.remove('highlightContact');
+        }
+    }    
 }
 
 function createNewContactArray() {
