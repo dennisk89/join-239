@@ -1,13 +1,28 @@
 /* ANCHOR Main */
 
-.main {
+.contacts-main {
     display: flex;
+    margin-left: 210px;
 }
 
 /* ANCHOR Contact List */
 
 .main-contact-list {
-    margin: 80px 14px;
+    background-color: rgba(255, 255, 255, 1);
+    margin-top: 80px;
+    padding: 0;
+    width: 400px;
+    overflow-y: scroll;
+}
+
+.contact-list-top {
+    position: fixed;
+    top: 104px;
+    left: 250px;
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .add-contact-btn-desktop {
@@ -18,8 +33,7 @@
     line-height: 25.2px;    
     border-radius: 10px;
     padding: 12px 0;
-    margin-top: 22.5px;
-    margin-left: 25.5px;
+    margin: 22.5px 28px;
     display: none;
 }
 
@@ -29,10 +43,11 @@
 }
 
 .contact-list-letter {
-    padding: 17px 36px;
+    padding: 17px 36px 17px 90px;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
+    align-self: flex-start;
 }
 
 .hr-contact-list {
@@ -42,23 +57,37 @@
 }
 
 .contact-list-content {
+    padding-top: 200px;
+    width: 448px;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
 .contact-container {
+    background-color: rgba(255, 255, 255, 1);
     display: flex;
     align-items: center;
     gap: 35px;
     height: 78px;
+    width: 304px;
     padding: 15px 24px;
+    border-radius: 10px;
+}
+
+.contact-container:hover {
+    background-image: linear-gradient(rgba(249, 249, 249, 1),rgba(240, 240, 240, 1));
 }
 
 .highlightContact {
     background-color: var(--buttons-dark);
-    border: 1px solid var(--buttons-dark);
-    border-radius: 10px;
+    border: 1px solid var(--buttons-dark);    
     color: rgba(255, 255, 255, 1);
+}
+
+.highlightContact:hover {
+    background-image: none;
 }
 
 .contact-list-dot {
@@ -120,7 +149,9 @@
 /* ANCHOR Contacts */
 
 .main-contacts {
+    margin-top: 80px;
     display: none;
+    overflow: hidden;
 }
 
 .contacts-header {
@@ -299,10 +330,12 @@
         display: flex;
         flex-direction: column;
         align-items: first baseline;
+        overflow: hidden;
     }
 
     .contacts-content {
         position: fixed;
+        overflow: hidden;
     }
 
     .contacts-header {

@@ -85,9 +85,9 @@ a {
         display: none;
     }
 
-    body {
+    /* body {
         margin-left: 232px;
-    }
+    } */
 
     .inner-header {
         align-items: center;

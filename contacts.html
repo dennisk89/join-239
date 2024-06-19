@@ -35,13 +35,15 @@
         </div>
     </header>
 
-    <div class="main">
+    <div class="contacts-main">
 
         <div class="main-contact-list">
 
-            <button class="add-contact-btn-desktop btn-color clickable" onclick="showOverlayAddContact()">Add new contact <img src="./assets/img/person_add.svg"></button>
+            <div class="contact-list-top">
+                <button class="add-contact-btn-desktop btn-color clickable" onclick="showOverlayAddContact()">Add new contact <img src="./assets/img/person_add.svg"></button>
+            </div>            
 
-            <div id="contactListContent"></div>            
+            <div id="contactListContent" class="contact-list-content"></div>            
 
             <div class="add-contact-btn clickable" onclick="showOverlayAddContact()">
                 <img src="./assets/img/person_add.svg">

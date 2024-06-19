@@ -1,3 +1,10 @@
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
 .flex-all-center {
     display: flex;
     justify-content: center;
@@ -49,6 +56,11 @@
 
 
 @media(min-width: 768px) {
+
+    header {
+        left: 250px;
+    }
+
     .profile-icon {
         height: 56px;
         width: 56px;
@@ -58,7 +70,3 @@
         font-size: 16px;
     }
 }
-
-
-
-
