@@ -421,10 +421,6 @@ p {
     background-size: 0.65rem auto;
 }
 
-.select-input:hover {
-    background-image: url('./assets/img/edit.svg');
-}
-
 .input-group {
     display: flex;
     flex-direction: column;

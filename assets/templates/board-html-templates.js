@@ -252,6 +252,9 @@ function editTaksOverlayHTML(id) {
                     <label class="font-16" for="subtaskInput">Subtaks</label>
                     <input class="enter-input subtask-enter font-16 clickable" placeholder="Enter a subtask" type="text"
                         name="Subtask" id="subtaskInput">
+                    <div>
+                        
+                    </div>
                     <ul class="subtask-ul" id="subtaskEditList">
                     </ul>
                 </div>

@@ -11,6 +11,13 @@ let tempSubtasks = [];
 let tempAssignees = [];
 
 
+function resetGlobalTaskVariables() {
+    tempSubtasks = [];
+    tempAssignees = [];
+    currentTaskPrio = 'medium'
+}
+
+
 // ANCHOR load Tasks
 async function initBoard() {
     await initJoin();
@@ -188,6 +195,7 @@ function openEdit(id) {
     document.getElementById('taskOverlay').innerHTML = editTaksOverlayHTML(id);
     fillEditForm(taskArray.findIndex(t => t.id === id));
     document.getElementById('closeEditOverlay').addEventListener('click', resetGlobalTaskVariables);
+    setEventListenerEdit();
 }
 
 
@@ -235,11 +243,9 @@ function setPrioBtnStandardIcon() {
 }
 
 
+
 // ANCHOR eventListener 
 
 
-function resetGlobalTaskVariables() {
-    tempSubtasks = [];
-    tempAssignees = [];
-    currentTaskPrio = 'medium'
-}
+
+
