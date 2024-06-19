@@ -157,16 +157,7 @@ function fillEditForm(taskIndex) {
 }
 
 
-function setTaskPrio(prio) {
-    currentTaskPrio = prio
-    const prioFunctions = {
-        'low': () => setPrioBtn('prioLow', 'low-selected', './assets/img/priority-low-white.svg'),
-        'medium': () => setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg'),
-        'urgent': () => setPrioBtn('prioUrgent', 'urgent-selected', './assets/img/priority-urgent-white.svg')
-        // prio: function
-    }
-    prioFunctions[prio]();
-}
+
 
 
 function renderAssigneesToTaskEdit(task) {
@@ -195,7 +186,6 @@ function openEdit(id) {
     document.getElementById('taskOverlay').innerHTML = editTaksOverlayHTML(id);
     fillEditForm(taskArray.findIndex(t => t.id === id));
     document.getElementById('closeEditOverlay').addEventListener('click', resetGlobalTaskVariables);
-    setEventListenerEdit();
 }
 
 
@@ -226,7 +216,8 @@ function changeSubTaskStatus(currentStatusBoolean) {
 
 
 
-function setPrioBtn(id, cssClass, iconPath) {
+function setPrioBtn(id, cssClass, iconPath, prio) {
+    currentTaskPrio = prio;
     ['prioUrgent', 'prioMedium', 'prioLow'].forEach(idInArray => {
         document.getElementById(idInArray).classList.remove('low-selected', 'medium-selected', 'urgent-selected');
         setPrioBtnStandardIcon();

@@ -227,15 +227,15 @@ function editTaksOverlayHTML(id) {
                 <div class="input-group">
                     <label class="font-16">Prio</label>
                     <div class="prio-container">
-                        <div onclick="setTaskPrio('urgent')" id="prioUrgent" class="priority-btn-edit clickable">
+                        <div onclick="setPrioBtn('prioUrgent', 'urgent-selected', './assets/img/priority-urgent-white.svg', 'urgent')" id="prioUrgent" class="priority-btn-edit clickable">
                             <span>Urgent</span>
                             <img src="./assets/img/priority-urgent.svg" alt="">
                         </div>
-                        <div onclick="setTaskPrio('medium')" id="prioMedium" class="medium-selected priority-btn-edit clickable">
+                        <div onclick="setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg', 'medium')" id="prioMedium" class="medium-selected priority-btn-edit clickable">
                             <span>Medium</span>
                             <img src="./assets/img/priority-medium-white.svg" alt="">
                         </div>
-                        <div onclick="setTaskPrio('low')" id="prioLow" class="priority-btn-edit clickable">
+                        <div onclick="setPrioBtn('prioLow', 'low-selected', './assets/img/priority-low-white.svg', 'low')" id="prioLow" class="priority-btn-edit clickable">
                             <span>Low</span>
                             <img src="./assets/img/priority-low.svg" alt="">
                         </div>
@@ -243,8 +243,13 @@ function editTaksOverlayHTML(id) {
                 </div>
                 <div class="input-group">
                     <label class="font-16" for="selectContactsInput">Assigned to</label>
-                    <input id="titleInput" class="select-input enter-input font-16" placeholder="Select contacts to assign" type="text"
+                    
+                    <div class="enter-input outer-input">
+                        <input id="titleInput" class="inner-input font-16" placeholder="Select contacts to assign" type="text"
                         name="select contacts" id="selectContactsInput" required>
+                        <div id="selectImage">
+                        </div>
+                    </div>
                     <div id="assigneesEdit" class="task-assigned">
                     </div>
                 </div>
@@ -253,7 +258,7 @@ function editTaksOverlayHTML(id) {
                     <input class="enter-input subtask-enter font-16 clickable" placeholder="Enter a subtask" type="text"
                         name="Subtask" id="subtaskInput">
                     <div>
-                        
+
                     </div>
                     <ul class="subtask-ul" id="subtaskEditList">
                     </ul>

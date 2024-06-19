@@ -421,6 +421,37 @@ p {
     background-size: 0.65rem auto;
 }
 
+#selectImage {
+    width: 48px;
+    height: 100%;
+    background-image: url("./assets/img/arrow_drop_down.svg");
+    background-repeat: no-repeat;
+    background-position: right 50% top 50%;
+    background-size: 24px auto;
+}
+
+#selectImage:hover {
+    background-image: url("./assets/img/arrow_drop_down-bg.svg");
+    background-size: 24px auto;
+    background-position: right 50% top 50%;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.outer-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inner-input {
+    border: none;
+    width: 70%;
+
+}
+
 .input-group {
     display: flex;
     flex-direction: column;
