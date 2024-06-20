@@ -1,12 +1,3 @@
-// async function taskChanger() {
-//     taskArray[0].assigned = ['c5878', 'c349'];
-//     taskArray[1].assigned = ['c9396', 'c9217', 'c8258'];
-//     taskArray[2].assigned = ['c9989', 'c946'];
-//     taskArray[3].assigned = ['c5570', 'c8868', 'c946', 'c349'];
-//     taskArray[4].assigned = ['c8258', 'c9396'];
-//     await putData(endpointTasks, taskArray);
-// }
-
 let tempSubtasks = [];
 let tempAssignees = [];
 
@@ -176,7 +167,7 @@ function setTaskPrio(prio) {
 function renderAssigneesToTaskEdit(task) {
     tempAssignees = pushTaskAssigneeInfosToArray(task);
     for (let i = 0; i < tempAssignees.length; i++) {
-        document.getElementById('assigneesEdit').innerHTML += taskAssignEditHTML(tempAssignees[i].color, tempAssignees[i].initials)
+        document.getElementById('assigneesEdit').innerHTML += profileBatchHTML(tempAssignees[i].color, tempAssignees[i].initials)
     }
 }
 
@@ -247,6 +238,7 @@ function setPrioBtnStandardIcon() {
 }
 
 
+// ANCHOR Select assign in add task
 function selectContactsList(openOrCloseFunction) {
     openOrCloseFunction();
 }
@@ -290,6 +282,8 @@ function preSelectContact(contactId, checkboxContainer) {
     console.log('select ID: ' + contactId );
     checkboxContainer.classList.remove('checkbox-img');
     checkboxContainer.classList.add('checkbox-img-checked');
+    tempAssignees.push(contactId);
+    renderContactBadgeUnderSelectField();
 }
 
 
@@ -297,6 +291,17 @@ function deSelectContact(contactId, checkboxContainer) {
     console.log('unselect ID: ' + contactId );
     checkboxContainer.classList.add('checkbox-img');
     checkboxContainer.classList.remove('checkbox-img-checked');
+    tempAssignees.splice(tempAssignees.IndexOf(contactId), 1)
+    renderContactBadgeUnderSelectField();
+}
+
+
+function renderContactBadgeUnderSelectField() {
+    document.getElementById('preSelectedContainer').innerHTML = '';
+    for (let i = 0; i < tempAssignees.length; i++) {
+        const assign = getContactByContactID(tempAssignees[i]);
+        document.getElementById('preSelectedContainer').innerHTML += profileBatchHTML(assign.color, assign.initials);
+    } 
 }
 
 

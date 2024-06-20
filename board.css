@@ -513,6 +513,13 @@ textarea:focus, input:focus{
 .checkbox-img-checked:hover {
     background-image: url('assets/img/Check-button-checked-hover.svg');
 }
+
+/* ANCHOR badges container */
+.pre-select-badges {
+    display: flex;
+    gap: 8px;
+}
+
 /* !SECTION end select */
 
 .outer-input {

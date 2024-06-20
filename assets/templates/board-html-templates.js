@@ -147,9 +147,8 @@ function addTaskOverlayHTML() {
                             name="select contacts" id="selectContactsInput" required>
                             <div id="selectFieldBtn" onclick="selectContactsList(openSelectContacts)" class="select-image clickable">
                         </div>
-                        <div id="selectContactsList" class="contact-select-list d-none">
-
-                        </div>
+                        <div id="selectContactsList" class="contact-select-list d-none"></div>
+                        <div class="pre-select-badges" id="preSelectedContainer"></div>
                     </div>
                     </div>
                     <div class="hint-container">
@@ -282,7 +281,7 @@ function editTaksOverlayHTML(id) {
 }
 
 
-function taskAssignEditHTML(color, initials) {
+function profileBatchHTML(color, initials) {
     return /*html*/`
         <div class="profile-batch ${color} clickable">${initials}</div>
     `
