@@ -256,7 +256,7 @@ function openSelectContacts() {
     document.getElementById('selectContactsList').style.display = 'flex';
     document.getElementById('selectContactsList').innerHTML = '';
     for (let i = 0; i < contacts.length; i++) {
-        document.getElementById('selectContactsList').innerHTML += showContactsSelect(contacts[i].color, contacts[i].initials, contacts[i].name);
+        document.getElementById('selectContactsList').innerHTML += showContactsSelect(contacts[i].id, contacts[i].color, contacts[i].initials, contacts[i].name);
     }
     changeSelectIcon('select-image', 'select-image-up');
     document.getElementById('selectFieldBtn').setAttribute('onclick', 'selectContactsList(closeSelectContacts)')
@@ -274,6 +274,29 @@ function closeSelectContacts() {
 function changeSelectIcon(cssClass, cssClass2) {
     document.getElementById('selectFieldBtn').classList.remove(cssClass);
     document.getElementById('selectFieldBtn').classList.add(cssClass2);
+}
+
+
+function checkSelectContact(contactId, e) {
+    if (e.target.classList.value == 'checkbox-img') {
+        preSelectContact(contactId, e.target)
+    } else {
+        deSelectContact(contactId, e.target)
+    }
+}
+
+
+function preSelectContact(contactId, checkboxContainer) {
+    console.log('select ID: ' + contactId );
+    checkboxContainer.classList.remove('checkbox-img');
+    checkboxContainer.classList.add('checkbox-img-checked');
+}
+
+
+function deSelectContact(contactId, checkboxContainer) {
+    console.log('unselect ID: ' + contactId );
+    checkboxContainer.classList.add('checkbox-img');
+    checkboxContainer.classList.remove('checkbox-img-checked');
 }
 
 

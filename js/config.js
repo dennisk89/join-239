@@ -9,9 +9,7 @@ const prioIcons = {
 const taskType = {
     'tt': 'assets/img/board-card-label-tt.svg',
     'us': 'assets/img/board-card-label-us.svg'
-}
-
-
+};
 let contacts;
 let taskArray;
 let usersArray;
@@ -21,7 +19,7 @@ let feedbackTasks;
 let doneTasks;
 let urgentTasks;
 let currentTaskPrio = 'medium';
-let users;
+
 
 async function initJoin() {
     contacts = await getData(endpointContacts);

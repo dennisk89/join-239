@@ -351,7 +351,7 @@ p {
     margin-bottom: 96px;
 }
 
-/* ANCHOR Add Task overlay */
+/* SECTION Add Task overlay */
 .add-task-container {
     background-color: white;
     display: flex;
@@ -413,6 +413,8 @@ p {
     font-size: 20px;
 }
 
+/* SECTION select */
+/* ANCHOR select text field */
 .select-input {
     appearance: none;
     background-image: url('./assets/img/arrow_drop_down.svg');
@@ -455,6 +457,7 @@ textarea:focus, input:focus{
     outline: none;
 }
 
+/* ANCHOR open contacts list under select */
 .select-rel {
     position: relative;
 }
@@ -467,6 +470,8 @@ textarea:focus, input:focus{
     flex-direction: column;
     gap: 4px;
     background-color: white;
+    max-height: 200px;
+    overflow-y: scroll;
 }
 
 .contacts-select-list-row {
@@ -477,11 +482,38 @@ textarea:focus, input:focus{
     gap: 16px;
     padding: 7px 16px;
     box-sizing: border-box;
+    border-radius: 10px;
 }
 
 .contacts-select-list-row div:nth-child(2) {
     flex: 1;
 }
+
+.contacts-select-list-row:hover {
+    background-color: rgba(238, 238, 238, 1);
+    
+}
+
+.checkbox-img {
+    height: 24px;
+    width: 24px;
+    background-image: url('assets/img/checkbox.svg');
+}
+
+.checkbox-img:hover {
+    background-image: url('assets/img/Check-button-hover.svg');
+}
+
+.checkbox-img-checked {
+    height: 24px;
+    width: 24px;
+    background-image: url('assets/img/checkbox-checked.svg');
+}
+
+.checkbox-img-checked:hover {
+    background-image: url('assets/img/Check-button-checked-hover.svg');
+}
+/* !SECTION end select */
 
 .outer-input {
     display: flex;
@@ -492,7 +524,6 @@ textarea:focus, input:focus{
 .inner-input {
     border: none;
     width: 70%;
-
 }
 
 .input-group {
@@ -604,7 +635,7 @@ textarea:focus, input:focus{
     font-size: 20px;
     box-sizing: border-box;
 }
-
+/* !SECTION */
 
 /* ANCHOR edit form overlay */
 .priority-btn-edit {

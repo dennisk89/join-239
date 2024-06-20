@@ -309,12 +309,12 @@ function optionInDropAssignedMenuHTML() {
 }
 
 
-function showContactsSelect(color, initials, name) {
+function showContactsSelect(id, color, initials, name) {
     return /*html*/`
-    <div class="contacts-select-list-row">
+    <div class="contacts-select-list-row clickable">
         <div class="profile-batch ${color}">${initials}</div>
         <div>${name}</div>
-        <img src="assets/img/checkbox.svg" alt="">
+        <div onclick="checkSelectContact('${id}', event)" class="checkbox-img"></div>
     </div>
     `
 }
