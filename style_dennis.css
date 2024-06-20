@@ -113,17 +113,12 @@ body{
     background-image: url("./assets/img/arrow_drop_down.svg");
     background-repeat: no-repeat;
     background-position: right 24px top 50%;
-    background-size: 0.65rem auto;
+    background-size: 24px auto;
 }
 
 textarea::-webkit-input-placeholder {
     color: rgb(209, 209, 209);
     }
-
-.bg-orange{
-    background-color: rgb(255, 168, 0) !important;
-    color: white;
-}
 
 .bg-red{
     background-color: rgb(255, 73, 16) !important;
@@ -214,6 +209,25 @@ textarea::-webkit-input-placeholder {
 
 .margin-bottom0{
     margin-bottom: 0px;
+}
+
+.medium-selected {
+    background: rgba(255, 168, 0, 1);
+    color: white;
+}
+
+.urgent-selected {
+    background: rgba(255, 61, 0, 1);
+    color: white;
+}
+
+.low-selected {
+    background: rgba(122, 226, 41, 1);
+    color: white;
+}
+
+.low-selected span, .urgent-selected span, .medium-selected span {
+    font-weight: 700;
 }
 
 @media (min-width: 768px) {

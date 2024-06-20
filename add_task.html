@@ -8,10 +8,13 @@
     <link rel="stylesheet" href="style_dennis.css">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="footer.css">
+    <!-- <link rel="stylesheet" href="global.css"> -->
     <link rel="icon" type="image/x-icon" href="assets/img/join-logo.svg">
+    <script defer src="js/config.js"></script>
+    <script defer src="js/add_task.js"></script>
 </head>
 
-<body class="bg-add-task">
+<body class="bg-add-task" onload="setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg', 'medium')">
     <header>
         <div class="inner-header">
             <p class="hide-on-mobile">Kanban Project Management Tool</p>
@@ -24,10 +27,10 @@
     </header>
     <div class="padding-left-right-16px margin-bottom-96px bg-add-task">
         <h1 class="add-task-headline">Add Task</h1>
-        <form class="add-task-desktop" class="width-396px" action="submit">
+        <form onsubmit="createTask(initBoard); return false" class="add-task-desktop" class="width-396px" action="submit">
             <div class="add-task-desktop-gap">
                 <p class="margin-8px font-20px">Title<span class="color-red">*</span></p>
-                <input class="enter-title-input" placeholder="Enter a title" type="text" name="Title" id="titleInput">
+                <input class="enter-title-input" placeholder="Enter a title" type="text" name="Title" id="titleInput" required>
                 <span class="warning-message-field-required d-none">This field is requiered</span>
                 <p class="margin-8px font-20px">Description</p>
                 <textarea class="enter-description-input" placeholder="Enter a description" name="Description"
@@ -36,7 +39,7 @@
                 <select class="select-contacts-field" name="select contacts" id="selectContactsInput">
                     <option value="Select contacts">Select contacts to assign</option>
                 </select>
-                <p class="required-text"><span class="color-red">*</span>This field is requiered</p>
+                <p class="required-text hide-on-mobile"><span class="color-red">*</span>This field is requiered</p>
             </div>
             <div class="add-task-desktop-border"></div>
             <div>
@@ -47,17 +50,17 @@
                 <div class="height-88px">
                     <p class="margin-8px font-20px">Prio</p>
                     <div class="justify-space-between">
-                        <div class="priority-section">
+                        <div class="priority-section" onclick="setPrioBtn('prioUrgent', 'urgent-selected', './assets/img/priority-urgent-white.svg', 'urgent')" id="prioUrgent">
                             <span>Urgent</span>
-                            <img src="./assets/img/priority-low.svg" alt="">
+                            <img src="./assets/img/priority-urgent.svg" alt="">
                         </div>
-                        <div class="bg-orange priority-section">
+                        <div class="bg-orange priority-section" onclick="setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg', 'medium')" id="prioMedium">
                             <span>Medium</span>
                             <img src="./assets/img/priority-medium-white.svg" alt="">
                         </div>
-                        <div class="priority-section">
+                        <div class="priority-section" onclick="setPrioBtn('prioLow', 'low-selected', './assets/img/priority-low-white.svg', 'low')" id="prioLow">
                             <Span>Low</Span>
-                            <img src="./assets/img/priority-urgent.svg" alt="">
+                            <img src="./assets/img/priority-low.svg" alt="">
                         </div>
                     </div>
                 </div>

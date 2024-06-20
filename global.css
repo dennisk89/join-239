@@ -73,6 +73,9 @@ body {
     display: none !important;
 } */
 
+/* in summary hat irgendwas ohne das !important nicht funktioniert.
+hab ich das da extra vergeben. Muss ich nochmal gucken was genau das war */
+
 
 
 .btn-color {

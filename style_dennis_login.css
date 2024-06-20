@@ -55,22 +55,14 @@
 }
 
 .password{
-    border-radius: 10px;
-    border: 1px solid rgb(209, 209, 209);
-    width: 341px;
-    height: 48px;
+    border: none;
     padding-left: 21px;
     font-weight: 400;
     font-size: 20px;
-    line-height: 19.2px;
-    margin-top: 32px;
-    background-image: url("./assets/img/lock.svg");
-    background-repeat: no-repeat;
-    background-position: right 24px top 50%;
 }
 
 .password:focus {
-    background-image: url("./assets/img/visibility_off.svg");
+    outline: none;
 }
 
 .password::placeholder{
@@ -240,6 +232,40 @@
 .margin-top108{
     margin-top: 108px !important;
 }
+
+.password-error-message{
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 8px;
+    color: rgba(255, 129, 144, 1);
+    width: 366px;
+    text-align: left;
+}
+
+.password-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 366px;
+    height: 48px;
+    margin-top: 32px;
+    background-image: url("./assets/img/lock.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 10px;
+    
+}
+
+.right-password-box{
+    display: flex;
+    background-image: url("./assets/img/lock.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 68px;
+    height: 48px;
+}
+
 
 @media (max-width: 768px){
     .hide-on-mobile{

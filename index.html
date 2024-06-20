@@ -28,7 +28,11 @@
             </div>
             <form class="login-form">
                 <input placeholder="Email" class="email" type="email" id="email">
-                <input onclick="showPassword()" placeholder="Password" class="password" type="password" id="password">
+                <div class="password-container">
+                    <input placeholder="Password" class="password" type="password"
+                        id="password">
+                    <div onclick="showPassword('passwordClick','password')" id="passwordClick" class="right-password-box"></div>
+                </div>
             </form>
             <div class="remember-me">
                 <img src="./assets/img/Check button mobile.svg" alt="">
@@ -55,24 +59,35 @@
         </div>
         <div class="login-white-bg">
             <div class="arrow-align">
-                <img onclick="backToLogin()" class="login-arrow-back clickable" src="./assets/img/arrow-left-line.svg" alt="">
+                <img onclick="backToLogin()" class="login-arrow-back clickable" src="./assets/img/arrow-left-line.svg"
+                    alt="">
                 <div class="flexdirection-column">
                     <span>Sign up</span>
                     <div class="blue-underline"></div>
                 </div>
             </div>
-            <form class="login-form">
-                <input placeholder="Name" class="name-input" type="text" id="name">
-                <input placeholder="Email" class="email" type="email" id="e-mail">
-                <input placeholder="Password" class="password" type="password" id="password-form">
-                <input placeholder="Confirm Password" class="password" type="password" id="confirmPassword">
+            <form onsubmit="createNewUser()" class="login-form">
+                <input placeholder="Name" class="name-input" type="text" id="name" required>
+                <input placeholder="Email" class="email" type="email" id="e-mail" required>
+                    <div class="password-container">
+                        <input  placeholder="Password" class="password" type="password"
+                            id="passwordForm">
+                        <div onclick="showPassword('passwordClick1','passwordForm')" id="passwordClick1" class="right-password-box"></div>
+                    </div>
+                    <div class="password-container">
+                        <input  placeholder="Password" class="password" type="password"
+                            id="confirmPassword">
+                        <div onclick="showPassword('passwordClick2','confirmPassword')" id="passwordClick2" class="right-password-box"></div>
+                    </div>
+                
+                <span class="password-error-message d-none" id="pwError">Ups! Your password don't match</span>
             </form>
             <div class="accept-terms">
                 <img src="./assets/img/Check button mobile.svg" alt="">
                 <span class="color-grey">I accept the <a class="highlighted-text no-decoration"
                         href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a></span>
             </div>
-            <div class="login-btns">
+            <div onclick="checkPasswordMatch()" class="login-btns">
                 <div class="login-btn margin-bottom32px">Sign up</div>
             </div>
         </div>
