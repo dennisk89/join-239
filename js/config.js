@@ -11,6 +11,7 @@ const taskType = {
     'us': 'assets/img/board-card-label-us.svg'
 }
 
+
 let contacts;
 let taskArray;
 let todoTasks; 

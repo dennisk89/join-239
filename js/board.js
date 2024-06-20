@@ -56,11 +56,18 @@ function addContactLabelsToCards(i) {
     container.innerHTML = '';
     for (let j = 0; j < max; j++) {
         let assignee = getContactByContactID(taskArray[i].assigned[j]);
-        if (j == 0) {
-            container.innerHTML += addAssignHTML(assignee.initials, assignee.color);
-        } else {
-            container.innerHTML += addAssignWithOverlapHTML(assignee.initials, assignee.color, j);
+        if (assignee != undefined) {
+            defineContactIconOverlap(j, assignee, container)
         }
+    }
+}
+
+
+function defineContactIconOverlap(j, assignee, container) {
+    if (j == 0) {
+        container.innerHTML += addAssignHTML(assignee.initials, assignee.color);
+    } else {
+        container.innerHTML += addAssignWithOverlapHTML(assignee.initials, assignee.color, j);
     }
 }
 

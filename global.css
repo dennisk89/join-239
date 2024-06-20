@@ -48,6 +48,10 @@ body {
     background-color: rgb(72, 190, 72);
 }
 
+.grey {
+    background-color: rgb(155, 154, 154);
+}
+
 /* .pointer {
     cursor: pointer;
 } */
