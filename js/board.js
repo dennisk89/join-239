@@ -51,24 +51,24 @@ function addInfosToCards() {
 
 
 function addContactLabelsToCards(i) {
-    let max = getLabelMaximum(taskArray[i].assigned)
     let container = document.getElementById(taskArray[i].id).children[3].children[0];
     container.innerHTML = '';
+    let validAssignees = pushTaskAssigneeInfosToArray(taskArray[i]);
+    let max = getLabelMaximum(validAssignees);
     for (let j = 0; j < max; j++) {
-        let assignee = getContactByContactID(taskArray[i].assigned[j]);
-        if (assignee != 'not found') {
-            defineContactIconOverlap(j, assignee, container)
-        }
+        defineContactIconOverlap(j, validAssignees[j], container)
     }
 }
 
 
-function defineContactIconOverlap(j, assignee, container) {
-    if (j == 0) {
-        container.innerHTML += addAssignHTML(assignee.initials, assignee.color);
-    } else {
-        container.innerHTML += addAssignWithOverlapHTML(assignee.initials, assignee.color, j);
+function pushTaskAssigneeInfosToArray(task) {
+    let taskAssignees = [];
+    for (let i = 0; i < task.assigned.length; i++) {
+        taskAssignees.push(getContactByContactID(task.assigned[i]));
     }
+    let validAssignees = taskAssignees.filter(t => t != 'not found');
+    console.log(validAssignees);
+    return validAssignees;
 }
 
 
@@ -79,6 +79,15 @@ function getContactByContactID(contactID) {
     } else {
         return contactArray[0];
     }   
+}
+
+
+function defineContactIconOverlap(j, assignee, container) {
+    if (j == 0) {
+        container.innerHTML += addAssignHTML(assignee.initials, assignee.color);
+    } else {
+        container.innerHTML += addAssignWithOverlapHTML(assignee.initials, assignee.color, j);
+    }
 }
 
 
@@ -112,21 +121,11 @@ function openTasks(id) {
 
 function renderAssignees(task) {
     let taskAssignees = pushTaskAssigneeInfosToArray(task);
-    console.log(taskAssignees);
     for (let i = 0; i < taskAssignees.length; i++) {
         if (taskAssignees[i] != 'not found') {
            document.getElementById('taskAssign').innerHTML += taskAssignHTML(taskAssignees[i].color, taskAssignees[i].initials, taskAssignees[i].name);
         }
     }
-}
-
-
-function pushTaskAssigneeInfosToArray(task) {
-    let taskAssignees = [];
-    for (let i = 0; i < task.assigned.length; i++) {
-        taskAssignees.push(getContactByContactID(task.assigned[i]));
-    }
-    return taskAssignees
 }
 
 
