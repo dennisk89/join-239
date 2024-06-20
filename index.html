@@ -29,13 +29,13 @@
             <form class="login-form">
                 <input placeholder="Email" class="email" type="email" id="email">
                 <div class="password-container">
-                    <input placeholder="Password" class="password" type="password"
-                        id="password">
-                    <div onclick="showPassword('passwordClick','password')" id="passwordClick" class="right-password-box"></div>
+                    <input placeholder="Password" class="password" type="password" id="password">
+                    <div onclick="showPassword('passwordClick','password')" id="passwordClick"
+                        class="right-password-box"></div>
                 </div>
             </form>
             <div class="remember-me">
-                <img src="./assets/img/Check button mobile.svg" alt="">
+                <img src="./assets/img/checkbox.svg" alt="">
                 <span>Remember me</span>
             </div>
             <div class="login-btns">
@@ -66,30 +66,30 @@
                     <div class="blue-underline"></div>
                 </div>
             </div>
-            <form onsubmit="createNewUser()" class="login-form">
+            <form onsubmit="return validateForm(event)" class="login-form">
                 <input placeholder="Name" class="name-input" type="text" id="name" required>
                 <input placeholder="Email" class="email" type="email" id="e-mail" required>
-                    <div class="password-container">
-                        <input  placeholder="Password" class="password" type="password"
-                            id="passwordForm">
-                        <div onclick="showPassword('passwordClick1','passwordForm')" id="passwordClick1" class="right-password-box"></div>
-                    </div>
-                    <div class="password-container">
-                        <input  placeholder="Password" class="password" type="password"
-                            id="confirmPassword">
-                        <div onclick="showPassword('passwordClick2','confirmPassword')" id="passwordClick2" class="right-password-box"></div>
-                    </div>
-                
+                <div class="password-container">
+                    <input placeholder="Password" class="password" type="password" id="passwordForm" required>
+                    <div onclick="showPassword('passwordClick1','passwordForm')" id="passwordClick1"
+                        class="right-password-box"></div>
+                </div>
+                <div class="password-container">
+                    <input placeholder="Password" class="password" type="password" id="confirmPassword" required>
+                    <div onclick="showPassword('passwordClick2','confirmPassword')" id="passwordClick2"
+                        class="right-password-box"></div>
+                </div>
                 <span class="password-error-message d-none" id="pwError">Ups! Your password don't match</span>
+                <div class="accept-terms">
+                    <img id="privacyCheckBox" onclick="handleCheckBoxPrivacyPolicy()" src="./assets/img/checkbox.svg"
+                        alt="">
+                    <span class="color-grey">I accept the <a class="highlighted-text no-decoration"
+                            href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy
+                            Policy</a></span>
+                </div>
+                <span class="privacy-error-message d-none" id="privacyError">Please accept the privacy policy</span>
+                <button type="submit" class="sign-up-btn margin-bottom32px">Signup</button>
             </form>
-            <div class="accept-terms">
-                <img src="./assets/img/Check button mobile.svg" alt="">
-                <span class="color-grey">I accept the <a class="highlighted-text no-decoration"
-                        href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a></span>
-            </div>
-            <div onclick="checkPasswordMatch()" class="login-btns">
-                <div class="login-btn margin-bottom32px">Sign up</div>
-            </div>
         </div>
         <div class="login-links-align margin-top108">
             <a class="login-links" href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy

@@ -55,22 +55,52 @@ class User {
 }
  
 function checkPasswordMatch() {
-  let password = document.getElementById('password').value;
+  let password = document.getElementById('passwordForm').value;
   let confirmPassword = document.getElementById('confirmPassword').value;
   let showError = document.getElementById('pwError');
   if (password !== confirmPassword) {
     showError.classList.remove('d-none');
+    return false;
   } else {
     showError.classList.add('d-none');
+    return true;
   }
 }
 
-  async function createNewUser() {
-    let users = new User(generateUniqueId('u', users), 
+function handleCheckBoxPrivacyPolicy() {
+  let image = document.getElementById('privacyCheckBox');
+  if (image.src.includes('checkbox.svg')) {
+    image.src = "./assets/img/checkbox-checked.svg";
+  } else {
+    image.src = "./assets/img/checkbox.svg";
+  }
+}
+
+async function createNewUser() {
+  let newUser = new User(generateUniqueId('u', users), 
         document.getElementById('name').value, 
         document.getElementById('e-mail').value, 
-        document.getElementById('password-form').value, 
+        document.getElementById('passwordForm').value, 
       );
-    await putData(endpointUser, users);
+    await putData(endpointUser, newUser);
     backToLogin();
 }
+
+function validateForm(event) {
+  event.preventDefault(); // Verhindert das Standard-Formular-Submit
+  let privacyerrormessage = document.getElementById('privacyError')
+  let isPasswordMatch = checkPasswordMatch();
+  let privacyCheckBox = document.getElementById('privacyCheckBox').src.includes('checkbox-checked.svg');
+  if (isPasswordMatch && privacyCheckBox) {
+    createNewUser();
+  } else {
+    if (!privacyCheckBox) {
+      privacyerrormessage.classList.remove('d-none');
+      return false;
+    }
+  }
+  ;
+}
+
+
+

@@ -20,6 +20,7 @@ let feedbackTasks;
 let doneTasks;
 let urgentTasks;
 let currentTaskPrio = 'medium';
+let users;
 
 async function initJoin() {
     contacts = await getData(endpointContacts);
