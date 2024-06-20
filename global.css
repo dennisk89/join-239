@@ -17,6 +17,7 @@ body {
     color: rgba(0, 0, 0, 1);
     margin: 0;
     background-color: var(--bg-color);
+    margin-top: 90px;
 }
 
 .orange {
@@ -45,6 +46,10 @@ body {
 
 .green {
     background-color: rgb(72, 190, 72);
+}
+
+.grey {
+    background-color: rgb(155, 154, 154);
 }
 
 /* .pointer {
