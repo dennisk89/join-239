@@ -142,10 +142,10 @@ function addTaskOverlayHTML() {
                     </div>
                     <div class="input-group">
                         <label class="font-20" for="selectContactsInput">Assigned to</label>
-                        <div class="enter-input outer-input">
+                        <div class="enter-input outer-input select-rel">
                             <input id="titleInput" class="inner-input font-16" placeholder="Select contacts to assign" type="text"
                             name="select contacts" id="selectContactsInput" required>
-                            <div onclick="openselectContactsList()" class="select-image clickable">
+                            <div id="selectFieldBtn" onclick="selectContactsList(openSelectContacts)" class="select-image clickable">
                         </div>
                         <div id="selectContactsList" class="contact-select-list d-none">
 
@@ -309,11 +309,12 @@ function optionInDropAssignedMenuHTML() {
 }
 
 
-function showContactsSelect() {
+function showContactsSelect(color, initials, name) {
     return /*html*/`
     <div class="contacts-select-list-row">
-        <div>${initials}</div>
+        <div class="profile-batch ${color}">${initials}</div>
         <div>${name}</div>
+        <img src="assets/img/checkbox.svg" alt="">
     </div>
     `
 }

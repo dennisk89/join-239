@@ -430,14 +430,57 @@ p {
     background-size: 24px auto;
 }
 
+.select-image-up {
+    width: 48px;
+    height: 100%;
+    background-image: url("./assets/img/arrow_drop_down-up.svg");
+    background-repeat: no-repeat;
+    background-position: right 0 top 50%;
+    background-size: 24px auto;
+}
+
 .select-image:hover {
     background-image: url("./assets/img/arrow_drop_down-bg.svg");
     background-size: 24px auto;
     background-position: right 0 top 50%;
 }
 
+.select-image-up:hover {
+    background-image: url("./assets/img/arrow_drop_down-bg-up.svg");
+    background-size: 24px auto;
+    background-position: right 0 top 50%;
+}
+
 textarea:focus, input:focus{
     outline: none;
+}
+
+.select-rel {
+    position: relative;
+}
+
+.contact-select-list {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 4px;
+    background-color: white;
+}
+
+.contacts-select-list-row {
+    display: flex; 
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    gap: 16px;
+    padding: 7px 16px;
+    box-sizing: border-box;
+}
+
+.contacts-select-list-row div:nth-child(2) {
+    flex: 1;
 }
 
 .outer-input {

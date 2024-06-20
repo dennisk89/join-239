@@ -14,6 +14,7 @@ const taskType = {
 
 let contacts;
 let taskArray;
+let usersArray;
 let todoTasks; 
 let progressTasks;
 let feedbackTasks;
@@ -25,6 +26,7 @@ let users;
 async function initJoin() {
     contacts = await getData(endpointContacts);
     taskArray = await getData(endpointTasks);
+    usersArray = await getData(endpointUser);
     todoTasks = taskArray.filter(t => t.taskStatus == 'todo');
     progressTasks = taskArray.filter(t => t.taskStatus == 'progress');
     feedbackTasks = taskArray.filter(t => t.taskStatus == 'feedback');

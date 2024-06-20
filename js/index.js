@@ -77,12 +77,13 @@ function handleCheckBoxPrivacyPolicy() {
 }
 
 async function createNewUser() {
-  let newUser = new User(generateUniqueId('u', users), 
+  let newUser = new User(generateUniqueId('u', usersArray), 
         document.getElementById('name').value, 
         document.getElementById('e-mail').value, 
         document.getElementById('passwordForm').value, 
       );
-    await putData(endpointUser, newUser);
+    usersArray.push(newUser)  
+    await putData(endpointUser, usersArray);
     backToLogin();
 }
 

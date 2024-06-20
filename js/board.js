@@ -67,7 +67,6 @@ function pushTaskAssigneeInfosToArray(task) {
         taskAssignees.push(getContactByContactID(task.assigned[i]));
     }
     let validAssignees = taskAssignees.filter(t => t != 'not found');
-    console.log(validAssignees);
     return validAssignees;
 }
 
@@ -248,8 +247,33 @@ function setPrioBtnStandardIcon() {
 }
 
 
-function openselectContactsList() {
-    document.getElementById('selectContactsList').style.display = 'flex'
+function selectContactsList(openOrCloseFunction) {
+    openOrCloseFunction();
+}
+
+
+function openSelectContacts() {
+    document.getElementById('selectContactsList').style.display = 'flex';
+    document.getElementById('selectContactsList').innerHTML = '';
+    for (let i = 0; i < contacts.length; i++) {
+        document.getElementById('selectContactsList').innerHTML += showContactsSelect(contacts[i].color, contacts[i].initials, contacts[i].name);
+    }
+    changeSelectIcon('select-image', 'select-image-up');
+    document.getElementById('selectFieldBtn').setAttribute('onclick', 'selectContactsList(closeSelectContacts)')
+}
+
+
+function closeSelectContacts() {
+    document.getElementById('selectContactsList').innerHTML = '';
+    document.getElementById('selectContactsList').style.display = 'none';
+    changeSelectIcon('select-image-up', 'select-image');
+    document.getElementById('selectFieldBtn').setAttribute('onclick', 'selectContactsList(openSelectContacts)')
+}
+
+
+function changeSelectIcon(cssClass, cssClass2) {
+    document.getElementById('selectFieldBtn').classList.remove(cssClass);
+    document.getElementById('selectFieldBtn').classList.add(cssClass2);
 }
 
 
