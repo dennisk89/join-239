@@ -56,7 +56,7 @@ function addContactLabelsToCards(i) {
     container.innerHTML = '';
     for (let j = 0; j < max; j++) {
         let assignee = getContactByContactID(taskArray[i].assigned[j]);
-        if (assignee != undefined) {
+        if (assignee != 'not found') {
             defineContactIconOverlap(j, assignee, container)
         }
     }
@@ -74,7 +74,11 @@ function defineContactIconOverlap(j, assignee, container) {
 
 function getContactByContactID(contactID) {
     let contactArray = contacts.filter(c => c.id == contactID);
-    return contactArray[0];
+    if (contactArray.length == 0) {
+        return 'not found'
+    } else {
+        return contactArray[0];
+    }   
 }
 
 
@@ -108,8 +112,11 @@ function openTasks(id) {
 
 function renderAssignees(task) {
     let taskAssignees = pushTaskAssigneeInfosToArray(task);
+    console.log(taskAssignees);
     for (let i = 0; i < taskAssignees.length; i++) {
-        document.getElementById('taskAssign').innerHTML += taskAssignHTML(taskAssignees[i].color, taskAssignees[i].initials, taskAssignees[i].name)
+        if (taskAssignees[i] != 'not found') {
+           document.getElementById('taskAssign').innerHTML += taskAssignHTML(taskAssignees[i].color, taskAssignees[i].initials, taskAssignees[i].name);
+        }
     }
 }
 
