@@ -235,6 +235,10 @@ function setPrioBtnStandardIcon() {
 }
 
 
+function openselectContactsList() {
+    document.getElementById('selectContactsList').style.display = 'flex'
+}
+
 
 // ANCHOR eventListener 
 

@@ -47,6 +47,7 @@ function boardPlaceholderHTML(column) {
 }
 
 
+// ANCHOR task details
 function taskHTML(id, type, title, description, dueDate, prio) {
     return /*html*/`
         <div id="detailsFor${id}" class="open-task">
@@ -119,6 +120,7 @@ function taskSubTaskDoneHTML(i, subtaskText) {
 }
 
 
+// ANCHOR add task
 function addTaskOverlayHTML() {
     return /*html*/`
         <div class="add-task-container">
@@ -143,7 +145,10 @@ function addTaskOverlayHTML() {
                         <div class="enter-input outer-input">
                             <input id="titleInput" class="inner-input font-16" placeholder="Select contacts to assign" type="text"
                             name="select contacts" id="selectContactsInput" required>
-                            <div class="select-image clickable">
+                            <div onclick="openselectContactsList()" class="select-image clickable">
+                        </div>
+                        <div id="selectContactsList" class="contact-select-list d-none">
+
                         </div>
                     </div>
                     </div>
@@ -204,6 +209,7 @@ function addTaskOverlayHTML() {
 }
 
 
+// ANCHOR edit task
 function editTaksOverlayHTML(id) {
     return /*html*/`
         <div id="editFor${id}" class="open-task">
@@ -299,5 +305,15 @@ function editSubtaskListHTML(subtask, i) {
 function optionInDropAssignedMenuHTML() {
     /*html*/`
         <option value="${value}">Select contacts to assign</option>
+    `
+}
+
+
+function showContactsSelect() {
+    return /*html*/`
+    <div class="contacts-select-list-row">
+        <div>${initials}</div>
+        <div>${name}</div>
+    </div>
     `
 }
