@@ -103,60 +103,9 @@ function handleCheckBoxPrivacyPolicy() {
 //   ;
 // }
 
-const auth = firebase.auth()
-const database = firebase.database()
 
-function register() {
-  let fullName = document.getElementById('name').value;
-  let email = document.getElementById('e-mail').value;
-  let password = document.getElementById('confirmPassword').value;
-  
-  if (validateEmail(email) && validatePassword(password) && validateName(fullName)) {
-    auth.createUserWithEmailAndPassword(email, password)
-    .then(function() {
-      var user = auth.currentUser;
-      var database_ref = database.ref();
-      var userData = {
-        email: email,
-        fullName: fullName,
-        last_login: Date.now()
-      };
-      database_ref.child('users/' + user.uid).set(userData);
-    })
-    .catch(function(error) {
-      var error_code = error_code;
-      var error_message = error.message;
-      alert(error_message);
-    });
-  } else {
-    return false;
-  }
-}
 
-function validateEmail(email) {
-  var expression = /^[^@]+@\w+(\.\w+)+\w$/;
-  if (expression.test(email)) {
-    return true;
-  } else {
-    return false;
-  }
-}
 
-function validatePassword(){
-  if(password.length < 6){
-    return false
-  } else {
-    return true
-  }
-}
-
-function validateName(fullName){
-  if(fullName == null){
-    return false
-  } else {
-    return true
-  }
-}
 
 
 
