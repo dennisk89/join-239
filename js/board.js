@@ -79,7 +79,7 @@ function getContactByContactID(contactID) {
         return 'not found'
     } else {
         return contactArray[0];
-    }   
+    }
 }
 
 
@@ -124,7 +124,7 @@ function renderAssignees(task) {
     let taskAssignees = pushTaskAssigneeInfosToArray(task);
     for (let i = 0; i < taskAssignees.length; i++) {
         if (taskAssignees[i] != 'not found') {
-           document.getElementById('taskAssign').innerHTML += taskAssignHTML(taskAssignees[i].color, taskAssignees[i].initials, taskAssignees[i].name);
+            document.getElementById('taskAssign').innerHTML += taskAssignHTML(taskAssignees[i].color, taskAssignees[i].initials, taskAssignees[i].name);
         }
     }
 }
@@ -161,7 +161,7 @@ function fillEditForm(taskIndex) {
     let editInputIds = ['titleInput', 'descriptionInput', 'dateInput'];
     let content = [taskArray[taskIndex].title, taskArray[taskIndex].description, taskArray[taskIndex].dueDate];
     for (let j = 0; j < editInputIds.length; j++) {
-        document.getElementById(editInputIds[j]).value = content[j]; 
+        document.getElementById(editInputIds[j]).value = content[j];
     }
     setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg', 'medium')
     setTaskPrio(taskArray[taskIndex].prio);
@@ -234,7 +234,7 @@ function setPrioBtnStandardIcon() {
 
 
 // SECTION add task
-function openAddTaskOverlay() { 
+function openAddTaskOverlay() {
     document.getElementById('taskOverlay').style.display = 'flex';
     document.getElementById('taskOverlay').innerHTML = addTaskOverlayHTML();
 }
@@ -244,16 +244,15 @@ function openAddTaskOverlay() {
 
 function openSelectContacts() {
     document.getElementById('selectContactsList').style.display = 'flex';
-    document.getElementById('selectContactsList').innerHTML = '';
     renderContactsToSelectList(contacts);
     changeSelectIcon('select-image', 'select-image-up');
     checkForPreSelectContacts()
     document.getElementById('selectInput').setAttribute('onclick', 'closeSelectContacts()');
-    // document.getElementById('titleInput').setAttribute('onclick', 'closeSelectContacts()');
 }
 
 
 function renderContactsToSelectList(contacts) {
+    document.getElementById('selectContactsList').innerHTML = '';
     for (let i = 0; i < contacts.length; i++) {
         document.getElementById('selectContactsList').innerHTML += showContactsSelect(contacts[i].id, contacts[i].color, contacts[i].initials, contacts[i].name);
     }
@@ -320,17 +319,42 @@ function renderContactBadgeUnderSelectField() {
     for (let i = 0; i < tempAssignees.length; i++) {
         const assign = getContactByContactID(tempAssignees[i]);
         document.getElementById('preSelectedContainer').innerHTML += profileBatchHTML(assign.color, assign.initials);
-    } 
+    }
 }
 
 
 function filterContacts(e) {
     if (e.target.value.length > 0) {
-        let filteredContacts = contacts.filter(c => c == e.target.value);
-        console.log(filteredContacts);
-        renderContactsToSelectList(filteredContacts)
+        let allNames = [];
+        let results = [];
+        contacts.forEach(c => allNames.push(c.name.toLowerCase()))
+        for (let i = 0; i < allNames.length; i++) {
+            if (allNames[i].indexOf(e.target.value.toLowerCase()) > -1) {
+                results.push(allNames[i]);
+            }
+        }
+        let filteredContacts = getContactObjectByName(results);
+        renderContactsToSelectList(filteredContacts);
+    } else {
+        renderContactsToSelectList(contacts);
     }
     checkForPreSelectContacts();
+}
+
+
+function getContactObjectByName(resultNames) {
+    let contactObjects = [];
+    for (let i = 0; i < resultNames.length; i++) {
+        resultNames[i] = nameFormat(resultNames[i]);
+        contactObjects.push(contacts[contacts.findIndex(c => c.name === resultNames[i])]);     
+    }
+    console.log(resultNames);
+    return contactObjects;
+}
+
+
+function nameFormat(string) {
+    return string.charAt(0).toUpperCase() + string.substring(1, string.indexOf(' ')) + ' ' + string.charAt(string.indexOf(' ') + 1).toUpperCase() + string.substring(string.indexOf(' ') + 2, string.length)
 }
 
 
