@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="style_dennis.css">
     <link rel="icon" type="image/x-icon" href="assets/img/join-logo.svg">
     <link rel="stylesheet" href="style_dennis_login.css">
-    <script defer src="js/config.js"></script>
-    <script defer src="js/index.js"></script>
+    
 </head>
 
 <body class="bg-add-task">
@@ -66,7 +65,7 @@
                     <div class="blue-underline"></div>
                 </div>
             </div>
-            <form onsubmit="return validateForm(event)" class="login-form">
+            <form onsubmit="return register()" class="login-form">
                 <input placeholder="Name" class="name-input" type="text" id="name" required>
                 <input placeholder="Email" class="email" type="email" id="e-mail" required>
                 <div class="password-container">
@@ -98,5 +97,32 @@
         </div>
     </div>
 </body>
-
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    
+    import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDpP5Vobsp5Ph26puR1me-zdqethD43dl0",
+      authDomain: "join-239.firebaseapp.com",
+      databaseURL: "https://join-239-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "join-239",
+      storageBucket: "join-239.appspot.com",
+      messagingSenderId: "641839341000",
+      appId: "1:641839341000:web:48660cd7b3f9a196ccf4fd",
+      measurementId: "G-70J970H5ZC"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    
+  </script>
+<script defer src="js/config.js"></script>
+<script defer src="js/index.js"></script>
 </html>

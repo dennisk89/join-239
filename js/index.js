@@ -45,27 +45,27 @@ document.getElementById('password').addEventListener('focus', function() {
   handleFocus('passwordClick');
 });
 
-class User {
-  constructor(id, name, email, password) {
-    this.id = id;
-    this.name = name;
-    this.email = email;
-    this.password = password;
-  }
-}
+// class User {
+//   constructor(id, name, email, password) {
+//     this.id = id;
+//     this.name = name;
+//     this.email = email;
+//     this.password = password;
+//   }
+// }
  
-function checkPasswordMatch() {
-  let password = document.getElementById('passwordForm').value;
-  let confirmPassword = document.getElementById('confirmPassword').value;
-  let showError = document.getElementById('pwError');
-  if (password !== confirmPassword) {
-    showError.classList.remove('d-none');
-    return false;
-  } else {
-    showError.classList.add('d-none');
-    return true;
-  }
-}
+// function checkPasswordMatch() {
+//   let password = document.getElementById('passwordForm').value;
+//   let confirmPassword = document.getElementById('confirmPassword').value;
+//   let showError = document.getElementById('pwError');
+//   if (password !== confirmPassword) {
+//     showError.classList.remove('d-none');
+//     return false;
+//   } else {
+//     showError.classList.add('d-none');
+//     return true;
+//   }
+// }
 
 function handleCheckBoxPrivacyPolicy() {
   let image = document.getElementById('privacyCheckBox');
@@ -76,31 +76,86 @@ function handleCheckBoxPrivacyPolicy() {
   }
 }
 
-async function createNewUser() {
-  let newUser = new User(generateUniqueId('u', usersArray), 
-        document.getElementById('name').value, 
-        document.getElementById('e-mail').value, 
-        document.getElementById('passwordForm').value, 
-      );
-    usersArray.push(newUser)  
-    await putData(endpointUser, usersArray);
-    backToLogin();
+// async function createNewUser() {
+//   let newUser = new User(generateUniqueId('u', usersArray), 
+//         document.getElementById('name').value, 
+//         document.getElementById('e-mail').value, 
+//         document.getElementById('passwordForm').value, 
+//       );
+//     usersArray.push(newUser)  
+//     await putData(endpointUser, usersArray);
+//     backToLogin();
+// }
+
+// function validateForm(event) {
+//   event.preventDefault(); // Verhindert das Standard-Formular-Submit
+//   let privacyerrormessage = document.getElementById('privacyError')
+//   let isPasswordMatch = checkPasswordMatch();
+//   let privacyCheckBox = document.getElementById('privacyCheckBox').src.includes('checkbox-checked.svg');
+//   if (isPasswordMatch && privacyCheckBox) {
+//     createNewUser();
+//   } else {
+//     if (!privacyCheckBox) {
+//       privacyerrormessage.classList.remove('d-none');
+//       return false;
+//     }
+//   }
+//   ;
+// }
+
+const auth = firebase.auth()
+const database = firebase.database()
+
+function register() {
+  let fullName = document.getElementById('name').value;
+  let email = document.getElementById('e-mail').value;
+  let password = document.getElementById('confirmPassword').value;
+  
+  if (validateEmail(email) && validatePassword(password) && validateName(fullName)) {
+    auth.createUserWithEmailAndPassword(email, password)
+    .then(function() {
+      var user = auth.currentUser;
+      var database_ref = database.ref();
+      var userData = {
+        email: email,
+        fullName: fullName,
+        last_login: Date.now()
+      };
+      database_ref.child('users/' + user.uid).set(userData);
+    })
+    .catch(function(error) {
+      var error_code = error_code;
+      var error_message = error.message;
+      alert(error_message);
+    });
+  } else {
+    return false;
+  }
 }
 
-function validateForm(event) {
-  event.preventDefault(); // Verhindert das Standard-Formular-Submit
-  let privacyerrormessage = document.getElementById('privacyError')
-  let isPasswordMatch = checkPasswordMatch();
-  let privacyCheckBox = document.getElementById('privacyCheckBox').src.includes('checkbox-checked.svg');
-  if (isPasswordMatch && privacyCheckBox) {
-    createNewUser();
+function validateEmail(email) {
+  var expression = /^[^@]+@\w+(\.\w+)+\w$/;
+  if (expression.test(email)) {
+    return true;
   } else {
-    if (!privacyCheckBox) {
-      privacyerrormessage.classList.remove('d-none');
-      return false;
-    }
+    return false;
   }
-  ;
+}
+
+function validatePassword(){
+  if(password.length < 6){
+    return false
+  } else {
+    return true
+  }
+}
+
+function validateName(fullName){
+  if(fullName == null){
+    return false
+  } else {
+    return true
+  }
 }
 
 
