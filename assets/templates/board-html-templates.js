@@ -123,7 +123,7 @@ function taskSubTaskDoneHTML(i, subtaskText) {
 // ANCHOR add task
 function addTaskOverlayHTML() {
     return /*html*/`
-        <div class="add-task-container">
+        <div onclick="closeSelectContacts()" class="add-task-container">
             <div class="add-Task-header">
                 <h1 class="add-task-headline">Add Task</h1>
                 <img class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask()">
@@ -142,14 +142,13 @@ function addTaskOverlayHTML() {
                     </div>
                     <div class="input-group">
                         <label class="font-20" for="selectContactsInput">Assigned to</label>
-                        <div class="enter-input outer-input select-rel">
-                            <input id="titleInput" class="inner-input font-16" placeholder="Select contacts to assign" type="text"
+                        <div id="selectInput" onclick="openSelectContacts(); stopP(event)" class="enter-input outer-input select-rel">
+                            <input onkeyup="filterContacts(event)" id="titleInput" class="inner-input font-16" placeholder="Select contacts to assign" type="text"
                             name="select contacts" id="selectContactsInput" required>
-                            <div id="selectFieldBtn" onclick="selectContactsList(openSelectContacts)" class="select-image clickable">
+                            <div id="selectFieldBtn" class="select-image clickable"></div>
+                            <div id="selectContactsList" class="contact-select-list d-none"></div>
                         </div>
-                        <div id="selectContactsList" class="contact-select-list d-none"></div>
                         <div class="pre-select-badges" id="preSelectedContainer"></div>
-                    </div>
                     </div>
                     <div class="hint-container">
                         <p><span class="color-red">*</span>This field is required</p>
@@ -310,10 +309,10 @@ function optionInDropAssignedMenuHTML() {
 
 function showContactsSelect(id, color, initials, name) {
     return /*html*/`
-    <div class="contacts-select-list-row clickable">
+    <div onclick="checkSelectContact(event); stopP(event)" class="contacts-select-list-row clickable">
         <div class="profile-batch ${color}">${initials}</div>
         <div>${name}</div>
-        <div onclick="checkSelectContact('${id}', event)" class="checkbox-img"></div>
+        <div id="${id}" class="checkbox-img"></div>
     </div>
     `
 }

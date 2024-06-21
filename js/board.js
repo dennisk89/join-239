@@ -8,8 +8,19 @@ function resetGlobalTaskVariables() {
     currentTaskPrio = 'medium'
 }
 
+// ANCHOR Menu functionality
+function stopP(event) {
+    event.stopPropagation();
+}
 
-// ANCHOR load Tasks
+
+function closeTask() {
+    resetGlobalTaskVariables();
+    document.getElementById('taskOverlay').style.display = 'none';
+}
+
+
+// ANCHOR load Task cards in board
 async function initBoard() {
     await initJoin();
     addCardsToBoards('toDoColumn', todoTasks, 'To do');
@@ -139,6 +150,13 @@ function getTaskById(id) {
 
 
 // ANCHOR edit Tasks
+function openEdit(id) {
+    document.getElementById('taskOverlay').innerHTML = editTaksOverlayHTML(id);
+    fillEditForm(taskArray.findIndex(t => t.id === id));
+    document.getElementById('closeEditOverlay').addEventListener('click', resetGlobalTaskVariables);
+}
+
+
 function fillEditForm(taskIndex) {
     let editInputIds = ['titleInput', 'descriptionInput', 'dateInput'];
     let content = [taskArray[taskIndex].title, taskArray[taskIndex].description, taskArray[taskIndex].dueDate];
@@ -180,30 +198,6 @@ function renderEditSubtasks(task) {
 }
 
 
-// ANCHOR Menu functionality
-function stopP(event) {
-    event.stopPropagation();
-}
-
-
-function openEdit(id) {
-    document.getElementById('taskOverlay').innerHTML = editTaksOverlayHTML(id);
-    fillEditForm(taskArray.findIndex(t => t.id === id));
-    document.getElementById('closeEditOverlay').addEventListener('click', resetGlobalTaskVariables);
-}
-
-
-function openAddTaskOverlay() { 
-    document.getElementById('taskOverlay').style.display = 'flex';
-    document.getElementById('taskOverlay').innerHTML = addTaskOverlayHTML();
-}
-
-
-function closeTask() {
-    document.getElementById('taskOverlay').style.display = 'none';
-}
-
-
 function checkSubTask(subtaskId) {
     let taskId = document.getElementsByClassName('open-task')[0].id.replace('detailsFor', '');
     let taskArrayIndex = taskArray.findIndex(t => t.id === taskId)
@@ -238,20 +232,31 @@ function setPrioBtnStandardIcon() {
 }
 
 
-// ANCHOR Select assign in add task
-function selectContactsList(openOrCloseFunction) {
-    openOrCloseFunction();
+
+// SECTION add task
+function openAddTaskOverlay() { 
+    document.getElementById('taskOverlay').style.display = 'flex';
+    document.getElementById('taskOverlay').innerHTML = addTaskOverlayHTML();
 }
 
+
+// ANCHOR Select assign in add task
 
 function openSelectContacts() {
     document.getElementById('selectContactsList').style.display = 'flex';
     document.getElementById('selectContactsList').innerHTML = '';
+    renderContactsToSelectList(contacts);
+    changeSelectIcon('select-image', 'select-image-up');
+    checkForPreSelectContacts()
+    document.getElementById('selectInput').setAttribute('onclick', 'closeSelectContacts()');
+    // document.getElementById('titleInput').setAttribute('onclick', 'closeSelectContacts()');
+}
+
+
+function renderContactsToSelectList(contacts) {
     for (let i = 0; i < contacts.length; i++) {
         document.getElementById('selectContactsList').innerHTML += showContactsSelect(contacts[i].id, contacts[i].color, contacts[i].initials, contacts[i].name);
     }
-    changeSelectIcon('select-image', 'select-image-up');
-    document.getElementById('selectFieldBtn').setAttribute('onclick', 'selectContactsList(closeSelectContacts)')
 }
 
 
@@ -259,7 +264,17 @@ function closeSelectContacts() {
     document.getElementById('selectContactsList').innerHTML = '';
     document.getElementById('selectContactsList').style.display = 'none';
     changeSelectIcon('select-image-up', 'select-image');
-    document.getElementById('selectFieldBtn').setAttribute('onclick', 'selectContactsList(openSelectContacts)')
+    document.getElementById('selectInput').setAttribute('onclick', 'openSelectContacts(); stopP(event)');
+}
+
+
+function checkForPreSelectContacts() {
+    if (tempAssignees.length > 0) {
+        for (let i = 0; i < tempAssignees.length; i++) {
+            updateCheckboxes(tempAssignees[i], 'rgba(42, 54, 71, 1)', 'white', 'checkbox-img', 'checkbox-img-checked');
+        }
+        renderContactBadgeUnderSelectField();
+    }
 }
 
 
@@ -269,30 +284,34 @@ function changeSelectIcon(cssClass, cssClass2) {
 }
 
 
-function checkSelectContact(contactId, e) {
-    if (e.target.classList.value == 'checkbox-img') {
-        preSelectContact(contactId, e.target)
+function checkSelectContact(e) {
+    if (e.currentTarget.children[2].classList.value == 'checkbox-img') {
+        preSelectContact(e.currentTarget.children[2].id)
     } else {
-        deSelectContact(contactId, e.target)
+        deSelectContact(e.currentTarget.children[2].id)
     }
 }
 
 
-function preSelectContact(contactId, checkboxContainer) {
-    console.log('select ID: ' + contactId );
-    checkboxContainer.classList.remove('checkbox-img');
-    checkboxContainer.classList.add('checkbox-img-checked');
+function preSelectContact(contactId) {
+    updateCheckboxes(contactId, 'rgba(42, 54, 71, 1)', 'white', 'checkbox-img', 'checkbox-img-checked');
     tempAssignees.push(contactId);
     renderContactBadgeUnderSelectField();
 }
 
 
-function deSelectContact(contactId, checkboxContainer) {
-    console.log('unselect ID: ' + contactId );
-    checkboxContainer.classList.add('checkbox-img');
-    checkboxContainer.classList.remove('checkbox-img-checked');
-    tempAssignees.splice(tempAssignees.IndexOf(contactId), 1)
+function deSelectContact(contactId) {
+    updateCheckboxes(contactId, 'white', 'black', 'checkbox-img-checked', 'checkbox-img');
+    tempAssignees.splice(tempAssignees.indexOf(contactId), 1)
     renderContactBadgeUnderSelectField();
+}
+
+
+function updateCheckboxes(contactId, bgColor, textColor, checkbox1Css, checkbox2Css) {
+    document.getElementById(contactId).parentNode.style.background = bgColor;
+    document.getElementById(contactId).parentNode.style.color = textColor;
+    document.getElementById(contactId).classList.remove(checkbox1Css);
+    document.getElementById(contactId).classList.add(checkbox2Css)
 }
 
 
@@ -305,6 +324,18 @@ function renderContactBadgeUnderSelectField() {
 }
 
 
+function filterContacts(e) {
+    if (e.target.value.length > 0) {
+        let filteredContacts = contacts.filter(c => c == e.target.value);
+        console.log(filteredContacts);
+        renderContactsToSelectList(filteredContacts)
+    }
+    checkForPreSelectContacts();
+}
+
+
+
+// !SECTION
 // ANCHOR eventListener 
 
 

@@ -507,16 +507,14 @@ textarea:focus, input:focus{
 .checkbox-img-checked {
     height: 24px;
     width: 24px;
-    background-image: url('assets/img/checkbox-checked.svg');
-}
-
-.checkbox-img-checked:hover {
-    background-image: url('assets/img/Check-button-checked-hover.svg');
+    background-image: url('assets/img/checkbox-checked-white.svg');
 }
 
 /* ANCHOR badges container */
 .pre-select-badges {
+    height: 40px;
     display: flex;
+    align-items: center;
     gap: 8px;
 }
 
@@ -530,7 +528,7 @@ textarea:focus, input:focus{
 
 .inner-input {
     border: none;
-    width: 70%;
+    flex: 1;
 }
 
 .input-group {
