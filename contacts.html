@@ -94,7 +94,7 @@
     <div id="overlayAddContact" class="hide">
         <div class="overlay-bg">
             <div id="overlayContent" class="overlay-content">
-                <img class="overlay-close-btn clickable" src="./assets/img/close.svg" onclick="hideOverlayAddContact()">
+                <div class="overlay-close-btn clickable" onclick="hideOverlayAddContact()"></div>
                 <div class="overlay-header">
                     <div class="overlay-header-content">
                         <div><img src="./assets/img/join-logo-overlays.svg" class="overlay-logo"></div>
@@ -113,7 +113,7 @@
                     <form class="overlay-form" onsubmit="createNewContactArray(); return false">
                         <input id="addContactInputName" class="input-name" placeholder="Name" required type="text" pattern="[A-Za-z]{2,} [A-Za-z]{2,}" title="Please insert your first and last name (at least two characters each).">
                         <input id="addContactInputMail" class="input-mail" placeholder="Email" required type="email">
-                        <input id="addContactInputPhone" class="input-phone" placeholder="Phone" required type="number" pattern="[0-9]">
+                        <input id="addContactInputPhone" class="input-phone" placeholder="Phone" required type="text" pattern="+[0-9]{2,} [0-9]">
                         <div class="add-contact-overlay-buttons">
                             <button type="submit" formnovalidate class="cancel-btn btn-white clickable" onclick="hideOverlayAddContact()">Cancel <img class="cancel-btn-img-dark" src="./assets/img/cancel-x-dark.svg"><img class="cancel-btn-img-blue" src="./assets/img/cancel_x_blue.svg"></button>
                             <button type="submit" class="create-contact-btn btn-color clickable">Create Contact<img src="./assets/img/check.svg"></button>
@@ -135,7 +135,7 @@
     <div id="overlayEditContact" class="hide">
         <div class="overlay-bg">
             <div class="overlay-content">
-                <img class="overlay-close-btn clickable" src="./assets/img/close.svg" onclick="hideOverlayEditContact()">
+                <div class="overlay-close-btn clickable" onclick="hideOverlayEditContact()"></div>
                 <div class="overlay-header">  
                     <div class="overlay-header-content">
                         <img class="overlay-logo" src="./assets/img/Capa1.svg">

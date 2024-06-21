@@ -72,6 +72,11 @@
 }
 
 .overlay-close-btn {
+    background-image: url(./assets/img/close.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 32px;
+    height: 32px;    
     position: absolute;
     top: 24px;
     right: 16px;
@@ -399,6 +404,11 @@
         top: 52px;
         right: 52px;
         z-index: 1;
+    }
+
+    .overlay-close-btn:hover {
+        background-image: url(./assets/img/close-grey.svg);
+        filter: none;
     }
 
     .overlay-header {

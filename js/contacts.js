@@ -48,6 +48,7 @@ function hideOverlayAddContact() {
     setTimeout(() => {
         overlayAddContact.classList.add('hide');
     }, 500); /* same duration as slide out animation */
+    emptyAddContactForm();
 }
 
 function showOverlayAddContact() {
@@ -180,9 +181,10 @@ function emptyAddContactForm() {
     document.getElementById('addContactInputPhone').value = '';
 }
 
-function deleteContact(contactId) {
+async function deleteContact(contactId) {
     let contactsRemaining = contacts.filter(contact => contact.id !== contactId);
-    putData(endpointContacts, contactsRemaining);
+    await putData(endpointContacts, contactsRemaining);
+    showContactList();
 }
 
 async function saveEditedContact(newContactData, contactId) {
