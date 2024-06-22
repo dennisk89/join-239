@@ -278,7 +278,7 @@
     height: 24px;
 }
 
-.cancel-btn .cancel-btn-img-blue {
+/* .cancel-btn .cancel-btn-img-blue {
     display: none;
 }
 
@@ -288,7 +288,7 @@
 
 .cancel-btn:hover .cancel-btn-img-dark {
     display: none;
-}
+} */
 
 .create-contact-btn {
     color: rgba(255, 255, 255, 1);

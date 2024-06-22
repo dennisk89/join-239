@@ -136,10 +136,6 @@ textarea::-webkit-input-placeholder {
     margin-bottom: 8px;
 }
 
-.d-none{
-    display: none;
-}
-
 .warning-message-field-required{
     height: 12px;
     font-size: 12px;

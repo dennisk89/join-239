@@ -9,7 +9,7 @@ body {
 }
 
 .d-none {
-    display: none !important;
+    display: none ;
 }
 
 .greet-user {
@@ -211,6 +211,10 @@ body {
     padding-top: 16px;
     padding-left: 18px;
 
+}
+
+.greet-user.d-none {
+    display: none;
 }
 
 @media (min-width: 768px) {

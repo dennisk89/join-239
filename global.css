@@ -60,6 +60,18 @@ textarea:focus, input:focus{
     cursor: pointer;
 } */
 
+.cancel-btn .cancel-btn-img-blue {
+    display: none;
+}
+
+.cancel-btn:hover .cancel-btn-img-blue {
+    display: unset;
+}
+
+.cancel-btn:hover .cancel-btn-img-dark {
+    display: none;
+}
+
 .clickable {
     cursor: pointer;
 }
@@ -68,24 +80,9 @@ textarea:focus, input:focus{
     display: none;
 }
 
-/* .d-none ist doppelt vergeben: */
-/* Welches sollen wir behalten? */
-
-/* in style_dennis: */
-/* .d-none{
+.d-none{
     display: none;
-} */
-
-
-/* in style_dennis-summary.css */
-/* .d-none {
-    display: none !important;
-} */
-
-/* in summary hat irgendwas ohne das !important nicht funktioniert.
-hab ich das da extra vergeben. Muss ich nochmal gucken was genau das war */
-
-
+}
 
 .btn-color {
     background-color: var(--buttons-dark);
