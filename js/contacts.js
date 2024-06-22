@@ -7,7 +7,7 @@ function hideOverlayEditContact() {
     overlayEditContact.classList.remove('overlay-slide-in');
     overlayEditContact.classList.add('overlay-slide-out');
     setTimeout(() => {
-        overlayEditContact.classList.add('hide');
+        overlayEditContact.classList.add('d-none');
     }, 500); /* same duration as slide out animation */
     document.getElementById('editContactInputName').value = '';
     document.getElementById('editContactInputMail').value = '';
@@ -20,7 +20,7 @@ function showOverlayEditContact(contactId, contactName, initials, color, email, 
     document.getElementById('editContactDeleteBtn').onclick = function() {deleteContact(contactId);};
     document.getElementById('editContactForm').onsubmit = function() {editContact(contactId, initials, color); return false;};
     let overlayEditContact = document.getElementById('overlayEditContact');
-    overlayEditContact.classList.remove('hide');
+    overlayEditContact.classList.remove('d-none');
     overlayEditContact.classList.add('overlay-slide-in');
     overlayEditContact.classList.remove('overlay-slide-out');
 }
@@ -38,7 +38,7 @@ function insertInputValues(contactName, email, phone) {
 
 function showOverlayEditDelete() {
     let overlayEditDelete = document.getElementById('overlayEditDelete');
-    overlayEditDelete.classList.remove('hide');
+    overlayEditDelete.classList.remove('d-none');
 }
 
 function hideOverlayAddContact() {
@@ -46,14 +46,14 @@ function hideOverlayAddContact() {
     overlayAddContact.classList.remove('overlay-slide-in');
     overlayAddContact.classList.add('overlay-slide-out');
     setTimeout(() => {
-        overlayAddContact.classList.add('hide');
+        overlayAddContact.classList.add('d-none');
     }, 500); /* same duration as slide out animation */
     emptyAddContactForm();
 }
 
 function showOverlayAddContact() {
     let overlayAddContact = document.getElementById('overlayAddContact');
-    overlayAddContact.classList.remove('hide');
+    overlayAddContact.classList.remove('d-none');
     overlayAddContact.classList.add('overlay-slide-in');
     overlayAddContact.classList.remove('overlay-slide-out');
 }

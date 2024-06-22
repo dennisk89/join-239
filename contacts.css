@@ -9,10 +9,10 @@
 
 .main-contact-list {
     background-color: rgba(255, 255, 255, 1);
-    width: 428px;
     height: calc(100vh - 163px);
     overflow-y: scroll;
     overflow-x: hidden;
+    padding: 0 38px;
 }
 
 .contact-list-top {
@@ -48,7 +48,7 @@
 }
 
 .contact-list-letter {
-    padding: 17px 36px 17px 90px;
+    padding: 17px 36px;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
@@ -57,17 +57,21 @@
 
 .hr-contact-list {
     border: 1px solid rgba(209, 209, 209, 1);
-    width: 352px;
-    margin: 8px 24px;
+    width: 100%;
+    margin: 8px 0;
 }
 
 .contact-list-content {
-    padding-top: 24px;
-    width: 420px;
+    width: 352px;
+    margin-top: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.contacts-container {
+    width: 100%;
 }
 
 .contact-container {
@@ -75,24 +79,8 @@
     display: flex;
     align-items: center;
     gap: 35px;
-    height: 78px;
-    width: 304px;
-    padding: 15px 24px;
+    padding: 15px 0 15px 24px;
     border-radius: 10px;
-}
-
-.contact-container:hover {
-    background-image: linear-gradient(rgba(249, 249, 249, 1),rgba(240, 240, 240, 1));
-}
-
-.highlightContact {
-    background-color: var(--buttons-dark);
-    border: 1px solid var(--buttons-dark);    
-    color: rgba(255, 255, 255, 1);
-}
-
-.highlightContact:hover {
-    background-image: none;
 }
 
 .contact-list-dot {
@@ -315,7 +303,7 @@
 
     .main-contact-list {
         height: calc(100vh - 108px);
-        width: 456px;
+        padding: 0 52px;
     }
 
     .contact-list-top {
@@ -325,8 +313,21 @@
     }
 
     .contact-list-content {
-        padding-top: 100px;
-        width: 448px;
+        margin-top: 100px;
+    }
+
+    .contact-container:hover {
+        background-image: linear-gradient(rgba(249, 249, 249, 1),rgba(240, 240, 240, 1));
+    }
+
+    .highlightContact {
+        background-color: var(--buttons-dark);
+        border: 1px solid var(--buttons-dark);    
+        color: rgba(255, 255, 255, 1);
+    }
+    
+    .highlightContact:hover {
+        background-image: none;
     }
 
 

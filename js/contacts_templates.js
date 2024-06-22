@@ -2,7 +2,7 @@ function generateContactListHTML(contactListLetter) {
     return /*html*/`
         <div class="contact-list-letter">${contactListLetter}</div>
         <hr class="hr-contact-list">
-        <div id="contactsContainer${contactListLetter}"></div>
+        <div class="contacts-container" id="contactsContainer${contactListLetter}"></div>
     `;
 }
 

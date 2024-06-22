@@ -24,6 +24,14 @@ textarea:focus, input:focus{
     outline-color: var(--highlight);
 }
 
+.clickable {
+    cursor: pointer;
+}
+
+.d-none {
+    display: none;
+}
+
 .orange {
     background-color: rgba(255, 122, 0, 1);
 }
@@ -56,10 +64,6 @@ textarea:focus, input:focus{
     background-color: rgb(155, 154, 154);
 }
 
-/* .pointer {
-    cursor: pointer;
-} */
-
 .cancel-btn .cancel-btn-img-blue {
     display: none;
 }
@@ -69,18 +73,6 @@ textarea:focus, input:focus{
 }
 
 .cancel-btn:hover .cancel-btn-img-dark {
-    display: none;
-}
-
-.clickable {
-    cursor: pointer;
-}
-
-.hide {
-    display: none;
-}
-
-.d-none{
     display: none;
 }
 
