@@ -260,6 +260,7 @@ function renderContactsToSelectList(contacts) {
 
 
 function closeSelectContacts() {
+    document.getElementById('innerSelectInput').value = '';
     document.getElementById('selectContactsList').innerHTML = '';
     document.getElementById('selectContactsList').style.display = 'none';
     changeSelectIcon('select-image-up', 'select-image');
@@ -323,39 +324,21 @@ function renderContactBadgeUnderSelectField() {
 }
 
 
+// ANCHOR search in select 
 function filterContacts(e) {
+    openSelectContacts();
     if (e.target.value.length > 0) {
-        let allNames = [];
         let results = [];
-        contacts.forEach(c => allNames.push(c.name.toLowerCase()))
-        for (let i = 0; i < allNames.length; i++) {
-            if (allNames[i].indexOf(e.target.value.toLowerCase()) > -1) {
-                results.push(allNames[i]);
-            }
-        }
-        let filteredContacts = getContactObjectByName(results);
-        console.log(filteredContacts);
-        renderContactsToSelectList(filteredContacts);
+        contacts.forEach(c => {
+            if (c.name.toUpperCase().indexOf(e.target.value.toUpperCase()) != -1) {
+                results.push(c);
+                renderContactsToSelectList(results);
+            } 
+        });
     } else {
         renderContactsToSelectList(contacts);
     }
     checkForPreSelectContacts();
-}
-
-
-function getContactObjectByName(resultNames) {
-    let contactObjects = [];
-    for (let i = 0; i < resultNames.length; i++) {
-        resultNames[i] = nameFormat(resultNames[i]);
-        contactObjects.push(contacts[contacts.findIndex(c => c.name === resultNames[i])]);     
-    }
-    console.log(resultNames);
-    return contactObjects;
-}
-
-
-function nameFormat(string) {
-    return string.charAt(0).toUpperCase() + string.substring(1, string.indexOf(' ')) + ' ' + string.charAt(string.indexOf(' ') + 1).toUpperCase() + string.substring(string.indexOf(' ') + 2, string.length)
 }
 
 

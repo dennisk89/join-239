@@ -141,9 +141,9 @@ function addTaskOverlayHTML() {
                             id="descriptionInput"></textarea>
                     </div>
                     <div class="input-group">
-                        <label class="font-20" for="selectContactsInput">Assigned to</label>
+                        <label class="font-20" for="selectInput">Assigned to</label>
                         <div id="selectInput" onclick="openSelectContacts(); stopP(event)" class="enter-input outer-input select-rel">
-                            <input onkeyup="filterContacts(event)" id="titleInput" class="inner-input font-16" placeholder="Select contacts to assign" type="text"
+                            <input onkeyup="filterContacts(event)" id="innerSelectInput" class="inner-input font-16" placeholder="Select contacts to assign" type="text"
                             name="select contacts" id="selectContactsInput" required>
                             <div id="selectFieldBtn" class="select-image clickable"></div>
                             <div id="selectContactsList" class="contact-select-list d-none"></div>
