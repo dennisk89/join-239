@@ -96,7 +96,7 @@ async function createTask(nextFunction) {
         document.getElementById('titleInput').value, 
         document.getElementById('descriptionInput').value, 
         document.getElementById('dateInput').value, 
-        ['c5570', 'c9989', 'c8868'], 
+        tempAssignees, 
         currentTaskPrio, 
         'todo', 
         ['Ein subtask'], 

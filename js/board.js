@@ -334,6 +334,7 @@ function filterContacts(e) {
             }
         }
         let filteredContacts = getContactObjectByName(results);
+        console.log(filteredContacts);
         renderContactsToSelectList(filteredContacts);
     } else {
         renderContactsToSelectList(contacts);
