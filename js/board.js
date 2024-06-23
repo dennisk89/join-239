@@ -327,17 +327,13 @@ function renderContactBadgeUnderSelectField() {
 // ANCHOR search in select 
 function filterContacts(e) {
     openSelectContacts();
-    if (e.target.value.length > 0) {
-        let results = [];
-        contacts.forEach(c => {
-            if (c.name.toUpperCase().indexOf(e.target.value.toUpperCase()) != -1) {
-                results.push(c);
-                renderContactsToSelectList(results);
-            } 
-        });
-    } else {
-        renderContactsToSelectList(contacts);
-    }
+    let results = [];
+    contacts.forEach(c => {
+        if (e.target.value.length > 0 && c.name.toUpperCase().indexOf(e.target.value.toUpperCase()) != -1) {
+            results.push(c);
+            renderContactsToSelectList(results);
+        }
+    });
     checkForPreSelectContacts();
 }
 
