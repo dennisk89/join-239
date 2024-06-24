@@ -100,6 +100,49 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.todo-done-container:hover {
+    transform: scale(1.07); 
+    background-color: rgb(42, 54, 71);
+    color: white;
+}
+
+.check-container {
+    background-image: url('./assets/img/check summary.svg');
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.todo-done-container:hover .check-container {
+    background-image: url('./assets/img/summary-check-hover.svg');
+    background-color: white;
+}
+
+.pencil-container-desktop{
+    background-image: url('./assets/img/editDesktop.svg');
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.todo-done-container:hover .pencil-container-desktop{
+    background-color: white;
+    background-image: url('./assets/img/pencil-desktop-hover.svg');
+}
+
+.pencil-container-mobile{
+    background-image: url('./assets/img/edit-mobile.svg');
+    background-size: 19px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.todo-done-container:hover .pencil-container-mobile{
+    background-color: white;
+    background-image: url('./assets/img/pencil-desktop-hover.svg');
 }
 
 .summary-container {
@@ -135,6 +178,17 @@ body {
     border-radius: 20px;
     height: 110px;
     margin-left: 16px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.priority-container:hover{
+    transform: scale(1.07); 
+    background-color: rgb(42, 54, 71);
+    color: white;
+}
+
+.priority-container:hover .date-text{
+    color: white;
 }
 
 .middle-line {
@@ -175,6 +229,13 @@ body {
     background-color: white;
     border-radius: 20px;
     gap: 13px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.tasks-in-board:hover{
+    transform: scale(1.07); 
+    background-color: rgb(42, 54, 71);
+    color: white;
 }
 
 .flex-align-center{

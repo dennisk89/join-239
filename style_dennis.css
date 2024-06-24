@@ -226,6 +226,30 @@ textarea::-webkit-input-placeholder {
     font-weight: 700;
 }
 
+.enter-input {
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    height: 40px;
+    padding: 0 21px;
+}
+
+.select-input {
+    appearance: none;
+    background-image: url('./assets/img/arrow_drop_down.svg');
+    background-repeat: no-repeat;
+    background-position: right 16px top 50%;
+    background-size: 24px auto;
+}
+
+.font-16 {
+    /* font-family: 'Inter'; */
+    font-size: 20px;
+    line-height: 19.2px;
+    text-align: left;
+}
+
+
 @media (min-width: 768px) {
     .add-task-desktop{
         display: flex;

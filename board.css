@@ -667,7 +667,7 @@ textarea:focus, input:focus{
     font-family: 'Inter';
     font-size: 16px;
     line-height: 19.2px;
-    text-align: left;
+    text-align: left; 
 }
 
 .board-edit-btn {
