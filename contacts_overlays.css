@@ -174,7 +174,6 @@
 /* ANCHOR #overlayEditDelete */
 
 .overlay-edit-delete-bg {
-    background-color: rgba(0, 0, 0, 0.2);
     z-index: 999;
     position: fixed;
     left: 0;
@@ -193,8 +192,9 @@
     border-radius: 20px 20px 0 20px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     position: fixed;
-    right: 55px;
-    bottom: 155px;
+    left: 310px;
+    bottom: 90px;
+    transform: translateX(150%); /* Initial position, before sliding in */
 }
 
 .overlay-edit-delete-table td:first-child {
@@ -215,6 +215,29 @@
     height: 18px;
 }
 
+@keyframes overlayEditDeleteSlideIn { /* Keyframe animation for sliding in */
+    from {
+        transform: translateX(150%);
+    } to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes overlayEditDeleteSlideOut { /* Keyframe animation for sliding out */
+    from {
+        transform: translateX(0);
+    } to {
+        transform: translateX(150%);
+    }
+}
+
+#overlayEditDelete.overlay-slide-in .overlay-edit-delete-content { /* Active state for sliding in */
+    animation: overlayEditDeleteSlideIn 0.5s ease-in-out forwards;
+}
+
+#overlayEditDelete.overlay-slide-out .overlay-edit-delete-content { /* Active state for sliding out */
+    animation: overlayEditDeleteSlideOut 0.5s ease-in-out forwards;
+}
 
 /* ANCHOR #overlayAddContact */
 
@@ -373,7 +396,7 @@
 
 @media screen and (min-width: 768px){
 
-    /* Overall */
+    /* ANCHOR Overall */
 
     .overlay-logo {
         display: unset;

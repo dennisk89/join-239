@@ -37,10 +37,21 @@ function insertInputValues(contactName, email, phone) {
 }
 
 function showOverlayEditDelete(contactId, contactName, initials, color, email, phone) {
-    let overlayEditDelete = document.getElementById('overlayEditDelete');
-    overlayEditDelete.classList.remove('d-none');
+    let overlayEditDelete = document.getElementById('overlayEditDelete');    
     overlayEditDelete.innerHTML = '';
     overlayEditDelete.innerHTML = generateOverlayEditDeleteHTML(contactId, contactName, initials, color, email, phone);
+    overlayEditDelete.classList.remove('d-none');
+    overlayEditDelete.classList.add('overlay-slide-in');
+    overlayEditDelete.classList.remove('overlay-slide-out');
+}
+
+function hideOverlayEditDelete() {
+    let overlayEditDelete = document.getElementById('overlayEditDelete');
+    overlayEditDelete.classList.remove('overlay-slide-in');
+    overlayEditDelete.classList.add('overlay-slide-out');
+    setTimeout(() => {
+        overlayEditDelete.classList.add('d-none');        
+    }, 500); /* same duration as slide out animation */
 }
 
 function hideOverlayAddContact() {
