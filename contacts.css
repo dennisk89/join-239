@@ -5,6 +5,10 @@
     overflow: hidden;
 }
 
+.hide-on-mobile-test {
+    display: none;
+}
+
 /* ANCHOR Contact List */
 
 .main-contact-list {
@@ -142,7 +146,7 @@
 /* ANCHOR Contacts */
 
 .main-contacts {
-    display: none;
+    /* display: none; */
     background-color: var(--bg-color);
     position: fixed;
     top: 82px;
@@ -286,6 +290,11 @@
 
 @media screen and (min-width: 768px) {
 
+    /* ANCHOR Main */
+
+    .hide-on-mobile-test {
+        display: unset;
+    }
 
     /* ANCHOR Contact List */
 

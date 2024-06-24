@@ -131,7 +131,8 @@ function getInitials(contactName) {
 }
 
 function showContactDetails(contactId, contactName, initials, color, email, phone) {
-    document.getElementById('mainContacts').style.display = "unset";
+    // document.getElementById('mainContacts').style.display = "unset";
+    document.getElementById('mainContacts').classList.remove('hide-on-mobile-test');
     let contactDetailsContainer = document.getElementById('contactDetailsContainer');
     contactDetailsContainer.innerHTML = '';
     contactDetailsContainer.classList.remove('contact-details-slide-in');
@@ -146,8 +147,14 @@ function showContactDetails(contactId, contactName, initials, color, email, phon
     highlightContactContainer(contactId);
 }
 
+function emptyContactDetailsContainer() {
+    let contactDetailsContainer = document.getElementById('contactDetailsContainer');
+    contactDetailsContainer.innerHTML = '';
+}
+
 function hideContactDetailsMobile() {
-    document.getElementById('mainContacts').style.display = "none";
+    // document.getElementById('mainContacts').style.display = "none";
+    document.getElementById('mainContacts').classList.add('hide-on-mobile-test');
 }
 
 function highlightContactContainer(contactId) {
@@ -205,6 +212,7 @@ async function deleteContact(contactId) {
     let contactsRemaining = contacts.filter(contact => contact.id !== contactId);
     await putData(endpointContacts, contactsRemaining);
     showContactList();
+    emptyContactDetailsContainer();
 }
 
 async function saveEditedContact(newContactData, contactId) {
