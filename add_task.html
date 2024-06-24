@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="footer.css">
     <link rel="icon" type="image/x-icon" href="assets/img/join-logo.svg">
     <script defer src="js/config.js"></script>
-    <script defer src="js/add_task.js"></script>
+    <!-- <script defer src="js/add_task.js"></script> -->
+    <script defer src="js/board.js"></script>
+    <script defer src="assets/templates/board-html-templates.js"></script>
 </head>
 
 <body class="bg-add-task" onload="setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg', 'medium')">
@@ -35,11 +37,19 @@
                 <p class="margin-8px font-20px">Description</p>
                 <textarea class="enter-description-input" placeholder="Enter a description" name="Description"
                     id="descriptionInput"></textarea>
-                <p class="margin-8px font-20px">Assigned to</p>
-                <select class="select-contacts-field" name="select contacts" id="selectContactsInput">
-                    <option value="Select contacts">Select contacts to assign</option>
-                </select>
-                <p class="required-text hide-on-mobile"><span class="color-red">*</span>This field is requiered</p>
+                <div class="input-group">
+                    <label class="font-20" for="selectInput">Assigned to</label>
+                    <div id="selectInput" onclick="openSelectContacts(); stopP(event)" class="enter-input outer-input select-rel">
+                        <input onkeyup="filterContacts(event)" id="innerSelectInput" class="inner-input font-16" placeholder="Select contacts to assign" type="text"
+                        name="select contacts" id="selectContactsInput" required>
+                        <div id="selectFieldBtn" class="select-image clickable"></div>
+                        <div id="selectContactsList" class="contact-select-list d-none"></div>
+                    </div>
+                    <div class="pre-select-badges" id="preSelectedContainer"></div>
+                </div>
+                <div class="hint-container">
+                    <p><span class="color-red">*</span>This field is required</p>
+                </div>
             </div>
             <div class="add-task-desktop-border"></div>
             <div>
