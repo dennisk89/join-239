@@ -43,6 +43,29 @@ function generateContactDetailsContainerHTML(contactId, contactName, initials, c
             <div class="contact-info-bold">Phone</div>
             <div>${phone}</div>
         </div>
+
+        <div class="contact-menu-btn clickable" onclick="showOverlayEditDelete('${contactId}', '${contactName}', '${initials}', '${color}', '${email}', '${phone}')">
+            <img src="./assets/img/more_vert.svg">
+        </div>
+    `;
+}
+
+function generateOverlayEditDeleteHTML(contactId, contactName, initials, color, email, phone) {
+    return /*html*/`
+        <div class="overlay-edit-delete-bg">
+            <div class="overlay-edit-delete-content">
+                <table class="overlay-edit-delete-table">
+                    <tr>
+                        <td><img src="./assets/img/edit.svg" class="overlay-edit-img clickable"></td>
+                        <td class="clickable" onclick="showOverlayEditContact('${contactId}', '${contactName}', '${initials}', '${color}', '${email}', '${phone}')">Edit</td>
+                    </tr>
+                    <tr>
+                        <td><img src="./assets/img/delete.svg" class="overlay-delete-img clickable"></td>
+                        <td class="clickable" onclick="deleteContact('${contactId}')">Delete</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     `;
 }
 

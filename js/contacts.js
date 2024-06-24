@@ -36,9 +36,11 @@ function insertInputValues(contactName, email, phone) {
     document.getElementById('editContactInputPhone').value = phone;
 }
 
-function showOverlayEditDelete() {
+function showOverlayEditDelete(contactId, contactName, initials, color, email, phone) {
     let overlayEditDelete = document.getElementById('overlayEditDelete');
     overlayEditDelete.classList.remove('d-none');
+    overlayEditDelete.innerHTML = '';
+    overlayEditDelete.innerHTML = generateOverlayEditDeleteHTML(contactId, contactName, initials, color, email, phone);
 }
 
 function hideOverlayAddContact() {
