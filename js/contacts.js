@@ -131,8 +131,7 @@ function getInitials(contactName) {
 }
 
 function showContactDetails(contactId, contactName, initials, color, email, phone) {
-    // document.getElementById('mainContacts').style.display = "unset";
-    document.getElementById('mainContacts').classList.remove('hide-on-mobile-test');
+    document.getElementById('mainContacts').classList.remove('contacts-hide-on-mobile');
     let contactDetailsContainer = document.getElementById('contactDetailsContainer');
     contactDetailsContainer.innerHTML = '';
     contactDetailsContainer.classList.remove('contact-details-slide-in');
@@ -153,8 +152,7 @@ function emptyContactDetailsContainer() {
 }
 
 function hideContactDetailsMobile() {
-    // document.getElementById('mainContacts').style.display = "none";
-    document.getElementById('mainContacts').classList.add('hide-on-mobile-test');
+    document.getElementById('mainContacts').classList.add('contacts-hide-on-mobile');
 }
 
 function highlightContactContainer(contactId) {

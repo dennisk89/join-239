@@ -5,7 +5,7 @@
     overflow: hidden;
 }
 
-.hide-on-mobile-test {
+.contacts-hide-on-mobile {
     display: none;
 }
 
@@ -292,7 +292,7 @@
 
     /* ANCHOR Main */
 
-    .hide-on-mobile-test {
+    .contacts-hide-on-mobile {
         display: unset;
     }
 
