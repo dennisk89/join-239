@@ -189,8 +189,14 @@ function addTaskOverlayHTML() {
                         </select>
                     </div>
                     <div class="input-group">
-                        <label class="font-20" for="subtaskInput">Subtaks</label>
-                        <input class="enter-input subtask-enter font-20" placeholder="Enter a subtask" type="text" name="Subtask" id="subtaskInput">
+                        <label class="font-20" for="selectInput">Suibtasks</label>
+                        <div id="subtaskInputFrame" class="enter-input outer-input">
+                            <input class="inner-input font-16" placeholder="Add new subtask" type="text"
+                            name="add subtasks" id="subtaskInput">
+                            <div id="addSubtaskBtn" class="sub-plus-image clickable"></div>
+                        </div>
+                        <ul class="subtask-ul" id="subtaskEditList">
+                        </ul>
                     </div>
                     <div class="form-btn-container">
                         <button class="cancel-btn clickable">

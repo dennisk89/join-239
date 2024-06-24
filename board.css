@@ -441,6 +441,7 @@ p {
     background-size: 24px auto;
 }
 
+/* TODO ich glaube hier ist zu viel in den hover klassen, background-image sollte reichen */
 .select-image:hover {
     background-image: url("./assets/img/arrow_drop_down-bg.svg");
     background-size: 24px auto;
@@ -519,6 +520,46 @@ textarea:focus, input:focus{
 }
 
 /* !SECTION end select */
+
+/* SECTION add subtask */
+
+.sub-plus-image {
+    width: 48px;
+    height: 100%;
+    background-image: url("./assets/img/subtask-plus.svg");
+    background-repeat: no-repeat;
+    background-position: right 0 top 50%;
+    background-size: 24px auto;
+}
+
+.sub-plus-image:hover {
+    background-image: url("./assets/img/subtask-plus-bg.svg");
+}
+
+/* .select-image-up {
+    width: 48px;
+    height: 100%;
+    background-image: url("./assets/img/arrow_drop_down-up.svg");
+    background-repeat: no-repeat;
+    background-position: right 0 top 50%;
+    background-size: 24px auto;
+}
+
+.select-image:hover {
+    background-image: url("./assets/img/arrow_drop_down-bg.svg");
+    background-size: 24px auto;
+    background-position: right 0 top 50%;
+}
+
+.select-image-up:hover {
+    background-image: url("./assets/img/arrow_drop_down-bg-up.svg");
+    background-size: 24px auto;
+    background-position: right 0 top 50%;
+} */
+
+
+
+/* !SECTION */
 
 .outer-input {
     display: flex;
