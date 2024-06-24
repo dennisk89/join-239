@@ -20,22 +20,22 @@
     color: rgba(255, 255, 255, 1);
     width: 396px;
     position: relative;
-    transform: translateX(150%); /* Initial position, before sliding in */
+    transform: translateY(150%); /* Initial position, before sliding in */
 }
 
 @keyframes overlaySlideIn { /* Keyframe animation for sliding in */
     from {
-        transform: translateX(150%);
+        transform: translateY(150%);
     } to {
-        transform: translateX(0);
+        transform: translateY(0);
     }
 }
 
 @keyframes overlaySlideOut { /* Keyframe animation for sliding out */
     from {
-        transform: translateX(0);
+        transform: translateY(0);
     } to {
-        transform: translateX(150%);
+        transform: translateY(150%);
     }
 }
 
@@ -384,6 +384,23 @@
         flex-direction: row;
         width: auto;
         height: 594px;
+        transform: translateX(150%); /* Initial position, before sliding in */
+    }
+   
+    @keyframes overlaySlideIn { /* Keyframe animation for sliding in */
+        from {
+            transform: translateX(150%);
+        } to {
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes overlaySlideOut { /* Keyframe animation for sliding out */
+        from {
+            transform: translateX(0);
+        } to {
+            transform: translateX(150%);
+        }
     }
 
     .overlay-close-btn {
