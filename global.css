@@ -98,8 +98,178 @@ textarea:focus, input:focus{
     box-shadow: 0 5px 5px rgba(42, 54, 71, 0.5);    
 }
 
+/*ANCHOR - Sectionfield*/
 
+.enter-input {
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    height: 40px;
+    padding: 0 21px;
+}
 
+.select-input {
+    appearance: none;
+    background-image: url('./assets/img/arrow_drop_down.svg');
+    background-repeat: no-repeat;
+    background-position: right 16px top 50%;
+    background-size: 24px auto;
+}
+
+.font-16 {
+    /* font-family: 'Inter'; */
+    font-size: 20px;
+    line-height: 19.2px;
+    text-align: left;
+}
+
+.hint-container {
+    padding-top: 112px;
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+    text-align: left;
+}
+
+.outer-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+}
+
+.inner-input {
+    border: none;
+    flex: 1;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.font-20 {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.select-input {
+    appearance: none;
+    background-image: url('./assets/img/arrow_drop_down.svg');
+    background-repeat: no-repeat;
+    background-position: right 16px top 50%;
+    background-size: 24px auto;
+}
+
+.select-image {
+    width: 48px;
+    height: 100%;
+    background-image: url("./assets/img/arrow_drop_down.svg");
+    background-repeat: no-repeat;
+    background-position: right 0 top 50%;
+    background-size: 24px auto;
+}
+
+.select-image-up {
+    width: 48px;
+    height: 100%;
+    background-image: url("./assets/img/arrow_drop_down-up.svg");
+    background-repeat: no-repeat;
+    background-position: right 0 top 50%;
+    background-size: 24px auto;
+}
+
+.select-image:hover {
+    background-image: url("./assets/img/arrow_drop_down-bg.svg");
+    background-size: 24px auto;
+    background-position: right 0 top 50%;
+}
+
+.select-image-up:hover {
+    background-image: url("./assets/img/arrow_drop_down-bg-up.svg");
+    background-size: 24px auto;
+    background-position: right 0 top 50%;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.select-rel {
+    position: relative;
+}
+
+.contact-select-list {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 4px;
+    background-color: white;
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.contacts-select-list-row {
+    display: flex; 
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    gap: 16px;
+    padding: 7px 16px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.contacts-select-list-row div:nth-child(2) {
+    flex: 1;
+}
+
+.contacts-select-list-row:hover {
+    background-color: rgba(238, 238, 238, 1);
+    
+}
+
+.checkbox-img {
+    height: 24px;
+    width: 24px;
+    background-image: url('assets/img/checkbox.svg');
+}
+
+.checkbox-img:hover {
+    background-image: url('assets/img/Check-button-hover.svg');
+}
+
+.checkbox-img-checked {
+    height: 24px;
+    width: 24px;
+    background-image: url('assets/img/checkbox-checked-white.svg');
+}
+
+.pre-select-badges {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.profile-batch {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    border: solid 1px white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.4px;
+}
 
 @media screen and (min-width: 768px) {
 
