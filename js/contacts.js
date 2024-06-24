@@ -118,6 +118,7 @@ function getInitials(contactName) {
 }
 
 function showContactDetails(contactId, contactName, initials, color, email, phone) {
+    document.getElementById('mainContacts').style.display = "unset";
     let contactDetailsContainer = document.getElementById('contactDetailsContainer');
     contactDetailsContainer.innerHTML = '';
     contactDetailsContainer.classList.remove('contact-details-slide-in');
@@ -130,6 +131,10 @@ function showContactDetails(contactId, contactName, initials, color, email, phon
         contactDetailsContainer.classList.add('contact-details-show');
     }, 500);
     highlightContactContainer(contactId);
+}
+
+function hideContactDetailsMobile() {
+    document.getElementById('mainContacts').style.display = "none";
 }
 
 function highlightContactContainer(contactId) {

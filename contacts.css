@@ -143,11 +143,24 @@
 
 .main-contacts {
     display: none;
+    background-color: var(--bg-color);
+    position: fixed;
+    top: 82px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding-left: 16px;
     overflow: hidden;
 }
 
+.contact-details-arrow {
+    position: fixed;
+    left: 380px;
+    top: 128px;
+}
+
 .contacts-header {
-    margin: 48px 0 48px 16px;
+    margin: 48px 0;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -177,32 +190,6 @@
     border: 3px solid rgba(41, 171, 226, 1);
     width: 90px;
     margin-left: 0;
-}
-
-.contact-details-container {
-    margin-left: 16px;
-    transform: translateX(200%);
-    opacity: 0;
-    transition: none;
-}
-
-.contact-details-container.contact-details-show {
-    transform: translateX(0);
-    opacity: 1;
-}
-
-.contact-details-container.contact-details-slide-in {
-    animation: contactDetailsSlideIn 0.5s ease-in-out forwards;
-}
-
-@keyframes contactDetailsSlideIn {
-    from {
-        transform: translateX(200%);
-        opacity: 0;
-    } to {
-        transform: translateX(0);
-        opacity: 1;
-    }
 }
 
 .contact-name-container {
@@ -276,7 +263,7 @@
 
 .contact-menu-btn, .add-contact-btn {
     position: fixed;
-    right: 16px;
+    left: 356px;
     bottom: 112px;
     height: 56px;
     width: 56px;
@@ -286,6 +273,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .contact-menu-btn img, .add-contact-btn img {
@@ -304,6 +292,7 @@
     .main-contact-list {
         height: calc(100vh - 108px);
         padding: 0 52px;
+        width: 550px;
     }
 
     .contact-list-top {
@@ -337,6 +326,11 @@
         display: flex;
         flex-direction: column;
         align-items: first baseline;
+        position: unset;
+    }
+
+    .contact-details-arrow {
+        display: none;
     }
 
     .contacts-header {
@@ -368,6 +362,28 @@
 
     .contact-details-container {
         margin-left: 65px;
+        transform: translateX(200%);
+        opacity: 0;
+        transition: none;
+    }
+
+    .contact-details-container.contact-details-show {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    
+    .contact-details-container.contact-details-slide-in {
+        animation: contactDetailsSlideIn 0.5s ease-in-out forwards;
+    }
+    
+    @keyframes contactDetailsSlideIn {
+        from {
+            transform: translateX(200%);
+            opacity: 0;
+        } to {
+            transform: translateX(0);
+            opacity: 1;
+        }
     }
 
     .contact-info-dot {
