@@ -60,7 +60,7 @@ function generateOverlayEditDeleteHTML(contactId, contactName, initials, color, 
                 </tr>
                 <tr>
                     <td><img src="./assets/img/delete.svg" class="overlay-delete-img clickable"></td>
-                    <td class="clickable" onclick="deleteContact('${contactId}')">Delete</td>
+                    <td class="clickable" onclick="deleteContact('${contactId}'); hideOverlayEditDelete(); hideContactDetailsMobile()">Delete</td>
                 </tr>
             </table>
         </div>

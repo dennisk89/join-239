@@ -17,8 +17,8 @@ function hideOverlayEditContact() {
 function showOverlayEditContact(contactId, contactName, initials, color, email, phone) {
     createOverlayEditContactDot(initials, color);
     insertInputValues(contactName, email, phone);
-    document.getElementById('editContactDeleteBtn').onclick = function() {deleteContact(contactId);};
-    document.getElementById('editContactForm').onsubmit = function() {editContact(contactId, initials, color); return false;};
+    document.getElementById('editContactDeleteBtn').onclick = function() {deleteContact(contactId); hideOverlayEditContact(); hideContactDetailsMobile(); return false};
+    document.getElementById('editContactForm').onsubmit = function() {editContact(contactId, initials, color); hideOverlayEditContact(); hideContactDetailsMobile(); return false};
     let overlayEditContact = document.getElementById('overlayEditContact');
     overlayEditContact.classList.remove('d-none');
     overlayEditContact.classList.add('overlay-slide-in');
@@ -187,10 +187,12 @@ function getRandomColor() {
     return colors[randomIndex];
 }
 
-function addNewContact(newContact) {
+async function addNewContact(newContact) {
     contacts.push(newContact);
-    putData(endpointContacts, contacts);
+    await putData(endpointContacts, contacts);
     emptyAddContactForm();
+    hideOverlayAddContact();
+    showContactList();
 }
 
 function emptyAddContactForm() {
@@ -210,8 +212,9 @@ async function saveEditedContact(newContactData, contactId) {
     let indexOfChangedContact = contacts.findIndex(x => x.id === contactId);
     contacts.splice(indexOfChangedContact, 1);
     contacts.push(newContactData);
-    putData(endpointContacts, contacts);
+    await putData(endpointContacts, contacts);
     emptyEditContactForm();
+    showContactList();
 }
 
 function editContact(contactId, initials, color) {
