@@ -257,26 +257,47 @@ textarea:focus, input:focus{
     background-image: url("./assets/img/cancel-x-dark-hover.svg");
 }
 
-/* .select-image-up {
-    width: 48px;
-    height: 100%;
-    background-image: url("./assets/img/arrow_drop_down-up.svg");
-    background-repeat: no-repeat;
-    background-position: right 0 top 50%;
-    background-size: 24px auto;
+.subtask-ul {
+    margin: 0 12px;
+    padding-inline-start: 0px;
 }
 
-.select-image:hover {
-    background-image: url("./assets/img/arrow_drop_down-bg.svg");
-    background-size: 24px auto;
-    background-position: right 0 top 50%;
+.subtask-ul li {
+    margin-left: 16px;
 }
 
-.select-image-up:hover {
-    background-image: url("./assets/img/arrow_drop_down-bg-up.svg");
-    background-size: 24px auto;
-    background-position: right 0 top 50%;
-} */
+.subtask-list-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    padding: 4px 16px;
+    border-radius: 10px;
+}
+
+.hide-for-hover {
+    display: none;
+}
+
+.subtask-list-row img {
+    padding: 0 4px;
+    height: 16px
+}
+
+.subtask-list-row img:hover {
+    scale: 1.2;
+}
+
+.border-divider {
+    border-right: solid 1px rgba(209, 209, 209, 1);
+}
+
+.subtask-list-row:hover {
+    background-color: rgb(234, 231, 231);
+    .hide-for-hover {
+        display: block;
+    }
+}
 
 
 

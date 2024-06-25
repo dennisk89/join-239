@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="footer.css">
     <link rel="icon" type="image/x-icon" href="assets/img/join-logo.svg">
     <script defer src="js/config.js"></script>
-    <!-- <script defer src="js/add_task.js"></script> -->
-    <script defer src="js/board.js"></script>
+    <script defer src="js/add_task.js"></script>
     <script defer src="assets/templates/board-html-templates.js"></script>
 </head>
 
@@ -29,7 +28,7 @@
     </header>
     <div class="padding-left-right-16px margin-bottom-96px bg-add-task">
         <h1 class="add-task-headline">Add Task</h1>
-        <form onsubmit="createTask(initBoard); return false" class="add-task-desktop" class="width-396px" action="submit">
+        <form onsubmit="createTask(pageReload); return false" class="add-task-desktop" class="width-396px" action="submit">
             <div class="add-task-desktop-gap">
                 <p class="margin-8px font-20px">Title<span class="color-red">*</span></p>
                 <input class="enter-title-input" placeholder="Enter a title" type="text" name="Title" id="titleInput" required>
@@ -82,11 +81,17 @@
                         <option value="us">User story</option>
                     </select>
                 </div>
-                <div class="subtask d-none">
-                    <span class="font-20px color-blue">
-                        Subtasks
-                    </span>
-                    <input class="enter-subtask-input" placeholder="Enter a subtask" type="text" name="Subtask" id="subtaskInput">
+                <div class="input-group">
+                    <label class="font-20" for="selectInput">Subtasks</label>
+                    <div id="subtaskInputFrame" class="enter-input outer-input">
+                        <input class="inner-input font-16" placeholder="Add new subtask" type="text"
+                            name="add subtasks" id="subtaskInput">
+                        <div id="subBtnContainer" class="sub-btn-container">
+                            <div id="addSubtaskBtn" class="sub-plus-image clickable"></div>
+                        </div>
+                    </div>
+                    <ul class="subtask-ul" id="subtaskEditList">
+                    </ul>
                 </div>
                 <div class="justify-space-between height-88px desktop-btns">
                     <p class="d-none-desktop"><span class="color-red">*</span>This field is requiered</p>
@@ -95,10 +100,10 @@
                         <img class="cancel-btn-img-dark" src="./assets/img/cancel-x-dark.svg" alt="">
                         <img class="cancel-btn-img-blue d-none" src="./assets/img/cancel_x_blue.svg" alt="">
                     </button>
-                    <div class="create-task-btn btn-color">
+                    <button type="submit" class="create-task-btn btn-color">
                         <span>Create Task</span>
                         <img src="./assets/img/check.svg" alt="">
-                    </div>
+                    </button>
                 </div>
             </div>
         </form>

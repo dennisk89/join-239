@@ -24,6 +24,14 @@ let tempAssignees = [];
 let tempSubtasksStatus = [];
 
 
+function resetGlobalTaskVariables() {
+    tempSubtasks = [];
+    tempSubtasksStatus = [];
+    tempAssignees = [];
+    currentTaskPrio = 'medium'
+}
+
+
 async function initJoin() {
     contacts = await getData(endpointContacts);
     taskArray = await getData(endpointTasks);
@@ -93,18 +101,12 @@ function generateUniqueId(initLetter, array) {
 }
 
 
-async function createTask(nextFunction) {
-    let newTask = new Task(generateUniqueId('t', taskArray), 
-        document.getElementById('selectCategory').value, 
-        document.getElementById('titleInput').value, 
-        document.getElementById('descriptionInput').value, 
-        document.getElementById('dateInput').value, 
-        tempAssignees, 
-        currentTaskPrio, 
-        'todo', 
-        tempSubtasks, 
-        tempSubtasksStatus);
-    taskArray.push(newTask);
-    await putData(endpointTasks, taskArray);
-    nextFunction();
+// ANCHOR Menu functionality
+function stopP(event) {
+    event.stopPropagation();
+}
+
+
+function pageReload() {
+    location.reload();
 }
