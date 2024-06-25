@@ -239,6 +239,7 @@
     animation: overlayEditDeleteSlideOut 0.5s ease-in-out forwards;
 }
 
+
 /* ANCHOR #overlayAddContact */
 
 .overlay-header-sub {
@@ -434,6 +435,7 @@
 
 @media screen and (min-width: 768px){
 
+
     /* ANCHOR Overall */
 
     .overlay-logo {
@@ -523,7 +525,6 @@
         background-position: 380px;
     }
 
-    /* #overlayEditDelete -> Kategorie hier noch leer */
 
     /* ANCHOR #overlayAddContact */
 
@@ -555,6 +556,7 @@
         height: 57px;
     }
 
+    
     /* ANCHOR #overlayEditContact */
 
     .edit-contact-dot-mobile {
@@ -579,6 +581,7 @@
         height: 57px;
         width: 111px;
     }
+
 
     /* ANCHOR #overlayNewContactOk */
 
