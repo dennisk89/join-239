@@ -218,6 +218,39 @@ textarea:focus, input:focus{
     background-image: url("./assets/img/subtask-plus-bg.svg");
 }
 
+.sub-cancel-image {
+    width: 24px;
+    height: 100%;
+    background-image: url("./assets/img/cancel-x-dark.svg");
+    background-repeat: no-repeat;
+    background-position: right 0 top 50%;
+    background-size: 24px auto;
+}
+
+.sub-btn-devider {
+    height: 24px;
+    width: 1px;
+    background-color: rgba(168, 168, 168, 1);
+    margin: 0 4px;
+}
+
+.sub-confirm-image {
+    width: 24px;
+    height: 100%;
+    background-image: url("./assets/img/check-dark.svg");
+    background-repeat: no-repeat;
+    background-position: right 0 top 50%;
+    background-size: 24px auto;
+}
+
+.sub-confirm-image:hover {
+    background-image: url("./assets/img/check-dark-hover.svg");
+}
+
+.sub-cancel-image:hover {
+    background-image: url("./assets/img/cancel-x-dark-hover.svg");
+}
+
 /* .select-image-up {
     width: 48px;
     height: 100%;
