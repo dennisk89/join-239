@@ -323,6 +323,15 @@ textarea:focus, input:focus{
     line-height: 14.4px;
 }
 
+.enter-input {
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    height: 48px;
+    padding: 0 16px;
+    background-color: white;
+}
+
 @media screen and (min-width: 768px) {
 
     body {
