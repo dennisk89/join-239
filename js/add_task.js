@@ -1,3 +1,4 @@
+// ANCHOR create Tasks
 async function createTask(nextFunction) {
     console.log('new');
     let newTask = new Task(generateUniqueId('t', taskArray), 
@@ -13,6 +14,19 @@ async function createTask(nextFunction) {
     taskArray.push(newTask);
     await putData(endpointTasks, taskArray);
     nextFunction();
+}
+
+
+function resetAddForm() {
+    document.getElementById('selectCategory').value = ''; 
+    document.getElementById('titleInput').value = ''; 
+    document.getElementById('descriptionInput').value = ''; 
+    document.getElementById('dateInput').value = '';
+    resetGlobalTaskVariables();
+    document.getElementById('preSelectedContainer').innerHTML = '';
+    document.getElementById('subtaskEditList').innerHTML = '';
+    setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg', 'medium');
+    resetSubtaskInput();
 }
 
 

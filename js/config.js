@@ -107,6 +107,3 @@ function stopP(event) {
 }
 
 
-function pageReload() {
-    location.reload();
-}
