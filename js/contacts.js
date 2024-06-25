@@ -198,6 +198,7 @@ async function addNewContact(newContact) {
     emptyAddContactForm();
     hideOverlayAddContact();
     showContactList();
+    showOverlayNewContactOk();
 }
 
 function emptyAddContactForm() {
@@ -242,4 +243,23 @@ function emptyEditContactForm() {
     document.getElementById('editContactInputName').value = '';
     document.getElementById('editContactInputMail').value = '';
     document.getElementById('editContactInputPhone').value = '';
+}
+
+function showOverlayNewContactOk() {
+    let overlayNewContactOk = document.getElementById('overlayNewContactOk');
+    overlayNewContactOk.classList.remove('d-none');
+    overlayNewContactOk.classList.add('overlay-slide-in');
+    overlayNewContactOk.classList.remove('overlay-slide-out');
+    setTimeout(() => {
+        hideOverlayNewContactOk();
+    }, 1000);    
+}
+
+function hideOverlayNewContactOk(){
+    let overlayNewContactOk = document.getElementById('overlayNewContactOk');
+    overlayNewContactOk.classList.remove('overlay-slide-in');
+    overlayNewContactOk.classList.add('overlay-slide-out');
+    setTimeout(() => {
+        overlayNewContactOk.classList.add('d-none');
+    }, 500); /* same duration as slide out animation */
 }

@@ -381,14 +381,52 @@
 
 /* ANCHOR #overlayNewContactOk */
 
+.overlay-new-contact-ok-bg {
+    z-index: 999;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .overlay-new-contact-ok-content {
+    background-color: rgba(42, 54, 71, 1);
+    border-radius: 20px;
     color: rgba(255, 255, 255, 1);
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
-    background-color: rgba(42, 54, 71, 1);
-    padding: 25px;
-    border-radius: 20px;
+    text-align: center;
+    padding: 25px;    
+    transform: translateY(650%); /* Initial position, before sliding in */
+}
+
+@keyframes overlayNewContactOkSlideIn { /* Keyframe animation for sliding in */
+    from {
+        transform: translateY(650%);
+    } to {
+        transform: translateY(200%);
+    }
+}
+
+@keyframes overlayNewContactOkSlideOut { /* Keyframe animation for sliding out */
+    from {
+        transform: translateY(200%);
+    } to {
+        transform: translateY(650%);
+    }
+}
+
+#overlayNewContactOk.overlay-slide-in .overlay-new-contact-ok-content { /* Active state for sliding in */
+    animation: overlayNewContactOkSlideIn 0.5s ease-in-out forwards;
+}
+
+#overlayNewContactOk.overlay-slide-out .overlay-new-contact-ok-content { /* Active state for sliding out */
+    animation: overlayNewContactOkSlideOut 0.5s ease-in-out forwards;
 }
 
 
@@ -542,6 +580,32 @@
         width: 111px;
     }
 
-    /* #overlayNewContactOk -> Kategorie hier noch leer */
+    /* ANCHOR #overlayNewContactOk */
+
+    .overlay-new-contact-ok-bg {
+        align-items: end;
+        margin-bottom: 100px;
+    }
+
+    .overlay-new-contact-ok-content {
+        padding: 25px 30.5px;
+        transform: translateX(650%); /* Initial position, before sliding in */
+    }
+    
+    @keyframes overlayNewContactOkSlideIn { /* Keyframe animation for sliding in */
+        from {
+            transform: translateX(650%);
+        } to {
+            transform: translateX(50%);
+        }
+    }
+    
+    @keyframes overlayNewContactOkSlideOut { /* Keyframe animation for sliding out */
+        from {
+            transform: translateX(50%);
+        } to {
+            transform: translateX(650%);
+        }
+    }
 
 }
