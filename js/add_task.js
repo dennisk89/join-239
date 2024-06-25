@@ -17,16 +17,8 @@ async function createTask(nextFunction) {
 }
 
 
-function resetAddForm() {
-    document.getElementById('selectCategory').value = ''; 
-    document.getElementById('titleInput').value = ''; 
-    document.getElementById('descriptionInput').value = ''; 
-    document.getElementById('dateInput').value = '';
-    resetGlobalTaskVariables();
-    document.getElementById('preSelectedContainer').innerHTML = '';
-    document.getElementById('subtaskEditList').innerHTML = '';
-    setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg', 'medium');
-    resetSubtaskInput();
+function redirectToBoard() {
+    window.location.href = 'board.html';
 }
 
 
