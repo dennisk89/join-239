@@ -1,9 +1,7 @@
-let tempSubtasks = [];
-let tempAssignees = [];
-
 
 function resetGlobalTaskVariables() {
     tempSubtasks = [];
+    tempSubtasksStatus = [];
     tempAssignees = [];
     currentTaskPrio = 'medium'
 }
@@ -338,16 +336,35 @@ function filterContacts(e) {
 
 // ANCHOR add subtask
 function changeSubtaskInput() {
-    if (document.getElementById('subtaskInputFrame').children[1].id == 'addSubtaskBtn') {
-        document.getElementById('subtaskInputFrame').innerHTML = writeNewSubtaskHTML();
+    if (document.getElementById('subBtnContainer').children[0].id == 'addSubtaskBtn') {
+        document.getElementById('subBtnContainer').innerHTML = writeNewSubtaskHTML();
     }
 }
 
 
 function resetSubtaskInput() {
-    document.getElementById('subtaskInputFrame').innerHTML = addNewSubtaskHTML()
+    document.getElementById('subtaskInput').value = '';
+    document.getElementById('subBtnContainer').innerHTML = addNewSubtaskHTML();
 }
 
+
+function renderTempSubtasks() {
+    if (document.getElementById('subtaskInput').value.length > 0) {
+        document.getElementById('subtaskEditList').innerHTML = '';
+        tempSubtasks.push(document.getElementById('subtaskInput').value)
+        for (let i = 0; i < tempSubtasks.length; i++) {
+            document.getElementById('subtaskEditList').innerHTML += editSubtaskListHTML(tempSubtasks[i], i);
+        }
+        setTempSubtasksStatus();
+        document.getElementById('subtaskInput').value = '';
+    }
+}
+
+
+function setTempSubtasksStatus() {
+    tempSubtasksStatus = [];
+    tempSubtasks.forEach(() => tempSubtasksStatus.push(false));
+}
 
 
 // ANCHOR eventListener add tasks

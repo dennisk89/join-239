@@ -204,6 +204,12 @@ textarea:focus, input:focus{
 /* !SECTION end select */
 
 /* SECTION add subtask */
+.sub-btn-container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
 
 .sub-plus-image {
     width: 24px;

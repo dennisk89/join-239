@@ -19,6 +19,9 @@ let feedbackTasks;
 let doneTasks;
 let urgentTasks;
 let currentTaskPrio = 'medium';
+let tempSubtasks = [];
+let tempAssignees = [];
+let tempSubtasksStatus = [];
 
 
 async function initJoin() {
@@ -99,8 +102,8 @@ async function createTask(nextFunction) {
         tempAssignees, 
         currentTaskPrio, 
         'todo', 
-        ['Ein subtask'], 
-        [false]);
+        tempSubtasks, 
+        tempSubtasksStatus);
     taskArray.push(newTask);
     await putData(endpointTasks, taskArray);
     nextFunction();
