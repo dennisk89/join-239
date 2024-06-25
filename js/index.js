@@ -105,9 +105,11 @@ function handleCheckBoxPrivacyPolicy() {
 
 function animation() {
   setTimeout(function() {
-    document.getElementById("whiteB").style.zIndex = "-1";
-  }, 3000);
+      document.getElementById("whiteB").style.zIndex = "-1";
+  }, 4000);
 }
+
+window.onload = animation;
 
 
 

@@ -98,64 +98,9 @@ textarea:focus, input:focus{
     box-shadow: 0 5px 5px rgba(42, 54, 71, 0.5);    
 }
 
-/*ANCHOR - Sectionfield*/
 
-.enter-input {
-    box-sizing: border-box;
-    border-radius: 10px;
-    border: 1px solid rgba(209, 209, 209, 1);
-    height: 40px;
-    padding: 0 21px;
-}
-
-.select-input {
-    appearance: none;
-    background-image: url('./assets/img/arrow_drop_down.svg');
-    background-repeat: no-repeat;
-    background-position: right 16px top 50%;
-    background-size: 24px auto;
-}
-
-.font-16 {
-    /* font-family: 'Inter'; */
-    font-size: 20px;
-    line-height: 19.2px;
-    text-align: left;
-}
-
-.hint-container {
-    padding-top: 112px;
-    font-family: 'Inter';
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 19.2px;
-    text-align: left;
-}
-
-.outer-input {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-}
-
-.inner-input {
-    border: none;
-    flex: 1;
-}
-
-.input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.font-20 {
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
-}
-
+/* SECTION select */
+/* ANCHOR select text field */
 .select-input {
     appearance: none;
     background-image: url('./assets/img/arrow_drop_down.svg');
@@ -182,6 +127,7 @@ textarea:focus, input:focus{
     background-size: 24px auto;
 }
 
+/* TODO ich glaube hier ist zu viel in den hover klassen, background-image sollte reichen */
 .select-image:hover {
     background-image: url("./assets/img/arrow_drop_down-bg.svg");
     background-size: 24px auto;
@@ -198,6 +144,7 @@ textarea:focus, input:focus{
     outline: none;
 }
 
+/* ANCHOR open contacts list under select */
 .select-rel {
     position: relative;
 }
@@ -249,6 +196,81 @@ textarea:focus, input:focus{
     width: 24px;
     background-image: url('assets/img/checkbox-checked-white.svg');
 }
+
+/* ANCHOR badges container */
+.pre-select-badges {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* !SECTION end select */
+
+/* SECTION add subtask */
+
+.sub-plus-image {
+    width: 48px;
+    height: 100%;
+    background-image: url("./assets/img/subtask-plus.svg");
+    background-repeat: no-repeat;
+    background-position: right 0 top 50%;
+    background-size: 24px auto;
+}
+
+.sub-plus-image:hover {
+    background-image: url("./assets/img/subtask-plus-bg.svg");
+}
+
+/* .select-image-up {
+    width: 48px;
+    height: 100%;
+    background-image: url("./assets/img/arrow_drop_down-up.svg");
+    background-repeat: no-repeat;
+    background-position: right 0 top 50%;
+    background-size: 24px auto;
+}
+
+.select-image:hover {
+    background-image: url("./assets/img/arrow_drop_down-bg.svg");
+    background-size: 24px auto;
+    background-position: right 0 top 50%;
+}
+
+.select-image-up:hover {
+    background-image: url("./assets/img/arrow_drop_down-bg-up.svg");
+    background-size: 24px auto;
+    background-position: right 0 top 50%;
+} */
+
+
+
+/* !SECTION */
+
+.outer-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inner-input {
+    border: none;
+    flex: 1;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.font-20 {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+/* ANCHOR badges container */
 
 .pre-select-badges {
     height: 40px;
