@@ -1,6 +1,18 @@
-.body {
-    margin: 0;
-    overflow: hidden;
+body {
+    margin-top: 0 !important;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    max-width: 1600px;
+    margin: auto;
+}
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .login-headline {
@@ -112,11 +124,23 @@
 }
 
 .login-white-bg {
+    margin-top: 200px;
     background-color: white;
     border-radius: 30px;
     margin-left: 16px;
     margin-right: 16px;
-    margin-top: 200px;
+    box-shadow: 0px 0px 16px -8px;
+}
+
+.login-white-bg-signup {
+    background-color: white;
+    border-radius: 30px;
+    margin-left: 16px;
+    margin-right: 16px;
+    box-shadow: 0px 0px 16px -8px;
+    max-width: 700px;
+    margin: auto;
+    
 }
 
 .login-btn {
@@ -295,26 +319,27 @@
     height: 48px;
 }
 
-.whiteBackground {
+.whiteBackground{
     position: absolute;
     background: var(--background-color);
     width: 100%;
     height: 100vh;
     top: 0;
-    animation: fadeOut 3s forwards;
+    animation: moveWhiteB 3s forwards;
     animation-delay: 1s;
     z-index: 1;
-    opacity: 1;
 }
 
-@keyframes fadeOut {
+@keyframes moveWhiteB {
     from {
+        width: 100%;
+        height: 100vh;
         opacity: 1;
     }
     to {
-        opacity: 0;
+        opacity: 0; 
     }
-}
+  }
 
 .login-logo {
     position: absolute;
@@ -329,17 +354,17 @@
 }
 
 @keyframes moveImage {
-    from {
-        transform: translate(-50%, -50%);
-        width: 350px;
-        height: 350px;
-    }
-    to {
-        left: 10%;
-        top: 12%;
-        width: 100px;
-        height: 100px;
-    }
+  from {
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 350px;
+  }
+  to {
+    left: 20%;
+    top: 10%;
+    width: 80px;
+    height: 80px;
+  }
 }
 
 
@@ -350,7 +375,25 @@
 }
 
 @media (min-width: 768px) {
+    @keyframes moveImage {
+        from {
+            transform: translate(-50%, -50%);
+            width: 350px;
+            height: 350px;
+        }
+        to {
+            left: 10%;
+            top: 7%;
+            width: 100px;
+            height: 100px;
+        }
+    }
+    .body{
+        margin-top: 0 !important;
+        margin: auto;
+    }
     .login-white-bg {
+        margin-top: 200px !important;
         max-width: 652px;
         margin: auto;
     }
@@ -367,8 +410,6 @@
 
     .not-a-user {
         margin-right: 110px;
-        margin-top: -100px;
-
     }
 
     .align-center {
@@ -425,4 +466,10 @@
     }
 
 
+}
+
+@media (max-width: 1440px){
+    .body{
+        max-width: 1600px;
+    }
 }

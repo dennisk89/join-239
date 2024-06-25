@@ -106,10 +106,10 @@ function handleCheckBoxPrivacyPolicy() {
 function animation() {
   setTimeout(function() {
       document.getElementById("whiteB").style.zIndex = "-1";
-  }, 4000);
+  }, 1000);
 }
 
-window.onload = animation;
+
 
 
 
