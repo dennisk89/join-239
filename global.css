@@ -252,6 +252,7 @@ textarea:focus, input:focus{
 .inner-input {
     border: none;
     flex: 1;
+    height: 90%;
 }
 
 .input-group {
