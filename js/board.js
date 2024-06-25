@@ -336,14 +336,34 @@ function filterContacts(e) {
     checkForPreSelectContacts();
 }
 
+// ANCHOR add subtask
+function changeSubtaskInput() {
+    if (document.getElementById('subtaskInputFrame').children[1].id == 'addSubtaskBtn') {
+        document.getElementById('subtaskInputFrame').innerHTML = writeNewSubtaskHTML();
+    }
+}
 
 
+function resetSubtaskInput() {
+    document.getElementById('subtaskInputFrame').innerHTML = addNewSubtaskHTML()
+}
+
+
+
+// ANCHOR eventListener add tasks
+document.getElementById('subtaskInputFrame').addEventListener('click', changeSubtaskInput);
+
+
+document.getElementById('boardAdddBtn').addEventListener('click', openAddTaskOverlay);
+
+
+document.getElementById('closeAddBtn').addEventListener('click', () => {
+    closeTask('addTaskOverlay');
+    resetSubtaskInput();
+});
 
 // !SECTION
 
-
-
-// ANCHOR eventListener 
 
 
 

@@ -230,3 +230,23 @@ function showContactsSelect(id, color, initials, name) {
     </div>
     `
 }
+
+
+function addNewSubtaskHTML() {
+    return /*html*/`
+        <input class="inner-input font-16" placeholder="Add new subtask" type="text"
+            name="add subtasks" id="subtaskInput">
+        <div id="addSubtaskBtn" class="sub-plus-image clickable"></div>
+    `
+}
+
+
+function writeNewSubtaskHTML() {
+    return /*html*/`
+        <input class="inner-input font-16" placeholder="Add new subtask" type="text"
+            name="add subtasks" id="subtaskInput">
+        <div id="cancelSubtaskBtn" onclick="resetSubtaskInput()" class="sub-cancel-image clickable"></div>
+        <div class="sub-btn-devider"></div>
+        <div id="confirmSubtaskBtn" class="sub-confirm-image clickable"></div>
+    `
+}
