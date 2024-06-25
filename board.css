@@ -58,6 +58,7 @@ p {
     line-height: 25.2px;
     text-align: left;
     border-radius: 10px;
+    height: 56px;
 }
 
 .board-add-btn {
@@ -352,6 +353,7 @@ p {
 }
 
 /* SECTION Add Task overlay */
+
 .add-task-container {
     background-color: white;
     display: flex;
@@ -391,6 +393,7 @@ p {
     ;
 }
 
+/* ANCHOR input elements */
 .enter-input {
     box-sizing: border-box;
     border-radius: 10px;
@@ -416,6 +419,8 @@ p {
 .color-red {
     color: rgb(255, 129, 144);
 }
+
+/* ANCHOR prio btns */
 
 .prio-container {
     display: flex;
@@ -470,24 +475,34 @@ p {
     font-weight: 700;
 }
 
-.subtask-enter {
+/* TODO will be rplaced by subtaks from add contacts */
+/* .subtask-enter {
     background-image: url('./assets/img/Property 1=add.svg');
     background-repeat: no-repeat;
     background-position: right 16px top 50%;
+} */
+
+.add-task-container form{
+    display: flex;
+    flex-direction: column;
+}
+
+.add-overlay-footer {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
 }
 
 .hint-container {
-    padding-top: 112px;
     font-family: 'Inter';
     font-size: 16px;
     font-weight: 400;
     line-height: 19.2px;
     text-align: left;
+    align-self: end;
 }
 
 .form-btn-container {
-    align-self: flex-end;
-    padding-top: 60px;
     display: flex;
     gap: 25px;
 }

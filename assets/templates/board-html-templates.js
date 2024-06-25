@@ -53,7 +53,7 @@ function taskHTML(id, type, title, description, dueDate, prio) {
         <div id="detailsFor${id}" class="open-task">
             <div class="task-header">
                 <img src="${type}" alt="">
-                <img class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask()">
+                <img class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask('taskOverlay')">
             </div>
             <h1>${title}</h1>
             <p>${description}</p>
@@ -120,105 +120,13 @@ function taskSubTaskDoneHTML(i, subtaskText) {
 }
 
 
-// ANCHOR add task
-function addTaskOverlayHTML() {
-    return /*html*/`
-        <div onclick="closeSelectContacts()" class="add-task-container">
-            <div class="add-Task-header">
-                <h1 class="add-task-headline">Add Task</h1>
-                <img class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask()">
-            </div>
-            <form class="overlay-form" onsubmit="createTask(initBoard); return false">
-                <div class="form-half-side">
-                    <div class="input-group">
-                        <label class="font-20" for="titleInput">Title<span class="color-red">*</span></label>
-                        <input id="titleInput" class="enter-input font-20" placeholder="Enter a title" type="text" name="Title"
-                            id="titleInput" required>
-                    </div>
-                    <div class="input-group">
-                        <label class="font-20" for="descriptionInput">Description</label>
-                        <textarea class="enter-description-input font-20" placeholder="Enter a description" name="Description"
-                            id="descriptionInput"></textarea>
-                    </div>
-                    <div class="input-group">
-                        <label class="font-20" for="selectInput">Assigned to</label>
-                        <div id="selectInput" onclick="openSelectContacts(); stopP(event)" class="enter-input outer-input select-rel">
-                            <input onkeyup="filterContacts(event)" id="innerSelectInput" class="inner-input font-16" placeholder="Select contacts to assign" type="text"
-                            name="select contacts" id="selectContactsInput" required>
-                            <div id="selectFieldBtn" class="select-image clickable"></div>
-                            <div id="selectContactsList" class="contact-select-list d-none"></div>
-                        </div>
-                        <div class="pre-select-badges" id="preSelectedContainer"></div>
-                    </div>
-                    <div class="hint-container">
-                        <p><span class="color-red">*</span>This field is required</p>
-                    </div>
-                </div>
-
-                <div class="form-divider"></div>
-
-                <div class="form-half-side">
-                    <div class="input-group">
-                        <label class="font-20" for="dateInput">Due date<span class="color-red">*</span></label>
-                        <input id="dateInput" class="enter-input font-20" placeholder="dd/mm/yyyy" type="text"
-                            onfocus="(this.type='date')" onblur="(this.type='text'); this.placeholder='dd/mm/yyyy';" required>
-                    </div>
-                    <div class="input-group">
-                        <label class="">Prio</label>
-                        <div class="prio-container">
-                            <div onclick="setPrioBtn('prioUrgent', 'urgent-selected', './assets/img/priority-urgent-white.svg', 'urgent')" id="prioUrgent" class="priority-btn clickable">
-                                <span>Urgent</span>
-                                <img src="./assets/img/priority-urgent.svg" alt="">
-                            </div>
-                            <div onclick="setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg', 'medium')" id="prioMedium" class="medium-selected priority-btn clickable">
-                                <span>Medium</span>
-                                <img src="./assets/img/priority-medium-white.svg" alt="">
-                            </div>
-                            <div onclick="setPrioBtn('prioLow', 'low-selected', './assets/img/priority-low-white.svg', 'low')" id="prioLow" class="priority-btn clickable">
-                                <span>Low</span>
-                                <img src="./assets/img/priority-low.svg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <label class="font-20" for="selectCategory">Category<span class="color-red">*</span></label>
-                        <select class="enter-input select-input font-16" name="select category" id="selectCategory" required>
-                            <option value="">Select task category</option>
-                            <option value="tt">Technical task</option>
-                            <option value="us">User story</option>
-                        </select>
-                    </div>
-                    <div class="input-group">
-                        <label class="font-20" for="selectInput">Suibtasks</label>
-                        <div id="subtaskInputFrame" class="enter-input outer-input">
-                            <input class="inner-input font-16" placeholder="Add new subtask" type="text"
-                            name="add subtasks" id="subtaskInput">
-                            <div id="addSubtaskBtn" class="sub-plus-image clickable"></div>
-                        </div>
-                        <ul class="subtask-ul" id="subtaskEditList">
-                        </ul>
-                    </div>
-                    <div class="form-btn-container">
-                        <button class="cancel-btn clickable">
-                            <span>Cancel</span><img src="./assets/img/Vector (1).svg" alt="">
-                        </button>
-                        <button class="board-btn-dark board-create-btn clickable" type="submit">
-                            <span>Create Task</span><img src="assets/img/check.svg" alt="">
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    `
-}
-
 
 // ANCHOR edit task
 function editTaksOverlayHTML(id) {
     return /*html*/`
         <div id="editFor${id}" class="open-task">
             <div class="task-header flex-end">
-                <img id="closeEditOverlay" class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask()">
+                <img id="closeEditOverlay" class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask('taskOverlay')">
             </div>
             <form class="edit-form" onsubmit="console.log('edit'); return false">
                 <div class="input-group">

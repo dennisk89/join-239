@@ -127,17 +127,13 @@ textarea:focus, input:focus{
     background-size: 24px auto;
 }
 
-/* TODO ich glaube hier ist zu viel in den hover klassen, background-image sollte reichen */
+
 .select-image:hover {
     background-image: url("./assets/img/arrow_drop_down-bg.svg");
-    background-size: 24px auto;
-    background-position: right 0 top 50%;
 }
 
 .select-image-up:hover {
     background-image: url("./assets/img/arrow_drop_down-bg-up.svg");
-    background-size: 24px auto;
-    background-position: right 0 top 50%;
 }
 
 textarea:focus, input:focus{

@@ -14,9 +14,9 @@ function stopP(event) {
 }
 
 
-function closeTask() {
+function closeTask(id) {
     resetGlobalTaskVariables();
-    document.getElementById('taskOverlay').style.display = 'none';
+    document.getElementById(id).style.display = 'none';
 }
 
 
@@ -235,8 +235,7 @@ function setPrioBtnStandardIcon() {
 
 // SECTION add task
 function openAddTaskOverlay() {
-    document.getElementById('taskOverlay').style.display = 'flex';
-    document.getElementById('taskOverlay').innerHTML = addTaskOverlayHTML();
+    document.getElementById('addTaskOverlay').style.display = 'flex';
 }
 
 
