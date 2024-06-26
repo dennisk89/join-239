@@ -207,7 +207,7 @@ function editSubtaskListHTML(subtask, i) {
             <li>${subtask}</li>
             <div class="flex-all-center">
                 <img onclick="editSubtask(${i})" class="hide-for-hover border-divider" src="assets/img/edit.svg" alt="Edit subtask">
-                <img class="hide-for-hover" src="assets/img/delete.svg" alt="Delete subtask">
+                <img onclick="deleteSubtask(${i})" class="hide-for-hover" src="assets/img/delete.svg" alt="Delete subtask">
             </div>
         </div>
     `
@@ -243,21 +243,21 @@ function writeNewSubtaskHTML() {
     return /*html*/`
         <div id="cancelSubtaskBtn" onclick="resetSubtaskInput(); stopP(event)" class="sub-cancel-image inner-input-img clickable"></div>
         <div class="sub-btn-devider"></div>
-        <div id="confirmSubtaskBtn" onclick="renderTempSubtasks()" class="sub-confirm-image inner-input-img clickable"></div>    
+        <div id="confirmSubtaskBtn" onclick="addSubtaskToTempSubtasks(); stopP(event)" class="sub-confirm-image inner-input-img clickable"></div>    
         
     `
 }
 
 
 
-function renderEditSubtaskInputHTML(value) {
+function renderEditSubtaskInputHTML(value, i) {
     return /*html*/`
     <div id="subtaskEditFrame" class="enter-input outer-input sub-outer-input">
         <input class="inner-input font-16" value="${value}" type="text" name="edit subtask" id="subtaskEditInput">
         <div id="subEditBtnContainer" class="sub-btn-container">
-            <div id="deleteInEditSubtaskBtn" class="sub-edit-delete-image inner-input-img clickable"></div>
+            <div id="deleteInEditSubtaskBtn" onclick="deleteSubtask(${i}); stopP(event)" class="sub-edit-delete-image inner-input-img clickable"></div>
             <div class="sub-btn-devider"></div>
-            <div id="confirmEditSubtaskBtn" class="sub-confirm-image scale-hover inner-input-img clickable"></div>
+            <div id="confirmEditSubtaskBtn" onclick="confirmEditSubtask(${i}); stopP(event)" class="sub-confirm-image scale-hover inner-input-img clickable"></div>
         </div>
     </div>
     `

@@ -249,13 +249,13 @@ textarea:focus, input:focus{
 }
 
 .subtask-ul {
-    margin: 0 12px;
     padding-inline-start: 0px;
 }
 
-.subtask-ul li {
+/* .subtask-ul li {
     margin-left: 16px;
-}
+    margin: 0 12px;
+} */
 
 .subtask-list-row {
     display: flex;
@@ -264,6 +264,7 @@ textarea:focus, input:focus{
     font-size: 14px;
     padding: 4px 16px;
     border-radius: 10px;
+    margin: 0 12px;
 }
 
 .hide-for-hover {
@@ -294,6 +295,8 @@ textarea:focus, input:focus{
     border: none;
     border-radius: 0;
     border-bottom: solid 1px rgba(0, 93, 255, 1);
+    width: 100%;
+    height: 32px;
 }
 
 .sub-edit-delete-image {

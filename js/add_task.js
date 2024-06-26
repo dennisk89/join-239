@@ -165,16 +165,49 @@ function resetSubtaskInput() {
 }
 
 
-function renderTempSubtasks() {
+function addSubtaskToTempSubtasks() {
     if (document.getElementById('subtaskInput').value.length > 0) {
-        document.getElementById('subtaskEditList').innerHTML = '';
         tempSubtasks.push(document.getElementById('subtaskInput').value)
+        setTempSubtasksStatus();
+        resetSubtaskInput();
+    }
+    renderTempSubtasks(); 
+}
+
+
+function renderTempSubtasks() {
+    document.getElementById('subtaskEditList').innerHTML = '';
+    if (tempSubtasks.length > 0) {
         for (let i = 0; i < tempSubtasks.length; i++) {
             document.getElementById('subtaskEditList').innerHTML += editSubtaskListHTML(tempSubtasks[i], i);
         }
-        setTempSubtasksStatus();
-        document.getElementById('subtaskInput').value = '';
     }
+}
+
+
+// ANCHOR edit subtask
+function editSubtask(index) {
+    document.getElementById('subtaskEditList').children[index].innerHTML = renderEditSubtaskInputHTML(tempSubtasks[index], index);
+    document.getElementById('subtaskEditList').children[index].classList.remove('subtask-list-row')
+}
+
+
+function confirmEditSubtask(i) {
+    if (document.getElementById('subtaskEditInput').value.length > 0) {
+        tempSubtasks.splice(i, 1, document.getElementById('subtaskEditInput').value);
+        resetSubtaskInput();
+        renderTempSubtasks();
+    } else {
+        deleteSubtask(i);
+    }
+}
+
+
+function deleteSubtask(i) {
+    tempSubtasks.splice(i, 1);
+    renderTempSubtasks();
+    resetSubtaskInput();
+    setTempSubtasksStatus();
 }
 
 
