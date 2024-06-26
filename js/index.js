@@ -44,28 +44,19 @@ document.getElementById('confirmPassword').addEventListener('focus', function() 
 document.getElementById('password').addEventListener('focus', function() {
   handleFocus('passwordClick');
 });
-
-// class User {
-//   constructor(id, name, email, password) {
-//     this.id = id;
-//     this.name = name;
-//     this.email = email;
-//     this.password = password;
-//   }
-// }
  
-// function checkPasswordMatch() {
-//   let password = document.getElementById('passwordForm').value;
-//   let confirmPassword = document.getElementById('confirmPassword').value;
-//   let showError = document.getElementById('pwError');
-//   if (password !== confirmPassword) {
-//     showError.classList.remove('d-none');
-//     return false;
-//   } else {
-//     showError.classList.add('d-none');
-//     return true;
-//   }
-// }
+function checkPasswordMatch() {
+  let password = document.getElementById('passwordForm').value;
+  let confirmPassword = document.getElementById('confirmPassword').value;
+  let showError = document.getElementById('pwError');
+  if (password !== confirmPassword) {
+    showError.classList.remove('d-none');
+    return false;
+  } else {
+    showError.classList.add('d-none');
+    return true;
+  }
+}
 
 function handleCheckBoxPrivacyPolicy() {
   let image = document.getElementById('privacyCheckBox');
@@ -76,38 +67,34 @@ function handleCheckBoxPrivacyPolicy() {
   }
 }
 
-// async function createNewUser() {
-//   let newUser = new User(generateUniqueId('u', usersArray), 
-//         document.getElementById('name').value, 
-//         document.getElementById('e-mail').value, 
-//         document.getElementById('passwordForm').value, 
-//       );
-//     usersArray.push(newUser)  
-//     await putData(endpointUser, usersArray);
-//     backToLogin();
-// }
-
-// function validateForm(event) {
-//   event.preventDefault(); // Verhindert das Standard-Formular-Submit
-//   let privacyerrormessage = document.getElementById('privacyError')
-//   let isPasswordMatch = checkPasswordMatch();
-//   let privacyCheckBox = document.getElementById('privacyCheckBox').src.includes('checkbox-checked.svg');
-//   if (isPasswordMatch && privacyCheckBox) {
-//     createNewUser();
-//   } else {
-//     if (!privacyCheckBox) {
-//       privacyerrormessage.classList.remove('d-none');
-//       return false;
-//     }
-//   }
-//   ;
-// }
+function validateForm(event) {
+  event.preventDefault(); // Verhindert das Standard-Formular-Submit
+  let privacyerrormessage = document.getElementById('privacyError')
+  let isPasswordMatch = checkPasswordMatch();
+  let privacyCheckBox = document.getElementById('privacyCheckBox').src.includes('checkbox-checked.svg');
+  if (isPasswordMatch && privacyCheckBox) {
+    createNewUser();
+  } else {
+    if (!privacyCheckBox) {
+      privacyerrormessage.classList.remove('d-none');
+      return false;
+    }
+  }
+  ;
+}
 
 function animation() {
   setTimeout(function() {
       document.getElementById("whiteB").style.zIndex = "-1";
   }, 3000);
 }
+
+
+function showSuccessMessage() {
+  const successMessage = document.getElementById('successfullSignup');
+  successMessage.classList.add('show');
+}
+
 
 
 

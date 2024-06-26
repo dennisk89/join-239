@@ -22,26 +22,23 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 
-
-
-const submit = document.getElementById('signupBtn');
-submit.addEventListener("click", function (event) {
-    event.preventDefault()
-
+function createNewUser() {
     const email = document.getElementById('e-mail').value;
     const password = document.getElementById('confirmPassword').value;
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            // Signed up 
+            // Signed up
             const user = userCredential.user;
-            alert("creating account...")
-            window.location.href = "./index.html"
+            showSuccessMessage();
+            setTimeout(() => {
+                window.location.href = "./index.html";
+            }, 1300); // Delay of 1800ms (800ms for animation + 1000ms delay)
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            alert(errorMessage)
-            // ..
+            alert(errorMessage);
         });
-})
+}
 
+window.createNewUser = createNewUser;
