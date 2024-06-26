@@ -234,16 +234,31 @@ function showContactsSelect(id, color, initials, name) {
 
 function addNewSubtaskHTML() {
     return /*html*/`
-        <div id="addSubtaskBtn" class="sub-plus-image clickable"></div>    
+        <div id="addSubtaskBtn" class="sub-plus-image inner-input-img clickable"></div>    
     `
 }
 
 
 function writeNewSubtaskHTML() {
     return /*html*/`
-        <div id="cancelSubtaskBtn" onclick="resetSubtaskInput(); stopP(event)" class="sub-cancel-image clickable"></div>
+        <div id="cancelSubtaskBtn" onclick="resetSubtaskInput(); stopP(event)" class="sub-cancel-image inner-input-img clickable"></div>
         <div class="sub-btn-devider"></div>
-        <div id="confirmSubtaskBtn" onclick="renderTempSubtasks()" class="sub-confirm-image clickable"></div>    
+        <div id="confirmSubtaskBtn" onclick="renderTempSubtasks()" class="sub-confirm-image inner-input-img clickable"></div>    
         
+    `
+}
+
+
+
+function renderEditSubtaskInputHTML(value) {
+    return /*html*/`
+    <div id="subtaskEditFrame" class="enter-input outer-input sub-outer-input">
+        <input class="inner-input font-16" value="${value}" type="text" name="edit subtask" id="subtaskEditInput">
+        <div id="subEditBtnContainer" class="sub-btn-container">
+            <div id="deleteInEditSubtaskBtn" class="sub-edit-delete-image inner-input-img clickable"></div>
+            <div class="sub-btn-devider"></div>
+            <div id="confirmEditSubtaskBtn" class="sub-confirm-image scale-hover inner-input-img clickable"></div>
+        </div>
+    </div>
     `
 }

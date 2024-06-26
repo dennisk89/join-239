@@ -98,6 +98,14 @@ textarea:focus, input:focus{
     box-shadow: 0 5px 5px rgba(42, 54, 71, 0.5);    
 }
 
+.enter-input {
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    height: 48px;
+    padding: 0 16px;
+    background-color: white;
+}
 
 /* SECTION select */
 /* ANCHOR select text field */
@@ -109,22 +117,20 @@ textarea:focus, input:focus{
     background-size: 24px auto;
 }
 
-.select-image {
-    width: 48px;
+.inner-input-img {
+    width: 24px;
     height: 100%;
-    background-image: url("./assets/img/arrow_drop_down.svg");
     background-repeat: no-repeat;
     background-position: right 0 top 50%;
     background-size: 24px auto;
 }
 
+.select-image {
+    background-image: url("./assets/img/arrow_drop_down.svg");
+}
+
 .select-image-up {
-    width: 48px;
-    height: 100%;
     background-image: url("./assets/img/arrow_drop_down-up.svg");
-    background-repeat: no-repeat;
-    background-position: right 0 top 50%;
-    background-size: 24px auto;
 }
 
 
@@ -212,12 +218,7 @@ textarea:focus, input:focus{
 
 
 .sub-plus-image {
-    width: 24px;
-    height: 100%;
     background-image: url("./assets/img/subtask-plus.svg");
-    background-repeat: no-repeat;
-    background-position: right 0 top 50%;
-    background-size: 24px auto;
 }
 
 .sub-plus-image:hover {
@@ -225,12 +226,7 @@ textarea:focus, input:focus{
 }
 
 .sub-cancel-image {
-    width: 24px;
-    height: 100%;
     background-image: url("./assets/img/cancel-x-dark.svg");
-    background-repeat: no-repeat;
-    background-position: right 0 top 50%;
-    background-size: 24px auto;
 }
 
 .sub-btn-devider {
@@ -241,12 +237,7 @@ textarea:focus, input:focus{
 }
 
 .sub-confirm-image {
-    width: 24px;
-    height: 100%;
     background-image: url("./assets/img/check-dark.svg");
-    background-repeat: no-repeat;
-    background-position: right 0 top 50%;
-    background-size: 24px auto;
 }
 
 .sub-confirm-image:hover {
@@ -297,6 +288,25 @@ textarea:focus, input:focus{
     .hide-for-hover {
         display: block;
     }
+}
+
+.sub-outer-input {
+    border: none;
+    border-radius: 0;
+    border-bottom: solid 1px rgba(0, 93, 255, 1);
+}
+
+.sub-edit-delete-image {
+    background-image: url("./assets/img/delete.svg");
+}
+
+.sub-edit-delete-image:hover {
+    background-image: url("./assets/img/delete-hover.svg");
+    scale: 1.2;
+}
+
+.scale-hover:hover {
+    scale: 1.2;
 }
 
 
@@ -350,14 +360,6 @@ textarea:focus, input:focus{
     line-height: 14.4px;
 }
 
-.enter-input {
-    box-sizing: border-box;
-    border-radius: 10px;
-    border: 1px solid rgba(209, 209, 209, 1);
-    height: 48px;
-    padding: 0 16px;
-    background-color: white;
-}
 
 @media screen and (min-width: 768px) {
 

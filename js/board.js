@@ -64,8 +64,8 @@ function defineContactIconOverlap(j, assignee, container) {
 
 
 function getLabelMaximum(contacts) {
-    if (contacts.length >= 3) {
-        return 3;
+    if (contacts.length >= 5) {
+        return 5;
     } else {
         return contacts.length;
     }

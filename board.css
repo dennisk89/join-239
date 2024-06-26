@@ -347,6 +347,18 @@ p {
     transform: translatex(-16px);
 }
 
+.overlap-3 {
+    transform: translatex(-20px);
+}
+
+.overlap-3 {
+    transform: translatex(-24px);
+}
+
+.overlap-4 {
+    transform: translatex(-32px);
+}
+
 .card-footer {
     display: flex;
     justify-content: space-between;

@@ -66,7 +66,7 @@
                                 class="enter-input outer-input select-rel">
                                 <input onkeyup="filterContacts(event)" id="innerSelectInput" class="inner-input font-20"
                                     placeholder="Select contacts to assign" type="text" name="select contacts">
-                                <div id="selectFieldBtn" class="select-image clickable"></div>
+                                <div id="selectFieldBtn" class="select-image inner-input-img clickable"></div>
                                 <div id="selectContactsList" class="contact-select-list d-none"></div>
                             </div>
                             <div class="pre-select-badges" id="preSelectedContainer"></div>
@@ -104,7 +104,7 @@
                         </div>
                         <div class="input-group">
                             <label class="font-20" for="selectCategory">Category<span class="color-red">*</span></label>
-                            <select class="enter-input select-input font-20" name="select category" id="selectCategory"
+                            <select class="enter-input clickable select-input font-20" name="select category" id="selectCategory"
                                 required>
                                 <option value="">Select task category</option>
                                 <option value="tt">Technical task</option>
@@ -117,7 +117,7 @@
                                 <input class="inner-input font-16" placeholder="Add new subtask" type="text"
                                     name="add subtasks" id="subtaskInput">
                                 <div id="subBtnContainer" class="sub-btn-container">
-                                    <div id="addSubtaskBtn" class="sub-plus-image clickable"></div>
+                                    <div id="addSubtaskBtn" class="sub-plus-image inner-input-img clickable"></div>
                                 </div>
                             </div>
                             <ul class="subtask-ul" id="subtaskEditList">
