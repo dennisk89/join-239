@@ -2,12 +2,6 @@
 
 
 
-function closeTask(id) {
-    resetGlobalTaskVariables();
-    document.getElementById(id).style.display = 'none';
-}
-
-
 // ANCHOR load Task cards in board
 async function initBoard() {
     await initJoin();
@@ -81,6 +75,12 @@ function addSubTaskProgressToCards(i) {
 }
 
 
+function closeTask(id) {
+    resetGlobalTaskVariables();
+    document.getElementById(id).style.display = 'none';
+}
+
+
 // ANCHOR open Task details
 function openTasks(id) {
     let task = getTaskById(id);
@@ -116,6 +116,15 @@ function renderSubTasks(task) {
 
 function getTaskById(id) {
     return taskArray[taskArray.findIndex(t => t.id === id)]
+}
+
+
+// ANCHOR delete Task
+async function deleteTask(id) {
+    taskArray.splice(taskArray.findIndex(t => t.id === id), 1);
+    await putData(endpointTasks, taskArray);
+    closeTask('taskOverlay');
+    initBoard();
 }
 
 
@@ -182,10 +191,6 @@ function checkSubTask(subtaskId) {
 function changeSubTaskStatus(currentStatusBoolean) {
     return !currentStatusBoolean;
 }
-
-
-
-
 
 
 

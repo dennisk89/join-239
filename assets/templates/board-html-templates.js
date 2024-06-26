@@ -75,7 +75,7 @@ function taskHTML(id, type, title, description, dueDate, prio) {
                 </div>
             </div>
             <div class="task-footer clickable">
-                <div class="task-footer">
+                <div onclick="deleteTask('${id}')" class="task-footer">
                     <img src="assets/img/delete.svg" alt="">
                     <p>Delete</p>
                 </div>
