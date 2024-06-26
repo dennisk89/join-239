@@ -190,12 +190,14 @@ document.getElementById('subtaskInputFrame').addEventListener('click', changeSub
 
 // ANCHOR id translation or verification functions
 function pushTaskAssigneeInfosToArray(task) {
-    let taskAssignees = [];
-    for (let i = 0; i < task.assigned.length; i++) {
-        taskAssignees.push(getContactByContactID(task.assigned[i]));
+    if (task.assigned) {
+        let taskAssignees = [];
+        for (let i = 0; i < task.assigned.length; i++) {
+            taskAssignees.push(getContactByContactID(task.assigned[i]));
+        }
+        let validAssignees = taskAssignees.filter(t => t != 'not found');
+        return validAssignees;   
     }
-    let validAssignees = taskAssignees.filter(t => t != 'not found');
-    return validAssignees;
 }
 
 

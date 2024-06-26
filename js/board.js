@@ -34,8 +34,8 @@ function addCardsToBoards(columnID, filterArray, stringForEmptyColumn) {
 
 function addInfosToCards() {
     for (let i = 0; i < taskArray.length; i++) {
-        addContactLabelsToCards(i);
-        addSubTaskProgressToCards(i);
+        taskArray[i].assigned ? addContactLabelsToCards(i) : console.log('no assignee for Task ' + taskArray[i].id);
+        taskArray[i].subTask ? addSubTaskProgressToCards(i) : document.getElementById(taskArray[i].id).children[2].style.display = 'none';
     }
 }
 
@@ -86,8 +86,8 @@ function openTasks(id) {
     let task = getTaskById(id);
     document.getElementById('taskOverlay').style.display = 'flex';
     document.getElementById('taskOverlay').innerHTML = taskHTML(task.id, taskType[task.type], task.title, task.description, task.dueDate, prioIcons[task.prio]);
-    renderAssignees(task);
-    renderSubTasks(task);
+    task.assigned ? renderAssignees(task) : '';
+    task.subTask ? renderSubTasks(task) : '';
 }
 
 
