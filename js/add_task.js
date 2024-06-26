@@ -48,7 +48,7 @@ function openSelectContacts() {
     document.getElementById('selectContactsList').style.display = 'flex';
     renderContactsToSelectList(contacts);
     changeSelectIcon('select-image', 'select-image-up');
-    checkForPreSelectContacts()
+    checkForPreSelectContacts(tempAssignees);
     document.getElementById('selectInput').setAttribute('onclick', 'closeSelectContacts()');
 }
 
@@ -70,10 +70,12 @@ function closeSelectContacts() {
 }
 
 
-function checkForPreSelectContacts() {
-    if (tempAssignees.length > 0) {
-        for (let i = 0; i < tempAssignees.length; i++) {
-            updateCheckboxes(tempAssignees[i], 'rgba(42, 54, 71, 1)', 'white', 'checkbox-img', 'checkbox-img-checked');
+function checkForPreSelectContacts(assigneeArray) {
+    if (assigneeArray.length > 0 && tempAssignees.length > 0) {
+        for (let i = 0; i < assigneeArray.length; i++) {
+            if (tempAssignees.indexOf(assigneeArray[i]) > -1) {
+                updateCheckboxes(assigneeArray[i], 'rgba(42, 54, 71, 1)', 'white', 'checkbox-img', 'checkbox-img-checked');
+            }
         }
         renderContactBadgeUnderSelectField();
     }
@@ -136,7 +138,16 @@ function filterContacts(e) {
             renderContactsToSelectList(results);
         }
     });
-    checkForPreSelectContacts();
+    getResultsIdsForPreselectCheck(results);
+}
+
+
+function getResultsIdsForPreselectCheck(results) {
+    if (results.length > 0) {
+        let resultsIds = [];
+        results.forEach(r => resultsIds.push(r.id));
+        checkForPreSelectContacts(resultsIds);
+    }
 }
 
 
@@ -177,7 +188,7 @@ function setTempSubtasksStatus() {
 document.getElementById('subtaskInputFrame').addEventListener('click', changeSubtaskInput);
 
 
-// ANCHOR id translation functions
+// ANCHOR id translation or verification functions
 function pushTaskAssigneeInfosToArray(task) {
     let taskAssignees = [];
     for (let i = 0; i < task.assigned.length; i++) {

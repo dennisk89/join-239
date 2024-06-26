@@ -559,47 +559,7 @@ p {
     padding-top: 0;
 }
 
-.subtask-ul {
-    margin: 0 12px;
-    padding-inline-start: 0px;
-}
 
-.subtask-ul li {
-    margin-left: 16px;
-}
-
-.subtask-list-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 14px;
-    padding: 4px 16px;
-    border-radius: 10px;
-}
-
-.hide-for-hover {
-    display: none;
-}
-
-.subtask-list-row img {
-    padding: 0 4px;
-    height: 16px
-}
-
-.subtask-list-row img:hover {
-    scale: 1.2;
-}
-
-.border-divider {
-    border-right: solid 1px rgba(209, 209, 209, 1);
-}
-
-.subtask-list-row:hover {
-    background-color: rgb(234, 231, 231);
-    .hide-for-hover {
-        display: block;
-    }
-}
 
 /* ANCHOR Media querries */
 @media (min-width: 768px) {
