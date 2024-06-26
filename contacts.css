@@ -3,6 +3,7 @@
 .contacts-main {
     display: flex;
     overflow: hidden;
+    justify-content: center;
 }
 
 .contacts-hide-on-mobile {
@@ -20,11 +21,7 @@
 }
 
 .contact-list-top {
-    position: fixed;
-    top: 105px;
-    left: 232px;
-    width: 440px;
-    height: 101px;
+    padding: 22.5px 6px 0 14px;
     background-color: rgba(255, 255, 255, 1);
     display: flex;
     align-items: center;
@@ -44,6 +41,7 @@
     align-items: center;
     justify-content: center;
     gap: 16px;
+    white-space: nowrap;
 }
 
 .add-contact-btn-desktop img {
@@ -61,7 +59,7 @@
 
 .hr-contact-list {
     border: 1px solid rgba(209, 209, 209, 1);
-    width: 100%;
+    width: 90%;
     margin: 8px 0;
 }
 
@@ -146,7 +144,6 @@
 /* ANCHOR Contacts */
 
 .main-contacts {
-    /* display: none; */
     background-color: var(--bg-color);
     position: fixed;
     top: 82px;
@@ -159,7 +156,7 @@
 
 .contact-details-arrow {
     position: fixed;
-    left: 380px;
+    right: 16px;
     top: 128px;
 }
 
@@ -219,6 +216,7 @@
 .contact-info-name {
     font-size: 36px;
     font-weight: 700;
+    margin-right: 16px;
 }
 
 .contact-edit-delete-desktop-container {
@@ -267,7 +265,7 @@
 
 .contact-menu-btn, .add-contact-btn {
     position: fixed;
-    left: 356px;
+    right: 16px;
     bottom: 112px;
     height: 56px;
     width: 56px;
@@ -288,7 +286,14 @@
 
 /* ANCHOR Responsiveness */
 
+@media screen and (min-width: 1300px) {
+
+
+
+}
+
 @media screen and (min-width: 768px) {
+
 
     /* ANCHOR Main */
 
@@ -301,7 +306,6 @@
     .main-contact-list {
         height: calc(100vh - 108px);
         padding: 0 52px;
-        width: 550px;
     }
 
     .contact-list-top {
@@ -310,9 +314,9 @@
         justify-content: center;
     }
 
-    .contact-list-content {
-        margin-top: 100px;
-    }
+    .hr-contact-list {
+        width: 100%;
+    }    
 
     .contact-container:hover {
         background-image: linear-gradient(rgba(249, 249, 249, 1),rgba(240, 240, 240, 1));
@@ -343,8 +347,7 @@
     }
 
     .contacts-header {
-        margin-top: 110px;
-        margin-left: 58px;
+        margin: 110px 32px 48px 58px;
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;
@@ -425,6 +428,39 @@
 
     .contact-menu-btn, .add-contact-btn {
         display: none;
+    }
+
+}
+
+@media screen and (max-width: 430px) {
+
+    /* ANCHOR Contact List */
+
+    .main-contact-list {
+        padding: 0 16px;
+    }
+
+    .contact-list-content {
+        width: 300px;        
+    }
+
+    .contact-container {
+        gap: 15px;
+        width: 250px;
+    }
+
+}
+
+@media screen and (max-width: 370px) {
+
+    /* ANCHOR Contact List */
+
+    .contact-list-content {
+        width: 270px;
+    }
+
+    .contact-container {
+        padding: 15px;
     }
 
 }
