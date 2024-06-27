@@ -4,6 +4,7 @@
     display: flex;
     overflow: hidden;
     justify-content: center;
+    background-color: rgba(255, 255, 255, 1);
 }
 
 .contacts-hide-on-mobile {
@@ -14,39 +15,15 @@
 
 .main-contact-list {
     background-color: rgba(255, 255, 255, 1);
-    height: calc(100vh - 163px);
+    height: calc(100vh - 187px);
     overflow-y: scroll;
     overflow-x: hidden;
-    padding: 0 38px;
+    padding: 0 38px 24px;
+    width: 100%;
 }
 
 .contact-list-top {
-    padding: 22.5px 6px 0 14px;
-    background-color: rgba(255, 255, 255, 1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     display: none;
-}
-
-.add-contact-btn-desktop {
-    width: 352px;
-    color: rgba(255, 255, 255, 1);
-    font-size: 21px;
-    font-weight: 700;
-    line-height: 25.2px;    
-    border-radius: 10px;
-    padding: 12px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    white-space: nowrap;
-}
-
-.add-contact-btn-desktop img {
-    width: 32px;
-    height: 32px;
 }
 
 .contact-list-letter {
@@ -64,12 +41,12 @@
 }
 
 .contact-list-content {
-    width: 352px;
     margin-top: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 352px;
 }
 
 .contacts-container {
@@ -265,7 +242,7 @@
 
 .contact-menu-btn, .add-contact-btn {
     position: fixed;
-    right: 16px;
+    right: 32px;
     bottom: 112px;
     height: 56px;
     width: 56px;
@@ -284,76 +261,77 @@
 }
 
 
-/* ANCHOR Responsiveness */
+/* ANCHOR max 370px Responsiveness */
 
-@media screen and (min-width: 1300px) {
+@media screen and (max-width: 370px) {
 
+    /* ANCHOR Contact List */
 
+    .contact-list-content {
+        width: 270px;
+    }
+
+    .contact-container {
+        padding: 15px;
+    }
 
 }
 
-@media screen and (min-width: 768px) {
 
+/* ANCHOR max 430px Responsiveness */
 
-    /* ANCHOR Main */
-
-    .contacts-hide-on-mobile {
-        display: unset;
-    }
+@media screen and (max-width: 430px) {
 
     /* ANCHOR Contact List */
 
     .main-contact-list {
-        height: calc(100vh - 108px);
-        padding: 0 52px;
+        padding: 0 8px 12px;
+        height: calc(100vh - 175px);
     }
 
-    .contact-list-top {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .contact-list-content {
+        width: 300px;
     }
 
-    .hr-contact-list {
-        width: 100%;
-    }    
-
-    .contact-container:hover {
-        background-image: linear-gradient(rgba(249, 249, 249, 1),rgba(240, 240, 240, 1));
+    .contact-container {
+        gap: 15px;
+        width: 250px;
     }
 
-    .highlightContact {
-        background-color: var(--buttons-dark);
-        border: 1px solid var(--buttons-dark);    
-        color: rgba(255, 255, 255, 1);
-    }
-    
-    .highlightContact:hover {
-        background-image: none;
-    }
+}
 
+
+/* ANCHOR min 768px Responsiveness */
+
+@media only screen and (min-width: 768px) {
+
+    /* ANCHOR Main */
+
+
+
+
+
+    /* ANCHOR Contact List */
+
+    .main-contact-list {
+        height: calc(100vh - 129px);
+        padding: 0 52px 24px;
+    }
 
     /* ANCHOR Contacts */
 
-    .main-contacts {
-        display: flex;
-        flex-direction: column;
-        align-items: first baseline;
-        position: unset;
-    }
-
-    .contact-details-arrow {
-        display: none;
-    }
-
     .contacts-header {
-        margin: 110px 32px 48px 58px;
+        margin: 110px 32px 48px 0;
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;
         gap: 30px;
     }
-    
+
+    .main-contacts {
+        padding-left: 255px;
+    }
+
     .contacts-header-bold {
         font-size: 61px;
         line-height: 73.2px;
@@ -372,8 +350,103 @@
         display: none;
     }
 
+
+    /* ANCHOR Buttons */
+
+    .contact-menu-btn, .add-contact-btn {
+        bottom: 32px;
+    }
+
+}
+
+
+/* ANCHOR min 1300px Responsiveness */
+
+@media screen and (min-width: 1300px) {
+
+    /* ANCHOR Main */
+
+    .contacts-main {
+        background-color: var(--bg-color);
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .contacts-hide-on-mobile {
+        display: unset;
+    }
+
+    /* ANCHOR Contact List */
+
+    .main-contact-list {
+        width: 400px;
+    }
+
+    .contact-list-top {
+        padding-top: 24px;
+        padding-left: 14px;
+        background-color: rgba(255, 255, 255, 1);
+        display: unset;
+    }
+
+    .add-contact-btn-desktop {
+        width: 352px;
+        color: rgba(255, 255, 255, 1);
+        font-size: 21px;
+        font-weight: 700;
+        line-height: 25.2px;    
+        border-radius: 10px;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        white-space: nowrap;
+    }
+
+    .add-contact-btn-desktop img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .hr-contact-list {
+        width: 100%;
+    }    
+
+    .contact-container:hover {
+        background-image: linear-gradient(rgba(249, 249, 249, 1),rgba(240, 240, 240, 1));
+    }
+    
+    .highlightContact {
+        background-color: var(--buttons-dark);
+        border: 1px solid var(--buttons-dark);    
+        color: rgba(255, 255, 255, 1);
+    }
+    
+    .highlightContact:hover {
+        background-image: none;
+    }
+
+    /* ANCHOR Contacts */
+
+    .contacts-header {
+        margin: 110px 32px 48px 55px;
+    }
+
+    .main-contacts {
+        display: flex;
+        flex-direction: column;
+        padding-left: 0;
+        width: calc(100% - 400px);
+        position: unset;
+    }
+
+    .contact-details-arrow {
+        display: none;
+    } 
+
     .contact-details-container {
-        margin-left: 65px;
+        margin-left: 55px;
         transform: translateX(200%);
         opacity: 0;
         transition: none;
@@ -423,44 +496,10 @@
         padding-bottom: 25px;
     }
 
-
     /* ANCHOR Buttons */
 
     .contact-menu-btn, .add-contact-btn {
         display: none;
-    }
-
-}
-
-@media screen and (max-width: 430px) {
-
-    /* ANCHOR Contact List */
-
-    .main-contact-list {
-        padding: 0 16px;
-    }
-
-    .contact-list-content {
-        width: 300px;        
-    }
-
-    .contact-container {
-        gap: 15px;
-        width: 250px;
-    }
-
-}
-
-@media screen and (max-width: 370px) {
-
-    /* ANCHOR Contact List */
-
-    .contact-list-content {
-        width: 270px;
-    }
-
-    .contact-container {
-        padding: 15px;
     }
 
 }

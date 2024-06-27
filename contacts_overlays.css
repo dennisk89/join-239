@@ -431,10 +431,9 @@
 }
 
 
-/* ANCHOR Responsiveness */
+/* ANCHOR min 1300px Responsiveness */
 
-@media screen and (min-width: 768px){
-
+@media screen and (min-width: 1300px){
 
     /* ANCHOR Overall */
 
