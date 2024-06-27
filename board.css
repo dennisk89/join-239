@@ -22,6 +22,14 @@ p {
     margin: 0;
 }
 
+.font-12 {
+    font-family: 'Inter';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.4px;
+    text-align: left;
+}
+
 .hide-under-1400p {
     display: none;
 }
@@ -107,7 +115,13 @@ p {
     display: flex;
     flex-direction: column;
     gap: 26px;
-    padding: 0 16px;
+    padding-left: 16px;
+}
+
+.column-with-col-header {
+    display: flex;
+    flex-direction: column;
+    min-width: 252px;
 }
 
 .flex-col-gap16 {
@@ -117,10 +131,11 @@ p {
 }
 
 .card-container {
+    padding: 16px 0;
     display: flex;
-    flex-direction: column;
     gap: 16px;
-    min-width: 252px;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 .board-column-title {
@@ -148,24 +163,7 @@ p {
     color: rgba(168, 168, 168, 1);
 }
 
-.type-container {
-    font-family: 'Inter';
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 19.2px;
-    display: inline-block;
-    color: white;
-    border-radius: 10px;
-    padding: 4px 16px;
-}
 
-.type-color-blue {
-    background-color: rgba(0, 56, 255, 1);
-}
-
-.type-color-green {
-    background-color: rgba(31, 215, 193, 1);
-}
 
 /* ANCHOR Task details overlay*/
 .overlay-bg {
@@ -192,14 +190,6 @@ p {
     position: relative;
     max-width: 396px;
     box-sizing: border-box;
-}
-
-.type-container-overlay {
-    font-family: 'Inter';
-    font-size: 23px;
-    font-weight: 400;
-    line-height: 27.6px;
-    text-align: left;
 }
 
 .task-header {
@@ -289,13 +279,17 @@ p {
 
 /* ANCHOR card */
 .card {
-    width: 252px;
+    min-width: 252px;
+    max-width: 252px;
     background-color: white;
     border-radius: 24px;
     padding: 16px;
     box-sizing: border-box;
     box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
     transition: rotate 125ms ease-out;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
 .card:hover {
@@ -305,14 +299,14 @@ p {
 .card h3 {
     font-size: 16px;
     font-weight: 700;
-    margin-top: 24px;
-    margin-bottom: 8px;
+
 }
 
-.card-text-box {
-    margin-top: 24px;
-    margin-bottom: 28px;
-}
+/* .card-text-box {
+    overflow: hidden;
+    height: 65px;
+    text-overflow: ellipsis;
+} */
 
 .card-text-box h3 {
     font-size: 16px;
@@ -323,11 +317,13 @@ p {
 .card-text-box p {
     font-size: 16px;
     color: rgba(168, 168, 168, 1);
+    height: 38px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .card-progress-container {
-    margin-bottom: 24px;
-    font-size: 12px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -384,6 +380,10 @@ p {
     transform: translatex(-32px);
 }
 
+.overlap-5 {
+    transform: translatex(-40px);
+}
+
 .card-footer {
     display: flex;
     justify-content: space-between;
@@ -393,6 +393,7 @@ p {
 .mobile-marg-btm-96 {
     margin-bottom: 96px;
 }
+
 
 /* SECTION Add Task overlay */
 
@@ -568,6 +569,33 @@ p {
 
 /* !SECTION */
 
+.type-container {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+    display: inline-block;
+    color: white;
+    border-radius: 10px;
+    padding: 4px 16px;
+}
+
+.type-color-blue {
+    background-color: rgba(0, 56, 255, 1);
+}
+
+.type-color-green {
+    background-color: rgba(31, 215, 193, 1);
+}
+
+.type-container-overlay {
+    font-family: 'Inter';
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 27.6px;
+    text-align: left;
+}
+
 /* ANCHOR edit form overlay */
 .priority-btn-edit {
     height: 41px;
@@ -649,6 +677,14 @@ p {
         order: 2;
     }
 
+    .board-columns {
+        padding: 0 16px;
+    }
+
+    .column-with-col-header {
+        padding: 16px;
+    }
+
     .board-headline {
         padding-left: 0;
         padding-right: 0;
@@ -672,6 +708,11 @@ p {
     .board-add-btn img {
         height: 18.67px;
         width: 18.67px;
+    }
+
+    .card-container {
+        flex-direction: column;
+        overflow-x: visible;
     }
 
     .hide-over-1400p {

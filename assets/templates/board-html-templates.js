@@ -12,7 +12,7 @@ function taskCardHTML(id, type, title, description, prioIcon) {
             <div class="outer-pbar" id="subtaskBar">
                 <div class="inner-pbar" style="width: 0%;"></div>
             </div>
-            <label for="subtaskBar"></label>
+            <div class="font-12"></div>
         </div>
         <div class="card-footer">
             <div class="circle-container">

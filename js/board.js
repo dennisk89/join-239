@@ -49,12 +49,13 @@ function addContactLabelsToCards(i) {
     let validAssignees = pushTaskAssigneeInfosToArray(taskArray[i]);
     let max = getLabelMaximum(validAssignees);
     for (let j = 0; j < max; j++) {
-        defineContactIconOverlap(j, validAssignees[j], container)
+        if (j === 5 && validAssignees.length > 6) {
+            container.innerHTML += addAssignWithOverlapHTML(getRest(validAssignees), 'grey', j);
+        } else {
+            defineContactIconOverlap(j, validAssignees[j], container); 
+        }  
     }
 }
-
-
-
 
 
 function defineContactIconOverlap(j, assignee, container) {
@@ -67,11 +68,17 @@ function defineContactIconOverlap(j, assignee, container) {
 
 
 function getLabelMaximum(contacts) {
-    if (contacts.length >= 5) {
-        return 5;
+    if (contacts.length >= 6) {
+        return 6;
     } else {
         return contacts.length;
     }
+}
+
+
+function getRest(validAssignees) {
+    let rest = validAssignees.length - 5;
+    return '+' + String(rest);
 }
 
 

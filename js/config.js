@@ -12,7 +12,7 @@ const taskTypeColor = {
 };
 let contacts;
 let taskArray;
-let usersArray;
+let usersArray = [];
 let todoTasks; 
 let progressTasks;
 let feedbackTasks;

@@ -84,12 +84,13 @@ function validateForm(event) {
   ;
 }
 
-function addUser() {
+async function addUser() {
   const name = document.getElementById('name').value;
   const email = document.getElementById('e-mail').value;
-  const users = { name: name, email: email };
-  putData(endpointUser, users);
-  console.log(endpointUser);
+  const user = { name: name, email: email };
+  usersArray.push(user)
+  await putData(endpointUser, usersArray);
+  console.log(usersArray);
 }
 
 function animation() {
