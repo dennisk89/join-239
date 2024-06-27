@@ -6,9 +6,9 @@ const prioIcons = {
     'medium': 'assets/img/priority-medium.svg',
     'urgent': 'assets/img/priority-urgent.svg'
 };
-const taskType = {
-    'Technical Task': 'assets/img/board-card-label-tt.svg',
-    'User Story': 'assets/img/board-card-label-us.svg'
+const taskTypeColor = {
+    'Technical Task': 'type-color-green',
+    'User Story': 'type-color-blue'
 };
 let contacts;
 let taskArray;

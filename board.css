@@ -148,6 +148,25 @@ p {
     color: rgba(168, 168, 168, 1);
 }
 
+.type-container {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+    display: inline-block;
+    color: white;
+    border-radius: 10px;
+    padding: 4px 16px;
+}
+
+.type-color-blue {
+    background-color: rgba(0, 56, 255, 1);
+}
+
+.type-color-green {
+    background-color: rgba(31, 215, 193, 1);
+}
+
 /* ANCHOR Task details overlay*/
 .overlay-bg {
     display: none;
@@ -173,9 +192,15 @@ p {
     position: relative;
     max-width: 396px;
     box-sizing: border-box;
-    /* max-height: 95vh; */
 }
 
+.type-container-overlay {
+    font-family: 'Inter';
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 27.6px;
+    text-align: left;
+}
 
 .task-header {
     display: flex;
@@ -481,7 +506,9 @@ p {
     color: white;
 }
 
-.low-selected span, .urgent-selected span, .medium-selected span {
+.low-selected span,
+.urgent-selected span,
+.medium-selected span {
     font-weight: 700;
 }
 
@@ -492,7 +519,7 @@ p {
     background-position: right 16px top 50%;
 } */
 
-.add-task-container form{
+.add-task-container form {
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -538,6 +565,7 @@ p {
     font-size: 20px;
     box-sizing: border-box;
 }
+
 /* !SECTION */
 
 /* ANCHOR edit form overlay */
@@ -565,7 +593,7 @@ p {
     font-family: 'Inter';
     font-size: 16px;
     line-height: 19.2px;
-    text-align: left; 
+    text-align: left;
 }
 
 .board-edit-btn {

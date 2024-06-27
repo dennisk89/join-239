@@ -29,7 +29,7 @@ function addCardsToBoards(columnID, filterArray, stringForEmptyColumn) {
         element.innerHTML = boardPlaceholderHTML(stringForEmptyColumn);
     } else {
         for (let i = 0; i < filterArray.length; i++) {
-            element.innerHTML += taskCardHTML(filterArray[i].id, taskType[filterArray[i].type], filterArray[i].title, filterArray[i].description, prioIcons[filterArray[i].prio]);
+            element.innerHTML += taskCardHTML(filterArray[i].id, filterArray[i].type, filterArray[i].title, filterArray[i].description, prioIcons[filterArray[i].prio]);
         }
     }
 }
@@ -94,7 +94,7 @@ function closeTask(id) {
 function openTasks(id) {
     let task = getTaskById(id);
     document.getElementById('taskOverlay').style.display = 'flex';
-    document.getElementById('taskOverlay').innerHTML = taskHTML(task.id, taskType[task.type], task.title, task.description, task.dueDate, prioIcons[task.prio]);
+    document.getElementById('taskOverlay').innerHTML = taskHTML(task.id, task.type, task.title, task.description, task.dueDate, prioIcons[task.prio]);
     task.assigned ? renderAssignees(task) : '';
     task.subTask ? renderSubTasks(task) : '';
 }
