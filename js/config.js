@@ -22,7 +22,7 @@ let currentTaskPrio = 'medium';
 let tempSubtasks = [];
 let tempAssignees = [];
 let tempSubtasksStatus = [];
-// let loggedInUser = getUserNameByLoggedInEmail(loggedInEmail)
+let loggedInUser = getUserNameByLoggedInEmail(loggedInEmail)
 
 
 function resetGlobalTaskVariables() {
