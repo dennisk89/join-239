@@ -106,4 +106,13 @@ function stopP(event) {
     event.stopPropagation();
 }
 
+function getUserNameByLoggedInEmail(loggedInEmail) {
+    for (let i = 0; i < usersArray.length; i++) {
+        if (usersArray[i].email == loggedInEmail) {
+            return usersArray[i].name;
+        }else {
+            return 'Nicht gefunden';
+        }
+    }
+}
 

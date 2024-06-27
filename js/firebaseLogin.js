@@ -1,7 +1,7 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getAuth, setPersistence, signInWithEmailAndPassword, browserLocalPersistence, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getAuth, setPersistence, signInWithEmailAndPassword, browserLocalPersistence, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -21,6 +21,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
+window.loggedInEmail = null;
 
 function login(){
 
@@ -61,9 +62,10 @@ function loginWithPersistence() {
         });
 }
 
+
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        // User is signed in
+        loggedInEmail = user.email;
         console.log("User is signed in:", user);
     } else {
         // User is signed out
@@ -71,14 +73,17 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-function signOut(){
-firebase.auth().signOut().then(function() {
-    console.log('Signed Out');
-  }, function(error) {
-    console.error('Sign Out Error', error);
-  });
+function logOut(){
+    const auth = getAuth();
+    signOut(auth).then(() => {
+      // Sign-out successful.
+    }).catch((error) => {
+      // An error happened.
+    });
 }
 
-window.signOut = signOut;
+window.logOut = logOut;
 window.loginWithPersistence = loginWithPersistence;
 window.login = login;
+
+

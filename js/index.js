@@ -74,6 +74,7 @@ function validateForm(event) {
   let privacyCheckBox = document.getElementById('privacyCheckBox').src.includes('checkbox-checked.svg');
   if (isPasswordMatch && privacyCheckBox) {
     createNewUser();
+    addUser();
   } else {
     if (!privacyCheckBox) {
       privacyerrormessage.classList.remove('d-none');
@@ -81,6 +82,14 @@ function validateForm(event) {
     }
   }
   ;
+}
+
+function addUser() {
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('e-mail').value;
+  const users = { name: name, email: email };
+  putData(endpointUser, users);
+  console.log(endpointUser);
 }
 
 function animation() {
@@ -109,8 +118,10 @@ function validateLogin(event) {
   let checkBox = document.getElementById('rememberMe');
   if (checkBox.src.includes('checkbox-checked.svg')) {
     loginWithPersistence();
+    window.location.href = "./summary.html"
   } else {
     login();
+    window.location.href = "./summary.html"
   }
   ;
 }

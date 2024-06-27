@@ -45,12 +45,12 @@
             </div>
             </form>
             <div  class="remember-me" onclick="handleCheckBoxRememberMe()">
-                <img id="rememberMe" src="./assets/img/checkbox.svg" alt="">
+                <img class="clickable" id="rememberMe" src="./assets/img/checkbox.svg" alt="">
                 <span>Remember me</span>
             </div>
             <div class="login-btns">
-                <div class="login-btn" id="loginbtn">Log in</div>
-                <div class="guest-login">Guest Log in</div>
+                <div class="login-btn clickable" id="loginbtn">Log in</div>
+                <div class="guest-login clickable">Guest Log in</div>
             </div>
         </div>
         <div class="not-a-user hide-on-desktop">
@@ -71,7 +71,7 @@
             <div class="arrow-align">
                 <img onclick="backToLogin()" class="login-arrow-back clickable" src="./assets/img/arrow-left-line.svg"
                     alt="">
-                <div class="signup-headline">
+                <div class="signup-headline clickable">
                     <span>Sign up</span>
                     <div class="blue-underline"></div>
                 </div>
@@ -97,7 +97,7 @@
                             href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy
                             Policy</a></span>
                 </div>
-                <span class="privacy-error-message d-none" id="privacyError">Please accept the privacy policy</span>
+                <span class="privacy-error-message d-none clickable" id="privacyError">Please accept the privacy policy</span>
                 <button onclick="validateForm(event)" type="submit" class="sign-up-btn margin-bottom32px clickable" id="signupBtn">Signup</button>
             </form>
         </div>

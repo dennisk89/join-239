@@ -31,7 +31,7 @@ function createNewUser() {
             const user = userCredential.user;
             showSuccessMessage();
             setTimeout(() => {
-                window.location.href = "./index.html";
+                window.location.href = "./summary.html";
             }, 1300);
         })
         .catch((error) => {
