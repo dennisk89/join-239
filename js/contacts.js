@@ -1,76 +1,20 @@
 let colors = ['orange', 'purple', 'blue', 'pink', 'yellow', 'mint', 'green'];
+
+/**
+ * @param {string[]} usedLetters - This Array contains the first letter of each contact name.
+ */
 let usedLetters = [];
+
+/**
+ * @param {string[]} contactListLetters - This Array contains every letter occurring in the array "usedLetters" sorted from A to Z without duplicates.
+ */
 let contactListLetters = [];
 
-function hideOverlayEditContact() {
-    let overlayEditContact = document.getElementById('overlayEditContact');
-    overlayEditContact.classList.remove('overlay-slide-in');
-    overlayEditContact.classList.add('overlay-slide-out');
-    setTimeout(() => {
-        overlayEditContact.classList.add('d-none');
-    }, 500); /* same duration as slide out animation */
-    document.getElementById('editContactInputName').value = '';
-    document.getElementById('editContactInputMail').value = '';
-    document.getElementById('editContactInputPhone').value= '';
-}
 
-function showOverlayEditContact(contactId, contactName, initials, color, email, phone) {
-    createOverlayEditContactDot(initials, color);
-    insertInputValues(contactName, email, phone);
-    document.getElementById('editContactDeleteBtn').onclick = function() {deleteContact(contactId); hideOverlayEditContact(); hideContactDetailsMobile(); return false};
-    document.getElementById('editContactForm').onsubmit = function() {editContact(contactId, initials, color); hideOverlayEditContact(); hideContactDetailsMobile(); return false};
-    let overlayEditContact = document.getElementById('overlayEditContact');
-    overlayEditContact.classList.remove('d-none');
-    overlayEditContact.classList.add('overlay-slide-in');
-    overlayEditContact.classList.remove('overlay-slide-out');
-}
-
-function createOverlayEditContactDot(initials, color) {
-    document.getElementById('editContactDotMobile').innerHTML = generateEditContactDotMobileHTML(initials, color);
-    document.getElementById('editContactDotDesktop').innerHTML = generateEditContactDotDesktopHTML(initials, color);
-}
-
-function insertInputValues(contactName, email, phone) {
-    document.getElementById('editContactInputName').value = contactName;
-    document.getElementById('editContactInputMail').value = email;
-    document.getElementById('editContactInputPhone').value = phone;
-}
-
-function showOverlayEditDelete(contactId, contactName, initials, color, email, phone) {
-    let overlayEditDelete = document.getElementById('overlayEditDelete');    
-    overlayEditDelete.innerHTML = '';
-    overlayEditDelete.innerHTML = generateOverlayEditDeleteHTML(contactId, contactName, initials, color, email, phone);
-    overlayEditDelete.classList.remove('d-none');
-    overlayEditDelete.classList.add('overlay-slide-in');
-    overlayEditDelete.classList.remove('overlay-slide-out');
-}
-
-function hideOverlayEditDelete() {
-    let overlayEditDelete = document.getElementById('overlayEditDelete');
-    overlayEditDelete.classList.remove('overlay-slide-in');
-    overlayEditDelete.classList.add('overlay-slide-out');
-    setTimeout(() => {
-        overlayEditDelete.classList.add('d-none');        
-    }, 500); /* same duration as slide out animation */
-}
-
-function hideOverlayAddContact() {
-    let overlayAddContact = document.getElementById('overlayAddContact');
-    overlayAddContact.classList.remove('overlay-slide-in');
-    overlayAddContact.classList.add('overlay-slide-out');
-    setTimeout(() => {
-        overlayAddContact.classList.add('d-none');
-    }, 500); /* same duration as slide out animation */
-    emptyAddContactForm();
-}
-
-function showOverlayAddContact() {
-    let overlayAddContact = document.getElementById('overlayAddContact');
-    overlayAddContact.classList.remove('d-none');
-    overlayAddContact.classList.add('overlay-slide-in');
-    overlayAddContact.classList.remove('overlay-slide-out');
-}
-
+/**
+ * This function is used to show the contact list onload.
+ * 
+ */
 async function showContactList() {
     await initJoin();
     excerptContactListLetters();
@@ -83,6 +27,25 @@ async function showContactList() {
     showContactListContent();
 }
 
+/**
+ * This function is used to excerpt the initial letter of the first name of each contact, to sort out duplicates and push them into the array "contactListLetters" sorted from A to Z.
+ */
+function excerptContactListLetters() {
+    for (i = 0; i < contacts.length; i++) {
+        let contact = contacts[i];
+        let contactName = contact['name'];
+        let firstInitial = contactName.charAt(0);
+        let firstInitialUpper = firstInitial.toUpperCase();
+        usedLetters.push(firstInitialUpper);
+    }
+    let usedLettersUnique = [...new Set(usedLetters)];
+    let usedLettersUniqueSorted = usedLettersUnique.sort();
+    contactListLetters.push(usedLettersUniqueSorted);
+}
+
+/**
+ * This function is used to show the content of the contact list: colored dot, name and email of each contact.
+ */
 function showContactListContent() {
     sortContacts();
     for (i = 0; i < contacts.length; i++) {
@@ -107,19 +70,6 @@ function compareStrings(a, b) {
     a = a.toLowerCase();
     b = b.toLowerCase();
     return (a < b) ? -1 : (a > b) ? 1 : 0;
-}
-
-function excerptContactListLetters() {
-    for (i = 0; i < contacts.length; i++) {
-        let contact = contacts[i];
-        let contactName = contact['name'];
-        let firstInitial = contactName.charAt(0);
-        let firstInitialUpper = firstInitial.toUpperCase();
-        usedLetters.push(firstInitialUpper);
-    }
-    let usedLettersUnique = [...new Set(usedLetters)];
-    let usedLettersUniqueSorted = usedLettersUnique.sort();
-    contactListLetters.push(usedLettersUniqueSorted);
 }
 
 function getInitials(contactName) {
@@ -254,6 +204,78 @@ function emptyEditContactForm() {
     document.getElementById('editContactInputName').value = '';
     document.getElementById('editContactInputMail').value = '';
     document.getElementById('editContactInputPhone').value = '';
+}
+
+
+// Overlays
+
+function showOverlayAddContact() {
+    let overlayAddContact = document.getElementById('overlayAddContact');
+    overlayAddContact.classList.remove('d-none');
+    overlayAddContact.classList.add('overlay-slide-in');
+    overlayAddContact.classList.remove('overlay-slide-out');
+}
+
+function hideOverlayAddContact() {
+    let overlayAddContact = document.getElementById('overlayAddContact');
+    overlayAddContact.classList.remove('overlay-slide-in');
+    overlayAddContact.classList.add('overlay-slide-out');
+    setTimeout(() => {
+        overlayAddContact.classList.add('d-none');
+    }, 500); /* same duration as slide out animation */
+    emptyAddContactForm();
+}
+
+function showOverlayEditContact(contactId, contactName, initials, color, email, phone) {
+    createOverlayEditContactDot(initials, color);
+    insertInputValues(contactName, email, phone);
+    document.getElementById('editContactDeleteBtn').onclick = function() {deleteContact(contactId); hideOverlayEditContact(); hideContactDetailsMobile(); return false};
+    document.getElementById('editContactForm').onsubmit = function() {editContact(contactId, initials, color); hideOverlayEditContact(); hideContactDetailsMobile(); return false};
+    let overlayEditContact = document.getElementById('overlayEditContact');
+    overlayEditContact.classList.remove('d-none');
+    overlayEditContact.classList.add('overlay-slide-in');
+    overlayEditContact.classList.remove('overlay-slide-out');
+}
+
+function hideOverlayEditContact() {
+    let overlayEditContact = document.getElementById('overlayEditContact');
+    overlayEditContact.classList.remove('overlay-slide-in');
+    overlayEditContact.classList.add('overlay-slide-out');
+    setTimeout(() => {
+        overlayEditContact.classList.add('d-none');
+    }, 500); /* same duration as slide out animation */
+    document.getElementById('editContactInputName').value = '';
+    document.getElementById('editContactInputMail').value = '';
+    document.getElementById('editContactInputPhone').value= '';
+}
+
+function createOverlayEditContactDot(initials, color) {
+    document.getElementById('editContactDotMobile').innerHTML = generateEditContactDotMobileHTML(initials, color);
+    document.getElementById('editContactDotDesktop').innerHTML = generateEditContactDotDesktopHTML(initials, color);
+}
+
+function insertInputValues(contactName, email, phone) {
+    document.getElementById('editContactInputName').value = contactName;
+    document.getElementById('editContactInputMail').value = email;
+    document.getElementById('editContactInputPhone').value = phone;
+}
+
+function showOverlayEditDelete(contactId, contactName, initials, color, email, phone) {
+    let overlayEditDelete = document.getElementById('overlayEditDelete');    
+    overlayEditDelete.innerHTML = '';
+    overlayEditDelete.innerHTML = generateOverlayEditDeleteHTML(contactId, contactName, initials, color, email, phone);
+    overlayEditDelete.classList.remove('d-none');
+    overlayEditDelete.classList.add('overlay-slide-in');
+    overlayEditDelete.classList.remove('overlay-slide-out');
+}
+
+function hideOverlayEditDelete() {
+    let overlayEditDelete = document.getElementById('overlayEditDelete');
+    overlayEditDelete.classList.remove('overlay-slide-in');
+    overlayEditDelete.classList.add('overlay-slide-out');
+    setTimeout(() => {
+        overlayEditDelete.classList.add('d-none');        
+    }, 500); /* same duration as slide out animation */
 }
 
 function showOverlayNewContactOk() {

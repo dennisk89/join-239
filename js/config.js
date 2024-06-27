@@ -24,14 +24,12 @@ let tempAssignees = [];
 let tempSubtasksStatus = [];
 let loggedInUser = getUserNameByLoggedInEmail(loggedInEmail)
 
-
 function resetGlobalTaskVariables() {
     tempSubtasks = [];
     tempSubtasksStatus = [];
     tempAssignees = [];
     currentTaskPrio = 'medium'
 }
-
 
 async function initJoin() {
     contacts = await getData(endpointContacts);
@@ -50,7 +48,6 @@ async function getData(url) {
     return await response.json();
 }
 
-
 async function putData(url, data = {}) {
     let response = await fetch(url + ".json", {
         method: 'PUT',
@@ -63,12 +60,9 @@ async function putData(url, data = {}) {
     return await response.json();
 }
 
-
 function errorFunction() {
     console.error('Fehler aufgetreten');
 }
-
-
 
 class Task {
     constructor(id, type, title, description, dueDate, assigned, prio, taskStatus, subTask, subtaskStatus) {
@@ -85,7 +79,6 @@ class Task {
     }
 }
 
-
 function generateUniqueId(initLetter, array) {
     let newId;
     do { // Do-While-Schleife: Sie sorgt dafür, dass so lange eine neue ID generiert wird, bis eine ID gefunden wurde, die noch nicht vergeben ist.
@@ -93,7 +86,6 @@ function generateUniqueId(initLetter, array) {
     } while (array.some(a => a.id === newId)); // Überprüfung, ob die neu generierte ID bereits vergeben ist.
     return newId;
 }
-
 
 // ANCHOR Menu functionality
 function stopP(event) {
@@ -104,4 +96,3 @@ function getUserNameByLoggedInEmail(loggedInEmail) {
     const user = usersArray.find(user => user.email === loggedInEmail);
     return user ? user.name : null;
 }
-
