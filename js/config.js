@@ -107,12 +107,7 @@ function stopP(event) {
 }
 
 function getUserNameByLoggedInEmail(loggedInEmail) {
-    for (let i = 0; i < usersArray.length; i++) {
-        if (usersArray[i].email == loggedInEmail) {
-            return usersArray[i].name;
-        }else {
-            return 'Nicht gefunden';
-        }
-    }
+    const user = usersArray.find(user => user.email === loggedInEmail);
+    return user ? user.name : null;
 }
 
