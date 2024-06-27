@@ -1,5 +1,14 @@
 
-
+function changeCat() {
+    for (let i = 0; i < taskArray.length; i++) {
+        if (taskArray[i].type == 'us') {
+            taskArray[i].type = 'User Story'
+        } else {
+            taskArray[i].type = 'Technical Task'
+        }
+        
+    }
+}
 
 
 // ANCHOR load Task cards in board

@@ -7,8 +7,8 @@ const prioIcons = {
     'urgent': 'assets/img/priority-urgent.svg'
 };
 const taskType = {
-    'tt': 'assets/img/board-card-label-tt.svg',
-    'us': 'assets/img/board-card-label-us.svg'
+    'Technical Task': 'assets/img/board-card-label-tt.svg',
+    'User Story': 'assets/img/board-card-label-us.svg'
 };
 let contacts;
 let taskArray;
