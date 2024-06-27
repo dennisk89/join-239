@@ -302,11 +302,6 @@ p {
 
 }
 
-/* .card-text-box {
-    overflow: hidden;
-    height: 65px;
-    text-overflow: ellipsis;
-} */
 
 .card-text-box h3 {
     font-size: 16px;
@@ -317,10 +312,7 @@ p {
 .card-text-box p {
     font-size: 16px;
     color: rgba(168, 168, 168, 1);
-    height: 38px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    height: 42px;
 }
 
 .card-progress-container {

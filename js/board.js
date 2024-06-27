@@ -1,16 +1,4 @@
 
-function changeCat() {
-    for (let i = 0; i < taskArray.length; i++) {
-        if (taskArray[i].type == 'us') {
-            taskArray[i].type = 'User Story'
-        } else {
-            taskArray[i].type = 'Technical Task'
-        }
-        
-    }
-}
-
-
 // ANCHOR load Task cards in board
 async function initBoard() {
     await initJoin();
@@ -29,8 +17,18 @@ function addCardsToBoards(columnID, filterArray, stringForEmptyColumn) {
         element.innerHTML = boardPlaceholderHTML(stringForEmptyColumn);
     } else {
         for (let i = 0; i < filterArray.length; i++) {
-            element.innerHTML += taskCardHTML(filterArray[i].id, filterArray[i].type, filterArray[i].title, filterArray[i].description, prioIcons[filterArray[i].prio]);
+            element.innerHTML += taskCardHTML(filterArray[i].id, filterArray[i].type, filterArray[i].title, shortText(filterArray[i].description), prioIcons[filterArray[i].prio]);
         }
+    }
+}
+
+
+function shortText(text) {
+    if (text.length > 55) {
+        let shortText = text.substring(0, 55)
+        return shortText.substring(0, shortText.lastIndexOf(' ')) + '...'
+    } else {
+        return text
     }
 }
 
