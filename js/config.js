@@ -71,12 +71,6 @@ function errorFunction() {
 
 
 
-// putData(endpointTasks, taskArray)
-
-// putData(endpointContacts, contacts)
-
-// putData(endpointUser, users)
-
 class Task {
     constructor(id, type, title, description, dueDate, assigned, prio, taskStatus, subTask, subtaskStatus) {
         this.id = id,
