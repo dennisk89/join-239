@@ -197,9 +197,18 @@ async function addNewContact(newContact) {
     await putData(endpointContacts, contacts);
     emptyAddContactForm();
     hideOverlayAddContact();
-    showContactList();
-    showContactDetails(newContact['id'], newContact['name'], newContact['initials'], newContact['color'], newContact['email'], newContact['phone']);
+    await showContactList();
+    showNewContactDetails(newContact['id'], newContact['name'], newContact['initials'], newContact['color'], newContact['email'], newContact['phone']);
     showOverlayNewContactOk();
+}
+
+function showNewContactDetails(contactId, contactName, initials, color, email, phone) {
+    document.getElementById('mainContacts').classList.remove('contacts-hide-on-mobile');
+    let contactDetailsContainer = document.getElementById('contactDetailsContainer');
+    contactDetailsContainer.innerHTML = '';
+    contactDetailsContainer.innerHTML = generateContactDetailsContainerHTML(contactId, contactName, initials, color, email, phone);
+    contactDetailsContainer.classList.add('contact-details-show');
+    highlightContactContainer(contactId);
 }
 
 function emptyAddContactForm() {
@@ -222,8 +231,8 @@ async function saveEditedContact(newContactData, contactId) {
     contacts.push(newContactData);
     await putData(endpointContacts, contacts);
     emptyEditContactForm();
-    showContactList();
-    showContactDetails(newContactData['id'], newContactData['name'], newContactData['initials'], newContactData['color'], newContactData['email'], newContactData['phone']);
+    await showContactList();
+    showNewContactDetails(newContactData['id'], newContactData['name'], newContactData['initials'], newContactData['color'], newContactData['email'], newContactData['phone']);
 }
 
 function editContact(contactId, initials, color) {
@@ -236,7 +245,7 @@ function editContact(contactId, initials, color) {
         'email': editContactInputMail.value,
         'phone': editContactInputPhone.value,
         'color': color,
-        'initials': initials
+        'initials': getInitials(editContactInputName.value)
     };
     saveEditedContact(newContactData, contactId);
 }
