@@ -44,7 +44,6 @@ async function initJoin() {
     urgentTasks = taskArray.filter(t => t.prio === 'urgent' && t.dueDate);
 }
 
-
 async function getData(url) {
     let response = await fetch(url + ".json").catch(errorFunction);
     console.log(response.status);
