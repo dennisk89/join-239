@@ -15,10 +15,11 @@
 
 .main-contact-list {
     background-color: rgba(255, 255, 255, 1);
-    height: calc(100vh - 163px);
+    height: calc(100vh - 187px);
     overflow-y: scroll;
     overflow-x: hidden;
-    padding: 0 38px;
+    padding: 0 38px 24px;
+    width: 100%;
 }
 
 .contact-list-top {
@@ -241,7 +242,7 @@
 
 .contact-menu-btn, .add-contact-btn {
     position: fixed;
-    right: 16px;
+    right: 32px;
     bottom: 112px;
     height: 56px;
     width: 56px;
@@ -284,7 +285,8 @@
     /* ANCHOR Contact List */
 
     .main-contact-list {
-        padding: 0 16px;
+        padding: 0 8px 12px;
+        height: calc(100vh - 175px);
     }
 
     .contact-list-content {
@@ -312,8 +314,8 @@
     /* ANCHOR Contact List */
 
     .main-contact-list {
-        height: calc(100vh - 108px);
-        padding: 0 52px;
+        height: calc(100vh - 129px);
+        padding: 0 52px 24px;
     }
 
     /* ANCHOR Contacts */
