@@ -1,3 +1,29 @@
+function checkSearch() {
+    let searchString = document.getElementById('taskSearch').children[0].value;
+    if (searchString.length > 0) {
+        filterTaskBySearch(searchString)
+    } else {
+        initBoard();
+    }
+}
+
+
+function filterTaskBySearch(searchString) {
+    let results = [];
+    taskArray.forEach(t => {
+        if (t.title.toUpperCase().indexOf(searchString.toUpperCase()) > -1 || t.description.toUpperCase().indexOf(searchString.toUpperCase()) > -1) {
+            results.push(t);
+        }
+    });
+    addCardsToBoards('toDoColumn', results.filter(t => t.taskStatus == 'todo'), 'To do');
+    addCardsToBoards('inProgressColumn', results.filter(t => t.taskStatus == 'progress'), 'In progress');
+    addCardsToBoards('feedbackColumn', results.filter(t => t.taskStatus == 'feedback'), 'Await feedback');
+    addCardsToBoards('doneColumn', results.filter(t => t.taskStatus == 'done'), 'Done');
+    addInfosToCards(results);
+}
+
+
+document.getElementById('taskSearch').addEventListener('keyup', checkSearch)
 
 // ANCHOR load Task cards in board
 async function initBoard() {
@@ -6,7 +32,7 @@ async function initBoard() {
     addCardsToBoards('inProgressColumn', progressTasks, 'In progress');
     addCardsToBoards('feedbackColumn', feedbackTasks, 'Await feedback');
     addCardsToBoards('doneColumn', doneTasks, 'Done');
-    addInfosToCards();
+    addInfosToCards(taskArray);
 }
 
 
@@ -33,15 +59,15 @@ function shortText(text) {
 }
 
 
-function addInfosToCards() {
+function addInfosToCards(taskArray) {
     for (let i = 0; i < taskArray.length; i++) {
-        taskArray[i].assigned ? addContactLabelsToCards(i) : console.log('no assignee for Task ' + taskArray[i].id);
-        taskArray[i].subTask ? addSubTaskProgressToCards(i) : document.getElementById(taskArray[i].id).children[2].style.display = 'none';
+        taskArray[i].assigned ? addContactLabelsToCards(taskArray, i) : console.log('no assignee for Task ' + taskArray[i].id);
+        taskArray[i].subTask ? addSubTaskProgressToCards(taskArray, i) : document.getElementById(taskArray[i].id).children[2].style.display = 'none';
     }
 }
 
 
-function addContactLabelsToCards(i) {
+function addContactLabelsToCards(taskArray, i) {
     let container = document.getElementById(taskArray[i].id).children[3].children[0];
     container.innerHTML = '';
     let validAssignees = pushTaskAssigneeInfosToArray(taskArray[i]);
@@ -80,7 +106,7 @@ function getRest(validAssignees) {
 }
 
 
-function addSubTaskProgressToCards(i) {
+function addSubTaskProgressToCards(taskArray, i) {
     let pbar = document.getElementById(taskArray[i].id).children[2].children[0].children[0];
     let label = document.getElementById(taskArray[i].id).children[2].children[1];
     let done = taskArray[i].subTaskStatus.filter(s => s == true);
