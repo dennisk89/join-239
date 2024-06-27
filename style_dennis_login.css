@@ -1,9 +1,10 @@
 body {
     margin-top: 0 !important;
-    animation: fadeInAnimation ease 3s;
+    animation: fadeInAnimation ease-in 3s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     margin: 0 auto;
+    
 }
 @keyframes fadeInAnimation {
     0% {
@@ -322,17 +323,6 @@ body {
     height: 48px;
 }
 
-.whiteBackground{
-    position: absolute;
-    background: var(--background-color);
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    animation: moveWhiteB 3s forwards;
-    animation-delay: 1s;
-    z-index: 1;
-}
-
 .succesfully-signUp{
     display: none;
     justify-content: center;
@@ -356,23 +346,10 @@ body {
 
 @keyframes successAnimation {
     0% {
-        
         transform: translate(-50%, 100vh);
       }
       100% {
-       
         transform: translate(-50%, -50%);
-    }
-  }
-
-@keyframes moveWhiteB {
-    from {
-        width: 100%;
-        height: 100vh;
-        opacity: 1;
-    }
-    to {
-        opacity: 0; 
     }
   }
 
@@ -386,6 +363,14 @@ body {
     transform: translate(-50%, -50%);
     animation: moveImage 2s forwards;
     animation-delay: 0.5s;
+}
+
+#wrongPassword{
+    margin-right: 150px;
+    color: red;
+    font-size: 14px;
+    margin-top: 8px;
+    
 }
 
 @keyframes moveImage {
@@ -532,6 +517,11 @@ body {
     .login-white-bg-signup{
         margin-left: 5px;
         margin-right: 5px;
+    }
+    #wrongPassword{
+        font-size: 12px;
+        margin-left: 95px;
+        text-wrap: nowrap;
     }
 }
 

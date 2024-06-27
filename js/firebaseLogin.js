@@ -1,7 +1,7 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getAuth, setPersistence, signInWithEmailAndPassword, browserLocalPersistence, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -22,25 +22,63 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 
-
-
-const submit = document.getElementById('loginbtn');
-submit.addEventListener("click", function (event) {
-    event.preventDefault()
+function login(){
 
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            // Signed up 
+            
             const user = userCredential.user;
-            alert("logged in")
             window.location.href = "./summary.html"
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            alert(errorMessage)
-            // ..
+            alert(errorMessage);
         });
-})
+};
+
+function loginWithPersistence() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    // Set the persistence to session
+    setPersistence(auth, browserLocalPersistence)
+        .then(() => {
+            // In this persistence state, sign-in will be persisted in the current session
+            return signInWithEmailAndPassword(auth, email, password);
+        })
+        .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            window.location.href = "./summary.html";
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage);
+        });
+}
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // User is signed in
+        console.log("User is signed in:", user);
+    } else {
+        // User is signed out
+        console.log("No user is signed in");
+    }
+});
+
+function signOut(){
+firebase.auth().signOut().then(function() {
+    console.log('Signed Out');
+  }, function(error) {
+    console.error('Sign Out Error', error);
+  });
+}
+
+window.signOut = signOut;
+window.loginWithPersistence = loginWithPersistence;
+window.login = login;

@@ -32,7 +32,7 @@ function createNewUser() {
             showSuccessMessage();
             setTimeout(() => {
                 window.location.href = "./index.html";
-            }, 1300); // Delay of 1800ms (800ms for animation + 1000ms delay)
+            }, 1300);
         })
         .catch((error) => {
             const errorCode = error.code;

@@ -95,6 +95,26 @@ function showSuccessMessage() {
   successMessage.classList.add('show');
 }
 
+function handleCheckBoxRememberMe() {
+  let checkbox = document.getElementById('rememberMe');
+  if (checkbox.src.includes('checkbox.svg')) {
+    checkbox.src = "./assets/img/checkbox-checked.svg";
+  } else {
+    checkbox.src = "./assets/img/checkbox.svg";
+  }
+}
+
+function validateLogin(event) {
+  event.preventDefault(); // Verhindert das Standard-Formular-Submit
+  let checkBox = document.getElementById('rememberMe');
+  if (checkBox.src.includes('checkbox-checked.svg')) {
+    loginWithPersistence();
+  } else {
+    login();
+  }
+  ;
+}
+
 
 
 
