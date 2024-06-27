@@ -198,6 +198,7 @@ async function addNewContact(newContact) {
     emptyAddContactForm();
     hideOverlayAddContact();
     showContactList();
+    showContactDetails(newContact['id'], newContact['name'], newContact['initials'], newContact['color'], newContact['email'], newContact['phone']);
     showOverlayNewContactOk();
 }
 
@@ -222,6 +223,7 @@ async function saveEditedContact(newContactData, contactId) {
     await putData(endpointContacts, contacts);
     emptyEditContactForm();
     showContactList();
+    showContactDetails(newContactData['id'], newContactData['name'], newContactData['initials'], newContactData['color'], newContactData['email'], newContactData['phone']);
 }
 
 function editContact(contactId, initials, color) {
