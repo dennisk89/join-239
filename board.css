@@ -578,6 +578,7 @@ p {
     color: white;
     border-radius: 10px;
     padding: 4px 16px;
+    align-self: start;
 }
 
 .type-color-blue {
