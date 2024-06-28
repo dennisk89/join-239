@@ -7,6 +7,7 @@ async function initSummary() {
     showTasksInProgressCount();
     showTasksAwaitingFeedbackCount();
     findEarliestDate();
+    getUserNameByLoggedInEmail(loggedInEmail);
 }
 
 function showTodosCount() {
@@ -52,5 +53,10 @@ function findEarliestDate() {
         year: 'numeric' 
     });
     document.getElementById('dueDate').innerHTML = formattedDueDate;
+}
+
+function getUserNameByLoggedInEmail(loggedInEmail) {
+    const user = usersArray.find(user => user.email === loggedInEmail);
+    return user ? user.name : null;
 }
 

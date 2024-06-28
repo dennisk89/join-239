@@ -22,7 +22,7 @@ let currentTaskPrio = 'medium';
 let tempSubtasks = [];
 let tempAssignees = [];
 let tempSubtasksStatus = [];
-let loggedInUser = getUserNameByLoggedInEmail(loggedInEmail)
+let loggedInUser;
 
 function resetGlobalTaskVariables() {
     tempSubtasks = [];
@@ -95,4 +95,12 @@ function stopP(event) {
 function getUserNameByLoggedInEmail(loggedInEmail) {
     const user = usersArray.find(user => user.email === loggedInEmail);
     return user ? user.name : null;
+}
+
+function updateUserIcon(name) {
+    const initials = name.split(' ')
+        .map(word => word.charAt(0).toUpperCase())
+        .join('');
+    
+    document.getElementById('userIcon').innerText = initials;
 }

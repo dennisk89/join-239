@@ -22,6 +22,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 window.loggedInEmail = null;
+window.loggedInUser = null;
 
 function login(){
 
@@ -67,6 +68,8 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
         loggedInEmail = user.email;
         console.log("User is signed in:", user);
+        loggedInUser = getUserNameByLoggedInEmail(loggedInEmail);
+        updateUserIcon(loggedInUser);
     } else {
         // User is signed out
         console.log("No user is signed in");
