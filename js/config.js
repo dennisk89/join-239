@@ -91,3 +91,7 @@ function stopP(event) {
     event.stopPropagation();
 }
 
+function moveOverlayMenu(){
+    let menuAnimation = document.getElementById('userMenu');
+    menuAnimation.classList.add('show');
+}

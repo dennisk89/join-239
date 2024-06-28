@@ -23,7 +23,7 @@
             <div class="flex-all-center gap-16">
                 <a class="hide-on-mobile clickable" href="help.html" a><img class="hover-scale"
                         src="assets/img/header-help-icon.svg" alt="help"></a>
-                <div class="profile-icon flex-all-center">
+                <div class="profile-icon flex-all-center" onclick="moveOverlayMenu()">
                     <p id="userIcon">G</p>
                 </div>
             </div>
@@ -118,7 +118,7 @@
         </div>
     </div>
 
-    <div class="menu-overlay">
+    <div class="menu-overlay" id="userMenu">
         <div class="overlay-menu-links">
             <a href="help.html" target="_blank" rel="noopener noreferrer">Help</a>
         </div>

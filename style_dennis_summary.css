@@ -264,8 +264,17 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    position: absolute;
     gap: 8px;
+    top: 0;
+    right: 0;
 }
+
+.menu-overlay.show{
+    animation: menu 1s ease-in-out 0s; 
+}
+
+
 
 .overlay-menu-links{
     height: 46px;
@@ -273,12 +282,21 @@ body {
     color: rgb(246, 247, 248);
     padding-top: 16px;
     padding-left: 18px;
-
 }
 
 .greet-user.d-none {
     display: none;
 }
+
+@keyframes menu {
+    from {
+        right: -150px; /* Startposition außerhalb des sichtbaren Bereichs */
+      }
+      to {
+        right: 0; /* Endposition innerhalb des sichtbaren Bereichs */
+      }
+    }
+    
 
 @media (max-width: 430px){
     .todo-done-container{

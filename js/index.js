@@ -114,10 +114,6 @@ function handleCheckBoxRememberMe() {
   }
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 23594639468e75ee7b09b52e37b5f06ec714fb4e
 function validateLogin() {
   let checkBox = document.getElementById('rememberMe');
   if (checkBox.src.includes('checkbox-checked.svg')) {

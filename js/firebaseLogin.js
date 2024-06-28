@@ -27,7 +27,7 @@ window.loggedInUser = null;
 function login(){
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    let warningmessage = document.getElementById('wrongPassword');
+    const warningmessage = document.getElementById('wrongPassword');
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             
@@ -35,16 +35,14 @@ function login(){
             window.location.href = "./summary.html"
         })
         .catch((error) => {
-            warningmessage.classlist.remove('d-none');
-            const errorMessage = error.message;
-            alert(errorMessage);
+            warningmessage.classList.remove('d-none');
         });
 };
 
 function loginWithPersistence() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    let warningmessage = document.getElementById('wrongPassword');
+    const warningmessage = document.getElementById('wrongPassword');
 
     // Set the persistence to session
     setPersistence(auth, browserLocalPersistence)
@@ -58,8 +56,7 @@ function loginWithPersistence() {
             window.location.href = "./summary.html";
         })
         .catch((error) => {
-            warningmessage.classlist.remove('d-none');
-            alert(errorMessage);
+            warningmessage.classList.remove('d-none');
         });
 }
 
@@ -106,7 +103,6 @@ function getUserNameByLoggedInEmail(loggedInEmail, usersFromFirebase) {
 
 
 function updateUserIcon(name) {
-    console.log(name)
     const initials = name.split(' ')
         .map(word => word.charAt(0).toUpperCase())
         .join('');
