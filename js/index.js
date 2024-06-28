@@ -114,15 +114,12 @@ function handleCheckBoxRememberMe() {
   }
 }
 
-function validateLogin(event) {
-  event.preventDefault(); // Verhindert das Standard-Formular-Submit
+function validateLogin() {
   let checkBox = document.getElementById('rememberMe');
   if (checkBox.src.includes('checkbox-checked.svg')) {
     loginWithPersistence();
-    window.location.href = "./summary.html"
   } else {
     login();
-    window.location.href = "./summary.html"
   }
   ;
 }

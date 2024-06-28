@@ -44,7 +44,7 @@ function login(){
 function loginWithPersistence() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    warningmessage = document.getElementById('wrongPassword');
+    let warningmessage = document.getElementById('wrongPassword');
 
     // Set the persistence to session
     setPersistence(auth, browserLocalPersistence)
