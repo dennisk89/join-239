@@ -655,10 +655,6 @@ p {
         align-items: center;
     }
 
-    header {
-        width: 100%;
-    }
-
     .board {
         width: 1104px;
         padding: 0 64px;

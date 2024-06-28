@@ -64,11 +64,12 @@ function loginWithPersistence() {
 }
 
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) => {
     if (user) {
+        let usersFromFirebase = await getUsers('https://join-239-default-rtdb.europe-west1.firebasedatabase.app/users');
         loggedInEmail = user.email;
         console.log("User is signed in:", user);
-        loggedInUser = getUserNameByLoggedInEmail(loggedInEmail);
+        loggedInUser = getUserNameByLoggedInEmail(loggedInEmail, usersFromFirebase);
         updateUserIcon(loggedInUser);
     } else {
         // User is signed out
@@ -84,6 +85,35 @@ function logOut(){
       // An error happened.
     });
 }
+
+
+async function getUsers(url) {
+    let response = await fetch(url + ".json").catch(errorFunction);
+    console.log(response.status);
+    return await response.json();
+}
+
+
+function errorFunction() {
+    console.error('Fehler aufgetreten');
+}
+
+
+function getUserNameByLoggedInEmail(loggedInEmail, usersFromFirebase) {
+    const user = usersFromFirebase.find(user => user.email === loggedInEmail);
+    return user ? user.name : null;
+}
+
+
+function updateUserIcon(name) {
+    console.log(name)
+    const initials = name.split(' ')
+        .map(word => word.charAt(0).toUpperCase())
+        .join('');
+    
+    document.getElementById('userIcon').innerText = initials;
+}
+
 
 window.logOut = logOut;
 window.loginWithPersistence = loginWithPersistence;

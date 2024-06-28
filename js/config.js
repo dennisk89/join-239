@@ -34,7 +34,6 @@ function resetGlobalTaskVariables() {
 async function initJoin() {
     contacts = await getData(endpointContacts);
     taskArray = await getData(endpointTasks);
-    usersArray = await getData(endpointUser);
     todoTasks = taskArray.filter(t => t.taskStatus == 'todo');
     progressTasks = taskArray.filter(t => t.taskStatus == 'progress');
     feedbackTasks = taskArray.filter(t => t.taskStatus == 'feedback');
@@ -92,15 +91,3 @@ function stopP(event) {
     event.stopPropagation();
 }
 
-function getUserNameByLoggedInEmail(loggedInEmail) {
-    const user = usersArray.find(user => user.email === loggedInEmail);
-    return user ? user.name : null;
-}
-
-function updateUserIcon(name) {
-    const initials = name.split(' ')
-        .map(word => word.charAt(0).toUpperCase())
-        .join('');
-    
-    document.getElementById('userIcon').innerText = initials;
-}
