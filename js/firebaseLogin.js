@@ -68,11 +68,10 @@ onAuthStateChanged(auth, async (user) => {
         loggedInUser = getUserNameByLoggedInEmail(loggedInEmail, usersFromFirebase);
         updateUserIcon(loggedInUser);
         showUserName(loggedInUser);
-        showGreeting('yes');
+        userIsLoggedIn('yes');
     } else {
         // User is signed out
         console.log("No user is signed in");
-        showGreeting('no');
     }
 })
 

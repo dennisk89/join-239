@@ -8,6 +8,7 @@ async function initSummary() {
     showTasksAwaitingFeedbackCount();
     findEarliestDate();
     getUserNameByLoggedInEmail(loggedInEmail);
+    showGreeting();
 }
 
 function showTodosCount() {
@@ -61,11 +62,20 @@ function getUserNameByLoggedInEmail(loggedInEmail) {
 }
 
 
+function userIsLoggedIn(yesOrNo) {
+    if (yesOrNo === 'yes') {
+        return 'yes';
+    } else {
+        return 'no';
+    }
+}
+
 /**
  * This function is used to select the right greeting depending on if a user is signed in or not.
  */
-function showGreeting(yesOrNo) {
-    if (yesOrNo === 'yes') {
+function showGreeting() {
+    console.log(userIsLoggedIn());
+    if (userIsLoggedIn() === 'yes') {
         showGreetingLoggedInUser();
     } else {
         showGreetingGuestUser();
@@ -75,7 +85,7 @@ function showGreeting(yesOrNo) {
 /**
  * This function is used to show the right greeting on the summary page for logged in users.
  */
-function showGreetingLoggedInUser() {    
+function showGreetingLoggedInUser() {
     let greetingCenter = document.getElementById('greetingCenter');
     let greetingRight = document.getElementById('greetingRight');
     greetingCenter.innerHTML = '';
