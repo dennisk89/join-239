@@ -91,7 +91,17 @@ function stopP(event) {
     event.stopPropagation();
 }
 
-function moveOverlayMenu(){
+function moveOverlayMenu() {
     let menuAnimation = document.getElementById('userMenu');
-    menuAnimation.classList.add('show');
+    if (menuAnimation.classList.contains('show')) {
+        menuAnimation.classList.remove('show');
+        menuAnimation.classList.add('hide');
+        setTimeout(() => {
+            menuAnimation.style.display = 'none';
+            menuAnimation.classList.remove('hide');
+        }, 1000);
+    } else {
+        menuAnimation.style.display = 'flex'; 
+        menuAnimation.classList.add('show');
+    }
 }

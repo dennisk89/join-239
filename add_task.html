@@ -23,7 +23,7 @@
             <img src="assets/img/join-logo.svg" class="hide-on-desktop" alt="">
             <div class="flex-all-center gap-16">
                 <a class="hide-on-mobile clickable" href="help.html" a><img class="hover-scale" src="assets/img/header-help-icon.svg" alt="help"></a>
-                <div class="profile-icon flex-all-center"><p id="userIcon">G</p></div>
+                <div class="profile-icon flex-all-center"><p id="userIcon" onclick="moveOverlayMenu()">G</p></div>
             </div>
         </div>
     </header>
@@ -109,6 +109,23 @@
             </div>
         </form>
     </div>
+
+    <div class="menu-overlay" id="userMenu">
+        <div class="overlay-menu-links hide-on-desktop">
+            <a href="help.html" target="_blank" rel="noopener noreferrer">Help</a>
+        </div>
+        <div class="overlay-menu-links">
+            <a href="legal_notice.html" target="_blank" rel="noopener noreferrer">Legal Notice</a>
+        </div>
+        <div class="overlay-menu-links">
+            <a href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+        </div>
+        <div class="overlay-menu-links">
+            <a onclick="logOut()" href="index.html" rel="noopener noreferrer">Log out</a>
+        </div>
+        
+    </div>
+
     <footer class="mobile-footer">
         <img class="logo hide-on-mobile" src="assets/img/join-logo-big.svg" alt="">
 
