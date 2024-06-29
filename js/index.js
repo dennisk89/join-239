@@ -124,6 +124,6 @@ function validateLogin() {
 /**
  * This function is used to open the summary page for guest users.
  */
-async function openGuestAccess() {
+function openGuestAccess() {
   window.location.href = "./summary.html";
 }

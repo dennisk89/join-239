@@ -8,7 +8,7 @@ async function initSummary() {
     showTasksAwaitingFeedbackCount();
     findEarliestDate();
     getUserNameByLoggedInEmail(loggedInEmail);
-    showGreeting();
+    showGreetingGuestUser();
 }
 
 function showTodosCount() {
@@ -61,29 +61,31 @@ function getUserNameByLoggedInEmail(loggedInEmail) {
     return user ? user.name : null;
 }
 
-
-function userIsLoggedIn(yesOrNo) {
-    if (yesOrNo === 'yes') {
-        return 'yes';
-    } else {
-        return 'no';
-    }
-}
-
 /**
- * This function is used to select the right greeting depending on if a user is signed in or not.
+ * This function is used to evocate greeting the logged in user.
+ * @param {string} loggedInUser This is the name of the currently logged in user.
  */
-function showGreeting() {
-    console.log(userIsLoggedIn());
-    if (userIsLoggedIn() === 'yes') {
-        showGreetingLoggedInUser();
-    } else {
-        showGreetingGuestUser();
-    }
+function userIsLoggedIn(loggedInUser) {
+    showGreetingLoggedInUser();
+    showUserName(loggedInUser);
 }
 
 /**
- * This function is used to show the right greeting on the summary page for logged in users.
+ * This function is used to show the name of the currently logged in user on the summary page.
+ * @param {string} name This is the name of the currently logged in user.
+ */
+function showUserName(name) {
+    let userNameCenter = document.getElementById('userNameCenter');
+    userNameCenter.innerHTML = '';
+    userNameCenter.innerHTML = name;
+    let userNameRight = document.getElementById('userNameRight');
+    userNameRight.innerHTML = '';
+    userNameRight.innerHTML = name;
+}
+
+
+/**
+ * This function is used to show the right greeting for logged in users on the summary page.
  */
 function showGreetingLoggedInUser() {
     let greetingCenter = document.getElementById('greetingCenter');
@@ -95,15 +97,17 @@ function showGreetingLoggedInUser() {
 }
 
 /**
- * This function is used to show the right greeting on the summary page for guest users.
+ * This function is used to show the right greeting for guest users on the summary page.
  */
-function showGreetingGuestUser() {    
-    let greetingCenter = document.getElementById('greetingCenter');
-    let greetingRight = document.getElementById('greetingRight');
-    greetingCenter.innerHTML = '';
-    greetingRight.innerHTML = '';
-    greetingCenter.innerHTML = chooseGreeting() + '!';
-    greetingRight.innerHTML = chooseGreeting() + '!';
+function showGreetingGuestUser() {
+    if (typeof loggedInUser === 'undefined' || loggedInUser === null) {
+        let greetingCenter = document.getElementById('greetingCenter');
+        let greetingRight = document.getElementById('greetingRight');
+        greetingCenter.innerHTML = '';
+        greetingRight.innerHTML = '';
+        greetingCenter.innerHTML = chooseGreeting() + '!';
+        greetingRight.innerHTML = chooseGreeting() + '!';        
+    }    
 }
 
 /**
@@ -121,17 +125,4 @@ function chooseGreeting() {
     } else if (h >= 17) {
         return 'Good evening';
     }
-}
-
-/**
- * This function is used to show the name of the currently logged in user to greet him*her on the summary page.
- * @param {string} name This is the name of the currently logged in user.
- */
-function showUserName(name) {
-    let userNameCenter = document.getElementById('userNameCenter');
-    userNameCenter.innerHTML = '';
-    userNameCenter.innerHTML = name;
-    let userNameRight = document.getElementById('userNameRight');
-    userNameRight.innerHTML = '';
-    userNameRight.innerHTML = name;
 }
