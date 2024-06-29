@@ -12,7 +12,7 @@
     <script defer type="module" src="js/firebaseSignUP.js"></script>
     <script defer type="module" src="js/firebaseLogin.js"></script>
     <script defer src="js/config.js"></script>
-    <script defer src="js/index.js"></script>
+    <script defer src="js/index.js"></script>    
 </head>
 
 <body class="bg-add-task" onload="animation(),initJoin()">
@@ -50,7 +50,7 @@
             </div>
             <div class="login-btns">
                 <button class="login-btn btn-color clickable" id="loginbtn" onclick="validateLogin()">Log in</button>
-                <button class="guest-login btn-white clickable">Guest Log in</button>
+                <button class="guest-login btn-white clickable" onclick="openGuestAccess()">Guest Log in</button>
             </div>
         </div>
         <div class="not-a-user hide-on-desktop">
@@ -89,7 +89,7 @@
                     <div onclick="showPassword('passwordClick2','confirmPassword')" id="passwordClick2"
                         class="right-password-box"></div>
                 </div>
-                <span class="password-error-message d-none" id="pwError">Ups! Your password don't match</span>
+                <span class="password-error-message d-none" id="pwError">Oops! Your passwords don't match.</span>
                 <div class="accept-terms">
                     <img id="privacyCheckBox" onclick="handleCheckBoxPrivacyPolicy()" src="./assets/img/checkbox.svg"
                         alt="">

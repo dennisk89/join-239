@@ -1,4 +1,3 @@
-
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, setPersistence, signInWithEmailAndPassword, browserLocalPersistence, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
@@ -16,7 +15,7 @@ const firebaseConfig = {
     messagingSenderId: "641839341000",
     appId: "1:641839341000:web:48660cd7b3f9a196ccf4fd",
     measurementId: "G-70J970H5ZC"
-};
+}
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -24,7 +23,7 @@ const auth = getAuth(app)
 window.loggedInEmail = null;
 window.loggedInUser = null;
 
-function login(){
+function login() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const warningmessage = document.getElementById('wrongPassword');
@@ -37,7 +36,7 @@ function login(){
         .catch((error) => {
             warningmessage.classList.remove('d-none');
         });
-};
+}
 
 function loginWithPersistence() {
     const email = document.getElementById('email').value;
@@ -68,13 +67,16 @@ onAuthStateChanged(auth, async (user) => {
         console.log("User is signed in:", user);
         loggedInUser = getUserNameByLoggedInEmail(loggedInEmail, usersFromFirebase);
         updateUserIcon(loggedInUser);
+        showUserName(loggedInUser);
+        showGreeting('yes');
     } else {
         // User is signed out
         console.log("No user is signed in");
+        showGreeting('no');
     }
-});
+})
 
-function logOut(){
+function logOut() {
     const auth = getAuth();
     signOut(auth).then(() => {
       // Sign-out successful.
@@ -114,5 +116,3 @@ function updateUserIcon(name) {
 window.logOut = logOut;
 window.loginWithPersistence = loginWithPersistence;
 window.login = login;
-
-

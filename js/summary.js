@@ -60,3 +60,67 @@ function getUserNameByLoggedInEmail(loggedInEmail) {
     return user ? user.name : null;
 }
 
+/**
+ * This function is used to show the name of the currently logged in user to greet him*her on the summary page.
+ * @param {string} name This is the name of the currently logged in user.
+ */
+function showUserName(name) {
+    let userNameCenter = document.getElementById('userNameCenter');
+    userNameCenter.innerHTML = '';
+    userNameCenter.innerHTML = name;
+    let userNameRight = document.getElementById('userNameRight');
+    userNameRight.innerHTML = '';
+    userNameRight.innerHTML = name;
+}
+
+/**
+ * This function is used to show the greeting on the summary page based on if the user is logged in or not.
+ */
+function showGreeting(yesOrNo) {    
+    if (yesOrNo === 'yes') {
+        showGreetingLoggedInUser();
+    } else {
+        showGreetingGuestUser();        
+    }
+}
+
+/**
+ * This function is used to show the right greeting for logged in users.
+ */
+function showGreetingLoggedInUser() {    
+    let greetingCenter = document.getElementById('greetingCenter');
+    let greetingRight = document.getElementById('greetingRight');
+    greetingCenter.innerHTML = '';
+    greetingRight.innerHTML = '';
+    greetingCenter.innerHTML = chooseGreeting() + ',';
+    greetingRight.innerHTML = chooseGreeting() + ',';
+}
+
+/**
+ * This function is used to show the right greeting for guest users.
+ */
+function showGreetingGuestUser() {    
+    let greetingCenter = document.getElementById('greetingCenter');
+    let greetingRight = document.getElementById('greetingRight');
+    greetingCenter.innerHTML = '';
+    greetingRight.innerHTML = '';
+    greetingCenter.innerHTML = chooseGreeting() + '!';
+    greetingRight.innerHTML = chooseGreeting() + '!';
+}
+
+/**
+ * This function is used to check the current hour and choose the greeting based on it.
+ */
+function chooseGreeting() {
+    let d = new Date();
+    let h = d.getHours();
+    if (h >= 4 && h < 10) {
+        return 'Good morning';
+    } else if (h < 4 && h >= 10 && h < 13) {
+        return  'Hello';
+    } else if (h >= 13 && h < 17) {
+        return 'Good afternoon';
+    } else if (h >= 17) {
+        return 'Good evening';
+    }
+}
