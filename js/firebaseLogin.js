@@ -97,7 +97,7 @@ function errorFunction() {
 
 
 function getUserNameByLoggedInEmail(loggedInEmail, usersFromFirebase) {
-    const user = usersFromFirebase.find(user => user.email === loggedInEmail);
+    const user = usersFromFirebase.forEach(user => user.email === loggedInEmail);
     return user ? user.name : null;
 }
 

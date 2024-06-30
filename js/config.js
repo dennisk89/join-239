@@ -12,7 +12,7 @@ const taskTypeColor = {
 };
 let contacts;
 let taskArray;
-let usersArray = [];
+let usersArray;
 let todoTasks; 
 let progressTasks;
 let feedbackTasks;
@@ -34,11 +34,13 @@ function resetGlobalTaskVariables() {
 async function initJoin() {
     contacts = await getData(endpointContacts);
     taskArray = await getData(endpointTasks);
+    usersArray = await getData(endpointUser);
     todoTasks = taskArray.filter(t => t.taskStatus == 'todo');
     progressTasks = taskArray.filter(t => t.taskStatus == 'progress');
     feedbackTasks = taskArray.filter(t => t.taskStatus == 'feedback');
     doneTasks = taskArray.filter(t => t.taskStatus == 'done');
     urgentTasks = taskArray.filter(t => t.prio === 'urgent' && t.dueDate);
+    console.log(usersArray);
 }
 
 async function getData(url) {

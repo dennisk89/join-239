@@ -55,8 +55,8 @@ function findEarliestDate() {
     document.getElementById('dueDate').innerHTML = formattedDueDate;
 }
 
-function getUserNameByLoggedInEmail(loggedInEmail) {
-    const user = usersArray.find(user => user.email === loggedInEmail);
-    return user ? user.name : null;
-}
+// function getUserNameByLoggedInEmail(loggedInEmail) {
+//     const user = usersArray.find(user => user.email === loggedInEmail);
+//     return user ? user.name : null;
+// }
 

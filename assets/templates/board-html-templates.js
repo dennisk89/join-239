@@ -174,14 +174,15 @@ function editTaksOverlayHTML(id) {
                     </div>
                 </div>
                 <div class="input-group">
-                    <label class="font-16" for="subtaskInput">Subtaks</label>
-                    <input class="enter-input subtask-enter font-16 clickable" placeholder="Enter a subtask" type="text"
-                        name="Subtask" id="subtaskInput">
-                    <div>
-
+                    <label class="font-20" for="selectInput">Subtasks</label>
+                    <div id="subtaskInputFrame" class="enter-input outer-input">
+                        <input class="inner-input font-16" placeholder="Add new subtask" type="text"
+                            name="add subtasks" id="subtaskInput">
+                        <div id="subBtnContainer" class="sub-btn-container">
+                            <div id="addSubtaskBtn" class="sub-plus-image inner-input-img clickable"></div>
+                        </div>
                     </div>
-                    <ul class="subtask-ul" id="subtaskEditList">
-                    </ul>
+                    <div class="subtask-ul" id="subtaskEditList"></div>
                 </div>
                 <div class="form-btn-container padding-top-0">
                     <button class="board-btn-dark board-edit-btn clickable" type="submit">
