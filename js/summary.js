@@ -7,8 +7,9 @@ async function initSummary() {
     showTasksInProgressCount();
     showTasksAwaitingFeedbackCount();
     findEarliestDate();
-    getUserNameByLoggedInEmail(loggedInEmail);
-    showGreetingGuestUser();
+    showUserIcon();
+    showGreeting();
+    // getUserNameByLoggedInEmail(loggedInEmail);
 }
 
 function showTodosCount() {
@@ -61,13 +62,18 @@ function findEarliestDate() {
 //     return user ? user.name : null;
 // }
 
+
+
 /**
- * This function is used to evocate greeting the logged in user.
- * @param {string} loggedInUser This is the name of the currently logged in user.
+ * This function is used to show the right greeting for either guest user or logged in user.
  */
-function userIsLoggedIn(loggedInUser) {
-    showGreetingLoggedInUser();
-    showUserName(loggedInUser);
+function showGreeting() {
+    if (typeof loggedInUser === 'undefined' || loggedInUser === null) {
+        showGreetingGuestUser();
+    } else {
+        showGreetingLoggedInUser();
+        showUserName(loggedInUser);
+    }
 }
 
 /**
@@ -100,15 +106,14 @@ function showGreetingLoggedInUser() {
  * This function is used to show the right greeting for guest users on the summary page.
  */
 function showGreetingGuestUser() {
-    if (typeof loggedInUser === 'undefined' || loggedInUser === null) {
         let greetingCenter = document.getElementById('greetingCenter');
-        let greetingRight = document.getElementById('greetingRight');
+        let greetingRight = document.getElementById('greetingRight');        
         greetingCenter.innerHTML = '';
         greetingRight.innerHTML = '';
         greetingCenter.innerHTML = chooseGreeting() + '!';
-        greetingRight.innerHTML = chooseGreeting() + '!';        
-    }    
+        greetingRight.innerHTML = chooseGreeting() + '!';
 }
+
 
 /**
  * This function is used to check the current hour and choose the greeting based on it.

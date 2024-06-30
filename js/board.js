@@ -33,6 +33,7 @@ async function initBoard() {
     addCardsToBoards('feedbackColumn', feedbackTasks, 'Await feedback');
     addCardsToBoards('doneColumn', doneTasks, 'Done');
     addInfosToCards(taskArray);
+    showUserIcon();
 }
 
 

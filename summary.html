@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="style_dennis_summary.css">
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="footer.css">
-    <script defer src="js/config.js"></script>
+    <link rel="stylesheet" href="footer.css">    
     <script defer type="module" src="js/firebaseLogin.js"></script>
+    <script defer src="js/config.js"></script>
     <script defer src="js/summary.js"></script>
 </head>
 
-<body class="bg-add-task" onload="initSummary(), userIsLoggedIn(loggedInUser);">
+<body class="bg-add-task" onload="initSummary()">
     <header>
         <div class="inner-header">
             <p class="hide-on-mobile">Kanban Project Management Tool</p>
@@ -23,8 +23,8 @@
             <div class="flex-all-center gap-16">
                 <a class="hide-on-mobile clickable" href="help.html" a><img class="hover-scale"
                         src="assets/img/header-help-icon.svg" alt="help"></a>
-                <div class="profile-icon flex-all-center" onclick="moveOverlayMenu()">
-                    <p id="userIcon">G</p>
+                <div class="profile-icon flex-all-center">
+                    <p id="userIcon" class="clickable" onclick="moveOverlayMenu()"></p>
                 </div>
             </div>
         </div>

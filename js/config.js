@@ -64,6 +64,42 @@ function errorFunction() {
     console.error('Fehler aufgetreten');
 }
 
+
+/* ANCHOR Header */
+
+/**
+ * This function is used to show the right user icon on the header for either guest user or logged in user.
+ */
+function showUserIcon() {
+    if (typeof loggedInUser === 'undefined' || loggedInUser === null) {
+        showGuestUserIcon();
+    } else {
+        updateUserIcon(loggedInUser);
+    }
+}
+
+/**
+ * This function is used to show the initials of the currently logged in user in the header's user icon.
+ * @param {*} name This is the name of the currently logged in user.
+ */
+function updateUserIcon(name) {
+    const initials = name.split(' ')
+        .map(word => word.charAt(0).toUpperCase())
+        .join('');
+
+    document.getElementById('userIcon').innerText = initials;    
+}
+
+/**
+ * This function is used to show the header's icon for guest user.
+ */
+function showGuestUserIcon() {
+    let userIcon = document.getElementById('userIcon');
+    userIcon.innerHTML = 'G';
+}
+
+
+
 class Task {
     constructor(id, type, title, description, dueDate, assigned, prio, taskStatus, subTask, subtaskStatus) {
         this.id = id,

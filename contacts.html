@@ -13,10 +13,10 @@
     <link rel="stylesheet" href="contacts_overlays.css">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="footer.css">
+    <script defer type="module" src="js/firebaseLogin.js"></script>
     <script defer src="./js/config.js"></script>
     <script defer src="./js/contacts.js"></script>
-    <script defer src="./js/contacts_templates.js"></script>
-    <script defer type="module" src="js/firebaseLogin.js"></script>
+    <script defer src="./js/contacts_templates.js"></script>    
 
     <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
 
@@ -24,7 +24,7 @@
 
 </head>
 
-<body onload="showContactList()">
+<body onload="initContacts()">
 
     <header>
         <div class="inner-header">
@@ -32,7 +32,7 @@
             <img src="assets/img/join-logo.svg" class="hide-on-desktop" alt="">
             <div class="flex-all-center gap-16">
                 <a class="hide-on-mobile clickable" href="help.html" a><img class="hover-scale" src="assets/img/header-help-icon.svg" alt="help"></a>
-                <div class="profile-icon flex-all-center"><p id="userIcon" onclick="moveOverlayMenu()">G</p></div>
+                <div class="profile-icon flex-all-center"><p id="userIcon" class="clickable" onclick="moveOverlayMenu()"></p></div>
             </div>
         </div>
     </header>

@@ -11,12 +11,17 @@ let usedLetters = [];
 let contactListLetters = [];
 
 
+async function initContacts() {
+    await initJoin();
+    showContactList();
+    showUserIcon();
+}
+
 /**
- * This function is used to show the contact list onload.
+ * This function is used to show the contact list.
  * 
  */
-async function showContactList() {
-    await initJoin();
+function showContactList() {    
     excerptContactListLetters();
     let contactListContent = document.getElementById('contactListContent');
     contactListContent.innerHTML = '';

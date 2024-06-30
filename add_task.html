@@ -9,21 +9,21 @@
     <link rel="stylesheet" href="style_dennis.css">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="footer.css">
-    <link rel="icon" type="image/x-icon" href="assets/img/join-logo.svg">
+    <link rel="icon" type="image/x-icon" href="assets/img/join-logo.svg">    
+    <script defer type="module" src="js/firebaseLogin.js"></script>
     <script defer src="js/config.js"></script>
     <script defer src="js/add_task.js"></script>
-    <script defer type="module" src="js/firebaseLogin.js"></script>
     <script defer src="assets/templates/board-html-templates.js"></script>
 </head>
 
-<body class="bg-add-task" onload="setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg', 'medium');initJoin()">
+<body class="bg-add-task" onload="initAddTask()">
     <header>
         <div class="inner-header">
             <p class="hide-on-mobile">Kanban Project Management Tool</p>
             <img src="assets/img/join-logo.svg" class="hide-on-desktop" alt="">
             <div class="flex-all-center gap-16">
                 <a class="hide-on-mobile clickable" href="help.html" a><img class="hover-scale" src="assets/img/header-help-icon.svg" alt="help"></a>
-                <div class="profile-icon flex-all-center"><p id="userIcon" onclick="moveOverlayMenu()">G</p></div>
+                <div class="profile-icon flex-all-center"><p id="userIcon" class="clickable" onclick="moveOverlayMenu()"></p></div>
             </div>
         </div>
     </header>

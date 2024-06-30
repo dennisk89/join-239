@@ -9,6 +9,8 @@
     <link rel="icon" type="image/x-icon" href="assets/img/join-logo.svg">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="footer.css">
+    <script defer type="module" src="js/firebaseLogin.js"></script>
+    <script defer src="./js/config.js"></script>    
 </head>
 
 <body>
@@ -20,7 +22,7 @@
                 <a class="hide-on-mobile clickable" href="help.html" a><img class="hover-scale"
                         src="assets/img/header-help-icon.svg" alt="help"></a>
                 <div class="profile-icon flex-all-center">
-                    <p id="userIcon">SM</p>
+                    <p id="userIcon" class="clickable" onclick="moveOverlayMenu()"></p>
                 </div>
             </div>
         </div>

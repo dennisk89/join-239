@@ -1,3 +1,9 @@
+async function initAddTask() {
+    await initJoin();
+    setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg', 'medium');
+    showUserIcon();
+}
+
 // ANCHOR create Tasks
 async function createTask(nextFunction) {
     console.log('new');

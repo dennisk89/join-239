@@ -1,5 +1,6 @@
-async function initSummary() {
-    await initJoin();
+function init() {
+  animation();
+  initJoin();
 }
 
 function openSignup() {
@@ -82,7 +83,6 @@ function validateForm(event) {
     }
   };
 }
-
 
 function animation() {
   setTimeout(function() {

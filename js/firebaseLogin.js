@@ -19,7 +19,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app)
+const auth = getAuth(app);
 window.loggedInEmail = null;
 window.loggedInUser = null;
 
@@ -67,8 +67,7 @@ onAuthStateChanged(auth, async (user) => {
         loggedInEmail = user.email;
         console.log("User is signed in:", user);
         loggedInUser = getUserNameByLoggedInEmail(loggedInEmail, usersFromFirebase);
-        updateUserIcon(loggedInUser);
-        // showUserName(loggedInUser);
+        // updateUserIcon(loggedInUser);
     } else {
         // User is signed out
         console.log("No user is signed in");
@@ -103,18 +102,9 @@ function getUserNameByLoggedInEmail(loggedInEmail, usersFromFirebase) {
 }
 
 
-function updateUserIcon(name) {
-    const initials = name.split(' ')
-        .map(word => word.charAt(0).toUpperCase())
-        .join('');
-
-    document.getElementById('userIcon').innerText = initials;
-}
-
-
 async function addUser(name, email) {
     const user = { name: name, email: email };
-    usersArray.push(user)
+    usersArray.push(user);
     await putData(endpointUser, usersArray);
     console.log(usersArray);
 }
