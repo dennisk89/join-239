@@ -40,7 +40,6 @@ async function initJoin() {
     feedbackTasks = taskArray.filter(t => t.taskStatus == 'feedback');
     doneTasks = taskArray.filter(t => t.taskStatus == 'done');
     urgentTasks = taskArray.filter(t => t.prio === 'urgent' && t.dueDate);
-    console.log(usersArray);
 }
 
 async function getData(url) {

@@ -29,7 +29,7 @@ function login() {
     const warningmessage = document.getElementById('wrongPassword');
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            
+
             const user = userCredential.user;
             window.location.href = "./summary.html"
         })
@@ -63,12 +63,12 @@ function loginWithPersistence() {
 onAuthStateChanged(auth, async (user) => {
     if (user) {
         let usersFromFirebase = await getUsers('https://join-239-default-rtdb.europe-west1.firebasedatabase.app/users');
+        console.log(usersFromFirebase);
         loggedInEmail = user.email;
         console.log("User is signed in:", user);
         loggedInUser = getUserNameByLoggedInEmail(loggedInEmail, usersFromFirebase);
         updateUserIcon(loggedInUser);
         // showUserName(loggedInUser);
-        userIsLoggedIn(loggedInUser);
     } else {
         // User is signed out
         console.log("No user is signed in");
@@ -78,9 +78,9 @@ onAuthStateChanged(auth, async (user) => {
 function logOut() {
     const auth = getAuth();
     signOut(auth).then(() => {
-      // Sign-out successful.
+        // Sign-out successful.
     }).catch((error) => {
-      // An error happened.
+        // An error happened.
     });
 }
 
@@ -98,8 +98,8 @@ function errorFunction() {
 
 
 function getUserNameByLoggedInEmail(loggedInEmail, usersFromFirebase) {
-    const user = usersFromFirebase.forEach(user => user.email === loggedInEmail);
-    return user ? user.name : null;
+    const user = usersFromFirebase.filter(user => user.email === loggedInEmail);
+    return user ? user[0].name : null;
 }
 
 
@@ -107,11 +107,20 @@ function updateUserIcon(name) {
     const initials = name.split(' ')
         .map(word => word.charAt(0).toUpperCase())
         .join('');
-    
+
     document.getElementById('userIcon').innerText = initials;
+}
+
+
+async function addUser(name, email) {
+    const user = { name: name, email: email };
+    usersArray.push(user)
+    await putData(endpointUser, usersArray);
+    console.log(usersArray);
 }
 
 
 window.logOut = logOut;
 window.loginWithPersistence = loginWithPersistence;
 window.login = login;
+window.getUserNameByLoggedInEmail = getUserNameByLoggedInEmail;

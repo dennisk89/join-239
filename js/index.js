@@ -74,7 +74,7 @@ function validateForm(event) {
   let privacyCheckBox = document.getElementById('privacyCheckBox').src.includes('checkbox-checked.svg');
   if (isPasswordMatch && privacyCheckBox) {
     createNewUser();
-    addUser();
+    addUser(document.getElementById('name').value, document.getElementById('e-mail').value);
   } else {
     if (!privacyCheckBox) {
       privacyerrormessage.classList.remove('d-none');
@@ -83,14 +83,6 @@ function validateForm(event) {
   };
 }
 
-async function addUser() {
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('e-mail').value;
-  const user = { name: name, email: email };
-  usersArray.push(user)
-  await putData(endpointUser, usersArray);
-  console.log(usersArray);
-}
 
 function animation() {
   setTimeout(function() {
