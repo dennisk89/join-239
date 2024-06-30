@@ -2,14 +2,14 @@ async function initSummary() {
     await initJoin();
 }
 
-function openSignup(){
+function openSignup() {
     let login = document.getElementById('start-page-login');
     let signup = document.getElementById('signup-startpage');
     login.classList.add('d-none');
     signup.classList.remove('d-none');
 }
 
-function backToLogin(){
+function backToLogin() {
     let login = document.getElementById('start-page-login');
     let signup = document.getElementById('signup-startpage');
     login.classList.remove('d-none');
@@ -80,8 +80,7 @@ function validateForm(event) {
       privacyerrormessage.classList.remove('d-none');
       return false;
     }
-  }
-  ;
+  };
 }
 
 async function addUser() {
@@ -98,7 +97,6 @@ function animation() {
       document.getElementById("whiteB").style.zIndex = "-1";
   }, 3000);
 }
-
 
 function showSuccessMessage() {
   const successMessage = document.getElementById('successfullSignup');
@@ -123,10 +121,9 @@ function validateLogin() {
   }
 }
 
-
-
-
-
-
-
-
+/**
+ * This function is used to open the summary page for guest users.
+ */
+function openGuestAccess() {
+  window.location.href = "./summary.html";
+}

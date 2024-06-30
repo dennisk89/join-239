@@ -15,7 +15,7 @@
     <script defer src="js/summary.js"></script>
 </head>
 
-<body class="bg-add-task" onload="initJoin(),initSummary()">
+<body class="bg-add-task" onload="initSummary()">
     <header>
         <div class="inner-header">
             <p class="hide-on-mobile">Kanban Project Management Tool</p>
@@ -53,8 +53,8 @@
     </div>
     <div class="greet-user-desktop hide-on-mobile hide-over-1440px">
         <div class= "greet-user-desktop">
-            <div class="font36">Good morning,</div>
-            <div class="user-name">Sofia Müller</div>
+            <div id="greetingCenter" class="font36"></div>
+            <div id="userNameCenter" class="user-name"></div>
         </div>
     </div>
     <div class="greet-user-desktop hide-on-mobile hide-on-desktop">
@@ -94,8 +94,8 @@
         </div>
         <div class="greet-user-desktop hide-on-mobile hide-under-1440px">
             <div class= "greet-user-desktop">
-                <div class="font36">Good morning,</div>
-                <div class="user-name">Sofia Müller</div>
+                <div id="greetingRight" class="font36"></div>
+                <div id="userNameRight" class="user-name"></div>
             </div>
         </div>
         <div class="greet-user-desktop hide-on-mobile hide-on-desktop">
