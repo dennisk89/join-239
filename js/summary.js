@@ -85,12 +85,9 @@ function showGreeting() {
  * @param {string} name This is the name of the currently logged in user.
  */
 function showUserName(name) {
-    let userNameCenter = document.getElementById('userNameCenter');
-    userNameCenter.innerHTML = '';
-    userNameCenter.innerHTML = name;
-    let userNameRight = document.getElementById('userNameRight');
-    userNameRight.innerHTML = '';
-    userNameRight.innerHTML = name;
+    let userNameDesktop = document.getElementById('userNameDesktop');
+    userNameDesktop.innerHTML = '';
+    userNameDesktop.innerHTML = name;
     let userNameMobile = document.getElementById('userNameMobile');
     userNameMobile.innerHTML = '';
     userNameMobile.innerHTML = name;
@@ -100,14 +97,11 @@ function showUserName(name) {
  * This function is used to show the right greeting for logged in users on the summary page.
  */
 function showGreetingLoggedInUser() {
-    let greetingCenter = document.getElementById('greetingCenter');
-    let greetingRight = document.getElementById('greetingRight');
+    let greetingDesktop = document.getElementById('greetingDesktop');
     let greetingMobile = document.getElementById('greetingMobile');
-    greetingCenter.innerHTML = '';
-    greetingRight.innerHTML = '';
+    greetingDesktop.innerHTML = '';
     greetingMobile.innerHTML = '';
-    greetingCenter.innerHTML = chooseGreeting() + ',';
-    greetingRight.innerHTML = chooseGreeting() + ',';
+    greetingDesktop.innerHTML = chooseGreeting() + ',';
     greetingMobile.innerHTML = chooseGreeting() + ',';
 }
 
@@ -115,14 +109,11 @@ function showGreetingLoggedInUser() {
  * This function is used to show the right greeting for guest users on the summary page.
  */
 function showGreetingGuestUser() {
-        let greetingCenter = document.getElementById('greetingCenter');
-        let greetingRight = document.getElementById('greetingRight');
+        let greetingDesktop = document.getElementById('greetingDesktop');
         let greetingMobile = document.getElementById('greetingMobile');
-        greetingCenter.innerHTML = '';
-        greetingRight.innerHTML = '';
+        greetingDesktop.innerHTML = '';
         greetingMobile.innerHTML = '';
-        greetingCenter.innerHTML = chooseGreeting() + '!';
-        greetingRight.innerHTML = chooseGreeting() + '!';
+        greetingDesktop.innerHTML = chooseGreeting() + '!';
         greetingMobile.innerHTML = chooseGreeting() + '!';
 }
 
