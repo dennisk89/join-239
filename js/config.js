@@ -23,6 +23,7 @@ let tempSubtasks = [];
 let tempAssignees = [];
 let tempSubtasksStatus = [];
 let loggedInUser;
+let guestUserActive = false;
 
 function resetGlobalTaskVariables() {
     tempSubtasks = [];
@@ -71,7 +72,8 @@ function errorFunction() {
  * This function is used to show the right user icon on the header for either guest user or logged in user.
  */
 function showUserIcon() {
-    if (typeof loggedInUser === 'undefined' || loggedInUser === null) {
+    let checkGuestUserStatus = localStorage.getItem('guestUserActive');
+    if (JSON.parse(checkGuestUserStatus)) {
         showGuestUserIcon();
     } else {
         updateUserIcon(loggedInUser);
@@ -80,7 +82,7 @@ function showUserIcon() {
 
 /**
  * This function is used to show the initials of the currently logged in user in the header's user icon.
- * @param {*} name This is the name of the currently logged in user.
+ * @param {string} name This is the name of the currently logged in user.
  */
 function updateUserIcon(name) {
     const initials = name.split(' ')
@@ -97,8 +99,6 @@ function showGuestUserIcon() {
     let userIcon = document.getElementById('userIcon');
     userIcon.innerHTML = 'G';
 }
-
-
 
 class Task {
     constructor(id, type, title, description, dueDate, assigned, prio, taskStatus, subTask, subtaskStatus) {
@@ -166,4 +166,23 @@ function shouldAddEventListener() {
 // Event-Listener hinzufügen, um das Menü zu schließen, wenn außerhalb des Menüs geklickt wird
 if (shouldAddEventListener()) {
     document.getElementById('pageOverlay').addEventListener('click', hideMenu);
+}
+
+/**
+ * This function is used to store the information wheter a guest user is logged in or not into the local storage.
+ * @param {boolean} yesOrNo This variable is either filled with "true" or "false".
+ */
+function handleGuestUser(trueOrFalse) {
+    guestUserActive = trueOrFalse;
+    localStorage.setItem('guestUserActive', JSON.stringify(guestUserActive));
+}
+
+/**
+ * This function is used to get the information out of the local storage whether a guest user is logged in or not. If there is no guest user and no user logged in, it redirects to index.html.
+ */
+function checkLogin() {
+    let checkGuestUserStatus = localStorage.getItem('guestUserActive');
+    if (JSON.parse(checkGuestUserStatus) === false && (typeof loggedInUser === undefined || loggedInUser === null)) {
+        window.location.href = "./index.html";
+    }
 }

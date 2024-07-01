@@ -27,6 +27,7 @@ document.getElementById('taskSearch').addEventListener('keyup', checkSearch)
 
 // ANCHOR load Task cards in board
 async function initBoard() {
+    checkLogin();
     await initJoin();
     addCardsToBoards('toDoColumn', todoTasks, 'To do');
     addCardsToBoards('inProgressColumn', progressTasks, 'In progress');

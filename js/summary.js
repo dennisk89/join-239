@@ -1,4 +1,5 @@
 async function initSummary() {
+    checkLogin();
     await initJoin();
     showTodosCount();
     showDoneTasksCount();
@@ -11,6 +12,7 @@ async function initSummary() {
     showGreeting();
     // getUserNameByLoggedInEmail(loggedInEmail);
 }
+
 
 function showTodosCount() {
     let todos = todoTasks.length;
@@ -64,12 +66,15 @@ function findEarliestDate() {
 
 
 
+
+
 /**
  * This function is used to show the right greeting for either guest user or logged in user. On mobile devices, the greeting is displayed with timeout before the summary page appears.
  */
 function showGreeting() {
-    if (typeof loggedInUser === 'undefined' || loggedInUser === null) {
-        showGreetingGuestUser();
+    let checkGuestUserStatus = localStorage.getItem('guestUserActive');
+    if (JSON.parse(checkGuestUserStatus) === true) { 
+        showGreetingGuestUser();        
     } else {
         showGreetingLoggedInUser();
         showUserName(loggedInUser);

@@ -10,12 +10,13 @@ let usedLetters = [];
  */
 let contactListLetters = [];
 
-
 async function initContacts() {
+    checkLogin();
     await initJoin();
     showContactList();
     showUserIcon();
 }
+
 
 /**
  * This function is used to show the contact list.
