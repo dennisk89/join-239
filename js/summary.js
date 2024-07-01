@@ -1,15 +1,15 @@
 async function initSummary() {
-    checkLogin();
+    // checkLogin();
     await initJoin();
+    redirectOrShowUserIcon();
+    showGreeting();
     showTodosCount();
     showDoneTasksCount();
     showUrgentTasksCount();
     showTasksInBoardCount();
     showTasksInProgressCount();
     showTasksAwaitingFeedbackCount();
-    findEarliestDate();
-    showUserIcon();
-    showGreeting();
+    findEarliestDate();    
     // getUserNameByLoggedInEmail(loggedInEmail);
 }
 

@@ -27,14 +27,14 @@ document.getElementById('taskSearch').addEventListener('keyup', checkSearch)
 
 // ANCHOR load Task cards in board
 async function initBoard() {
-    checkLogin();
+    // checkLogin();
     await initJoin();
     addCardsToBoards('toDoColumn', todoTasks, 'To do');
     addCardsToBoards('inProgressColumn', progressTasks, 'In progress');
     addCardsToBoards('feedbackColumn', feedbackTasks, 'Await feedback');
     addCardsToBoards('doneColumn', doneTasks, 'Done');
     addInfosToCards(taskArray);
-    showUserIcon();
+    redirectOrShowUserIcon();
 }
 
 

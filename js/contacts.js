@@ -11,10 +11,10 @@ let usedLetters = [];
 let contactListLetters = [];
 
 async function initContacts() {
-    checkLogin();
+    // checkLogin();
     await initJoin();
     showContactList();
-    showUserIcon();
+    redirectOrShowUserIcon();
 }
 
 
@@ -76,14 +76,6 @@ function compareStrings(a, b) {
     a = a.toLowerCase();
     b = b.toLowerCase();
     return (a < b) ? -1 : (a > b) ? 1 : 0;
-}
-
-function getInitials(contactName) {
-    let initials = contactName
-        .split(' ')
-        .map (word => word.charAt(0))
-        .join('');
-    return initials;
 }
 
 function showContactDetails(contactId, contactName, initials, color, email, phone) {

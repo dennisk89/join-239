@@ -69,13 +69,16 @@ function errorFunction() {
 /* ANCHOR Header */
 
 /**
- * This function is used to show the right user icon on the header for either guest user or logged in user.
+ * This function is used to redirect to index.html, if there is neither guest nor user logged in. If there is a guest user active, the guest user icon is shown in the header; if there is a logged in user, the right user icon is shown on the header.
  */
-function showUserIcon() {
+function redirectOrShowUserIcon() {
     let checkGuestUserStatus = localStorage.getItem('guestUserActive');
-    if (JSON.parse(checkGuestUserStatus)) {
+    let guestUserActive = checkGuestUserStatus ? JSON.parse(checkGuestUserStatus) : false;
+    if (!guestUserActive && (typeof loggedInUser === 'undefined' || loggedInUser === null)) {
+        window.location.href = "./index.html";
+    } else if (guestUserActive) {
         showGuestUserIcon();
-    } else {
+    } else { // (typeof loggedInUser !== 'undefined' && loggedInUser !== null)
         updateUserIcon(loggedInUser);
     }
 }
@@ -85,11 +88,21 @@ function showUserIcon() {
  * @param {string} name This is the name of the currently logged in user.
  */
 function updateUserIcon(name) {
-    const initials = name.split(' ')
-        .map(word => word.charAt(0).toUpperCase())
-        .join('');
+    const userInitials = getInitials(name);
+    document.getElementById('userIcon').innerHTML = userInitials;
+}
 
-    document.getElementById('userIcon').innerText = initials;    
+/**
+ * This function is used to get the initials of a name.
+ * @param {string} name This is the name of the user or contact.
+ * @returns The function returns the initials in uppercase.
+ */
+function getInitials(name) {
+    let initials = name
+        .split(' ')
+        .map (word => word.charAt(0).toUpperCase())
+        .join('');
+    return initials;
 }
 
 /**
@@ -182,7 +195,7 @@ function handleGuestUser(trueOrFalse) {
  */
 function checkLogin() {
     let checkGuestUserStatus = localStorage.getItem('guestUserActive');
-    if (JSON.parse(checkGuestUserStatus) === false && (typeof loggedInUser === undefined || loggedInUser === null)) {
+    if (JSON.parse(checkGuestUserStatus) === false && (typeof loggedInUser === 'undefined' || loggedInUser === null)) {
         window.location.href = "./index.html";
     }
 }
