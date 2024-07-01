@@ -376,6 +376,7 @@ body {
     .user-name{
         font-size: 64px;
         font-weight: 700;
+        text-align: left;
     }
 
     .check-container{
