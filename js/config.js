@@ -128,17 +128,42 @@ function stopP(event) {
     event.stopPropagation();
 }
 
-function moveOverlayMenu() {
+function showMenu() {
+    let menuAnimation = document.getElementById('userMenu');
+    let pageOverlay = document.getElementById('pageOverlay');
+    menuAnimation.style.display = 'flex'; 
+    pageOverlay.style.display = 'block'; 
+    menuAnimation.classList.add('show');
+}
+
+function hideMenu() {
+    let menuAnimation = document.getElementById('userMenu');
+    let pageOverlay = document.getElementById('pageOverlay');
+    menuAnimation.classList.remove('show');
+    menuAnimation.classList.add('hide');
+    setTimeout(() => {
+        menuAnimation.style.display = 'none';
+        menuAnimation.classList.remove('hide');
+        pageOverlay.style.display = 'none'; 
+    }, 125); 
+}
+
+function toggleMenu() {
     let menuAnimation = document.getElementById('userMenu');
     if (menuAnimation.classList.contains('show')) {
-        menuAnimation.classList.remove('show');
-        menuAnimation.classList.add('hide');
-        setTimeout(() => {
-            menuAnimation.style.display = 'none';
-            menuAnimation.classList.remove('hide');
-        }, 1000);
+        hideMenu();
     } else {
-        menuAnimation.style.display = 'flex'; 
-        menuAnimation.classList.add('show');
+        showMenu();
     }
+}
+
+function shouldAddEventListener() {
+    // Seiten auf denen der Eventlistener hinzugefügt werden soll.
+    const pages = ['/summary.html', '/addTask.html', '/contacts.html', 'board.html'];
+    return pages.includes(window.location.pathname);
+}
+
+// Event-Listener hinzufügen, um das Menü zu schließen, wenn außerhalb des Menüs geklickt wird
+if (shouldAddEventListener()) {
+    document.getElementById('pageOverlay').addEventListener('click', hideMenu);
 }

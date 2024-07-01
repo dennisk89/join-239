@@ -101,7 +101,8 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.1s ease-in-out;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
 }
 
 .todo-done-container:hover {
@@ -180,7 +181,8 @@ body {
     border-radius: 20px;
     height: 110px;
     margin-left: 16px;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.1s ease-in-out;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
 }
 
 .priority-container:hover{
@@ -231,7 +233,8 @@ body {
     background-color: white;
     border-radius: 20px;
     gap: 13px;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.1s ease-in-out;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
 }
 
 .tasks-in-board:hover{
