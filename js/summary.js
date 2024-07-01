@@ -65,7 +65,7 @@ function findEarliestDate() {
 
 
 /**
- * This function is used to show the right greeting for either guest user or logged in user.
+ * This function is used to show the right greeting for either guest user or logged in user. On mobile devices, the greeting is displayed with timeout before the summary page appears.
  */
 function showGreeting() {
     if (typeof loggedInUser === 'undefined' || loggedInUser === null) {
@@ -74,6 +74,10 @@ function showGreeting() {
         showGreetingLoggedInUser();
         showUserName(loggedInUser);
     }
+    setTimeout(() => {
+        let greetUserBg = document.getElementById('greetUserBg');
+        greetUserBg.classList.add('d-none');
+    }, 1000);
 }
 
 /**
@@ -87,8 +91,10 @@ function showUserName(name) {
     let userNameRight = document.getElementById('userNameRight');
     userNameRight.innerHTML = '';
     userNameRight.innerHTML = name;
+    let userNameMobile = document.getElementById('userNameMobile');
+    userNameMobile.innerHTML = '';
+    userNameMobile.innerHTML = name;
 }
-
 
 /**
  * This function is used to show the right greeting for logged in users on the summary page.
@@ -96,10 +102,13 @@ function showUserName(name) {
 function showGreetingLoggedInUser() {
     let greetingCenter = document.getElementById('greetingCenter');
     let greetingRight = document.getElementById('greetingRight');
+    let greetingMobile = document.getElementById('greetingMobile');
     greetingCenter.innerHTML = '';
     greetingRight.innerHTML = '';
+    greetingMobile.innerHTML = '';
     greetingCenter.innerHTML = chooseGreeting() + ',';
     greetingRight.innerHTML = chooseGreeting() + ',';
+    greetingMobile.innerHTML = chooseGreeting() + ',';
 }
 
 /**
@@ -107,13 +116,15 @@ function showGreetingLoggedInUser() {
  */
 function showGreetingGuestUser() {
         let greetingCenter = document.getElementById('greetingCenter');
-        let greetingRight = document.getElementById('greetingRight');        
+        let greetingRight = document.getElementById('greetingRight');
+        let greetingMobile = document.getElementById('greetingMobile');
         greetingCenter.innerHTML = '';
         greetingRight.innerHTML = '';
+        greetingMobile.innerHTML = '';
         greetingCenter.innerHTML = chooseGreeting() + '!';
         greetingRight.innerHTML = chooseGreeting() + '!';
+        greetingMobile.innerHTML = chooseGreeting() + '!';
 }
-
 
 /**
  * This function is used to check the current hour and choose the greeting based on it.
@@ -123,7 +134,7 @@ function chooseGreeting() {
     let h = d.getHours();
     if (h >= 4 && h < 10) {
         return 'Good morning';
-    } else if (h < 4 && h >= 10 && h < 13) {
+    } else if ((h < 4) || (h >= 10 && h < 13)) {
         return  'Hello';
     } else if (h >= 13 && h < 17) {
         return 'Good afternoon';
