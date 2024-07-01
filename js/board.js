@@ -214,7 +214,7 @@ function renderAssigneesToTaskEdit(task) {
 function renderEditSubtasks(task) {
     tempSubtasks = task.subTask;
     for (let i = 0; i < tempSubtasks.length; i++) {
-        document.getElementById('subtaskEditList').innerHTML += editSubtaskListHTML(tempSubtasks[i]);
+        document.getElementById('subtaskEditList').innerHTML += editSubtaskListHTML(tempSubtasks[i], i);
     }
 }
 

@@ -193,6 +193,7 @@ function renderTempSubtasks() {
 
 // ANCHOR edit subtask
 function editSubtask(index) {
+    console.log(index);
     document.getElementById('subtaskEditList').children[index].innerHTML = renderEditSubtaskInputHTML(tempSubtasks[index], index);
     document.getElementById('subtaskEditList').children[index].classList.remove('subtask-list-row')
 }
