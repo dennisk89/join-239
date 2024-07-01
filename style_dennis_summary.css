@@ -420,5 +420,9 @@ body {
         justify-content: start;
     }
 
+    .greet-user-desktop {
+        margin-left: 60px;
+    }
+
 }
 
