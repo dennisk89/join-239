@@ -226,7 +226,7 @@ function checkSubTask(subtaskId) {
     subtaskId = subtaskId.replace('sub', '');
     taskArray[taskArrayIndex].subTaskStatus[subtaskId] = changeSubTaskStatus(taskArray[taskArrayIndex].subTaskStatus[subtaskId]);
     renderSubTasks(getTaskById(taskId));
-    addSubTaskProgressToCards(taskArrayIndex);
+    addSubTaskProgressToCards(taskArray, taskArrayIndex);
 }
 
 
