@@ -145,7 +145,8 @@ async function addNewContact(newContact) {
     await putData(endpointContacts, contacts);
     emptyAddContactForm();
     hideOverlayAddContact();
-    await showContactList();
+    contacts = await getData(endpointContacts);
+    showContactList();
     showNewContactDetails(newContact['id'], newContact['name'], newContact['initials'], newContact['color'], newContact['email'], newContact['phone']);
     showOverlayNewContactOk();
 }
@@ -168,6 +169,7 @@ function emptyAddContactForm() {
 async function deleteContact(contactId) {
     let contactsRemaining = contacts.filter(contact => contact.id !== contactId);
     await putData(endpointContacts, contactsRemaining);
+    contacts = await getData(endpointContacts);
     showContactList();
     emptyContactDetailsContainer();
 }
@@ -179,7 +181,8 @@ async function saveEditedContact(newContactData, contactId) {
     contacts.push(newContactData);
     await putData(endpointContacts, contacts);
     emptyEditContactForm();
-    await showContactList();
+    contacts = await getData(endpointContacts);
+    showContactList();
     showNewContactDetails(newContactData['id'], newContactData['name'], newContactData['initials'], newContactData['color'], newContactData['email'], newContactData['phone']);
 }
 
