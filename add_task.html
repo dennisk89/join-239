@@ -36,7 +36,7 @@
             <div class="add-task-desktop-gap">
                 <p class="margin-8px font-20px">Title<span class="color-red">*</span></p>
                 <input class="enter-title-input" placeholder="Enter a title" type="text" name="Title" id="titleInput" required>
-                <span class="warning-message-field-required d-none">This field is requiered</span>
+                <span id="titleWarningMessage" class="warning-message-field-required d-none">This field is requiered</span>
                 <p class="margin-8px font-20px">Description</p>
                 <textarea class="enter-description-input" placeholder="Enter a description" name="Description"
                     id="descriptionInput"></textarea>
@@ -59,7 +59,7 @@
                 <p class="margin-8px font-20px">Due date <span class="color-red">*</span></p>
                 <input class="date-input" type="text" placeholder="dd/mm/yyyy" id="dateInput"
                     onfocus="(this.type='date')" onblur="(this.type='text'); this.placeholder='dd/mm/yyyy';">
-                <span class="warning-message-field-required d-none">This field is requiered</span>
+                <span id="dateWarningMessage" class="warning-message-field-required d-none">This field is requiered</span>
                 <div class="height-88px">
                     <p class="margin-8px font-20px">Prio</p>
                     <div class="justify-space-between">

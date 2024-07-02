@@ -70,15 +70,15 @@ function taskHTML(id, type, title, description, dueDate, prio) {
             <p class="task-p-bold">Subtasks</p>
             <div id="taskOverlaySubtasks">
             </div>
-            <div class="task-footer clickable">
-                <div onclick="deleteTask('${id}')" class="task-footer">
-                    <img src="assets/img/delete.svg" alt="Delete task">
-                    <p>Delete</p>
-                </div>
-                <div class="divider"></div>
-                <div onclick="openEdit('${id}')" class="task-footer">
-                    <img src="assets/img/edit.svg" alt="Open edit task">
-                    <p>Edit</p>
+            <div class="task-footer">
+                <div onclick="deleteTask('${id}')" class="task-footer clickable delete-task-button">
+                <div class="icon"></div>
+                <p>Delete</p>
+            </div>
+            <div class="divider"></div>
+                <div onclick="openEdit('${id}')" class="task-footer clickable edit-task-button">
+                <div class="icon"></div>
+            <p>Edit</p>
                 </div>
             </div>
         </div>  

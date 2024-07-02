@@ -629,7 +629,9 @@ p {
 
 
 .drag-area-highlight {
-    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    border-style: dashed;
+    border-width: 1px;
 }
 
 .clickable {
@@ -637,13 +639,44 @@ p {
 }
 .clickable.plus-icon {
     background-image: url('assets/img/plus-button-mobile-board-column.svg');
-    width: 30px; /* Set the width of your image */
-    height: 30px; /* Set the height of your image */
+    width: 30px; 
+    height: 30px; 
     background-size: cover;
 }
 .clickable.plus-icon:hover {
     background-image: url('assets/img/blue+icon.svg');
 }
+
+.delete-task-button .icon {
+    background-image: url('assets/img/delete.svg');
+    height: 24px;
+    width: 24px;
+}
+
+.delete-task-button:hover .icon {
+    background-image: url('assets/img/blue-delete.svg');
+    height: 24px;
+    width: 24px;
+}
+
+.edit-task-button .icon {
+    background-image: url('assets/img/edit.svg');
+    height: 24px;
+    width: 24px;
+}
+
+.edit-task-button:hover .icon {
+    background-image: url('assets/img/blue-edit.svg');
+    height: 24px;
+    width: 24px;
+}
+
+.delete-task-button:hover p,
+.edit-task-button:hover p {
+    color: rgb(41, 171, 226);
+}
+
+
 
 /* ANCHOR Media querries */
 @media (min-width: 768px) {
@@ -730,5 +763,8 @@ p {
         flex-direction: row;
         justify-content: space-between;
         padding: 0;
+    }
+    .card-container{
+        min-height: 100vh;
     }
 }
