@@ -632,6 +632,19 @@ p {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
+.clickable {
+    cursor: pointer;
+}
+.clickable.plus-icon {
+    background-image: url('assets/img/plus-button-mobile-board-column.svg');
+    width: 30px; /* Set the width of your image */
+    height: 30px; /* Set the height of your image */
+    background-size: cover;
+}
+.clickable.plus-icon:hover {
+    background-image: url('assets/img/blue+icon.svg');
+}
+
 /* ANCHOR Media querries */
 @media (min-width: 768px) {
     .open-task {

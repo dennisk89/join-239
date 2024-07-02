@@ -74,6 +74,7 @@ onAuthStateChanged(auth, async (user) => {
 })
 
 function logOut() {
+    // removeYouFromContact();
     const auth = getAuth();
     signOut(auth).then(() => {
         // Sign-out successful.

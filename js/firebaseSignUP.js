@@ -39,6 +39,7 @@ function createNewUser() {
             const errorMessage = error.message;
             alert(errorMessage);
         });
+    createNewContactArrayOutOfNewUserArray(email, name);
 }
 
 
