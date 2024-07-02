@@ -13,7 +13,7 @@ let contactListLetters = [];
 async function initContacts() {
     await initJoin();
     await redirectOrShowUserIcon();
-    showContactList();    
+    showContactList();
 }
 
 
@@ -21,7 +21,7 @@ async function initContacts() {
  * This function is used to show the contact list.
  * 
  */
-function showContactList() {    
+function showContactList() {
     excerptContactListLetters();
     let contactListContent = document.getElementById('contactListContent');
     contactListContent.innerHTML = '';
@@ -53,6 +53,10 @@ function excerptContactListLetters() {
  */
 function showContactListContent() {
     sortContacts();
+    let contactIdOfLastLoggedInUser = getContactIdOfLastLoggedInUser();
+    if (contactIdOfLastLoggedInUser !== false) {
+        changeContactLoggedinStatusNo();
+    }    
     for (i = 0; i < contacts.length; i++) {
         let contact = contacts[i];
         let contactName = contact['name'];
@@ -178,7 +182,7 @@ function createNewContactArrayOutOfNewUserArray(email, name) {
         'email': email,
         'phone': '',
         'color': randomColor,
-        'initials': getInitials(name) // aus name von newUser reinnehmen!
+        'initials': getInitials(name)
     }
     addNewUserToContacts(newContact);
 }
@@ -338,4 +342,38 @@ function hideOverlayNewContactOk(){
     setTimeout(() => {
         overlayNewContactOk.classList.add('d-none');
     }, 500); /* same duration as slide out animation */
+}
+
+
+/**
+ * This function is used to get the contact ID of the last logged in user out of the local storage.
+ * @returns It returns the contact ID of the last logged in user.
+ */
+function getContactIdOfLastLoggedInUser() {
+    let checkContactIdOfLoggedInUser = localStorage.getItem('contactIdOfLoggedInUser');
+    let contactIdOfLastLoggedInUser = checkContactIdOfLoggedInUser ? JSON.parse(checkContactIdOfLoggedInUser) : false;
+    return contactIdOfLastLoggedInUser;
+}
+
+/**
+ * This function is used to change the "loggedin"-entry in the contact information of the last logged in user to "0" again.
+ */
+async function changeContactLoggedinStatusNo() {
+    let contactIdOfLastLoggedInUser = getContactIdOfLastLoggedInUser();    
+    let contactArrayOfLastLoggedInUser = contacts.filter(contact => contact.id === contactIdOfLastLoggedInUser);
+    let contactDataOfLastLoggedInUser = contactArrayOfLastLoggedInUser[0];
+    let newContactData = {
+        'id': contactIdOfLastLoggedInUser,
+        'name': contactDataOfLastLoggedInUser['name'],
+        'email': contactDataOfLastLoggedInUser['email'],
+        'phone': contactDataOfLastLoggedInUser['phone'],
+        'color': contactDataOfLastLoggedInUser['color'],
+        'initials': contactDataOfLastLoggedInUser['initials'],
+        'loggedin': 0
+    };
+    contacts = await getData(endpointContacts);
+    let indexOfChangedContact = contacts.findIndex(x => x.id === contactIdOfLastLoggedInUser);
+    contacts.splice(indexOfChangedContact, 1);
+    contacts.push(newContactData);
+    await putData(endpointContacts, contacts); 
 }

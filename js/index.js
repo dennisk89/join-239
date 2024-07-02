@@ -1,5 +1,5 @@
-function init() {
-  animation();
+async function init() {
+  animation();  
   initJoin();
 }
 

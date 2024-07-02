@@ -23,6 +23,7 @@ let tempSubtasks = [];
 let tempAssignees = [];
 let tempSubtasksStatus = [];
 let loggedInUser;
+let contactIdOfLoggedInUser;
 let guestUserActive = false;
 
 function resetGlobalTaskVariables() {
@@ -75,14 +76,12 @@ async function redirectOrShowUserIcon() {
     let checkGuestUserStatus = localStorage.getItem('guestUserActive');
     let guestUserActive = checkGuestUserStatus ? JSON.parse(checkGuestUserStatus) : false;
     if (!guestUserActive && (typeof loggedInUser === 'undefined' || loggedInUser === null)) {
-        // changeContactLoggedinStatus(0);
         window.location.href = "./index.html";
     } else if (guestUserActive) {
         showGuestUserIcon();
-        // changeContactLoggedinStatus(0);
     } else { // (typeof loggedInUser !== 'undefined' && loggedInUser !== null)
         updateUserIcon(loggedInUser);
-        changeContactLoggedinStatus(1);
+        changeContactLoggedinStatusYes();
     }
 }
 
@@ -194,12 +193,13 @@ function handleGuestUser(trueOrFalse) {
 }
 
 /**
- * This function is used to change the "loggedin"-entry in the contact information of the currently logged in user.
+ * This function is used to change the "loggedin"-entry in the contact information of the currently logged in user to "1".
  */
-async function changeContactLoggedinStatus(yesOrNo) {
+async function changeContactLoggedinStatusYes() {
     let contactArrayOfLoggedInUser = contacts.filter(contact => contact.name === loggedInUser);
     let contactDataOfLoggedInUser = contactArrayOfLoggedInUser[0];
-    let contactIdOfLoggedInUser = contactDataOfLoggedInUser['id'];
+    contactIdOfLoggedInUser = contactDataOfLoggedInUser['id'];
+    storeContactIdOfLoggedInUser();
     let newContactData = {
         'id': contactIdOfLoggedInUser,
         'name': contactDataOfLoggedInUser['name'],
@@ -207,11 +207,18 @@ async function changeContactLoggedinStatus(yesOrNo) {
         'phone': contactDataOfLoggedInUser['phone'],
         'color': contactDataOfLoggedInUser['color'],
         'initials': contactDataOfLoggedInUser['initials'],
-        'loggedin': yesOrNo
+        'loggedin': 1
     };
     contacts = await getData(endpointContacts);
     let indexOfChangedContact = contacts.findIndex(x => x.id === contactIdOfLoggedInUser);
     contacts.splice(indexOfChangedContact, 1);
     contacts.push(newContactData);
     await putData(endpointContacts, contacts);
+}
+
+/**
+ * This function is used to store the contact ID of the logged in user into the local storage.
+ */
+function storeContactIdOfLoggedInUser() {
+    localStorage.setItem('contactIdOfLoggedInUser', JSON.stringify(contactIdOfLoggedInUser));
 }
