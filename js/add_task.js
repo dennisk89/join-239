@@ -37,7 +37,7 @@ function setPrioBtn(id, cssClass, iconPath, prio) {
         setPrioBtnStandardIcon();
     });
     document.getElementById(id).classList.add(cssClass);
-    document.getElementById(id).children[1].src = iconPath
+    document.getElementById(id).children[1].src = iconPath;
 }
 
 

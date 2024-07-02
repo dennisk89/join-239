@@ -69,10 +69,6 @@ function taskHTML(id, type, title, description, dueDate, prio) {
             <div id="taskAssign"></div>
             <p class="task-p-bold">Subtasks</p>
             <div id="taskOverlaySubtasks">
-                <div id="sub1" class="check-list-row">
-                    <img onclick="checkSubTask(event)" class="clickable" src="assets/img/checkbox-checked.svg" alt="checkbox-checked">
-                    <p>Subtask text</p>
-                </div>
             </div>
             <div class="task-footer clickable">
                 <div onclick="deleteTask('${id}')" class="task-footer">

@@ -126,6 +126,8 @@ function closeTask(id) {
 // ANCHOR open Task details
 function openTasks(id) {
     let task = getTaskById(id);
+    console.log(task.subTask);
+    tempSubtasks = task.subTask;
     document.getElementById('taskOverlay').style.display = 'flex';
     document.getElementById('taskOverlay').innerHTML = taskHTML(task.id, task.type, task.title, task.description, task.dueDate, prioIcons[task.prio]);
     task.assigned ? renderAssignees(task) : '';
@@ -187,7 +189,8 @@ function fillEditForm(taskIndex) {
     }
     setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg', 'medium')
     setTaskPrio(taskArray[taskIndex].prio);
-    renderEditSubtasks(taskArray[taskIndex])
+    renderEditSubtasks(taskArray[taskIndex]);
+    renderAssigneesToTaskEdit(taskArray[taskIndex])
 }
 
 
@@ -205,17 +208,17 @@ function setTaskPrio(prio) {
 
 
 function renderAssigneesToTaskEdit(task) {
-    tempAssignees = pushTaskAssigneeInfosToArray(task);
-    for (let i = 0; i < tempAssignees.length; i++) {
-        document.getElementById('assigneesEdit').innerHTML += profileBatchHTML(tempAssignees[i].color, tempAssignees[i].initials)
+    if (task.assigned != undefined) {
+        tempAssignees = task.assigned;
+        renderContactBadgeUnderSelectField();
     }
 }
 
 
 function renderEditSubtasks(task) {
-    tempSubtasks = task.subTask;
-    for (let i = 0; i < tempSubtasks.length; i++) {
-        document.getElementById('subtaskEditList').innerHTML += editSubtaskListHTML(tempSubtasks[i], i);
+    if (task.subTask != undefined) {
+        tempSubtasks = task.subTask;
+        renderTempSubtasks();
     }
 }
 
