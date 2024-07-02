@@ -7,7 +7,7 @@ async function initAddTask() {
 
 // ANCHOR create Tasks
 async function createTask(nextFunction) {
-    console.log('new');
+    setTempSubtasksStatus();
     let newTask = new Task(generateUniqueId('t', taskArray), 
         document.getElementById('selectCategory').value, 
         document.getElementById('titleInput').value, 
@@ -175,7 +175,6 @@ function resetSubtaskInput() {
 function addSubtaskToTempSubtasks() {
     if (document.getElementById('subtaskInput').value.length > 0) {
         tempSubtasks.push(document.getElementById('subtaskInput').value)
-        setTempSubtasksStatus();
         resetSubtaskInput();
     }
     renderTempSubtasks(); 
@@ -215,13 +214,14 @@ function deleteSubtask(i) {
     tempSubtasks.splice(i, 1);
     renderTempSubtasks();
     resetSubtaskInput();
-    setTempSubtasksStatus();
 }
 
 
 function setTempSubtasksStatus() {
     tempSubtasksStatus = [];
-    tempSubtasks.forEach(() => tempSubtasksStatus.push(false));
+    if (tempSubtasks.length > 0) {
+        tempSubtasks.forEach(() => tempSubtasksStatus.push(false));
+    }
 }
 
 

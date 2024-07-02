@@ -124,7 +124,7 @@ function editTaksOverlayHTML(id) {
             <div class="task-header flex-end">
                 <img id="closeEditOverlay" class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask('taskOverlay')">
             </div>
-            <form class="edit-form" onsubmit="console.log('edit'); return false">
+            <form class="edit-form" onsubmit="confirmEditTask('${id}'); return false">
                 <div class="input-group">
                     <label class="font-16" for="titleInput">Title<span class="color-red">*</span></label>
                     <input id="titleInput" class="enter-input font-16" placeholder="Enter a title" type="text"

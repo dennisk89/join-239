@@ -78,8 +78,8 @@ function addContactLabelsToCards(taskArray, i) {
         if (j === 5 && validAssignees.length > 6) {
             container.innerHTML += addAssignWithOverlapHTML(getRest(validAssignees), 'grey', j);
         } else {
-            defineContactIconOverlap(j, validAssignees[j], container); 
-        }  
+            defineContactIconOverlap(j, validAssignees[j], container);
+        }
     }
 }
 
@@ -175,8 +175,12 @@ async function deleteTask(id) {
 
 // ANCHOR edit Tasks
 function openEdit(id) {
+    let taskIndex = taskArray.findIndex(t => t.id === id)
     document.getElementById('taskOverlay').innerHTML = editTaksOverlayHTML(id);
-    fillEditForm(taskArray.findIndex(t => t.id === id));
+    fillEditForm(taskIndex);
+    tempAssignees = taskArray[taskIndex].assigned;
+    tempSubtasks = taskArray[taskIndex].subTask;
+    tempSubtasksStatus = taskArray[taskIndex].subTaskStatus;
     document.getElementById('closeEditOverlay').addEventListener('click', resetGlobalTaskVariables);
 }
 
@@ -238,6 +242,26 @@ function changeSubTaskStatus(currentStatusBoolean) {
 }
 
 
+function confirmEditTask(id) {
+    let contentArray = [document.getElementById('titleInput').value, document.getElementById('descriptionInput').value, document.getElementById('dateInput').value]
+    if (contentArray[0].length > 1 && contentArray[3].length > 0) {
+        let i = taskArray[taskArray.findIndex(t => t.id === id)];
+        taskArray[i].assigned = tempAssignees;
+        taskArray[i].subTask = tempSubtasks;
+        taskArray[i].subTaskStatus = tempSubtasksStatus;
+        getTaskTextValues(i)
+        console.log(currentTaskPrio);
+    }
+
+
+    // await putData(endpointTasks, taskArray);
+}
+
+
+function getTaskTextValues() {
+
+}
+
 
 // SECTION add task
 function openAddTaskOverlay() {
@@ -257,7 +281,7 @@ document.getElementById('closeAddBtn').addEventListener('click', () => {
 
 // !SECTION
 
-/*ANCHOR - Drag and Drop*/ 
+/*ANCHOR - Drag and Drop*/
 let currentDraggedElement;
 
 
