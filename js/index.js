@@ -108,8 +108,10 @@ function validateLogin() {
   let checkBox = document.getElementById('rememberMe');
   if (checkBox.src.includes('checkbox-checked.svg')) {
     loginWithPersistence();
+    // addYouToContact();
   } else {
     login();
+    // addYouToContact();
   }
 }
 

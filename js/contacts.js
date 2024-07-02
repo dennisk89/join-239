@@ -151,6 +151,77 @@ async function addNewContact(newContact) {
     showOverlayNewContactOk();
 }
 
+/**
+ * This function is used to create a new contact array out of the data of a new registered user.
+ * @param {string} email This is the email of the new registered user.
+ * @param {string} name This is the name of the new registered user.
+ */
+function createNewContactArrayOutOfNewUserArray(email, name) {
+    let newId = generateUniqueId('c', contacts);
+    let randomColor = getRandomColor();
+    let newContact = {
+        'id': newId,
+        'name': name,
+        'email': email,
+        'phone': '',
+        'color': randomColor,
+        'initials': getInitials(name) // aus name von newUser reinnehmen!
+    }
+    addNewUserToContacts(newContact);
+}
+
+/**
+ * This function is used to add new users to contacts.
+ * @param {object} newUser This is the data of the new contact taken from the new registered user.
+ */
+async function addNewUserToContacts(newUser) {
+    contacts.push(newUser);
+    await putData(endpointContacts, contacts);
+}
+
+// async function addYouToContact() {
+//     let contactArrayOfLoggedInUser = contacts.filter(contact => contact.name === loggedInUser);
+//     let contactDataOfLoggedInUser = contactArrayOfLoggedInUser[0];
+//     let contactIdOfLoggedInUser = contactDataOfLoggedInUser['id'];
+//     let nameOfLoggedInUser = contactDataOfLoggedInUser['name'] + ' (You)';
+//     let newContactData = {
+//         'id': contactIdOfLoggedInUser,
+//         'name': nameOfLoggedInUser,
+//         'email': contactDataOfLoggedInUser['email'],
+//         'phone': contactDataOfLoggedInUser['phone'],
+//         'color': contactDataOfLoggedInUser['color'],
+//         'initials': contactDataOfLoggedInUser['initials']
+//     };
+//     contacts = await getData(endpointContacts);
+//     let indexOfContactOfLoggedInUser = contacts.findIndex(x => x.id === contactIdOfLoggedInUser);
+//     contacts.splice(indexOfContactOfLoggedInUser, 1);
+//     contacts.push(newContactData);
+//     await putData(endpointContacts, contacts);
+//     contacts = await getData(endpointContacts);
+//     showContactList();
+// }
+
+// async function removeYouFromContact() {
+//     let contactArrayOfLoggedInUser = contacts.filter(contact => contact.name === loggedInUser);
+//     let contactDataOfLoggedInUser = contactArrayOfLoggedInUser[0];
+//     let contactIdOfLoggedInUser = contactDataOfLoggedInUser.id;
+//     let newContactData = {
+//         'id': contactIdOfLoggedInUser,
+//         'name': loggedInUser,
+//         'email': contactDataOfLoggedInUser['email'],
+//         'phone': contactDataOfLoggedInUser['phone'],
+//         'color': contactDataOfLoggedInUser['color'],
+//         'initials': contactDataOfLoggedInUser['initials']
+//     };
+//     contacts = await getData(endpointContacts);
+//     let indexOfContactOfLoggedInUser = contacts.findIndex(x => x.id === contactIdOfLoggedInUser);
+//     contacts.splice(indexOfContactOfLoggedInUser, 1);
+//     contacts.push(newContactData);
+//     await putData(endpointContacts, contacts);
+//     contacts = await getData(endpointContacts);
+//     showContactList();
+// }
+
 function showNewContactDetails(contactId, contactName, initials, color, email, phone) {
     document.getElementById('mainContacts').classList.remove('contacts-hide-on-mobile');
     let contactDetailsContainer = document.getElementById('contactDetailsContainer');
@@ -186,7 +257,7 @@ async function saveEditedContact(newContactData, contactId) {
     showNewContactDetails(newContactData['id'], newContactData['name'], newContactData['initials'], newContactData['color'], newContactData['email'], newContactData['phone']);
 }
 
-function editContact(contactId, initials, color) {
+function editContact(contactId, color) {
     let editContactInputName = document.getElementById('editContactInputName');
     let editContactInputMail = document.getElementById('editContactInputMail');
     let editContactInputPhone = document.getElementById('editContactInputPhone');
@@ -231,7 +302,7 @@ function showOverlayEditContact(contactId, contactName, initials, color, email, 
     createOverlayEditContactDot(initials, color);
     insertInputValues(contactName, email, phone);
     document.getElementById('editContactDeleteBtn').onclick = function() {deleteContact(contactId); hideOverlayEditContact(); hideContactDetailsMobile(); return false};
-    document.getElementById('editContactForm').onsubmit = function() {editContact(contactId, initials, color); hideOverlayEditContact(); hideContactDetailsMobile(); return false};
+    document.getElementById('editContactForm').onsubmit = function() {editContact(contactId, color); hideOverlayEditContact(); hideContactDetailsMobile(); return false};
     let overlayEditContact = document.getElementById('overlayEditContact');
     overlayEditContact.classList.remove('d-none');
     overlayEditContact.classList.add('overlay-slide-in');
