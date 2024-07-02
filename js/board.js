@@ -253,7 +253,3 @@ document.getElementById('closeAddBtn').addEventListener('click', () => {
 
 // !SECTION
 
-
-
-
-

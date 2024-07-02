@@ -160,7 +160,7 @@
 
         <!-- ANCHOR in to do -->
         <div class="board-columns">
-            <div class="column-with-col-header">
+            <div class="column-with-col-header" id="todo" ondrop="moveTo('done')" ondragleave="removeHighlight('taskStatus')" ondragover="allowDrop(event); highlight('category')">
                 <div class="board-column-title">
                     <h2>To do</h2>
                     <img class="clickable" src="assets/img/plus-button-mobile-board-column.svg" alt="">
@@ -171,7 +171,7 @@
             </div>
 
             <!-- ANCHOR in progress -->
-            <div class="column-with-col-header">
+            <div class="column-with-col-header" id="inProgress" ondrop="moveTo('done')" ondragleave="removeHighlight('category')" ondragover="allowDrop(event); highlight('category')">
                 <div class="board-column-title">
                     <h2>In progress</h2>
                     <img class="clickable" src="assets/img/plus-button-mobile-board-column.svg" alt="">
@@ -183,7 +183,7 @@
 
 
             <!-- ANCHOR in feedback -->
-            <div class="column-with-col-header">
+            <div class="column-with-col-header" id="feedback" ondrop="moveTo('done')" ondragleave="removeHighlight('category')" ondragover="allowDrop(event); highlight('category')">
                 <div class="board-column-title">
                     <h2>Await feedback</h2>
                     <img class="clickable" src="assets/img/plus-button-mobile-board-column.svg" alt="">
@@ -194,7 +194,7 @@
             </div>
 
             <!-- ANCHOR done -->
-            <div class="column-with-col-header mobile-marg-btm-96">
+            <div class="column-with-col-header mobile-marg-btm-96" id="done" ondrop="moveTo('open')" ondragleave="removeHighlight('category')" ondragover="allowDrop(event); highlight('category')">
                 <div class="board-column-title">
                     <h2>Done</h2>
                 </div>
