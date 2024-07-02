@@ -23,6 +23,7 @@ const auth = getAuth(app)
 
 function createNewUser() {
     const email = document.getElementById('e-mail').value;
+    const name = document.getElementById('name').value;
     const password = document.getElementById('confirmPassword').value;
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -39,5 +40,6 @@ function createNewUser() {
             alert(errorMessage);
         });
 }
+
 
 window.createNewUser = createNewUser;

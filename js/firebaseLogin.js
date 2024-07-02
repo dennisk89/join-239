@@ -101,12 +101,7 @@ function getUserNameByLoggedInEmail(loggedInEmail, usersFromFirebase) {
 }
 
 
-async function addUser(name, email) {
-    const user = { name: name, email: email };
-    usersArray.push(user);
-    await putData(endpointUser, usersArray);
-    console.log(usersArray);
-}
+
 
 
 window.logOut = logOut;

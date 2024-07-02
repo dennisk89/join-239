@@ -120,3 +120,11 @@ function openGuestAccess() {
   handleGuestUser(true);
   window.location.href = "./summary.html";
 }
+
+
+async function addUser(name, email) {
+  const user = { name: name, email: email };
+  usersArray.push(user);
+  await putData(endpointUser, usersArray);
+  console.log(usersArray);
+}
