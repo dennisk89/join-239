@@ -1,7 +1,6 @@
 async function initSummary() {
-    // checkLogin();
     await initJoin();
-    redirectOrShowUserIcon();
+    await redirectOrShowUserIcon();
     showGreeting();
     showTodosCount();
     showDoneTasksCount();
@@ -9,10 +8,8 @@ async function initSummary() {
     showTasksInBoardCount();
     showTasksInProgressCount();
     showTasksAwaitingFeedbackCount();
-    findEarliestDate();    
-    // getUserNameByLoggedInEmail(loggedInEmail);
+    findEarliestDate();
 }
-
 
 function showTodosCount() {
     let todos = todoTasks.length;
@@ -58,14 +55,6 @@ function findEarliestDate() {
     });
     document.getElementById('dueDate').innerHTML = formattedDueDate;
 }
-
-// function getUserNameByLoggedInEmail(loggedInEmail) {
-//     const user = usersArray.find(user => user.email === loggedInEmail);
-//     return user ? user.name : null;
-// }
-
-
-
 
 
 /**

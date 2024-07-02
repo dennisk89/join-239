@@ -1,8 +1,7 @@
 async function initAddTask() {
-    // checkLogin();
     await initJoin();
-    setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg', 'medium');
-    redirectOrShowUserIcon();
+    await redirectOrShowUserIcon();
+    setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg', 'medium');    
 }
 
 // ANCHOR create Tasks

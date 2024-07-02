@@ -11,10 +11,9 @@ let usedLetters = [];
 let contactListLetters = [];
 
 async function initContacts() {
-    // checkLogin();
     await initJoin();
-    showContactList();
-    redirectOrShowUserIcon();
+    await redirectOrShowUserIcon();
+    showContactList();    
 }
 
 

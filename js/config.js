@@ -71,7 +71,7 @@ function errorFunction() {
 /**
  * This function is used to redirect to index.html, if there is neither guest nor user logged in. If there is a guest user active, the guest user icon is shown in the header; if there is a logged in user, the right user icon is shown on the header.
  */
-function redirectOrShowUserIcon() {
+async function redirectOrShowUserIcon() {
     let checkGuestUserStatus = localStorage.getItem('guestUserActive');
     let guestUserActive = checkGuestUserStatus ? JSON.parse(checkGuestUserStatus) : false;
     if (!guestUserActive && (typeof loggedInUser === 'undefined' || loggedInUser === null)) {
@@ -188,14 +188,4 @@ if (shouldAddEventListener()) {
 function handleGuestUser(trueOrFalse) {
     guestUserActive = trueOrFalse;
     localStorage.setItem('guestUserActive', JSON.stringify(guestUserActive));
-}
-
-/**
- * This function is used to get the information out of the local storage whether a guest user is logged in or not. If there is no guest user and no user logged in, it redirects to index.html.
- */
-function checkLogin() {
-    let checkGuestUserStatus = localStorage.getItem('guestUserActive');
-    if (JSON.parse(checkGuestUserStatus) === false && (typeof loggedInUser === 'undefined' || loggedInUser === null)) {
-        window.location.href = "./index.html";
-    }
 }

@@ -74,7 +74,6 @@ onAuthStateChanged(auth, async (user) => {
 })
 
 function logOut() {
-    // removeYouFromContact();
     const auth = getAuth();
     signOut(auth).then(() => {
         // Sign-out successful.
@@ -95,14 +94,11 @@ function errorFunction() {
     console.error('Fehler aufgetreten');
 }
 
-
 function getUserNameByLoggedInEmail(loggedInEmail, usersFromFirebase) {
     const user = usersFromFirebase.filter(user => user.email === loggedInEmail);
-    return user ? user[0].name : null;
+    return user.length > 0 ? user[0].name : null;
+    // return user ? user[0].name : null;
 }
-
-
-
 
 
 window.logOut = logOut;
