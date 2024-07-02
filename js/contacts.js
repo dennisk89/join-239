@@ -62,6 +62,19 @@ function showContactListContent() {
         let color = contact['color'];
         let contactsContainer = document.getElementById('contactsContainer' + firstInitialUpper);
         contactsContainer.innerHTML += generateContactListContentHTML(contact, initials, color);
+        proofIfContactIsLoggedIn(contact);
+    }
+}
+
+/**
+ * This function is used to proof if the current contact is logged in. In case the contact is logged in, "(You)" is added to his*her name in the contact list.
+ * @param {object} contact This is the array of the current contact.
+ */
+function proofIfContactIsLoggedIn(contact) {
+    let id = contact['id'];
+    let loggedin = contact['loggedin'];
+    if (loggedin === 1) {
+        document.getElementById('contactListName' + id).innerHTML += ' (You)';
     }
 }
 

@@ -23,7 +23,7 @@ function generateContactListContentHTML(contact, initials, color) {
         <div id="contactContainer${contact['id']}" class="contact-container clickable" onclick="showContactDetails('${contact['id']}', '${contact['name']}', '${initials}', '${color}', '${contact['email']}', '${contact['phone']}', '${contact['loggedin']}')">
             <div class="contact-list-dot contact-dot-${color}">${initials}</div>
             <div>
-                <div class="contact-list-name">${contact['name']}</div>
+                <div id="contactListName${contact['id']}" class="contact-list-name">${contact['name']}</div>
                 <div class="contact-mail">${contact['email']}</div>
             </div>
         </div>
