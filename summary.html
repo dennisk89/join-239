@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="footer.css">    
     <script defer type="module" src="js/firebaseLogin.js"></script>
     <script defer src="js/config.js"></script>
-    <script defer src="js/summary.js"></script>
+    <script defer src="js/summary.js"></script>    
 </head>
 
 <body class="bg-add-task" onload="initSummary()">
@@ -30,16 +30,14 @@
             </div>
         </div>
     </header>
-    <!-- ANCHOR First greeting d-none -->
-    <div class="greet-user d-none">
-        <span class="font36">Good morning,</span>
-        <span class="user-name">Sofia Müller</span>
-    </div>
-    <!-- ANCHOR Good Morning d-none -->
-    <div class="greet-user d-none">
-        <span class="font36">Good morning!</span>
-    </div>
-    <!-- ANCHOR Summary User -->
+
+    <!-- ANCHOR Greeting mobile -->
+    <div id="greetUserBg" class="greet-user-bg">
+        <span id="greetingMobile" class="font36"></span>
+        <span id="userNameMobile" class="user-name"></span>
+    </div> 
+
+    <!-- ANCHOR Summary Headline -->
     <div>
         <div class="summary-headline">
             <div class="join239">
@@ -52,72 +50,71 @@
             <div class="blue-line90px"></div>
         </div>
     </div>
-    <div class="greet-user-desktop hide-on-mobile hide-over-1440px">
-        <div class= "greet-user-desktop">
-            <div id="greetingCenter" class="font36"></div>
-            <div id="userNameCenter" class="user-name"></div>
-        </div>
-    </div>
-    <div class="greet-user-desktop hide-on-mobile hide-on-desktop">
-        <span class="font36">Good morning!</span>
-    </div>
-    <div class="width-396px summary-container">
-        <div class="todo-done-container clickable" onclick="window.location.href='board.html';">
-            <div class="summary-todo pencil-container-desktop hide-on-mobile"></div>
-            <div class="summary-todo pencil-container-mobile hide-on-desktop"></div>
-            <div class="display-flex">
-                <span id="todos" class="font47-weight600">0</span>
-                <span class="font14">To-do</span>
-            </div>
-        </div>
-        <div class="todo-done-container clickable" onclick="window.location.href='board.html';">
-            <div class="summary-todo check-container"></div>
-            <div class="display-flex">
-                <span id="doneTasks" class="font47-weight600">3</span>
-                <span class="font14">Done</span>
-            </div>
-        </div>
-    </div>
-    <div class="flex-align-center">
-        <div class="priority-container width-396px clickable" onclick="window.location.href='board.html';">
-            <div class="priority-urgent">
-                <img src="./assets/img/priority-urgent-white.svg" alt="">
-            </div>
-            <div class="display-flex">
-                <span id="urgentTasks" class="font47-weight600">4</span>
-                <span class="font14">Urgent</span>
-            </div>
-            <div class="middle-line"></div>
-            <div class="display-flex date">
-                <span id="dueDate" class="date-text">October 16, 2022</span>
-                <span class="font14">Upcoming Deadline</span>
-            </div>
-        </div>
-        <div class="greet-user-desktop hide-on-mobile hide-under-1440px">
-            <div class= "greet-user-desktop">
-                <div id="greetingRight" class="font36"></div>
-                <div id="userNameRight" class="user-name"></div>
-            </div>
-        </div>
-        <div class="greet-user-desktop hide-on-mobile hide-on-desktop">
-            <span class="font36">Good morning!</span>
-        </div>
-    </div>
 
-    <div class="task-summary">
-        <div class="tasks-in-board clickable" onclick="window.location.href='board.html';">
-            <span id="tasksInBoard" class="font47-weight600">0</span>
-            <span class="font14">Tasks in <br> Board</span>
+    <div class="main-container">
+
+        <!-- ANCHOR Greeting desktop -->
+        <div class="greet-user-desktop">
+            <div id="greetingDesktop" class="font36"></div>
+            <div id="userNameDesktop" class="user-name"></div>
         </div>
-        <div class="tasks-in-board clickable" onclick="window.location.href='board.html';">
-            <span id="tasksInProgress" class="font47-weight600">2</span>
-            <span class="font14">Tasks in <br> Progress</span>
-        </div>
-        <div class="tasks-in-board clickable" onclick="window.location.href='board.html';">
-            <span id="tasksAwaitingFeedback" class="font47-weight600">2</span>
-            <span class="font14">Awaiting feedback</span>
-        </div>
-    </div>
+
+        <!-- ANCHOR Content: To-do, Done, Urgent, Tasks in Board, Tasks in Progress, Awaiting Feedback-->
+        <div class="content-container">
+
+            <div class="width-396px summary-container">
+                <div class="todo-done-container clickable" onclick="window.location.href='board.html';">
+                    <div class="summary-todo pencil-container-desktop hide-on-mobile"></div>
+                    <div class="summary-todo pencil-container-mobile hide-on-desktop"></div>
+                    <div class="display-flex">
+                        <span id="todos" class="font47-weight600">0</span>
+                        <span class="font14">To-do</span>
+                    </div>
+                </div>
+                <div class="todo-done-container clickable" onclick="window.location.href='board.html';">
+                    <div class="summary-todo check-container"></div>
+                    <div class="display-flex">
+                        <span id="doneTasks" class="font47-weight600">3</span>
+                        <span class="font14">Done</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-align-center">
+                <div class="priority-container width-396px clickable" onclick="window.location.href='board.html';">
+                    <div class="priority-urgent">
+                        <img src="./assets/img/priority-urgent-white.svg" alt="">
+                    </div>
+                    <div class="display-flex">
+                        <span id="urgentTasks" class="font47-weight600">4</span>
+                        <span class="font14">Urgent</span>
+                    </div>
+                    <div class="middle-line"></div>
+                    <div class="display-flex date">
+                        <span id="dueDate" class="date-text">October 16, 2022</span>
+                        <span class="font14">Upcoming Deadline</span>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="task-summary">
+                <div class="tasks-in-board clickable" onclick="window.location.href='board.html';">
+                    <span id="tasksInBoard" class="font47-weight600">0</span>
+                    <span class="font14">Tasks in <br> Board</span>
+                </div>
+                <div class="tasks-in-board clickable" onclick="window.location.href='board.html';">
+                    <span id="tasksInProgress" class="font47-weight600">2</span>
+                    <span class="font14">Tasks in <br> Progress</span>
+                </div>
+                <div class="tasks-in-board clickable" onclick="window.location.href='board.html';">
+                    <span id="tasksAwaitingFeedback" class="font47-weight600">2</span>
+                    <span class="font14">Awaiting Feedback</span>
+                </div>
+            </div>
+
+        </div> <!-- end .content-container -->
+
+    </div>  <!-- end .main-container -->  
 
     <!--ANCHOR - overlay-animation-->
     <div class="menu-overlay" id="userMenu">
@@ -131,11 +128,10 @@
             <a href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
         </div>
         <div class="overlay-menu-links">
-            <a onclick="logOut()" href="index.html" rel="noopener noreferrer">Log out</a>
+            <a onclick="logOut(); handleGuestUser(false)" href="index.html" rel="noopener noreferrer">Log out</a>
         </div>
         
     </div>
-
 
     <footer class="mobile-footer">
         <img class="logo hide-on-mobile" src="assets/img/join-logo-big.svg" alt="">

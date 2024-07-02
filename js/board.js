@@ -27,13 +27,14 @@ document.getElementById('taskSearch').addEventListener('keyup', checkSearch)
 
 // ANCHOR load Task cards in board
 async function initBoard() {
+    // checkLogin();
     await initJoin();
     addCardsToBoards('toDoColumn', todoTasks, 'To do');
     addCardsToBoards('inProgressColumn', progressTasks, 'In progress');
     addCardsToBoards('feedbackColumn', feedbackTasks, 'Await feedback');
     addCardsToBoards('doneColumn', doneTasks, 'Done');
     addInfosToCards(taskArray);
-    showUserIcon();
+    redirectOrShowUserIcon();
 }
 
 
@@ -214,7 +215,7 @@ function renderAssigneesToTaskEdit(task) {
 function renderEditSubtasks(task) {
     tempSubtasks = task.subTask;
     for (let i = 0; i < tempSubtasks.length; i++) {
-        document.getElementById('subtaskEditList').innerHTML += editSubtaskListHTML(tempSubtasks[i]);
+        document.getElementById('subtaskEditList').innerHTML += editSubtaskListHTML(tempSubtasks[i], i);
     }
 }
 
@@ -225,7 +226,7 @@ function checkSubTask(subtaskId) {
     subtaskId = subtaskId.replace('sub', '');
     taskArray[taskArrayIndex].subTaskStatus[subtaskId] = changeSubTaskStatus(taskArray[taskArrayIndex].subTaskStatus[subtaskId]);
     renderSubTasks(getTaskById(taskId));
-    addSubTaskProgressToCards(taskArrayIndex);
+    addSubTaskProgressToCards(taskArray, taskArrayIndex);
 }
 
 

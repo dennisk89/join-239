@@ -166,7 +166,7 @@ function editTaksOverlayHTML(id) {
                     <label class="font-16" for="selectContactsInput">Assigned to</label>
                     <div class="enter-input outer-input">
                         <input id="titleInput" class="inner-input font-16" placeholder="Select contacts to assign" type="text"
-                        name="select contacts" id="selectContactsInput" required>
+                        name="select contacts" id="selectContactsInput">
                         <div class="select-image clickable">
                         </div>
                     </div>
@@ -175,7 +175,7 @@ function editTaksOverlayHTML(id) {
                 </div>
                 <div class="input-group">
                     <label class="font-20" for="selectInput">Subtasks</label>
-                    <div id="subtaskInputFrame" class="enter-input outer-input">
+                    <div id="editOverlaySubtaskInputFrame" onclick="changeSubtaskInput()" class="enter-input outer-input">
                         <input class="inner-input font-16" placeholder="Add new subtask" type="text"
                             name="add subtasks" id="subtaskInput">
                         <div id="subBtnContainer" class="sub-btn-container">

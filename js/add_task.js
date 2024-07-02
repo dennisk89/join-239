@@ -1,7 +1,8 @@
 async function initAddTask() {
+    // checkLogin();
     await initJoin();
     setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg', 'medium');
-    showUserIcon();
+    redirectOrShowUserIcon();
 }
 
 // ANCHOR create Tasks
@@ -193,6 +194,7 @@ function renderTempSubtasks() {
 
 // ANCHOR edit subtask
 function editSubtask(index) {
+    console.log(index);
     document.getElementById('subtaskEditList').children[index].innerHTML = renderEditSubtaskInputHTML(tempSubtasks[index], index);
     document.getElementById('subtaskEditList').children[index].classList.remove('subtask-list-row')
 }

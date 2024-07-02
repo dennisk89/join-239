@@ -10,12 +10,13 @@ let usedLetters = [];
  */
 let contactListLetters = [];
 
-
 async function initContacts() {
+    // checkLogin();
     await initJoin();
     showContactList();
-    showUserIcon();
+    redirectOrShowUserIcon();
 }
+
 
 /**
  * This function is used to show the contact list.
@@ -75,14 +76,6 @@ function compareStrings(a, b) {
     a = a.toLowerCase();
     b = b.toLowerCase();
     return (a < b) ? -1 : (a > b) ? 1 : 0;
-}
-
-function getInitials(contactName) {
-    let initials = contactName
-        .split(' ')
-        .map (word => word.charAt(0))
-        .join('');
-    return initials;
 }
 
 function showContactDetails(contactId, contactName, initials, color, email, phone) {
@@ -152,7 +145,8 @@ async function addNewContact(newContact) {
     await putData(endpointContacts, contacts);
     emptyAddContactForm();
     hideOverlayAddContact();
-    await showContactList();
+    contacts = await getData(endpointContacts);
+    showContactList();
     showNewContactDetails(newContact['id'], newContact['name'], newContact['initials'], newContact['color'], newContact['email'], newContact['phone']);
     showOverlayNewContactOk();
 }
@@ -175,6 +169,7 @@ function emptyAddContactForm() {
 async function deleteContact(contactId) {
     let contactsRemaining = contacts.filter(contact => contact.id !== contactId);
     await putData(endpointContacts, contactsRemaining);
+    contacts = await getData(endpointContacts);
     showContactList();
     emptyContactDetailsContainer();
 }
@@ -186,7 +181,8 @@ async function saveEditedContact(newContactData, contactId) {
     contacts.push(newContactData);
     await putData(endpointContacts, contacts);
     emptyEditContactForm();
-    await showContactList();
+    contacts = await getData(endpointContacts);
+    showContactList();
     showNewContactDetails(newContactData['id'], newContactData['name'], newContactData['initials'], newContactData['color'], newContactData['email'], newContactData['phone']);
 }
 

@@ -1,16 +1,18 @@
 async function initSummary() {
+    // checkLogin();
     await initJoin();
+    redirectOrShowUserIcon();
+    showGreeting();
     showTodosCount();
     showDoneTasksCount();
     showUrgentTasksCount();
     showTasksInBoardCount();
     showTasksInProgressCount();
     showTasksAwaitingFeedbackCount();
-    findEarliestDate();
-    showUserIcon();
-    showGreeting();
+    findEarliestDate();    
     // getUserNameByLoggedInEmail(loggedInEmail);
 }
+
 
 function showTodosCount() {
     let todos = todoTasks.length;
@@ -64,16 +66,23 @@ function findEarliestDate() {
 
 
 
+
+
 /**
- * This function is used to show the right greeting for either guest user or logged in user.
+ * This function is used to show the right greeting for either guest user or logged in user. On mobile devices, the greeting is displayed with timeout before the summary page appears.
  */
 function showGreeting() {
-    if (typeof loggedInUser === 'undefined' || loggedInUser === null) {
-        showGreetingGuestUser();
+    let checkGuestUserStatus = localStorage.getItem('guestUserActive');
+    if (JSON.parse(checkGuestUserStatus) === true) { 
+        showGreetingGuestUser();        
     } else {
         showGreetingLoggedInUser();
         showUserName(loggedInUser);
     }
+    setTimeout(() => {
+        let greetUserBg = document.getElementById('greetUserBg');
+        greetUserBg.classList.add('d-none');
+    }, 1000);
 }
 
 /**
@@ -81,39 +90,37 @@ function showGreeting() {
  * @param {string} name This is the name of the currently logged in user.
  */
 function showUserName(name) {
-    let userNameCenter = document.getElementById('userNameCenter');
-    userNameCenter.innerHTML = '';
-    userNameCenter.innerHTML = name;
-    let userNameRight = document.getElementById('userNameRight');
-    userNameRight.innerHTML = '';
-    userNameRight.innerHTML = name;
+    let userNameDesktop = document.getElementById('userNameDesktop');
+    userNameDesktop.innerHTML = '';
+    userNameDesktop.innerHTML = name;
+    let userNameMobile = document.getElementById('userNameMobile');
+    userNameMobile.innerHTML = '';
+    userNameMobile.innerHTML = name;
 }
-
 
 /**
  * This function is used to show the right greeting for logged in users on the summary page.
  */
 function showGreetingLoggedInUser() {
-    let greetingCenter = document.getElementById('greetingCenter');
-    let greetingRight = document.getElementById('greetingRight');
-    greetingCenter.innerHTML = '';
-    greetingRight.innerHTML = '';
-    greetingCenter.innerHTML = chooseGreeting() + ',';
-    greetingRight.innerHTML = chooseGreeting() + ',';
+    let greetingDesktop = document.getElementById('greetingDesktop');
+    let greetingMobile = document.getElementById('greetingMobile');
+    greetingDesktop.innerHTML = '';
+    greetingMobile.innerHTML = '';
+    greetingDesktop.innerHTML = chooseGreeting() + ',';
+    greetingMobile.innerHTML = chooseGreeting() + ',';
 }
 
 /**
  * This function is used to show the right greeting for guest users on the summary page.
  */
 function showGreetingGuestUser() {
-        let greetingCenter = document.getElementById('greetingCenter');
-        let greetingRight = document.getElementById('greetingRight');        
-        greetingCenter.innerHTML = '';
-        greetingRight.innerHTML = '';
-        greetingCenter.innerHTML = chooseGreeting() + '!';
-        greetingRight.innerHTML = chooseGreeting() + '!';
+        let greetingDesktop = document.getElementById('greetingDesktop');
+        let greetingMobile = document.getElementById('greetingMobile');
+        greetingDesktop.innerHTML = '';
+        greetingMobile.innerHTML = '';
+        greetingDesktop.innerHTML = chooseGreeting() + '!';
+        greetingMobile.innerHTML = chooseGreeting() + '!';
 }
-
 
 /**
  * This function is used to check the current hour and choose the greeting based on it.
@@ -123,7 +130,7 @@ function chooseGreeting() {
     let h = d.getHours();
     if (h >= 4 && h < 10) {
         return 'Good morning';
-    } else if (h < 4 && h >= 10 && h < 13) {
+    } else if ((h < 4) || (h >= 10 && h < 13)) {
         return  'Hello';
     } else if (h >= 13 && h < 17) {
         return 'Good afternoon';

@@ -114,8 +114,9 @@ function validateLogin() {
 }
 
 /**
- * This function is used to open the summary page for guest users.
+ * This function is used to open the summary page for guest users and to execute the function handleGuestUser commiting the variable "true".
  */
 function openGuestAccess() {
+  handleGuestUser(true);
   window.location.href = "./summary.html";
 }
