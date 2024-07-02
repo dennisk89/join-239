@@ -192,52 +192,6 @@ async function addNewUserToContacts(newUser) {
     await putData(endpointContacts, contacts);
 }
 
-async function addYouToContact() {
-    let contactArrayOfLoggedInUser = contacts.filter(contact => contact.name === loggedInUser);
-    console.log(contactArrayOfLoggedInUser);
-    // let contactDataOfLoggedInUser = contactArrayOfLoggedInUser[0].id;
-    // console.log(contactDataOfLoggedInUser);
-    // let contactIdOfLoggedInUser = contactDataOfLoggedInUser['id'];
-    
-    // let nameOfLoggedInUser = contactDataOfLoggedInUser['name'] + ' (You)';
-    // let newContactData = {
-    //     'id': contactIdOfLoggedInUser,
-    //     'name': nameOfLoggedInUser,
-    //     'email': contactDataOfLoggedInUser['email'],
-    //     'phone': contactDataOfLoggedInUser['phone'],
-    //     'color': contactDataOfLoggedInUser['color'],
-    //     'initials': contactDataOfLoggedInUser['initials']
-    // };
-    // contacts = await getData(endpointContacts);
-    // let indexOfContactOfLoggedInUser = contacts.findIndex(x => x.id === contactIdOfLoggedInUser);
-    // contacts.splice(indexOfContactOfLoggedInUser, 1);
-    // contacts.push(newContactData);
-    // await putData(endpointContacts, contacts);
-    // contacts = await getData(endpointContacts);
-    // showContactList();
-}
-
-// async function removeYouFromContact() {
-//     let contactArrayOfLoggedInUser = contacts.filter(contact => contact.name === loggedInUser);
-//     let contactDataOfLoggedInUser = contactArrayOfLoggedInUser[0];
-//     let contactIdOfLoggedInUser = contactDataOfLoggedInUser.id;
-//     let newContactData = {
-//         'id': contactIdOfLoggedInUser,
-//         'name': loggedInUser,
-//         'email': contactDataOfLoggedInUser['email'],
-//         'phone': contactDataOfLoggedInUser['phone'],
-//         'color': contactDataOfLoggedInUser['color'],
-//         'initials': contactDataOfLoggedInUser['initials']
-//     };
-//     contacts = await getData(endpointContacts);
-//     let indexOfContactOfLoggedInUser = contacts.findIndex(x => x.id === contactIdOfLoggedInUser);
-//     contacts.splice(indexOfContactOfLoggedInUser, 1);
-//     contacts.push(newContactData);
-//     await putData(endpointContacts, contacts);
-//     contacts = await getData(endpointContacts);
-//     showContactList();
-// }
-
 function showNewContactDetails(contactId, contactName, initials, color, email, phone, loggedin) {
     document.getElementById('mainContacts').classList.remove('contacts-hide-on-mobile');
     let contactDetailsContainer = document.getElementById('contactDetailsContainer');

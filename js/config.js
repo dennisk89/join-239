@@ -75,11 +75,14 @@ async function redirectOrShowUserIcon() {
     let checkGuestUserStatus = localStorage.getItem('guestUserActive');
     let guestUserActive = checkGuestUserStatus ? JSON.parse(checkGuestUserStatus) : false;
     if (!guestUserActive && (typeof loggedInUser === 'undefined' || loggedInUser === null)) {
+        // changeContactLoggedinStatus(0);
         window.location.href = "./index.html";
     } else if (guestUserActive) {
         showGuestUserIcon();
+        // changeContactLoggedinStatus(0);
     } else { // (typeof loggedInUser !== 'undefined' && loggedInUser !== null)
         updateUserIcon(loggedInUser);
+        changeContactLoggedinStatus(1);
     }
 }
 
@@ -188,4 +191,27 @@ if (shouldAddEventListener()) {
 function handleGuestUser(trueOrFalse) {
     guestUserActive = trueOrFalse;
     localStorage.setItem('guestUserActive', JSON.stringify(guestUserActive));
+}
+
+/**
+ * This function is used to change the "loggedin"-entry in the contact information of the currently logged in user.
+ */
+async function changeContactLoggedinStatus(yesOrNo) {
+    let contactArrayOfLoggedInUser = contacts.filter(contact => contact.name === loggedInUser);
+    let contactDataOfLoggedInUser = contactArrayOfLoggedInUser[0];
+    let contactIdOfLoggedInUser = contactDataOfLoggedInUser['id'];
+    let newContactData = {
+        'id': contactIdOfLoggedInUser,
+        'name': contactDataOfLoggedInUser['name'],
+        'email': contactDataOfLoggedInUser['email'],
+        'phone': contactDataOfLoggedInUser['phone'],
+        'color': contactDataOfLoggedInUser['color'],
+        'initials': contactDataOfLoggedInUser['initials'],
+        'loggedin': yesOrNo
+    };
+    contacts = await getData(endpointContacts);
+    let indexOfChangedContact = contacts.findIndex(x => x.id === contactIdOfLoggedInUser);
+    contacts.splice(indexOfChangedContact, 1);
+    contacts.push(newContactData);
+    await putData(endpointContacts, contacts);
 }
