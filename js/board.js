@@ -242,24 +242,29 @@ function changeSubTaskStatus(currentStatusBoolean) {
 }
 
 
-function confirmEditTask(id) {
+async function confirmEditTask(id) {
     let contentArray = [document.getElementById('titleInput').value, document.getElementById('descriptionInput').value, document.getElementById('dateInput').value]
-    if (contentArray[0].length > 1 && contentArray[3].length > 0) {
-        let i = taskArray[taskArray.findIndex(t => t.id === id)];
-        taskArray[i].assigned = tempAssignees;
-        taskArray[i].subTask = tempSubtasks;
-        taskArray[i].subTaskStatus = tempSubtasksStatus;
-        getTaskTextValues(i)
-        console.log(currentTaskPrio);
+    if (contentArray[0].length > 1 && contentArray[2].length > 0) {
+        let i = taskArray.findIndex(t => t.id === id);
+        setValuesToTaskArray(i, contentArray);
+        await putData(endpointTasks, taskArray);
+        initBoard()
+    } else {
+        console.log('Kein Titel oder Datum');
+        // TODO hier die Fehlermeldung wie im Design ausführen
     }
-
-
-    // await putData(endpointTasks, taskArray);
+    closeTask('taskOverlay');    
 }
 
 
-function getTaskTextValues() {
-
+function setValuesToTaskArray(i, contentArray) {
+    taskArray[i].assigned = tempAssignees;
+    taskArray[i].subTask = tempSubtasks;
+    taskArray[i].subTaskStatus = tempSubtasksStatus;
+    taskArray[i].title = contentArray[0];
+    taskArray[i].description = contentArray[1];
+    taskArray[i].dueDate = contentArray[2];
+    taskArray[i].prio = currentTaskPrio;
 }
 
 

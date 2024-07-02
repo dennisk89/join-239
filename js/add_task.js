@@ -174,7 +174,12 @@ function resetSubtaskInput() {
 
 function addSubtaskToTempSubtasks() {
     if (document.getElementById('subtaskInput').value.length > 0) {
-        tempSubtasks.push(document.getElementById('subtaskInput').value)
+        if (tempSubtasks == undefined) {
+            tempSubtasks = [];
+            tempSubtasksStatus = [];
+        }
+        tempSubtasks.push(document.getElementById('subtaskInput').value);
+        tempSubtasksStatus.push(false)
         resetSubtaskInput();
     }
     renderTempSubtasks(); 
