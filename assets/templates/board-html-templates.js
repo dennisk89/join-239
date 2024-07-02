@@ -2,7 +2,7 @@
 
 function taskCardHTML(id, type, title, description, prioIcon) {
     return /*html*/`
-    <div draggable="true" ondragstart="startDragging(event)" id=${id} onclick="openTasks('${id}'); stopP(event)" class="card clickable">
+    <div draggable="true" ondragstart="startDragging('${id}')" id="${id}" onclick="openTasks('${id}'); stopP(event)" class="card clickable">
         <div class="type-container ${taskTypeColor[type]}">${type}</div>
         <div class="card-text-box">
             <h3>${title}</h3>
@@ -17,10 +17,10 @@ function taskCardHTML(id, type, title, description, prioIcon) {
         <div class="card-footer">
             <div class="circle-container">
             </div>
-            <img class="clickable" src=${prioIcon} alt="">
+            <img class="clickable" src="${prioIcon}" alt="">
         </div>
     </div>
-    `
+    `;
 }
 
 

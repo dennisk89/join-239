@@ -254,3 +254,81 @@ document.getElementById('closeAddBtn').addEventListener('click', () => {
 
 // !SECTION
 
+/*ANCHOR - Drag and Drop*/ 
+let currentDraggedElement;
+
+
+function startDragging(id) {
+    console.log('Start dragging:', id);
+    currentDraggedElement = id;
+}
+
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+
+function moveTo(taskStatus) {
+    let task = taskArray.find(t => t.id === currentDraggedElement);
+    task.taskStatus = taskStatus;
+    updateHTML();
+}
+
+
+function highlight(id) {
+    document.getElementById(id).classList.add('drag-area-highlight');
+}
+
+
+function removeHighlight(id) {
+    document.getElementById(id).classList.remove('drag-area-highlight');
+}
+
+
+async function updateHTML() {
+    let todoColumn = document.getElementById('toDoColumn');
+    let inProgressColumn = document.getElementById('inProgressColumn');
+    let feedbackColumn = document.getElementById('feedbackColumn');
+    let doneColumn = document.getElementById('doneColumn');
+
+    console.log('todoColumn:', todoColumn);
+    console.log('inProgressColumn:', inProgressColumn);
+    console.log('feedbackColumn:', feedbackColumn);
+    console.log('doneColumn:', doneColumn);
+
+    let todo = taskArray.filter(t => t.taskStatus == 'todo');
+    console.log('Tasks in todoColumn:', todo);
+    todoColumn.innerHTML = '';
+
+    for (let index = 0; index < todo.length; index++) {
+        const element = todo[index];
+        todoColumn.innerHTML += taskCardHTML(element.id, element.type, element.title, element.description, element.prioIcon);
+    }
+
+    let inProgress = taskArray.filter(t => t.taskStatus == 'progress');
+    inProgressColumn.innerHTML = '';
+
+    for (let index = 0; index < inProgress.length; index++) {
+        const element = inProgress[index];
+        inProgressColumn.innerHTML += taskCardHTML(element.id, element.type, element.title, element.description, element.prioIcon);
+    }
+
+    let feedback = taskArray.filter(t => t.taskStatus == 'feedback');
+    feedbackColumn.innerHTML = '';
+
+    for (let index = 0; index < feedback.length; index++) {
+        const element = feedback[index];
+        feedbackColumn.innerHTML += taskCardHTML(element.id, element.type, element.title, element.description, element.prioIcon);
+    }
+
+    let done = taskArray.filter(t => t.taskStatus == 'done');
+    doneColumn.innerHTML = '';
+
+    for (let index = 0; index < done.length; index++) {
+        const element = done[index];
+        doneColumn.innerHTML += taskCardHTML(element.id, element.type, element.title, element.description, element.prioIcon);
+    }
+}
+
+

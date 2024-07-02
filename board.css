@@ -625,6 +625,12 @@ p {
     padding-top: 0;
 }
 
+/*ANCHOR - drag and drop*/
+
+
+.drag-area-highlight {
+    background-color: rgba(0, 0, 0, 0.2);
+}
 
 /* ANCHOR Media querries */
 @media (min-width: 768px) {

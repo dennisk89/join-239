@@ -160,45 +160,45 @@
 
         <!-- ANCHOR in to do -->
         <div class="board-columns">
-            <div class="column-with-col-header" id="todo" ondrop="moveTo('done')" ondragleave="removeHighlight('taskStatus')" ondragover="allowDrop(event); highlight('category')">
+            <div class="column-with-col-header" >
                 <div class="board-column-title">
                     <h2>To do</h2>
                     <img class="clickable" src="assets/img/plus-button-mobile-board-column.svg" alt="">
                 </div>
-                <div class="card-container" id="toDoColumn">
+                <div class="card-container" id="toDoColumn" ondrop="moveTo('toDoColumn')" ondragleave="removeHighlight('toDoColumn')" ondragover="allowDrop(event); highlight('toDoColumn')">
                     <!-- ANCHOR card -->
                 </div>
             </div>
 
             <!-- ANCHOR in progress -->
-            <div class="column-with-col-header" id="inProgress" ondrop="moveTo('done')" ondragleave="removeHighlight('category')" ondragover="allowDrop(event); highlight('category')">
+            <div class="column-with-col-header">
                 <div class="board-column-title">
                     <h2>In progress</h2>
                     <img class="clickable" src="assets/img/plus-button-mobile-board-column.svg" alt="">
                 </div>
-                <div class="card-container" id="inProgressColumn">
+                <div class="card-container" id="inProgressColumn" ondrop="moveTo('inProgressColumn')" ondragleave="removeHighlight('inProgressColumn')" ondragover="allowDrop(event); highlight('inProgressColumn')">
                     <!-- ANCHOR card -->
                 </div>
             </div>
 
 
             <!-- ANCHOR in feedback -->
-            <div class="column-with-col-header" id="feedback" ondrop="moveTo('done')" ondragleave="removeHighlight('category')" ondragover="allowDrop(event); highlight('category')">
+            <div class="column-with-col-header">
                 <div class="board-column-title">
                     <h2>Await feedback</h2>
                     <img class="clickable" src="assets/img/plus-button-mobile-board-column.svg" alt="">
                 </div>
-                <div class="card-container" id="feedbackColumn">
+                <div class="card-container" id="feedbackColumn" ondrop="moveTo('feedbackColumn')" ondragleave="removeHighlight('feedbackColumn')" ondragover="allowDrop(event); highlight('feedbackColumn')">
                     <!-- ANCHOR card -->
                 </div>
             </div>
 
             <!-- ANCHOR done -->
-            <div class="column-with-col-header mobile-marg-btm-96" id="done" ondrop="moveTo('open')" ondragleave="removeHighlight('category')" ondragover="allowDrop(event); highlight('category')">
+            <div class="column-with-col-header mobile-marg-btm-96">
                 <div class="board-column-title">
                     <h2>Done</h2>
                 </div>
-                <div class="card-container" id="doneColumn">
+                <div class="card-container" id="doneColumn" ondrop="moveTo('doneColumn')" ondragleave="removeHighlight('doneColumn')" ondragover="allowDrop(event); highlight('doneColumn')">
                     <!-- ANCHOR card -->
                 </div>
             </div>
