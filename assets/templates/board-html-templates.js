@@ -76,12 +76,12 @@ function taskHTML(id, type, title, description, dueDate, prio) {
             </div>
             <div class="task-footer clickable">
                 <div onclick="deleteTask('${id}')" class="task-footer">
-                    <img src="assets/img/delete.svg" alt="">
+                    <img src="assets/img/delete.svg" alt="Delete task">
                     <p>Delete</p>
                 </div>
                 <div class="divider"></div>
                 <div onclick="openEdit('${id}')" class="task-footer">
-                    <img src="assets/img/edit.svg" alt="">
+                    <img src="assets/img/edit.svg" alt="Open edit task">
                     <p>Edit</p>
                 </div>
             </div>
@@ -150,15 +150,15 @@ function editTaksOverlayHTML(id) {
                     <div class="prio-container">
                         <div onclick="setPrioBtn('prioUrgent', 'urgent-selected', './assets/img/priority-urgent-white.svg', 'urgent')" id="prioUrgent" class="priority-btn-edit clickable">
                             <span>Urgent</span>
-                            <img src="./assets/img/priority-urgent.svg" alt="">
+                            <img src="./assets/img/priority-urgent.svg" alt="Number of urgent priority tasks">
                         </div>
                         <div onclick="setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg', 'medium')" id="prioMedium" class="medium-selected priority-btn-edit clickable">
                             <span>Medium</span>
-                            <img src="./assets/img/priority-medium-white.svg" alt="">
+                            <img src="./assets/img/priority-medium-white.svg" alt="Number of priority medium tasks">
                         </div>
                         <div onclick="setPrioBtn('prioLow', 'low-selected', './assets/img/priority-low-white.svg', 'low')" id="prioLow" class="priority-btn-edit clickable">
                             <span>Low</span>
-                            <img src="./assets/img/priority-low.svg" alt="">
+                            <img src="./assets/img/priority-low.svg" alt="Number of low priority tasks">
                         </div>
                     </div>
                 </div>
@@ -186,7 +186,7 @@ function editTaksOverlayHTML(id) {
                 </div>
                 <div class="form-btn-container padding-top-0">
                     <button class="board-btn-dark board-edit-btn clickable" type="submit">
-                        <span>Ok</span><img src="assets/img/check.svg" alt="">
+                        <span>Ok</span><img src="assets/img/check.svg" alt="Edit board button">
                     </button>
                 </div>
             </form>

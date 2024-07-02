@@ -38,11 +38,11 @@ function generateContactDetailsContainerHTML(contactId, contactName, initials, c
                 <div class="contact-info-name">${contactName}</div>
                 <div class="contact-edit-delete-desktop-container">
                     <div class="contact-edit-delete-desktop clickable" onclick="showOverlayEditContact('${contactId}', '${contactName}', '${initials}', '${color}', '${email}', '${phone}')">
-                        <img src="./assets/img/edit.svg" class="contact-edit-desktop-img">
+                        <img src="./assets/img/edit.svg" class="contact-edit-desktop-img" alt="Edit contact button">
                         <div>Edit</div>
                     </div>
                     <div class="contact-edit-delete-desktop clickable" onclick="deleteContact('${contactId}')">
-                        <img src="./assets/img/delete.svg" class="contact-delete-desktop-img">
+                        <img src="./assets/img/delete.svg" class="contact-delete-desktop-img" alt="Delete contact button">
                         <div>Delete</div>
                     </div>                    
                 </div>
@@ -57,7 +57,7 @@ function generateContactDetailsContainerHTML(contactId, contactName, initials, c
         </div>
 
         <div class="contact-menu-btn clickable" onclick="showOverlayEditDelete('${contactId}', '${contactName}', '${initials}', '${color}', '${email}', '${phone}')">
-            <img src="./assets/img/more_vert.svg">
+            <img src="./assets/img/more_vert.svg" alt="Open edit and delete overlay">
         </div>
     `;
 }
@@ -67,11 +67,11 @@ function generateOverlayEditDeleteHTML(contactId, contactName, initials, color, 
         <div class="overlay-edit-delete-content">
             <table class="overlay-edit-delete-table">
                 <tr>
-                    <td><img src="./assets/img/edit.svg" class="overlay-edit-img clickable"></td>
+                    <td><img src="./assets/img/edit.svg" class="overlay-edit-img clickable" alt="Edit button"></td>
                     <td class="clickable" onclick="showOverlayEditContact('${contactId}', '${contactName}', '${initials}', '${color}', '${email}', '${phone}')">Edit</td>
                 </tr>
                 <tr>
-                    <td><img src="./assets/img/delete.svg" class="overlay-delete-img clickable"></td>
+                    <td><img src="./assets/img/delete.svg" class="overlay-delete-img clickable" alt="Delete button"></td>
                     <td class="clickable" onclick="deleteContact('${contactId}'); hideOverlayEditDelete(); hideContactDetailsMobile()">Delete</td>
                 </tr>
             </table>
