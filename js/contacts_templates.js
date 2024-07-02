@@ -20,7 +20,7 @@ function generateContactListHTML(contactListLetter) {
  */
 function generateContactListContentHTML(contact, initials, color) {
     return /*html*/`
-        <div id="contactContainer${contact['id']}" class="contact-container clickable" onclick="showContactDetails('${contact['id']}', '${contact['name']}', '${initials}', '${color}', '${contact['email']}', '${contact['phone']}')">
+        <div id="contactContainer${contact['id']}" class="contact-container clickable" onclick="showContactDetails('${contact['id']}', '${contact['name']}', '${initials}', '${color}', '${contact['email']}', '${contact['phone']}', '${contact['loggedin']}')">
             <div class="contact-list-dot contact-dot-${color}">${initials}</div>
             <div>
                 <div class="contact-list-name">${contact['name']}</div>
@@ -30,14 +30,14 @@ function generateContactListContentHTML(contact, initials, color) {
     `;
 }
 
-function generateContactDetailsContainerHTML(contactId, contactName, initials, color, email, phone) {
+function generateContactDetailsContainerHTML(contactId, contactName, initials, color, email, phone, loggedin) {
     return /*html*/`
         <div class="contact-name-container">
             <div class="contact-info-dot contact-dot-${color}">${initials}</div>
             <div>
                 <div class="contact-info-name">${contactName}</div>
                 <div class="contact-edit-delete-desktop-container">
-                    <div class="contact-edit-delete-desktop clickable" onclick="showOverlayEditContact('${contactId}', '${contactName}', '${initials}', '${color}', '${email}', '${phone}')">
+                    <div class="contact-edit-delete-desktop clickable" onclick="showOverlayEditContact('${contactId}', '${contactName}', '${initials}', '${color}', '${email}', '${phone}', '${loggedin}')">
                         <img src="./assets/img/edit.svg" class="contact-edit-desktop-img" alt="Edit contact button">
                         <div>Edit</div>
                     </div>
@@ -56,19 +56,19 @@ function generateContactDetailsContainerHTML(contactId, contactName, initials, c
             <div>${phone}</div>
         </div>
 
-        <div class="contact-menu-btn clickable" onclick="showOverlayEditDelete('${contactId}', '${contactName}', '${initials}', '${color}', '${email}', '${phone}')">
+        <div class="contact-menu-btn clickable" onclick="showOverlayEditDelete('${contactId}', '${contactName}', '${initials}', '${color}', '${email}', '${phone}', '${loggedin}')">
             <img src="./assets/img/more_vert.svg" alt="Open edit and delete overlay">
         </div>
     `;
 }
 
-function generateOverlayEditDeleteHTML(contactId, contactName, initials, color, email, phone) {
+function generateOverlayEditDeleteHTML(contactId, contactName, initials, color, email, phone, loggedin) {
     return /*html*/`
         <div class="overlay-edit-delete-content">
             <table class="overlay-edit-delete-table">
                 <tr>
                     <td><img src="./assets/img/edit.svg" class="overlay-edit-img clickable" alt="Edit button"></td>
-                    <td class="clickable" onclick="showOverlayEditContact('${contactId}', '${contactName}', '${initials}', '${color}', '${email}', '${phone}')">Edit</td>
+                    <td class="clickable" onclick="showOverlayEditContact('${contactId}', '${contactName}', '${initials}', '${color}', '${email}', '${phone}', '${loggedin}')">Edit</td>
                 </tr>
                 <tr>
                     <td><img src="./assets/img/delete.svg" class="overlay-delete-img clickable" alt="Delete button"></td>
