@@ -165,7 +165,7 @@
                     <h2>To do</h2>
                     <img class="clickable" src="assets/img/plus-button-mobile-board-column.svg" alt="">
                 </div>
-                <div class="card-container" id="toDoColumn" ondrop="moveTo('toDoColumn')" ondragleave="removeHighlight('toDoColumn')" ondragover="allowDrop(event); highlight('toDoColumn')">
+                <div class="card-container" id="toDoColumn" ondrop="moveTo('toDoColumn','todo')" ondragleave="removeHighlight('toDoColumn')" ondragover="allowDrop(event); highlight('toDoColumn')">
                     <!-- ANCHOR card -->
                 </div>
             </div>
@@ -176,7 +176,7 @@
                     <h2>In progress</h2>
                     <img class="clickable" src="assets/img/plus-button-mobile-board-column.svg" alt="">
                 </div>
-                <div class="card-container" id="inProgressColumn" ondrop="moveTo('inProgressColumn')" ondragleave="removeHighlight('inProgressColumn')" ondragover="allowDrop(event); highlight('inProgressColumn')">
+                <div class="card-container" id="inProgressColumn" ondrop="moveTo('inProgressColumn','progress')" ondragleave="removeHighlight('inProgressColumn')" ondragover="allowDrop(event); highlight('inProgressColumn')">
                     <!-- ANCHOR card -->
                 </div>
             </div>
@@ -188,7 +188,7 @@
                     <h2>Await feedback</h2>
                     <img class="clickable" src="assets/img/plus-button-mobile-board-column.svg" alt="">
                 </div>
-                <div class="card-container" id="feedbackColumn" ondrop="moveTo('feedbackColumn')" ondragleave="removeHighlight('feedbackColumn')" ondragover="allowDrop(event); highlight('feedbackColumn')">
+                <div class="card-container" id="feedbackColumn" ondrop="moveTo('feedbackColumn','feedback')" ondragleave="removeHighlight('feedbackColumn')" ondragover="allowDrop(event); highlight('feedbackColumn')">
                     <!-- ANCHOR card -->
                 </div>
             </div>
@@ -198,7 +198,7 @@
                 <div class="board-column-title">
                     <h2>Done</h2>
                 </div>
-                <div class="card-container" id="doneColumn" ondrop="moveTo('doneColumn')" ondragleave="removeHighlight('doneColumn')" ondragover="allowDrop(event); highlight('doneColumn')">
+                <div class="card-container" id="doneColumn" ondrop="moveTo('doneColumn','done')" ondragleave="removeHighlight('doneColumn')" ondragover="allowDrop(event); highlight('doneColumn')">
                     <!-- ANCHOR card -->
                 </div>
             </div>
