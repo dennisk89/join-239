@@ -163,15 +163,15 @@ function editTaksOverlayHTML(id) {
                     </div>
                 </div>
                 <div class="input-group">
-                    <label class="font-16" for="selectContactsInput">Assigned to</label>
-                    <div class="enter-input outer-input">
-                        <input id="titleInput" class="inner-input font-16" placeholder="Select contacts to assign" type="text"
-                        name="select contacts" id="selectContactsInput">
-                        <div class="select-image clickable">
-                        </div>
+                    <label class="font-20" for="selectInput">Assigned to</label>
+                    <div id="selectInput" onclick="openSelectContacts(); stopP(event)"
+                        class="enter-input outer-input select-rel">
+                        <input onkeyup="filterContacts(event)" id="innerSelectInput" class="inner-input font-20"
+                            placeholder="Select contacts to assign" type="text" name="select contacts">
+                        <div id="selectFieldBtn" class="select-image inner-input-img clickable"></div>
+                        <div id="selectContactsList" class="contact-select-list d-none"></div>
                     </div>
-                    <div id="assigneesEdit" class="task-assigned">
-                    </div>
+                    <div class="pre-select-badges" id="preSelectedContainer"></div>
                 </div>
                 <div class="input-group">
                     <label class="font-20" for="selectInput">Subtasks</label>
