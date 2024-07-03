@@ -350,7 +350,7 @@ function hideOverlayNewContactOk(){
 function getContactIdOfLastLoggedInUser() {
     let checkContactIdOfLoggedInUser = localStorage.getItem('contactIdOfLoggedInUser');
     let contactIdOfLastLoggedInUser = checkContactIdOfLoggedInUser ? JSON.parse(checkContactIdOfLoggedInUser) : false;
-    return contactIdOfLastLoggedInUser;
+    return contactIdOfLastLoggedInUser; // -> Damit dann das You wieder wegmachen!!!
 }
 
 /**

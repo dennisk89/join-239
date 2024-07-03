@@ -83,7 +83,7 @@ async function redirectOrShowUserIcon() {
         showGuestUserIcon();
     } else { // (typeof loggedInUser !== 'undefined' && loggedInUser !== null)
         updateUserIcon(loggedInUser);
-        // changeContactLoggedinStatusYes();
+        storeContactIdOfLoggedInUser();
     }
 }
 
@@ -194,33 +194,13 @@ function handleGuestUser(trueOrFalse) {
     localStorage.setItem('guestUserActive', JSON.stringify(guestUserActive));
 }
 
-/**
- * This function is used to change the "loggedin"-entry in the contact information of the currently logged in user to "1".
- */
-// async function changeContactLoggedinStatusYes() {
-//     let contactArrayOfLoggedInUser = contacts.filter(contact => contact.name === loggedInUser);
-//     let contactDataOfLoggedInUser = contactArrayOfLoggedInUser[0];
-//     contactIdOfLoggedInUser = contactDataOfLoggedInUser['id'];
-//     storeContactIdOfLoggedInUser();
-//     let newContactData = {
-//         'id': contactIdOfLoggedInUser,
-//         'name': contactDataOfLoggedInUser['name'],
-//         'email': contactDataOfLoggedInUser['email'],
-//         'phone': contactDataOfLoggedInUser['phone'],
-//         'color': contactDataOfLoggedInUser['color'],
-//         'initials': contactDataOfLoggedInUser['initials'],
-//         'loggedin': 1
-//     };
-//     contacts = await getData(endpointContacts);
-//     let indexOfChangedContact = contacts.findIndex(x => x.id === contactIdOfLoggedInUser);
-//     contacts.splice(indexOfChangedContact, 1);
-//     contacts.push(newContactData);
-//     await putData(endpointContacts, contacts);
-// }
 
 /**
  * This function is used to store the contact ID of the logged in user into the local storage.
  */
 function storeContactIdOfLoggedInUser() {
+    let contactArrayOfLoggedInUser = contacts.filter(contact => contact.name === loggedInUser);
+    let contactDataOfLoggedInUser = contactArrayOfLoggedInUser[0];
+    contactIdOfLoggedInUser = contactDataOfLoggedInUser['id'];
     localStorage.setItem('contactIdOfLoggedInUser', JSON.stringify(contactIdOfLoggedInUser));
 }
