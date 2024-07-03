@@ -77,7 +77,7 @@ function errorFunction() {
 async function redirectOrShowUserIcon() {
     let checkGuestUserStatus = localStorage.getItem('guestUserActive');
     let guestUserActive = checkGuestUserStatus ? JSON.parse(checkGuestUserStatus) : false;
-    if (!guestUserActive && (typeof loggedInUser === 'undefined' || loggedInUser === null)) {
+    if (!guestUserActive && (loggedInUser === undefined || loggedInUser === null)) {
         window.location.href = "./index.html";
     } else if (guestUserActive) {
         showGuestUserIcon();

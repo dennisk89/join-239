@@ -4,6 +4,7 @@ function taskCardHTML(id, type, title, description, prioIcon) {
     return /*html*/`
     <div draggable="true" ondragstart="startDragging('${id}')" id="${id}" onclick="openTasks('${id}'); stopP(event)" class="card clickable">
         <div class="type-container ${taskTypeColor[type]}">${type}</div>
+        
         <div class="card-text-box">
             <h3>${title}</h3>
             <p>${description}</p>
