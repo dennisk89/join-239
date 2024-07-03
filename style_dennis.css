@@ -136,13 +136,6 @@ textarea::-webkit-input-placeholder {
     margin-bottom: 8px;
 }
 
-.warning-message-field-required{
-    height: 12px;
-    font-size: 12px;
-    color: rgb(255, 129, 144);
-    font-weight: 400;
-}
-
 .hint-container{
     margin-top: 150px;
 }
@@ -273,7 +266,7 @@ textarea::-webkit-input-placeholder {
     }
     .add-task-headline{
         margin-left: 90px;
-        margin-top: 110px;
+        margin-top: 210px;
         margin-bottom: 48px;
     }
     .enter-description-input{

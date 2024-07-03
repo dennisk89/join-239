@@ -48,9 +48,9 @@
         <div onclick="closeSelectContacts()" class="add-task-container">
             <div class="add-Task-header">
                 <h1 class="add-task-headline">Add Task</h1>
-                <img id="closeAddBtn" class="clickable" src="assets/img/close-black.svg" alt="close Task">
+                <img id="closeAddBtn" class="clickable close-add-btn" src="assets/img/close-black.svg" alt="close Task">
             </div>
-            <form onsubmit="createTask(initBoard); return false">
+            <form onsubmit="validateTaskForm(event); return false">
                 <div class="overlay-form">
                     <div class="form-half-side">
                         <div class="input-group">
@@ -58,6 +58,7 @@
                             <input id="titleInput" class="enter-input font-20" placeholder="Enter a title" type="text"
                                 name="Title" id="titleInput" required>
                         </div>
+                        <span id="titleWarningMessage" class="warning-message-field-required d-none">Please enter a title</span>
                         <div class="input-group">
                             <label class="font-20" for="descriptionInput">Description</label>
                             <textarea class="enter-description-input font-20" placeholder="Enter a description"
@@ -85,6 +86,7 @@
                                 onfocus="(this.type='date')" onblur="(this.type='text'); this.placeholder='dd/mm/yyyy';"
                                 required>
                         </div>
+                        <span id="dateWarningMessage" class="warning-message-field-required d-none">Please select a date</span>
                         <div class="input-group">
                             <label class="">Prio</label>
                             <div class="prio-container">
@@ -113,6 +115,7 @@
                                 <option value="Technical Task">Technical Task</option>
                                 <option value="User Story">User Story</option>
                             </select>
+                            <span id="categoryWarningMessage" class="warning-message-field-required d-none">Please choose a category</span>
                         </div>
                         <div class="input-group">
                             <label class="font-20" for="selectInput">Subtasks</label>
@@ -132,8 +135,9 @@
                         <p><span class="color-red">*</span>This field is required</p>
                     </div>
                     <div class="form-btn-container">
-                        <button class="cancel-btn clickable">
-                            <span>Cancel</span><img src="./assets/img/Vector (1).svg" alt="Cancel button create task">
+                        <button class="cancel-btn btn-white clickable">
+                            <span>Cancel</span><img class="cancel-btn-img-dark" src="./assets/img/cancel-x-dark.svg" alt="Cancel button create task">
+                            <img class="cancel-btn-img-blue" src="./assets/img/cancel_x_blue.svg" alt="">
                         </button>
                         <button class="board-btn-dark board-create-btn clickable" type="submit">
                             <span>Create Task</span><img src="assets/img/check.svg" alt="Create task Button">

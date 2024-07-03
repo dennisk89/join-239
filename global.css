@@ -107,6 +107,12 @@ textarea:focus, input:focus{
     background-color: white;
 }
 
+.warning-message-field-required{
+    height: 12px;
+    font-size: 12px;
+    color: rgb(255, 129, 144);
+    font-weight: 400;
+}
 
 /* SECTION select */
 /* ANCHOR select text field */

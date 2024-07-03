@@ -428,6 +428,11 @@ p {
     ;
 }
 
+.close-add-btn:hover{
+    background-color: rgba(209, 209, 209, 1);
+    border-radius: 50%;
+}
+
 /* ANCHOR input elements */
 
 .enter-description-input {
