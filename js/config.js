@@ -74,7 +74,7 @@ function errorFunction() {
 /**
  * This function is used to redirect to index.html, if there is neither guest nor user logged in. If there is a guest user active, the guest user icon is shown in the header; if there is a logged in user, the right user icon is shown on the header.
  */
-async function redirectOrShowUserIcon() {
+function redirectOrShowUserIcon() {
     let checkGuestUserStatus = localStorage.getItem('guestUserActive');
     let guestUserActive = checkGuestUserStatus ? JSON.parse(checkGuestUserStatus) : false;
     if (!guestUserActive && (loggedInUser === undefined || loggedInUser === null)) {
@@ -176,7 +176,7 @@ function toggleMenu() {
 
 function shouldAddEventListener() {
     // Seiten auf denen der Eventlistener hinzugefügt werden soll.
-    const pages = ['/summary.html', '/addTask.html', '/contacts.html', 'board.html'];
+    const pages = ['/summary.html', '/add_task.html', '/contacts.html', '/board.html'];
     return pages.includes(window.location.pathname);
 }
 

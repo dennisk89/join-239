@@ -28,7 +28,6 @@ document.getElementById('taskSearch').addEventListener('keyup', checkSearch)
 // ANCHOR load Task cards in board
 async function initBoard() {
     await initJoin();
-    await redirectOrShowUserIcon();
     addCardsToBoards('toDoColumn', todoTasks, 'To do');
     addCardsToBoards('inProgressColumn', progressTasks, 'In progress');
     addCardsToBoards('feedbackColumn', feedbackTasks, 'Await feedback');
@@ -64,7 +63,7 @@ function shortText(text) {
 
 function addInfosToCards(taskArray) {
     for (let i = 0; i < taskArray.length; i++) {
-        taskArray[i].assigned ? addContactLabelsToCards(taskArray, i) : console.log('no assignee for Task ' + taskArray[i].id);
+        taskArray[i].assigned ? addContactLabelsToCards(taskArray, i) : '';
         taskArray[i].subTask ? addSubTaskProgressToCards(taskArray, i) : document.getElementById(taskArray[i].id).children[2].style.display = 'none';
     }
 }

@@ -12,7 +12,6 @@ let contactListLetters = [];
 
 async function initContacts() {
     await initJoin();
-    await redirectOrShowUserIcon();
     showContactList();
 }
 

@@ -71,6 +71,9 @@ onAuthStateChanged(auth, async (user) => {
         // User is signed out
         console.log("No user is signed in");
     }
+    if (['/summary.html', '/add_Task.html', '/contacts.html', '/board.html'].includes(window.location.pathname)) {
+        redirectOrShowUserIcon();    
+    }
 })
 
 function logOut() {
@@ -99,7 +102,6 @@ function getUserNameByLoggedInEmail(loggedInEmail, usersFromFirebase) {
     return user.length > 0 ? user[0].name : null;
     // return user ? user[0].name : null;
 }
-
 
 window.logOut = logOut;
 window.loginWithPersistence = loginWithPersistence;

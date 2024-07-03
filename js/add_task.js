@@ -255,7 +255,7 @@ function getContactByContactID(contactID) {
     }
 }
 
-function validateTaskForm(event) {
+function validateTaskForm(event, nextFunction) {
     event.preventDefault(); 
 
     let isTitleValid = validateTitle();
@@ -263,7 +263,7 @@ function validateTaskForm(event) {
     let isCategoryValid = validateCategory();
     
     if (isTitleValid && isDateValid && isCategoryValid) {
-        createTask(redirectToBoard);
+        createTask(nextFunction);
     }
 }
 

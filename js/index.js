@@ -1,4 +1,4 @@
-async function init() {
+function init() {
   animation();  
   initJoin();
 }

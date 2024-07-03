@@ -1,6 +1,5 @@
 async function initSummary() {
     await initJoin();
-    await redirectOrShowUserIcon();
     showGreeting();
     showTodosCount();
     showDoneTasksCount();
