@@ -71,10 +71,19 @@ onAuthStateChanged(auth, async (user) => {
         // User is signed out
         console.log("No user is signed in");
     }
-    if (['/summary.html', '/add_Task.html', '/contacts.html', '/board.html'].includes(window.location.pathname)) {
-        redirectOrShowUserIcon();    
-    }
+    updateUserInterfaceWithLogInStatus();
 })
+
+
+function updateUserInterfaceWithLogInStatus() {
+    if (['/summary.html', '/add_Task.html', '/contacts.html', '/board.html'].includes(window.location.pathname)) {
+        redirectOrShowUserIcon();
+        if (window.location.pathname == '/summary.html') {
+            showGreeting();
+        }    
+    }
+}
+
 
 function logOut() {
     const auth = getAuth();
