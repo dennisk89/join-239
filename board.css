@@ -565,6 +565,40 @@ p {
 }
 
 /* !SECTION */
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.card-header img:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 100%; 
+}
+
+
+.card-menu-overlay {
+    position: absolute;
+    width: 150px;
+    padding: 20px;
+    background-color: rgb(42, 54, 71);
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 400;
+    display: none;
+    justify-content: center;
+    color: white;
+    flex-direction: column;
+    gap: 24px;
+    top: 24px;
+    right: 24px;
+    z-index: 999;
+}
+
+.card-menu-overlay div:hover {
+    color: var(--highlight);
+}
 
 .type-container {
     font-family: 'Inter'; /* TODO Muss man das hier nochmal angeben, obwohl es auch im body definiert ist? */

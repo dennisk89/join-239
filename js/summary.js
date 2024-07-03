@@ -1,6 +1,5 @@
 async function initSummary() {
     await initJoin();
-    showGreeting();
     showTodosCount();
     showDoneTasksCount();
     showUrgentTasksCount();
