@@ -34,6 +34,8 @@ async function initBoard() {
     addCardsToBoards('feedbackColumn', feedbackTasks, 'Await feedback');
     addCardsToBoards('doneColumn', doneTasks, 'Done');
     addInfosToCards(taskArray);
+    closeTask('addTaskOverlay');
+    resetSubtaskInput();
 }
 
 
@@ -286,6 +288,27 @@ function openAddTaskOverlay() {
 
 // ANCHOR eventListener add tasks
 document.getElementById('boardAddBtn').addEventListener('click', openAddTaskOverlay);
+
+
+document.getElementById('addTaskInTodo').addEventListener('click', openAddTaskOverlay);
+
+
+document.getElementById('addTaskInTodo').addEventListener('click', () => {
+    openAddTaskOverlay();
+    taskStatus = 'progress';
+});
+
+
+document.getElementById('addTaskInProgress').addEventListener('click', () => {
+    openAddTaskOverlay();
+    taskStatus = 'progress';
+});
+
+
+document.getElementById('addTaskInFeedback').addEventListener('click', () => {
+    openAddTaskOverlay();
+    taskStatus = 'feedback';
+});
 
 
 document.getElementById('closeAddBtn').addEventListener('click', () => {

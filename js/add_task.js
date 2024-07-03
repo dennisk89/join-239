@@ -14,7 +14,7 @@ async function createTask(nextFunction) {
         document.getElementById('dateInput').value, 
         tempAssignees, 
         currentTaskPrio, 
-        'todo', 
+        taskStatus, 
         tempSubtasks, 
         tempSubtasksStatus);
     taskArray.push(newTask);
