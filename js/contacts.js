@@ -55,7 +55,7 @@ function showContactListContent() {
     sortContacts();
     let contactIdOfLastLoggedInUser = getContactIdOfLastLoggedInUser();
     if (contactIdOfLastLoggedInUser !== false) {
-        changeContactLoggedinStatusNo();
+        // changeContactLoggedinStatusNo();
     }    
     for (i = 0; i < contacts.length; i++) {
         let contact = contacts[i];
@@ -66,7 +66,7 @@ function showContactListContent() {
         let color = contact['color'];
         let contactsContainer = document.getElementById('contactsContainer' + firstInitialUpper);
         contactsContainer.innerHTML += generateContactListContentHTML(contact, initials, color);
-        proofIfContactIsLoggedIn(contact);
+        // proofIfContactIsLoggedIn(contact);
     }
 }
 
@@ -74,13 +74,13 @@ function showContactListContent() {
  * This function is used to proof if the current contact is logged in. In case the contact is logged in, "(You)" is added to his*her name in the contact list.
  * @param {object} contact This is the array of the current contact.
  */
-function proofIfContactIsLoggedIn(contact) {
-    let id = contact['id'];
-    let loggedin = contact['loggedin'];
-    if (loggedin === 1) {
-        document.getElementById('contactListName' + id).innerHTML += ' (You)';
-    }
-}
+// function proofIfContactIsLoggedIn(contact) {
+//     let id = contact['id'];
+//     let loggedin = contact['loggedin'];
+//     if (loggedin === 1) {
+//         document.getElementById('contactListName' + id).innerHTML += ' (You)';
+//     }
+// }
 
 function sortContacts() {
     contacts.sort(function(a, b) {
@@ -94,13 +94,13 @@ function compareStrings(a, b) {
     return (a < b) ? -1 : (a > b) ? 1 : 0;
 }
 
-function showContactDetails(contactId, contactName, initials, color, email, phone, loggedin) {
+function showContactDetails(contactId, contactName, initials, color, email, phone) {
     document.getElementById('mainContacts').classList.remove('contacts-hide-on-mobile');
     let contactDetailsContainer = document.getElementById('contactDetailsContainer');
     contactDetailsContainer.innerHTML = '';
     contactDetailsContainer.classList.remove('contact-details-slide-in');
     contactDetailsContainer.classList.remove('contact-details-show');
-    contactDetailsContainer.innerHTML = generateContactDetailsContainerHTML(contactId, contactName, initials, color, email, phone, loggedin);
+    contactDetailsContainer.innerHTML = generateContactDetailsContainerHTML(contactId, contactName, initials, color, email, phone);
     void contactDetailsContainer.offsetWidth; /* Force reflow to reset the animation */
     contactDetailsContainer.classList.add('contact-details-slide-in');
     setTimeout(() => {
@@ -143,8 +143,7 @@ function createNewContactArray() {
         'email': addContactInputMail.value,
         'phone': addContactInputPhone.value,
         'color': randomColor,
-        'initials': getInitials(addContactInputName.value),
-        'loggedin': 0
+        'initials': getInitials(addContactInputName.value)
     };
     addNewContact(newContact);
 }
@@ -164,7 +163,7 @@ async function addNewContact(newContact) {
     hideOverlayAddContact();
     contacts = await getData(endpointContacts);
     showContactList();
-    showNewContactDetails(newContact['id'], newContact['name'], newContact['initials'], newContact['color'], newContact['email'], newContact['phone'], newContact['loggedin']);
+    showNewContactDetails(newContact['id'], newContact['name'], newContact['initials'], newContact['color'], newContact['email'], newContact['phone']);
     showOverlayNewContactOk();
 }
 
@@ -196,11 +195,11 @@ async function addNewUserToContacts(newUser) {
     await putData(endpointContacts, contacts);
 }
 
-function showNewContactDetails(contactId, contactName, initials, color, email, phone, loggedin) {
+function showNewContactDetails(contactId, contactName, initials, color, email, phone) {
     document.getElementById('mainContacts').classList.remove('contacts-hide-on-mobile');
     let contactDetailsContainer = document.getElementById('contactDetailsContainer');
     contactDetailsContainer.innerHTML = '';
-    contactDetailsContainer.innerHTML = generateContactDetailsContainerHTML(contactId, contactName, initials, color, email, phone, loggedin);
+    contactDetailsContainer.innerHTML = generateContactDetailsContainerHTML(contactId, contactName, initials, color, email, phone);
     contactDetailsContainer.classList.add('contact-details-show');
     highlightContactContainer(contactId);
 }
@@ -228,10 +227,10 @@ async function saveEditedContact(newContactData, contactId) {
     emptyEditContactForm();
     contacts = await getData(endpointContacts);
     showContactList();
-    showNewContactDetails(newContactData['id'], newContactData['name'], newContactData['initials'], newContactData['color'], newContactData['email'], newContactData['phone'], newContactData['loggedin']);
+    showNewContactDetails(newContactData['id'], newContactData['name'], newContactData['initials'], newContactData['color'], newContactData['email'], newContactData['phone']);
 }
 
-function editContact(contactId, color, loggedin) {
+function editContact(contactId, color) {
     let editContactInputName = document.getElementById('editContactInputName');
     let editContactInputMail = document.getElementById('editContactInputMail');
     let editContactInputPhone = document.getElementById('editContactInputPhone');
@@ -241,8 +240,7 @@ function editContact(contactId, color, loggedin) {
         'email': editContactInputMail.value,
         'phone': editContactInputPhone.value,
         'color': color,
-        'initials': getInitials(editContactInputName.value),
-        'loggedin': loggedin
+        'initials': getInitials(editContactInputName.value)
     };
     saveEditedContact(newContactData, contactId);
 }
@@ -273,11 +271,11 @@ function hideOverlayAddContact() {
     emptyAddContactForm();
 }
 
-function showOverlayEditContact(contactId, contactName, initials, color, email, phone, loggedin) {
+function showOverlayEditContact(contactId, contactName, initials, color, email, phone) {
     createOverlayEditContactDot(initials, color);
     insertInputValues(contactName, email, phone);
     document.getElementById('editContactDeleteBtn').onclick = function() {deleteContact(contactId); hideOverlayEditContact(); hideContactDetailsMobile(); return false};
-    document.getElementById('editContactForm').onsubmit = function() {editContact(contactId, color, loggedin); hideOverlayEditContact(); hideContactDetailsMobile(); return false};
+    document.getElementById('editContactForm').onsubmit = function() {editContact(contactId, color); hideOverlayEditContact(); hideContactDetailsMobile(); return false};
     let overlayEditContact = document.getElementById('overlayEditContact');
     overlayEditContact.classList.remove('d-none');
     overlayEditContact.classList.add('overlay-slide-in');
@@ -307,10 +305,10 @@ function insertInputValues(contactName, email, phone) {
     document.getElementById('editContactInputPhone').value = phone;
 }
 
-function showOverlayEditDelete(contactId, contactName, initials, color, email, phone, loggedin) {
+function showOverlayEditDelete(contactId, contactName, initials, color, email, phone) {
     let overlayEditDelete = document.getElementById('overlayEditDelete');    
     overlayEditDelete.innerHTML = '';
-    overlayEditDelete.innerHTML = generateOverlayEditDeleteHTML(contactId, contactName, initials, color, email, phone, loggedin);
+    overlayEditDelete.innerHTML = generateOverlayEditDeleteHTML(contactId, contactName, initials, color, email, phone);
     overlayEditDelete.classList.remove('d-none');
     overlayEditDelete.classList.add('overlay-slide-in');
     overlayEditDelete.classList.remove('overlay-slide-out');
@@ -358,22 +356,22 @@ function getContactIdOfLastLoggedInUser() {
 /**
  * This function is used to change the "loggedin"-entry in the contact information of the last logged in user to "0" again.
  */
-async function changeContactLoggedinStatusNo() {
-    let contactIdOfLastLoggedInUser = getContactIdOfLastLoggedInUser();    
-    let contactArrayOfLastLoggedInUser = contacts.filter(contact => contact.id === contactIdOfLastLoggedInUser);
-    let contactDataOfLastLoggedInUser = contactArrayOfLastLoggedInUser[0];
-    let newContactData = {
-        'id': contactIdOfLastLoggedInUser,
-        'name': contactDataOfLastLoggedInUser['name'],
-        'email': contactDataOfLastLoggedInUser['email'],
-        'phone': contactDataOfLastLoggedInUser['phone'],
-        'color': contactDataOfLastLoggedInUser['color'],
-        'initials': contactDataOfLastLoggedInUser['initials'],
-        'loggedin': 0
-    };
-    contacts = await getData(endpointContacts);
-    let indexOfChangedContact = contacts.findIndex(x => x.id === contactIdOfLastLoggedInUser);
-    contacts.splice(indexOfChangedContact, 1);
-    contacts.push(newContactData);
-    await putData(endpointContacts, contacts); 
-}
+// async function changeContactLoggedinStatusNo() {
+//     let contactIdOfLastLoggedInUser = getContactIdOfLastLoggedInUser();    
+//     let contactArrayOfLastLoggedInUser = contacts.filter(contact => contact.id === contactIdOfLastLoggedInUser);
+//     let contactDataOfLastLoggedInUser = contactArrayOfLastLoggedInUser[0];
+//     let newContactData = {
+//         'id': contactIdOfLastLoggedInUser,
+//         'name': contactDataOfLastLoggedInUser['name'],
+//         'email': contactDataOfLastLoggedInUser['email'],
+//         'phone': contactDataOfLastLoggedInUser['phone'],
+//         'color': contactDataOfLastLoggedInUser['color'],
+//         'initials': contactDataOfLastLoggedInUser['initials'],
+//         'loggedin': 0
+//     };
+//     contacts = await getData(endpointContacts);
+//     let indexOfChangedContact = contacts.findIndex(x => x.id === contactIdOfLastLoggedInUser);
+//     contacts.splice(indexOfChangedContact, 1);
+//     contacts.push(newContactData);
+//     await putData(endpointContacts, contacts); 
+// }
