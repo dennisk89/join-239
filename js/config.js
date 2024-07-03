@@ -191,3 +191,15 @@ function handleGuestUser(trueOrFalse) {
     guestUserActive = trueOrFalse;
     localStorage.setItem('guestUserActive', JSON.stringify(guestUserActive));
 }
+
+/**
+ * This function is used to proof if the current contact is logged in. In case the contact is logged in, "(You)" is added to his*her name in the contact list.
+ * @param {object} contactName This is the name of the current contact.
+ */
+function proofIfContactIsLoggedIn(name) {
+    if (name === loggedInUser) {
+        return ' (You)';
+    } else {
+        return '';
+    }
+}

@@ -95,11 +95,11 @@ function taskHTML(id, type, title, description, dueDate, prio) {
 }
 
 
-function taskAssignHTML(color, initials, name) {
+function taskAssignHTML(color, initials, name, assigneeIsLoggedIn) {
     return /*html*/`
         <div class="task-assigned">
             <div class="profile-batch ${color}">${initials}</div>
-            <p class="assigned-name">${name}</p>
+            <p class="assigned-name">${name}${assigneeIsLoggedIn}</p>
         </div>
     `
 }

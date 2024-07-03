@@ -51,7 +51,7 @@ function excerptContactListLetters() {
  * This function is used to show the content of the contact list: colored dot, name and email of each contact. It also gives the information if one of the contacts is currently logged in by adding "(You)" to his*her name.
  */
 function showContactListContent() {
-    sortContacts();   
+    sortContacts();
     for (i = 0; i < contacts.length; i++) {
         let contact = contacts[i];
         let contactName = contact['name'];
@@ -62,18 +62,6 @@ function showContactListContent() {
         let userIsLoggedIn = proofIfContactIsLoggedIn(contactName);
         let contactsContainer = document.getElementById('contactsContainer' + firstInitialUpper);
         contactsContainer.innerHTML += generateContactListContentHTML(contact, initials, color, userIsLoggedIn);        
-    }
-}
-
-/**
- * This function is used to proof if the current contact is logged in. In case the contact is logged in, "(You)" is added to his*her name in the contact list.
- * @param {object} contactName This is the name of the current contact.
- */
-function proofIfContactIsLoggedIn(contactName) {
-    if (contactName === loggedInUser) {
-        return ' (You)';
-    } else {
-        return '';
     }
 }
 

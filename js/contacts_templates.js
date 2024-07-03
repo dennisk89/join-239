@@ -12,18 +12,19 @@ function generateContactListHTML(contactListLetter) {
 }
 
 /**
- * This function is used to generate the HTML code to show colored dot with initials, name and email of each contact.
+ * This function is used to generate the HTML code to show colored dot with initials, name and email of each contact. If one of the contacts is logged in, "(You)" is shown besides the contact name.
  * @param {string} contact - This is the array containing the data of the current contact.
  * @param {string} initials - These are the initials of the current contact's name.
  * @param {string} color - This is the color of the current contact.
- * @returns 
+ * @param {string} userIsLoggedIn - This is either " (You)" for the logged in contact or "" for the not logged in contacts.
+ * @returns HTML code
  */
 function generateContactListContentHTML(contact, initials, color, userIsLoggedIn) {
     return /*html*/`
         <div id="contactContainer${contact['id']}" class="contact-container clickable" onclick="showContactDetails('${contact['id']}', '${contact['name']}', '${initials}', '${color}', '${contact['email']}', '${contact['phone']}')">
             <div class="contact-list-dot contact-dot-${color}">${initials}</div>
             <div>
-                <div id="contactListName${contact['id']}" class="contact-list-name">${contact['name']} ${userIsLoggedIn}</div>
+                <div class="contact-list-name">${contact['name']} ${userIsLoggedIn}</div>
                 <div class="contact-mail">${contact['email']}</div>
             </div>
         </div>

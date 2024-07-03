@@ -147,7 +147,9 @@ function renderAssignees(task) {
     let taskAssignees = pushTaskAssigneeInfosToArray(task);
     for (let i = 0; i < taskAssignees.length; i++) {
         if (taskAssignees[i] != 'not found') {
-            document.getElementById('taskAssign').innerHTML += taskAssignHTML(taskAssignees[i].color, taskAssignees[i].initials, taskAssignees[i].name);
+            let taskAssigneeName = taskAssignees[i].name;
+            let assigneeIsLoggedIn = proofIfContactIsLoggedIn(taskAssigneeName);
+            document.getElementById('taskAssign').innerHTML += taskAssignHTML(taskAssignees[i].color, taskAssignees[i].initials, taskAssignees[i].name, assigneeIsLoggedIn);
         }
     }
 }
