@@ -1,6 +1,5 @@
 async function initAddTask() {
     await initJoin();
-    await redirectOrShowUserIcon();
     setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg', 'medium');    
 }
 
