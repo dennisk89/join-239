@@ -63,7 +63,6 @@ function loginWithPersistence() {
 onAuthStateChanged(auth, async (user) => {
     if (user) {
         let usersFromFirebase = await getUsers('https://join-239-default-rtdb.europe-west1.firebasedatabase.app/users');
-        console.log(usersFromFirebase);
         loggedInEmail = user.email;
         console.log("User is signed in:", user);
         loggedInUser = getUserNameByLoggedInEmail(loggedInEmail, usersFromFirebase);
@@ -76,7 +75,7 @@ onAuthStateChanged(auth, async (user) => {
 
 
 function updateUserInterfaceWithLogInStatus() {
-    if (['/summary.html', '/add_Task.html', '/contacts.html', '/board.html'].includes(window.location.pathname)) {
+    if (['/summary.html', '/add_task.html', '/contacts.html', '/board.html'].includes(window.location.pathname)) {
         redirectOrShowUserIcon();
         if (window.location.pathname == '/summary.html') {
             showGreeting();
