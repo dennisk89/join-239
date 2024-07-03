@@ -11,7 +11,7 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0); /* Initial color before sliding in */
-    transition: background-color 0.5s ease-in-out;
+    transition: background-color 125ms ease-in-out;
 }
 
 .overlay-content {
@@ -40,7 +40,7 @@
 }
 
 #overlayAddContact.overlay-slide-in .overlay-content { /* Active state for sliding in */
-    animation: overlaySlideIn 0.5s ease-in-out forwards;
+    animation: overlaySlideIn 125ms ease-in-out forwards;
 }
 
 #overlayAddContact.overlay-slide-in .overlay-bg {
@@ -48,7 +48,7 @@
 }
 
 #overlayAddContact.overlay-slide-out .overlay-content { /* Active state for sliding out */
-    animation: overlaySlideOut 0.5s ease-in-out forwards;
+    animation: overlaySlideOut 125ms ease-in-out forwards;
 }
 
 #overlayAddContact.overlay-slide-out .overlay-bg {
@@ -56,7 +56,7 @@
 }
 
 #overlayEditContact.overlay-slide-in .overlay-content { /* Active state for sliding in */
-    animation: overlaySlideIn 0.5s ease-in-out forwards;
+    animation: overlaySlideIn 125ms ease-in-out forwards;
 }
 
 #overlayEditContact.overlay-slide-in .overlay-bg {
@@ -64,7 +64,7 @@
 }
 
 #overlayEditContact.overlay-slide-out .overlay-content { /* Active state for sliding out */
-    animation: overlaySlideOut 0.5s ease-in-out forwards;
+    animation: overlaySlideOut 125ms ease-in-out forwards;
 }
 
 #overlayEditContact.overlay-slide-out .overlay-bg {
