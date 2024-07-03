@@ -254,3 +254,55 @@ function getContactByContactID(contactID) {
         return contactArray[0];
     }
 }
+
+function validateTaskForm(event) {
+    event.preventDefault(); 
+
+    let isTitleValid = validateTitle();
+    let isDateValid = validateDate();
+    let isCategoryValid = validateCategory();
+    
+    if (isTitleValid && isDateValid && isCategoryValid) {
+        createTask(redirectToBoard);
+    }
+}
+
+function validateTitle() {
+    let titleWarning = document.getElementById('titleWarningMessage');
+    let title = document.getElementById('titleInput').value.trim();
+    
+    if (title === "") {
+        titleWarning.classList.remove('d-none');
+        return false;
+    } else {
+        titleWarning.classList.add('d-none');
+        return true;
+    }
+}
+
+function validateDate() {
+    let dateWarning = document.getElementById('dateWarningMessage');
+    let date = document.getElementById('dateInput').value.trim();
+    
+    if (date === "") {
+        dateWarning.classList.remove('d-none');
+        return false;
+    } else {
+        dateWarning.classList.add('d-none');
+        return true;
+    }
+}
+
+function validateCategory() {
+    let categoryWarning = document.getElementById('categoryWarningMessage');
+    let category = document.getElementById('selectCategory').value;
+    
+    if (category === "") {
+        categoryWarning.classList.remove('d-none');
+        return false;
+    } else {
+        categoryWarning.classList.add('d-none');
+        return true;
+    }
+}
+

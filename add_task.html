@@ -32,12 +32,12 @@
     </header>
     <div class="padding-left-right-16px margin-bottom-96px bg-add-task">
         <h1 class="add-task-headline">Add Task</h1>
-        <form onsubmit="createTask(redirectToBoard); return false" class="add-task-desktop" class="width-396px" action="submit">
+        <form onsubmit="validateTaskForm(event); return false" class="add-task-desktop" class="width-396px" action="submit">
             <div class="add-task-desktop-gap">
                 <p class="margin-8px font-20px">Title<span class="color-red">*</span></p>
                 <input class="enter-title-input" placeholder="Enter a title" type="text" name="Title" id="titleInput" required>
-                <span id="titleWarningMessage" class="warning-message-field-required d-none">This field is requiered</span>
-                <p class="margin-8px font-20px">Description</p>
+                <span id="titleWarningMessage" class="warning-message-field-required d-none">Please enter a title</span>
+                <p class="margin-8px font-20px margintop-32px">Description</p>
                 <textarea class="enter-description-input" placeholder="Enter a description" name="Description"
                     id="descriptionInput"></textarea>
                 <div class="input-group">
@@ -59,10 +59,10 @@
                 <p class="margin-8px font-20px">Due date <span class="color-red">*</span></p>
                 <input class="date-input" type="text" placeholder="dd/mm/yyyy" id="dateInput"
                     onfocus="(this.type='date')" onblur="(this.type='text'); this.placeholder='dd/mm/yyyy';">
-                <span id="dateWarningMessage" class="warning-message-field-required d-none">This field is requiered</span>
+                <span id="dateWarningMessage" class="warning-message-field-required d-none">Please select a date</span>
                 <div class="height-88px">
-                    <p class="margin-8px font-20px">Prio</p>
-                    <div class="justify-space-between">
+                    <p class="margin-8px font-20px margintop-32px">Prio</p>
+                    <div class="justify-space-between gap16px">
                         <div class="priority-section" onclick="setPrioBtn('prioUrgent', 'urgent-selected', './assets/img/priority-urgent-white.svg', 'urgent')" id="prioUrgent">
                             <span>Urgent</span>
                             <img src="./assets/img/priority-urgent.svg" alt="Urgent priority task">
@@ -84,6 +84,7 @@
                         <option value="Technical Task">Technical Task</option>
                         <option value="User Story">User Story</option>
                     </select>
+                    <span id="categoryWarningMessage" class="warning-message-field-required d-none">Please choose a category</span>
                 </div>
                 <div class="input-group">
                     <label class="font-20" for="selectInput">Subtasks</label>
@@ -104,7 +105,7 @@
                         <img class="cancel-btn-img-dark" src="./assets/img/cancel-x-dark.svg" alt="">
                         <img class="cancel-btn-img-blue d-none" src="./assets/img/cancel_x_blue.svg" alt="">
                     </button>
-                    <button type="submit" class="create-task-btn btn-color">
+                    <button type="submit" class="create-task-btn btn-color" onclick="validateTaskForm(event)">
                         <span>Create Task</span>
                         <img src="./assets/img/check.svg" alt="Create task button">
                     </button>
