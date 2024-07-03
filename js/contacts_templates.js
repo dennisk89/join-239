@@ -18,12 +18,12 @@ function generateContactListHTML(contactListLetter) {
  * @param {string} color - This is the color of the current contact.
  * @returns 
  */
-function generateContactListContentHTML(contact, initials, color) {
+function generateContactListContentHTML(contact, initials, color, userIsLoggedIn) {
     return /*html*/`
         <div id="contactContainer${contact['id']}" class="contact-container clickable" onclick="showContactDetails('${contact['id']}', '${contact['name']}', '${initials}', '${color}', '${contact['email']}', '${contact['phone']}')">
             <div class="contact-list-dot contact-dot-${color}">${initials}</div>
             <div>
-                <div id="contactListName${contact['id']}" class="contact-list-name">${contact['name']}</div>
+                <div id="contactListName${contact['id']}" class="contact-list-name">${contact['name']} ${userIsLoggedIn}</div>
                 <div class="contact-mail">${contact['email']}</div>
             </div>
         </div>

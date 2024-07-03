@@ -24,7 +24,7 @@ let tempSubtasks = [];
 let tempAssignees = [];
 let tempSubtasksStatus = [];
 let loggedInUser;
-let contactIdOfLoggedInUser;
+// let contactIdOfLoggedInUser;
 let guestUserActive = false;
 
 function resetGlobalTaskVariables() {
@@ -83,7 +83,7 @@ function redirectOrShowUserIcon() {
         showGuestUserIcon();
     } else { // (typeof loggedInUser !== 'undefined' && loggedInUser !== null)
         updateUserIcon(loggedInUser);
-        storeContactIdOfLoggedInUser();
+        // storeContactIdOfLoggedInUser();
     }
 }
 
@@ -192,15 +192,4 @@ if (shouldAddEventListener()) {
 function handleGuestUser(trueOrFalse) {
     guestUserActive = trueOrFalse;
     localStorage.setItem('guestUserActive', JSON.stringify(guestUserActive));
-}
-
-
-/**
- * This function is used to store the contact ID of the logged in user into the local storage.
- */
-function storeContactIdOfLoggedInUser() {
-    let contactArrayOfLoggedInUser = contacts.filter(contact => contact.name === loggedInUser);
-    let contactDataOfLoggedInUser = contactArrayOfLoggedInUser[0];
-    contactIdOfLoggedInUser = contactDataOfLoggedInUser['id'];
-    localStorage.setItem('contactIdOfLoggedInUser', JSON.stringify(contactIdOfLoggedInUser));
 }

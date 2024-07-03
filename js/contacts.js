@@ -48,14 +48,10 @@ function excerptContactListLetters() {
 }
 
 /**
- * This function is used to show the content of the contact list: colored dot, name and email of each contact.
+ * This function is used to show the content of the contact list: colored dot, name and email of each contact. It also gives the information if one of the contacts is currently logged in by adding "(You)" to his*her name.
  */
 function showContactListContent() {
-    sortContacts();
-    let contactIdOfLastLoggedInUser = getContactIdOfLastLoggedInUser();
-    if (contactIdOfLastLoggedInUser !== false) {
-        // changeContactLoggedinStatusNo();
-    }    
+    sortContacts();   
     for (i = 0; i < contacts.length; i++) {
         let contact = contacts[i];
         let contactName = contact['name'];
@@ -63,23 +59,23 @@ function showContactListContent() {
         let firstInitialUpper = firstInitial.toUpperCase();
         let initials = getInitials(contactName);
         let color = contact['color'];
+        let userIsLoggedIn = proofIfContactIsLoggedIn(contactName);
         let contactsContainer = document.getElementById('contactsContainer' + firstInitialUpper);
-        contactsContainer.innerHTML += generateContactListContentHTML(contact, initials, color);
-        // proofIfContactIsLoggedIn(contact);
+        contactsContainer.innerHTML += generateContactListContentHTML(contact, initials, color, userIsLoggedIn);        
     }
 }
 
 /**
  * This function is used to proof if the current contact is logged in. In case the contact is logged in, "(You)" is added to his*her name in the contact list.
- * @param {object} contact This is the array of the current contact.
+ * @param {object} contactName This is the name of the current contact.
  */
-// function proofIfContactIsLoggedIn(contact) {
-//     let id = contact['id'];
-//     let loggedin = contact['loggedin'];
-//     if (loggedin === 1) {
-//         document.getElementById('contactListName' + id).innerHTML += ' (You)';
-//     }
-// }
+function proofIfContactIsLoggedIn(contactName) {
+    if (contactName === loggedInUser) {
+        return ' (You)';
+    } else {
+        return '';
+    }
+}
 
 function sortContacts() {
     contacts.sort(function(a, b) {
@@ -340,37 +336,3 @@ function hideOverlayNewContactOk(){
         overlayNewContactOk.classList.add('d-none');
     }, 500); /* same duration as slide out animation */
 }
-
-
-/**
- * This function is used to get the contact ID of the last logged in user out of the local storage.
- * @returns It returns the contact ID of the last logged in user.
- */
-function getContactIdOfLastLoggedInUser() {
-    let checkContactIdOfLoggedInUser = localStorage.getItem('contactIdOfLoggedInUser');
-    let contactIdOfLastLoggedInUser = checkContactIdOfLoggedInUser ? JSON.parse(checkContactIdOfLoggedInUser) : false;
-    return contactIdOfLastLoggedInUser; // -> Damit dann das You wieder wegmachen!!!
-}
-
-/**
- * This function is used to change the "loggedin"-entry in the contact information of the last logged in user to "0" again.
- */
-// async function changeContactLoggedinStatusNo() {
-//     let contactIdOfLastLoggedInUser = getContactIdOfLastLoggedInUser();    
-//     let contactArrayOfLastLoggedInUser = contacts.filter(contact => contact.id === contactIdOfLastLoggedInUser);
-//     let contactDataOfLastLoggedInUser = contactArrayOfLastLoggedInUser[0];
-//     let newContactData = {
-//         'id': contactIdOfLastLoggedInUser,
-//         'name': contactDataOfLastLoggedInUser['name'],
-//         'email': contactDataOfLastLoggedInUser['email'],
-//         'phone': contactDataOfLastLoggedInUser['phone'],
-//         'color': contactDataOfLastLoggedInUser['color'],
-//         'initials': contactDataOfLastLoggedInUser['initials'],
-//         'loggedin': 0
-//     };
-//     contacts = await getData(endpointContacts);
-//     let indexOfChangedContact = contacts.findIndex(x => x.id === contactIdOfLastLoggedInUser);
-//     contacts.splice(indexOfChangedContact, 1);
-//     contacts.push(newContactData);
-//     await putData(endpointContacts, contacts); 
-// }
