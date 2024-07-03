@@ -81,9 +81,8 @@ function redirectOrShowUserIcon() {
         window.location.href = "./index.html";
     } else if (guestUserActive) {
         showGuestUserIcon();
-    } else { // (typeof loggedInUser !== 'undefined' && loggedInUser !== null)
+    } else {
         updateUserIcon(loggedInUser);
-        // storeContactIdOfLoggedInUser();
     }
 }
 
@@ -113,8 +112,7 @@ function getInitials(name) {
  * This function is used to show the header's icon for guest user.
  */
 function showGuestUserIcon() {
-    let userIcon = document.getElementById('userIcon');
-    userIcon.innerHTML = 'G';
+    document.getElementById('userIcon').innerHTML = 'G';
 }
 
 class Task {

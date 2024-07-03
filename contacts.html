@@ -100,7 +100,7 @@
                     <form class="overlay-form" onsubmit="createNewContactArray(); return false">
                         <input id="addContactInputName" class="input-name" placeholder="Name" required type="text" pattern="[A-Za-zÄäÖöÜüß\-]{2,} [A-Za-zÄäÖöÜüß\-]{2,}" title="Please insert your first and last name (at least two characters each).">
                         <input id="addContactInputMail" class="input-mail" placeholder="Email" required type="email">
-                        <input id="addContactInputPhone" class="input-phone" placeholder="Phone" required type="text" pattern="\+[0-9]{1,3} [0-9]{4,14}" title="Please insert your phone number using the following format: +123 1234567890." value="+">
+                        <input id="addContactInputPhone" class="input-phone" placeholder="Phone" type="text" pattern="\+[0-9]{1,3} [0-9]{4,14}" title="Please insert your phone number using the following format: +123 1234567890." value="+">
                         <div class="add-contact-overlay-buttons">
                             <button type="submit" novalidate class="cancel-btn btn-white clickable" onclick="hideOverlayAddContact()">Cancel <img class="cancel-btn-img-dark" src="./assets/img/cancel-x-dark.svg"><img class="cancel-btn-img-blue" src="./assets/img/cancel_x_blue.svg"></button>
                             <button type="submit" class="create-contact-btn btn-color clickable">Create Contact<img src="./assets/img/check.svg" alt="Create contact"></button>
@@ -134,7 +134,7 @@
                     <form id="editContactForm" class="overlay-form">
                         <input id="editContactInputName" class="input-name" placeholder="Name" required type="text" pattern="[A-Za-zÄäÖöÜüß\-]{2,} [A-Za-zÄäÖöÜüß\-]{2,}" title="Please insert your first and last name (at least two characters each).">
                         <input id="editContactInputMail" class="input-mail" placeholder="Email" required type="email">
-                        <input id="editContactInputPhone" class="input-phone" placeholder="Phone" required type="text" pattern="\+[0-9]{1,3} [0-9]{4,14}" title="Please insert your phone number using the following format: +123 1234567890.">
+                        <input id="editContactInputPhone" class="input-phone" placeholder="Phone" type="text" pattern="\+[0-9]{1,3} [0-9]{4,14}" title="Please insert your phone number using the following format: +123 1234567890.">
                         <div class="edit-contact-overlay-buttons">
                             <button id="editContactDeleteBtn" class="delete-btn btn-white clickable">Delete</button>
                             <button class="save-btn btn-color clickable">Save<img src="./assets/img/check.svg" alt="Save button"></button>

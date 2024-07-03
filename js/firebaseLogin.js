@@ -79,7 +79,7 @@ function updateUserInterfaceWithLogInStatus() {
         redirectOrShowUserIcon();
         if (window.location.pathname == '/summary.html') {
             showGreeting();
-        }    
+        }
     }
 }
 
