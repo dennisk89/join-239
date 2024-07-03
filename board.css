@@ -696,6 +696,34 @@ p {
     .open-task p {
         font-size: 20px;
     }
+
+    .overlay-bg.show{
+        display: flex;
+        animation: show 125ms ease-in-out 0s; 
+    }
+
+    .overlay-bg.hide{
+        animation: hideOverlay 125ms ease-in-out 0s forwards;
+    }
+
+    @keyframes show {
+        from {
+            right: -2000px; 
+          }
+          to {
+            right: 0; 
+          }
+        }
+    
+    @keyframes hideOverlay {
+        from{
+            right: 0;
+        }
+        to{
+            right: -2000px;
+            display: none;
+        }
+    }
 }
 
 @media (min-width: 1464px) {

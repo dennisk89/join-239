@@ -117,8 +117,14 @@ function addSubTaskProgressToCards(taskArray, i) {
 
 
 function closeTask(id) {
-    resetGlobalTaskVariables();
-    document.getElementById(id).style.display = 'none';
+    let taskOverlay = document.getElementById(id);
+    taskOverlay.classList.remove('show');
+    taskOverlay.classList.add('hide');
+    setTimeout(() => {
+        resetGlobalTaskVariables();
+        taskOverlay.style.display = 'none';
+        taskOverlay.classList.remove('hide');
+    }, 125);
 }
 
 
@@ -127,10 +133,12 @@ function openTasks(id) {
     let task = getTaskById(id);
     console.log(task.subTask);
     tempSubtasks = task.subTask;
-    document.getElementById('taskOverlay').style.display = 'flex';
-    document.getElementById('taskOverlay').innerHTML = taskHTML(task.id, task.type, task.title, task.description, task.dueDate, prioIcons[task.prio]);
-    task.assigned ? renderAssignees(task) : '';
-    task.subTask ? renderSubTasks(task) : '';
+    let taskOverlay = document.getElementById('taskOverlay');
+    taskOverlay.style.display = 'flex';
+    taskOverlay.innerHTML = taskHTML(task.id, task.type, task.title, task.description, task.dueDate, prioIcons[task.prio]);
+    if (task.assigned) renderAssignees(task);
+    if (task.subTask) renderSubTasks(task);
+    taskOverlay.classList.add('show');
 }
 
 
@@ -269,7 +277,9 @@ function setValuesToTaskArray(i, contentArray) {
 
 // SECTION add task
 function openAddTaskOverlay() {
-    document.getElementById('addTaskOverlay').style.display = 'flex';
+    let addTaskOverlay = document.getElementById('addTaskOverlay');
+    addTaskOverlay.style.display = 'flex';
+    addTaskOverlay.classList.add('show');
 }
 
 
