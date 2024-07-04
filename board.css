@@ -132,7 +132,7 @@ p {
     padding: 16px 0;
     display: flex;
     gap: 16px;
-    overflow-x: hidden;
+    overflow-x: scroll;
     overflow-y: visible;
 }
 

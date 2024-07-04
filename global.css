@@ -134,7 +134,7 @@ textarea:focus, input:focus{
 
 ::-webkit-scrollbar {
     width: 8px; /* Breite der vertikalen Scrollbar */
-    height: 16px; /* Höhe der horizontalen Scrollbar */
+    height: 8px; /* Höhe der horizontalen Scrollbar */
     background-color: rgb(168, 168, 168);
     border-radius: 8px;
 }
@@ -158,6 +158,10 @@ textarea:focus, input:focus{
     height: 13px;
     width: 16px;
     padding: 1.5px;
+  }
+
+  ::-webkit-scrollbar-button:horizontal {
+    display: none;
   }
 
   /* Up */
