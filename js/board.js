@@ -1,29 +1,4 @@
-function checkSearch() {
-    let searchString = document.getElementById('taskSearch').children[0].value;
-    if (searchString.length > 0) {
-        filterTaskBySearch(searchString)
-    } else {
-        initBoard();
-    }
-}
 
-
-function filterTaskBySearch(searchString) {
-    let results = [];
-    taskArray.forEach(t => {
-        if (t.title.toUpperCase().indexOf(searchString.toUpperCase()) > -1 || t.description.toUpperCase().indexOf(searchString.toUpperCase()) > -1) {
-            results.push(t);
-        }
-    });
-    addCardsToBoards('toDoColumn', results.filter(t => t.taskStatus == 'todo'), 'To do');
-    addCardsToBoards('inProgressColumn', results.filter(t => t.taskStatus == 'progress'), 'In progress');
-    addCardsToBoards('feedbackColumn', results.filter(t => t.taskStatus == 'feedback'), 'Await feedback');
-    addCardsToBoards('doneColumn', results.filter(t => t.taskStatus == 'done'), 'Done');
-    addInfosToCards(results);
-}
-
-
-document.getElementById('taskSearch').addEventListener('keyup', checkSearch)
 
 // ANCHOR load Task cards in board
 async function initBoard() {
@@ -129,10 +104,38 @@ function closeTask(id) {
 }
 
 
+// ANCHOR task search
+function checkSearch() {
+    let searchString = document.getElementById('taskSearch').children[0].value;
+    if (searchString.length > 0) {
+        filterTaskBySearch(searchString)
+    } else {
+        initBoard();
+    }
+}
+
+
+function filterTaskBySearch(searchString) {
+    let results = [];
+    taskArray.forEach(t => {
+        if (t.title.toUpperCase().indexOf(searchString.toUpperCase()) > -1 || t.description.toUpperCase().indexOf(searchString.toUpperCase()) > -1) {
+            results.push(t);
+        }
+    });
+    addCardsToBoards('toDoColumn', results.filter(t => t.taskStatus == 'todo'), 'To do');
+    addCardsToBoards('inProgressColumn', results.filter(t => t.taskStatus == 'progress'), 'In progress');
+    addCardsToBoards('feedbackColumn', results.filter(t => t.taskStatus == 'feedback'), 'Await feedback');
+    addCardsToBoards('doneColumn', results.filter(t => t.taskStatus == 'done'), 'Done');
+    addInfosToCards(results);
+}
+
+
+document.getElementById('taskSearch').addEventListener('keyup', checkSearch);
+
+
 // ANCHOR open Task details
 function openTasks(id) {
     let task = getTaskById(id);
-    console.log(task.subTask);
     tempSubtasks = task.subTask;
     let taskOverlay = document.getElementById('taskOverlay');
     taskOverlay.style.display = 'flex';

@@ -244,6 +244,10 @@ p {
 
 }
 
+.card-details-assignees {
+    overflow-y: scroll;
+}
+
 .task-assigned {
     display: flex;
     align-items: center;
@@ -722,6 +726,7 @@ p {
     .open-task {
         max-width: none;
         width: 525px;
+        max-height: 90vh;
         gap: 24px;
     }
 

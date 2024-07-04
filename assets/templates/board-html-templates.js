@@ -75,7 +75,7 @@ function taskHTML(id, type, title, description, dueDate, prio) {
                 <p class="prio-text">Prio <img src=${prio} alt="Priority of task"></p>
             </div>
             <p class="task-p-bold">Assigned To:</p>
-            <div id="taskAssign"></div>
+            <div class="card-details-assignees" id="taskAssign"></div>
             <p class="task-p-bold">Subtasks</p>
             <div id="taskOverlaySubtasks">
             </div>
