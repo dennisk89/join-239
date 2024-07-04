@@ -75,8 +75,6 @@ function closeSelectContacts() {
 
 
 function checkForPreSelectContacts(assigneeArray) {
-    console.log(tempAssignees);
-    console.log(assigneeArray);
     if (assigneeArray.length > 0 && tempAssignees.length > 0) {
         for (let i = 0; i < assigneeArray.length; i++) {
             if (tempAssignees.indexOf(assigneeArray[i]) > -1) {
