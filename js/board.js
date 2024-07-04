@@ -290,7 +290,7 @@ function openAddTaskOverlay() {
 
 
 function handleAddTask() {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 1200) {
         openAddTaskOverlay();
     } else {
         window.location.href = 'add_task.html';
