@@ -26,7 +26,7 @@ function taskCardHTML(id, type, title, description, prioIcon) {
         <div class="card-footer">
             <div class="circle-container">
             </div>
-            <img class="clickable" src="${prioIcon}" alt="">
+            <img class="clickable" src="${prioIcon}" alt="Priority">
         </div>
     </div>
     `;
@@ -72,7 +72,7 @@ function taskHTML(id, type, title, description, dueDate, prio) {
             </div>
             <div class="task-line">
                 <p class="task-p-bold">Priority:</p>
-                <p class="prio-text">Prio <img src=${prio} alt=""></p>
+                <p class="prio-text">Prio <img src=${prio} alt="Priority of task"></p>
             </div>
             <p class="task-p-bold">Assigned To:</p>
             <div id="taskAssign"></div>

@@ -50,8 +50,10 @@ function checkPasswordMatch() {
   let password = document.getElementById('passwordForm').value;
   let confirmPassword = document.getElementById('confirmPassword').value;
   let showError = document.getElementById('pwError');
+  let passwordWarning = document.getElementById('passwordWarning')
   if (password !== confirmPassword) {
     showError.classList.remove('d-none');
+    passwordWarning.classList.add('border-red')
     return false;
   } else {
     showError.classList.add('d-none');

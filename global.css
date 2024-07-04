@@ -114,6 +114,10 @@ textarea:focus, input:focus{
     font-weight: 400;
 }
 
+.border-red{
+    border: 1px solid rgb(255, 129, 144) !important;
+}
+
 /* SECTION select */
 /* ANCHOR select text field */
 .select-input {

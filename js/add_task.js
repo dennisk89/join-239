@@ -254,7 +254,7 @@ function getContactByContactID(contactID) {
     }
 }
 
-function validateTaskForm(event, nextFunction) {
+function validateTaskForm(event) {
     event.preventDefault(); 
 
     let isTitleValid = validateTitle();
@@ -269,12 +269,15 @@ function validateTaskForm(event, nextFunction) {
 function validateTitle() {
     let titleWarning = document.getElementById('titleWarningMessage');
     let title = document.getElementById('titleInput').value.trim();
+    let titleBorder = document.getElementById('titleInput');
     
     if (title === "") {
         titleWarning.classList.remove('d-none');
+        titleBorder.classList.add('border-red')
         return false;
     } else {
         titleWarning.classList.add('d-none');
+        titleBorder.classList.remove('border-red')
         return true;
     }
 }
@@ -282,12 +285,15 @@ function validateTitle() {
 function validateDate() {
     let dateWarning = document.getElementById('dateWarningMessage');
     let date = document.getElementById('dateInput').value.trim();
+    let dateBorder = document.getElementById('dateInput');
     
     if (date === "") {
         dateWarning.classList.remove('d-none');
+        dateBorder.classList.add('border-red')
         return false;
     } else {
         dateWarning.classList.add('d-none');
+        dateBorder.classList.remove('border-red')
         return true;
     }
 }
@@ -295,12 +301,15 @@ function validateDate() {
 function validateCategory() {
     let categoryWarning = document.getElementById('categoryWarningMessage');
     let category = document.getElementById('selectCategory').value;
+    let categoryBorder = document.getElementById('selectCategory');
     
     if (category === "") {
         categoryWarning.classList.remove('d-none');
+        categoryBorder.classList.add('border-red');
         return false;
     } else {
         categoryWarning.classList.add('d-none');
+        categoryBorder.classList.remove('border-red');
         return true;
     }
 }

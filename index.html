@@ -37,7 +37,7 @@
             </div>
             <form class="login-form">
                 <input placeholder="Email" class="email" type="email" id="email">
-                <div class="password-container">
+                <div class="password-container" id="passwordContainer">
                     <input placeholder="Password" class="password" type="password" id="password">
                     <div onclick="showPassword('passwordClick','password')" id="passwordClick"
                         class="right-password-box"></div>
@@ -47,7 +47,7 @@
             </div>
             </form>
             <div  class="remember-me" onclick="handleCheckBoxRememberMe()">
-                <img class="clickable" id="rememberMe" src="./assets/img/checkbox.svg" alt="">
+                <img class="clickable" id="rememberMe" src="./assets/img/checkbox.svg" alt="Remember me checkbox">
                 <span>Remember me</span>
             </div>
             <div class="login-btns">
@@ -67,12 +67,12 @@
     </div>
     <div id="signup-startpage" class="d-none">
         <div class="align-center">
-            <img class="join-logo-login-signup" src="./assets/img/join-logo.svg" alt="">
+            <img class="join-logo-login-signup" src="./assets/img/join-logo.svg" alt="Logo">
         </div>
         <div class="login-white-bg-signup">
             <div class="arrow-align">
                 <img onclick="backToLogin()" class="login-arrow-back clickable" src="./assets/img/arrow-left-line.svg"
-                    alt="">
+                    alt="Back to login">
                 <div class="signup-headline clickable">
                     <span>Sign up</span>
                     <div class="blue-underline"></div>
@@ -86,7 +86,7 @@
                     <div onclick="showPassword('passwordClick1','passwordForm')" id="passwordClick1"
                         class="right-password-box"></div>
                 </div>
-                <div class="password-container">
+                <div class="password-container" id="passwordWarning">
                     <input placeholder="Password" class="password" type="password" id="confirmPassword" required>
                     <div onclick="showPassword('passwordClick2','confirmPassword')" id="passwordClick2"
                         class="right-password-box"></div>
@@ -94,7 +94,7 @@
                 <span class="password-error-message d-none" id="pwError">Oops! Your passwords don't match.</span>
                 <div class="accept-terms">
                     <img id="privacyCheckBox" onclick="handleCheckBoxPrivacyPolicy()" src="./assets/img/checkbox.svg"
-                        alt="">
+                        alt="Accept Privacy checkbox">
                     <span class="color-grey">I accept the <a class="highlighted-text no-decoration"
                             href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy
                             Policy</a></span>

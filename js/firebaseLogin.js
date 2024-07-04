@@ -27,6 +27,7 @@ function login() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const warningmessage = document.getElementById('wrongPassword');
+    const passwordContainer = document.getElementById('passwordContainer')
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
 
@@ -35,6 +36,7 @@ function login() {
         })
         .catch((error) => {
             warningmessage.classList.remove('d-none');
+            passwordContainer.classList.add('border-red');
         });
 }
 
@@ -42,7 +44,7 @@ function loginWithPersistence() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const warningmessage = document.getElementById('wrongPassword');
-
+    const passwordContainer = document.getElementById('passwordContainer')
     // Set the persistence to session
     setPersistence(auth, browserLocalPersistence)
         .then(() => {
@@ -56,6 +58,7 @@ function loginWithPersistence() {
         })
         .catch((error) => {
             warningmessage.classList.remove('d-none');
+            passwordContainer.classList.add('border-red');
         });
 }
 
