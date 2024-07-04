@@ -22,7 +22,7 @@ function generateContactListHTML(contactListLetter) {
 function generateContactListContentHTML(contact, initials, color, userIsLoggedIn) {
     return /*html*/`
         <div id="contactContainer${contact['id']}" class="contact-container clickable" onclick="showContactDetails('${contact['id']}', '${contact['name']}', '${initials}', '${color}', '${contact['email']}', '${contact['phone']}')">
-            <div class="contact-list-dot contact-dot-${color}">${initials}</div>
+            <div class="contact-list-dot ${color}">${initials}</div>
             <div>
                 <div class="contact-list-name">${contact['name']} ${userIsLoggedIn}</div>
                 <div class="contact-mail">${contact['email']}</div>
@@ -44,7 +44,7 @@ function generateContactListContentHTML(contact, initials, color, userIsLoggedIn
 function generateContactDetailsContainerHTML(contactId, contactName, initials, color, email, phone) {
     return /*html*/`
         <div class="contact-name-container">
-            <div class="contact-info-dot contact-dot-${color}">${initials}</div>
+            <div class="contact-info-dot ${color}">${initials}</div>
             <div>
                 <div class="contact-info-name">${contactName}</div>
                 <div class="contact-edit-delete-desktop-container">
@@ -108,7 +108,7 @@ function generateOverlayEditDeleteHTML(contactId, contactName, initials, color, 
  */
 function generateEditContactDotMobileHTML(initials, color) {
     return /*html*/`
-        <div class="edit-contact-dot edit-contact-dot-mobile contact-dot-${color}">${initials}</div>
+        <div class="edit-contact-dot edit-contact-dot-mobile ${color}">${initials}</div>
     `;
 }
 
@@ -120,6 +120,6 @@ function generateEditContactDotMobileHTML(initials, color) {
  */
 function generateEditContactDotDesktopHTML(initials, color) {
     return /*html*/`
-        <div class="edit-contact-dot edit-contact-dot-desktop contact-dot-${color}">${initials}</div>
+        <div class="edit-contact-dot edit-contact-dot-desktop ${color}">${initials}</div>
     `;
 }
