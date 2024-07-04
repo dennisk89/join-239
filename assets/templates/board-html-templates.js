@@ -5,13 +5,17 @@ function taskCardHTML(id, type, title, description, prioIcon) {
     <div draggable="true" ondragstart="startDragging('${id}')" id="${id}" onclick="openTasks('${id}'); stopP(event)" class="card clickable">
         <div class="card-header">
             <div class="type-container ${taskTypeColor[type]}">${type}</div>
-            <img onclick="stopP(event)" src="assets/img/more_card-black.svg" class="hide-over-1400p" alt="move card menu">
-            <div class="card-menu-overlay">
-                <div>To do</div>
-                <div>In progress</div>
-                <div>Await feedback</div>
-                <div>Done</div>
-            </div>
+            <details>
+                <summary class="li-none">
+                    <img onclick="stopP(event)" src="assets/img/more_card-black.svg" class="hide-over-1400p" alt="move card menu">
+                </summary>
+                <div class="card-menu-overlay">
+                    <div class="clickable">To do</div>
+                    <div class="clickable">In progress</div>
+                    <div class="clickable">Await feedback</div>
+                    <div class="clickable">Done</div>
+                </div>
+            </details>
         </div>
         <div class="card-text-box">
             <h3>${title}</h3>

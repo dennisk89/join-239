@@ -23,7 +23,6 @@ p {
 }
 
 .font-12 {
-    font-family: 'Inter'; /* TODO Muss man das hier nochmal angeben, obwohl es auch im body definiert ist? */
     font-size: 12px;
     font-weight: 400;
     line-height: 14.4px;
@@ -60,7 +59,6 @@ p {
     background-color: rgba(42, 54, 71, 1);
     border: none;
     color: white;
-    font-family: 'Inter'; /* TODO Muss man das hier nochmal angeben, obwohl es auch im body definiert ist? */
     font-size: 21px;
     font-weight: 700;
     line-height: 25.2px;
@@ -209,14 +207,12 @@ p {
 }
 
 .open-task h1 {
-    font-family: Inter; /* TODO Muss man das hier nochmal angeben, obwohl es auch im body definiert ist? */
     font-size: 36px;
     font-weight: 700;
     line-height: 43.2px;
 }
 
 .open-task p {
-    font-family: 'Inter'; /* TODO Muss man das hier nochmal angeben, obwohl es auch im body definiert ist? */
     font-size: 16px;
     line-height: 19.2px;
     text-align: left;
@@ -296,6 +292,44 @@ p {
     gap: 24px;
 }
 
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.card-header img:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 100%; 
+}
+
+.li-none {
+    list-style: none;
+}
+
+.card-menu-overlay {
+    position: absolute;
+    width: 150px;
+    padding: 20px;
+    background-color: rgb(42, 54, 71);
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    color: white;
+    flex-direction: column;
+    gap: 24px;
+    top: 24px;
+    right: 24px;
+    z-index: 999;
+}
+
+.card-menu-overlay div:hover {
+    color: var(--highlight);
+}
+
 .card:hover {
     rotate: 5deg;
 }
@@ -303,9 +337,7 @@ p {
 .card h3 {
     font-size: 16px;
     font-weight: 700;
-
 }
-
 
 .card-text-box h3 {
     font-size: 16px;
@@ -448,7 +480,6 @@ p {
     font-weight: 400;
     resize: none;
     box-sizing: border-box;
-    font-family: 'Inter-VariableFont', sans-serif; /* TODO Muss man das hier nochmal angeben, obwohl es auch im body definiert ist? */
     font-weight: 400;
     font-size: 20px;
 }
@@ -480,7 +511,6 @@ p {
 }
 
 .priority-btn span {
-    font-family: 'Inter'; /* TODO Muss man das hier nochmal angeben, obwohl es auch im body definiert ist? */
     font-size: 21px;
     font-weight: 400;
     line-height: 25.2px;
@@ -535,7 +565,6 @@ p {
 }
 
 .hint-container {
-    font-family: 'Inter'; /* TODO Muss man das hier nochmal angeben, obwohl es auch im body definiert ist? */
     font-size: 16px;
     font-weight: 400;
     line-height: 19.2px;
@@ -569,43 +598,7 @@ p {
 }
 
 /* !SECTION */
-.card-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-}
-
-.card-header img:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 100%; 
-}
-
-
-.card-menu-overlay {
-    position: absolute;
-    width: 150px;
-    padding: 20px;
-    background-color: rgb(42, 54, 71);
-    border-radius: 20px;
-    font-size: 16px;
-    font-weight: 400;
-    display: none;
-    justify-content: center;
-    color: white;
-    flex-direction: column;
-    gap: 24px;
-    top: 24px;
-    right: 24px;
-    z-index: 999;
-}
-
-.card-menu-overlay div:hover {
-    color: var(--highlight);
-}
-
 .type-container {
-    font-family: 'Inter'; /* TODO Muss man das hier nochmal angeben, obwohl es auch im body definiert ist? */
     font-size: 16px;
     font-weight: 400;
     line-height: 19.2px;
@@ -625,7 +618,6 @@ p {
 }
 
 .type-container-overlay {
-    font-family: 'Inter'; /* TODO Muss man das hier nochmal angeben, obwohl es auch im body definiert ist? */
     font-size: 23px;
     font-weight: 400;
     line-height: 27.6px;
@@ -654,7 +646,6 @@ p {
 }
 
 .font-16 {
-    font-family: 'Inter'; /* TODO Muss man das hier nochmal angeben, obwohl es auch im body definiert ist? */
     font-size: 16px;
     line-height: 19.2px;
     text-align: left;
@@ -731,7 +722,6 @@ p {
     }
 
     .open-task h1 {
-        font-family: 'Inter'; /* TODO Muss man das hier nochmal angeben, obwohl es auch im body definiert ist? */
         font-size: 61px;
         font-weight: 700;
         line-height: 73.2px;
