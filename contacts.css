@@ -305,12 +305,6 @@
 
 @media only screen and (min-width: 768px) {
 
-    /* ANCHOR Main */
-
-
-
-
-
     /* ANCHOR Contact List */
 
     .main-contact-list {
@@ -349,7 +343,6 @@
     .hr-contacts-mobile {
         display: none;
     }
-
 
     /* ANCHOR Buttons */
 

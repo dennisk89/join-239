@@ -24,7 +24,6 @@ let tempSubtasks = [];
 let tempAssignees = [];
 let tempSubtasksStatus = [];
 let loggedInUser;
-// let contactIdOfLoggedInUser;
 let guestUserActive = false;
 
 function resetGlobalTaskVariables() {

@@ -431,6 +431,17 @@
 }
 
 
+/* ANCHOR min 768px Responsiveness */
+
+@media only screen and (min-width: 768px) {
+
+    .overlay-edit-delete-content {
+        bottom: 10px;
+    }
+
+}
+
+
 /* ANCHOR min 1300px Responsiveness */
 
 @media screen and (min-width: 1300px){
@@ -608,6 +619,13 @@
         } to {
             transform: translateX(650%);
         }
+    }
+
+
+    /* ANCHOR #overlayEditDelete */
+
+    .overlay-edit-delete-content {
+        display: none;
     }
 
 }
