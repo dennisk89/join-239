@@ -66,6 +66,7 @@ async function putData(url, data = {}) {
 
 function errorFunction() {
     console.error('Fehler aufgetreten');
+    alert('Oops, something went wrong. Please reload and try again')
 }
 
 
