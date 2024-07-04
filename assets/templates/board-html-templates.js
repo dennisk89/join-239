@@ -1,6 +1,6 @@
 
 
-function taskCardHTML(id, type, title, description, prioIcon) {
+function taskCardHTML(id, type, title, description, prioIcon, status) {
     return /*html*/`
     <div draggable="true" ondragstart="startDragging('${id}')" id="${id}" onclick="openTasks('${id}'); stopP(event)" class="card clickable">
         <div class="card-header">
@@ -9,11 +9,11 @@ function taskCardHTML(id, type, title, description, prioIcon) {
                 <summary class="li-none">
                     <img onclick="stopP(event)" src="assets/img/more_card-black.svg" class="hide-over-1400p" alt="move card menu">
                 </summary>
-                <div class="card-menu-overlay">
-                    <div class="clickable">To do</div>
-                    <div class="clickable">In progress</div>
-                    <div class="clickable">Await feedback</div>
-                    <div class="clickable">Done</div>
+                <div class="card-menu-overlay hide-option-${status}">
+                    <div onclick="startDragging('${id}'), moveTo('${id}', 'todo'), stopP(event)" class="clickable">To do</div>
+                    <div onclick="startDragging('${id}'), moveTo('${id}', 'progress'), stopP(event)" class="clickable">In progress</div>
+                    <div onclick="startDragging('${id}'), moveTo('${id}', 'feedback'), stopP(event)" class="clickable">Await feedback</div>
+                    <div onclick="startDragging('${id}'), moveTo('${id}', 'done', stopP(event))" class="clickable">Done</div>
                 </div>
             </details>
         </div>
