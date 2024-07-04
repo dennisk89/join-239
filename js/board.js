@@ -20,7 +20,7 @@ function addCardsToBoards(columnID, filterArray, stringForEmptyColumn) {
         element.innerHTML = boardPlaceholderHTML(stringForEmptyColumn);
     } else {
         for (let i = 0; i < filterArray.length; i++) {
-            element.innerHTML += taskCardHTML(filterArray[i].id, filterArray[i].type, filterArray[i].title, shortText(filterArray[i].description), prioIcons[filterArray[i].prio], filterArray[i].status);
+            element.innerHTML += taskCardHTML(filterArray[i].id, filterArray[i].type, filterArray[i].title, shortText(filterArray[i].description), prioIcons[filterArray[i].prio], filterArray[i].taskStatus);
         }
     }
 }
