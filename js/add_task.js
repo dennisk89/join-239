@@ -48,11 +48,10 @@ function setPrioBtnStandardIcon() {
 
 
 // ANCHOR Select assign in add task
-
 function openSelectContacts() {
     document.getElementById('selectContactsList').style.display = 'flex';
     renderContactsToSelectList(contacts);
-    changeSelectIcon('select-image', 'select-image-up');
+    changeSelectIcon('selectFieldBtn', 'select-image', 'select-image-up');
     checkForPreSelectContacts(tempAssignees);
     document.getElementById('selectInput').setAttribute('onclick', 'closeSelectContacts()');
 }
@@ -70,7 +69,7 @@ function closeSelectContacts() {
     document.getElementById('innerSelectInput').value = '';
     document.getElementById('selectContactsList').innerHTML = '';
     document.getElementById('selectContactsList').style.display = 'none';
-    changeSelectIcon('select-image-up', 'select-image');
+    changeSelectIcon('selectFieldBtn', 'select-image-up', 'select-image');
     document.getElementById('selectInput').setAttribute('onclick', 'openSelectContacts(); stopP(event)');
 }
 
@@ -87,9 +86,9 @@ function checkForPreSelectContacts(assigneeArray) {
 }
 
 
-function changeSelectIcon(cssClass, cssClass2) {
-    document.getElementById('selectFieldBtn').classList.remove(cssClass);
-    document.getElementById('selectFieldBtn').classList.add(cssClass2);
+function changeSelectIcon(id, cssClass, cssClass2) {
+    document.getElementById(id).classList.remove(cssClass);
+    document.getElementById(id).classList.add(cssClass2);
 }
 
 
@@ -153,6 +152,16 @@ function getResultsIdsForPreselectCheck(results) {
         results.forEach(r => resultsIds.push(r.id));
         checkForPreSelectContacts(resultsIds);
     }
+}
+
+
+// ANCHOR category select 
+function arrowChanger() {
+    if (document.getElementById('selectCategory').classList.contains('select-image')) {
+        changeSelectIcon('selectCategory', 'select-image', 'select-image-up')
+    } else {
+        changeSelectIcon('selectCategory', 'select-image-up', 'select-image')
+    }  
 }
 
 

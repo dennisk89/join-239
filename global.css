@@ -176,11 +176,11 @@ textarea:focus, input:focus{
 /* ANCHOR select text field */
 .select-input {
     appearance: none;
-    background-image: url('./assets/img/arrow_drop_down.svg');
     background-repeat: no-repeat;
     background-position: right 16px top 50%;
     background-size: 24px auto;
 }
+
 
 .inner-input-img {
     width: 24px;
