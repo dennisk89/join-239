@@ -330,6 +330,22 @@ p {
     color: var(--highlight);
 }
 
+.hide-option-todo .hide-in-todo {
+    display: none;
+}
+
+.hide-option-progress .hide-in-progress {
+    display: none;
+}
+
+.hide-option-feedback .hide-in-feedback {
+    display: none;
+}
+
+.hide-option-done .hide-in-done {
+    display: none;
+}
+
 .card:hover {
     rotate: 5deg;
 }
