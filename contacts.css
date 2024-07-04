@@ -178,8 +178,8 @@
 }
 
 .contact-info-dot {
-    height: 80px;
-    width: 80px;
+    min-height: 80px;
+    min-width: 80px;
     border: 3px solid rgba(255, 255, 255, 1);
     color: rgba(255, 255, 255, 1);
     font-size: 27px;
@@ -194,6 +194,7 @@
     font-size: 36px;
     font-weight: 700;
     margin-right: 16px;
+    word-break: break-word;
 }
 
 .contact-edit-delete-desktop-container {
@@ -465,8 +466,8 @@
     }
 
     .contact-info-dot {
-        height: 120px;
-        width: 120px;
+        min-height: 120px;
+        min-width: 120px;
         font-size: 47px;
         font-weight: 500;
         line-height: 56.4px;
