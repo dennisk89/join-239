@@ -13,9 +13,9 @@ function generateContactListHTML(contactListLetter) {
 
 /**
  * This function is used to generate the HTML code to show colored dot with initials, name and email of each contact. If one of the contacts is logged in, "(You)" is shown besides the contact name.
- * @param {string} contact - This is the array containing the data of the current contact.
- * @param {string} initials - These are the initials of the current contact's name.
- * @param {string} color - This is the color of the current contact.
+ * @param {object} contact - This is the array containing the data of the current contact.
+ * @param {string} initials - initials of the current contact's name
+ * @param {string} color - color of the current contact's dot
  * @param {string} userIsLoggedIn - This is either " (You)" for the logged in contact or "" for the not logged in contacts.
  * @returns HTML code
  */
@@ -33,13 +33,13 @@ function generateContactListContentHTML(contact, initials, color, userIsLoggedIn
 
 /**
  * This function is used to generate the HTML code to show the detail information of a contact.
- * @param {*} contactId - id of the contact
- * @param {*} contactName - name of the contact
- * @param {*} initials - initials of the contact
- * @param {*} color - color of the contact's dot
- * @param {*} email - email of the contact
- * @param {*} phone - phone number of the contact
- * @returns HTL code
+ * @param {string} contactId - ID of the contact
+ * @param {string} contactName - name of the contact
+ * @param {string} initials - initials of the contact's name
+ * @param {string} color - color of the contact's dot
+ * @param {string} email - email of the contact
+ * @param {string} phone - phone number of the contact
+ * @returns HTML code
  */
 function generateContactDetailsContainerHTML(contactId, contactName, initials, color, email, phone) {
     return /*html*/`
@@ -73,6 +73,16 @@ function generateContactDetailsContainerHTML(contactId, contactName, initials, c
     `;
 }
 
+/**
+ * This function is used to generate the HTML code for the overlay menu that allows the user to select if he*she wants to edit or delete a contact.
+ * @param {string} contactId - ID of the contact
+ * @param {string} contactName - name of the contact
+ * @param {string} initials - initials of the contact's name
+ * @param {string} color - color of the contact's dot
+ * @param {string} email - email of the contact
+ * @param {string} phone - phone number of the contact
+ * @returns HTML code
+ */
 function generateOverlayEditDeleteHTML(contactId, contactName, initials, color, email, phone) {
     return /*html*/`
         <div class="overlay-edit-delete-content">
@@ -91,9 +101,9 @@ function generateOverlayEditDeleteHTML(contactId, contactName, initials, color, 
 }
 
 /**
- * This function is used to generate the HTML for the mobile version of the colored dot of the contact to be edited; it is shown on the overlay with the form to edit contacts.
- * @param {*} initials - initials of the edited contact
- * @param {*} color - color of the edited contact's dot
+ * This function is used to generate the HTML code for the mobile version of the colored dot of the contact to be edited; it is shown on the overlay with the form to edit contacts.
+ * @param {string} initials - initials of the edited contact's name
+ * @param {string} color - color of the edited contact's dot
  * @returns HTML code
  */
 function generateEditContactDotMobileHTML(initials, color) {
@@ -103,9 +113,9 @@ function generateEditContactDotMobileHTML(initials, color) {
 }
 
 /**
- * This function is used to generate the HTML for the desktop version of the colored dot of the contact to be edited; it is shown on the overlay with the form to edit contacts.
- * @param {*} initials - initials of the edited contact
- * @param {*} color - color of the edited contact's dot
+ * This function is used to generate the HTML code for the desktop version of the colored dot of the contact to be edited; it is shown on the overlay with the form to edit contacts.
+ * @param {string} initials - initials of the edited contact's name
+ * @param {string} color - color of the edited contact's dot
  * @returns HTML code
  */
 function generateEditContactDotDesktopHTML(initials, color) {

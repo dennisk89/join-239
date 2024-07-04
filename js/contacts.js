@@ -89,7 +89,7 @@ function compareStrings(a, b) {
  * This function is used to show detailed information about the contact that is clicked on in the contact list. The needed HTML code is generated and shown in the div with the id "contactDetailsContainer". This function also causes that the contact details container is sliding in and that the contact clicked on in the contact list is highlighted in the desktop version.
  * @param {string} contactId - ID of the contact
  * @param {string} contactName - name of the contact
- * @param {string} initials - initials of the contact
+ * @param {string} initials - initials of the contact's name
  * @param {string} color - color of the contact's dot
  * @param {string} email - email of the contact
  * @param {string} phone - phone number of the contact
@@ -220,7 +220,7 @@ async function addNewUserToContacts(newUser) {
  * This function is used to display the details of a new added contact and evoces that this contact is highlighted in the contact list (desktop version).
  * @param {string} contactId - ID of the new contact
  * @param {string} contactName - name of the new contact
- * @param {string} initials - initials of the new contact
+ * @param {string} initials - initials of the new contact's name
  * @param {string} color - color of the new contact's dot
  * @param {string} email - email of the new contact
  * @param {string} phone - phone number of the new contact
@@ -322,7 +322,7 @@ function emptyAddContactForm() {
  * This function is used to show the overlay containing the form to edit contacts. It evoces that the colored dot of the contact that is being edited is created and that the name, email and phone number of the contact are already shown in the form.
  * @param {string} contactId - ID of the edited contact
  * @param {string} contactName - name of the edited contact
- * @param {string} initials - initials of the edited contact
+ * @param {string} initials - initials of the edited contact's name
  * @param {string} color - color of the edited contact's dot
  * @param {string} email - email of the edited contact
  * @param {string} phone - phone number of the edited contact
@@ -364,7 +364,7 @@ function emptyEditContactForm() {
 
 /**
  * This function is used to create the colored dot of the contact to be edited; it is shown on the overlay containing the form to edit contacts.
- * @param {string} initials - initials of the edited contact
+ * @param {string} initials - initials of the edited contact's name
  * @param {string} color - color of the edited contact's dot
  */
 function createOverlayEditContactDot(initials, color) {
@@ -388,7 +388,7 @@ function insertInputValues(contactName, email, phone) {
  * This function is used to show the overlay menu that allows the user to select if he*she wants to edit or delete a contact.
  * @param {string} contactId - ID of the contact to be edited or deleted
  * @param {string} contactName - name of the contact to be edited or deleted
- * @param {string} initials - initials of the contact to be edited or deleted
+ * @param {string} initials - initials of the name of the contact to be edited or deleted
  * @param {string} color - color of the dot of the contact to be edited or deleted
  * @param {string} email - email of the contact to be edited or deleted
  * @param {string} phone - phone number of the contact to be edited or deleted
