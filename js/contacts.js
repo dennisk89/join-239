@@ -75,8 +75,8 @@ function sortContacts() {
 
 /**
  * This function is used to compare the contacts' names. They are converted into lowercase to be sorted without case sensitivity. 
- * @param {string} a contact's name a
- * @param {string} b contact's name b
+ * @param {string} a - contact's name a
+ * @param {string} b - contact's name b
  * @returns -1: if a comes before b / 1: if b comes before a / 0: if both are the same
  */
 function compareStrings(a, b) {
@@ -86,13 +86,13 @@ function compareStrings(a, b) {
 }
 
 /**
- * This function is used to show detailed information about the contact that is clicked on in the contact list. The needed HTML code is generated and shown in the div with the id "contactDetailsContainer". This function also causes that the contact details container is sliding in and that the contact clicked on in the contact list is highlighted.
- * @param {*} contactId id of the contact
- * @param {*} contactName name of the contact
- * @param {*} initials initials of the contact
- * @param {*} color color of the contact's dot
- * @param {*} email email of the contact
- * @param {*} phone phone number of the contact
+ * This function is used to show detailed information about the contact that is clicked on in the contact list. The needed HTML code is generated and shown in the div with the id "contactDetailsContainer". This function also causes that the contact details container is sliding in and that the contact clicked on in the contact list is highlighted in the desktop version.
+ * @param {string} contactId - ID of the contact
+ * @param {string} contactName - name of the contact
+ * @param {string} initials - initials of the contact
+ * @param {string} color - color of the contact's dot
+ * @param {string} email - email of the contact
+ * @param {string} phone - phone number of the contact
  */
 function showContactDetails(contactId, contactName, initials, color, email, phone) {
     document.getElementById('mainContacts').classList.remove('contacts-hide-on-mobile');
@@ -126,8 +126,8 @@ function hideContactDetailsMobile() {
 }
 
 /**
- * This function is used to highlight the contact clicked on in the contact list. If there was a contact highlighted before, this highlighting is removed.
- * @param {*} contactId id of the contact clicked on in the contact list
+ * This function is used to highlight the contact clicked on in the contact list (desktop version). If there was a contact highlighted before, this highlighting is removed.
+ * @param {string} contactId - ID of the contact clicked on in the contact list
  */
 function highlightContactContainer(contactId) {
     let contactContainers = document.getElementsByClassName('contact-container');
@@ -174,8 +174,8 @@ function getRandomColor() {
 }
 
 /**
- * This function is used to add a new contact to the database. It then evoces that the contact form is emptied and hidden again and that the new contact is shown in the contact list; a short message informs the user that the new contact was successfully created.
- * @param {object} newContact This array contains all entries of the new contact.
+ * This function is used to add a new contact to the database. It then evoces that the contact form is emptied and hidden again and that the new contact is shown in the contact list; a short message informs the user that the new contact was successfully created and the details of the new contact are displayed.
+ * @param {object} newContact - This array contains all entries of the new contact.
  */
 async function addNewContact(newContact) {
     contacts.push(newContact);
@@ -190,8 +190,8 @@ async function addNewContact(newContact) {
 
 /**
  * This function is used to create a new contact array out of the data of a new registered user and evoces that the new array is added to the contacts array on the database.
- * @param {string} email This is the email of the new registered user.
- * @param {string} name This is the name of the new registered user.
+ * @param {string} email - email of the new registered user
+ * @param {string} name - name of the new registered user
  */
 function createNewContactArrayOutOfNewUserArray(email, name) {
     let newId = generateUniqueId('c', contacts);
@@ -216,6 +216,15 @@ async function addNewUserToContacts(newUser) {
     await putData(endpointContacts, contacts);
 }
 
+/**
+ * This function is used to display the details of a new added contact and evoces that this contact is highlighted in the contact list (desktop version).
+ * @param {string} contactId - ID of the new contact
+ * @param {string} contactName - name of the new contact
+ * @param {string} initials - initials of the new contact
+ * @param {string} color - color of the new contact's dot
+ * @param {string} email - email of the new contact
+ * @param {string} phone - phone number of the new contact
+ */
 function showNewContactDetails(contactId, contactName, initials, color, email, phone) {
     document.getElementById('mainContacts').classList.remove('contacts-hide-on-mobile');
     let contactDetailsContainer = document.getElementById('contactDetailsContainer');
@@ -225,12 +234,10 @@ function showNewContactDetails(contactId, contactName, initials, color, email, p
     highlightContactContainer(contactId);
 }
 
-function emptyAddContactForm() {
-    document.getElementById('addContactInputName').value = '';
-    document.getElementById('addContactInputMail').value = '';
-    document.getElementById('addContactInputPhone').value = '';
-}
-
+/**
+ * This function is used to delete a contact. It then evoces that the contact list is actualized and that no contact details are shown.
+ * @param {string} contactId - ID of the contact
+ */
 async function deleteContact(contactId) {
     let contactsRemaining = contacts.filter(contact => contact.id !== contactId);
     await putData(endpointContacts, contactsRemaining);
@@ -239,6 +246,11 @@ async function deleteContact(contactId) {
     emptyContactDetailsContainer();
 }
 
+/**
+ * This function is used to save the changes when editing an existing contact. It also evoces that the form that is used to edit contacts is emptied and that the actualized contact list and contact details are shown.
+ * @param {object} newContactData - This is the array containing the new data of the edited contact.
+ * @param {string} contactId - ID of the edited contact
+ */
 async function saveEditedContact(newContactData, contactId) {
     contacts = await getData(endpointContacts);
     let indexOfChangedContact = contacts.findIndex(x => x.id === contactId);
@@ -251,6 +263,11 @@ async function saveEditedContact(newContactData, contactId) {
     showNewContactDetails(newContactData['id'], newContactData['name'], newContactData['initials'], newContactData['color'], newContactData['email'], newContactData['phone']);
 }
 
+/**
+ * This function is used when editing a contact; it creates a new array containing the contact's data. It then evoces that the changes are saved.
+ * @param {string} contactId - ID of the edited contact
+ * @param {string} color - color of the edited contact's dot
+ */
 function editContact(contactId, color) {
     let editContactInputName = document.getElementById('editContactInputName');
     let editContactInputMail = document.getElementById('editContactInputMail');
@@ -266,15 +283,12 @@ function editContact(contactId, color) {
     saveEditedContact(newContactData, contactId);
 }
 
-function emptyEditContactForm() {
-    document.getElementById('editContactInputName').value = '';
-    document.getElementById('editContactInputMail').value = '';
-    document.getElementById('editContactInputPhone').value = '';
-}
 
+// ANCHOR Overlays
 
-// Overlays
-
+/**
+ * This function is used to show the overlay containing the form to add new contacts.
+ */
 function showOverlayAddContact() {
     let overlayAddContact = document.getElementById('overlayAddContact');
     overlayAddContact.classList.remove('d-none');
@@ -282,6 +296,9 @@ function showOverlayAddContact() {
     overlayAddContact.classList.remove('overlay-slide-out');
 }
 
+/**
+ * This function is used to hide the overlay containing the form to add new contacts. It also evoces that the form is emptied.
+ */
 function hideOverlayAddContact() {
     let overlayAddContact = document.getElementById('overlayAddContact');
     overlayAddContact.classList.remove('overlay-slide-in');
@@ -292,6 +309,24 @@ function hideOverlayAddContact() {
     emptyAddContactForm();
 }
 
+/**
+ * This function is used to empty the form that is used to add new contacts.
+ */
+function emptyAddContactForm() {
+    document.getElementById('addContactInputName').value = '';
+    document.getElementById('addContactInputMail').value = '';
+    document.getElementById('addContactInputPhone').value = '';
+}
+
+/**
+ * This function is used to show the overlay containing the form to edit contacts. It evoces that the colored dot of the contact that is being edited is created and that the name, email and phone number of the contact are already shown in the form.
+ * @param {string} contactId - ID of the edited contact
+ * @param {string} contactName - name of the edited contact
+ * @param {string} initials - initials of the edited contact
+ * @param {string} color - color of the edited contact's dot
+ * @param {string} email - email of the edited contact
+ * @param {string} phone - phone number of the edited contact
+ */
 function showOverlayEditContact(contactId, contactName, initials, color, email, phone) {
     createOverlayEditContactDot(initials, color);
     insertInputValues(contactName, email, phone);
@@ -303,6 +338,9 @@ function showOverlayEditContact(contactId, contactName, initials, color, email, 
     overlayEditContact.classList.remove('overlay-slide-out');
 }
 
+/**
+ * This function is used to hide the overlay containing the form to edit contacts. It also evoces that the form is emptied.
+ */
 function hideOverlayEditContact() {
     let overlayEditContact = document.getElementById('overlayEditContact');
     overlayEditContact.classList.remove('overlay-slide-in');
@@ -315,17 +353,46 @@ function hideOverlayEditContact() {
     document.getElementById('editContactInputPhone').value= '';
 }
 
+/**
+ * This function is used to empty the form that is used to edit contacts.
+ */
+function emptyEditContactForm() {
+    document.getElementById('editContactInputName').value = '';
+    document.getElementById('editContactInputMail').value = '';
+    document.getElementById('editContactInputPhone').value = '';
+}
+
+/**
+ * This function is used to create the colored dot of the contact to be edited; it is shown on the overlay containing the form to edit contacts.
+ * @param {string} initials - initials of the edited contact
+ * @param {string} color - color of the edited contact's dot
+ */
 function createOverlayEditContactDot(initials, color) {
     document.getElementById('editContactDotMobile').innerHTML = generateEditContactDotMobileHTML(initials, color);
     document.getElementById('editContactDotDesktop').innerHTML = generateEditContactDotDesktopHTML(initials, color);
 }
 
+/**
+ * This function is used to insert the name, email and phone number of the contact to be edited into the form that is used to edit contacts.
+ * @param {string} contactName - name of the edited contact
+ * @param {string} email - email of the edited contact
+ * @param {string} phone - phone number of the edited contact
+ */
 function insertInputValues(contactName, email, phone) {
     document.getElementById('editContactInputName').value = contactName;
     document.getElementById('editContactInputMail').value = email;
     document.getElementById('editContactInputPhone').value = phone;
 }
 
+/**
+ * This function is used to show the overlay menu that allows the user to select if he*she wants to edit or delete a contact.
+ * @param {string} contactId - ID of the contact to be edited or deleted
+ * @param {string} contactName - name of the contact to be edited or deleted
+ * @param {string} initials - initials of the contact to be edited or deleted
+ * @param {string} color - color of the dot of the contact to be edited or deleted
+ * @param {string} email - email of the contact to be edited or deleted
+ * @param {string} phone - phone number of the contact to be edited or deleted
+ */
 function showOverlayEditDelete(contactId, contactName, initials, color, email, phone) {
     let overlayEditDelete = document.getElementById('overlayEditDelete');    
     overlayEditDelete.innerHTML = '';
@@ -335,6 +402,9 @@ function showOverlayEditDelete(contactId, contactName, initials, color, email, p
     overlayEditDelete.classList.remove('overlay-slide-out');
 }
 
+/**
+ * This function is used to hide the overlay menu that allows the user to select if he*she wants to edit or delete a contact.
+ */
 function hideOverlayEditDelete() {
     let overlayEditDelete = document.getElementById('overlayEditDelete');
     overlayEditDelete.classList.remove('overlay-slide-in');
@@ -344,6 +414,9 @@ function hideOverlayEditDelete() {
     }, 500); /* same duration as slide out animation */
 }
 
+/**
+ * This function is used to show a short message to inform the user that the new contact was successfully created.
+ */
 function showOverlayNewContactOk() {
     let overlayNewContactOk = document.getElementById('overlayNewContactOk');
     overlayNewContactOk.classList.remove('d-none');
@@ -354,6 +427,9 @@ function showOverlayNewContactOk() {
     }, 1000);    
 }
 
+/**
+ * This function is used to hide the short message again that informs the user that the new contact was successfully created.
+ */
 function hideOverlayNewContactOk(){
     let overlayNewContactOk = document.getElementById('overlayNewContactOk');
     overlayNewContactOk.classList.remove('overlay-slide-in');

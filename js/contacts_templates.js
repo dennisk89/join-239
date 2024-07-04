@@ -31,6 +31,16 @@ function generateContactListContentHTML(contact, initials, color, userIsLoggedIn
     `;
 }
 
+/**
+ * This function is used to generate the HTML code to show the detail information of a contact.
+ * @param {*} contactId - id of the contact
+ * @param {*} contactName - name of the contact
+ * @param {*} initials - initials of the contact
+ * @param {*} color - color of the contact's dot
+ * @param {*} email - email of the contact
+ * @param {*} phone - phone number of the contact
+ * @returns HTL code
+ */
 function generateContactDetailsContainerHTML(contactId, contactName, initials, color, email, phone) {
     return /*html*/`
         <div class="contact-name-container">
@@ -80,12 +90,24 @@ function generateOverlayEditDeleteHTML(contactId, contactName, initials, color, 
     `;
 }
 
+/**
+ * This function is used to generate the HTML for the mobile version of the colored dot of the contact to be edited; it is shown on the overlay with the form to edit contacts.
+ * @param {*} initials - initials of the edited contact
+ * @param {*} color - color of the edited contact's dot
+ * @returns HTML code
+ */
 function generateEditContactDotMobileHTML(initials, color) {
     return /*html*/`
         <div class="edit-contact-dot edit-contact-dot-mobile contact-dot-${color}">${initials}</div>
     `;
 }
 
+/**
+ * This function is used to generate the HTML for the desktop version of the colored dot of the contact to be edited; it is shown on the overlay with the form to edit contacts.
+ * @param {*} initials - initials of the edited contact
+ * @param {*} color - color of the edited contact's dot
+ * @returns HTML code
+ */
 function generateEditContactDotDesktopHTML(initials, color) {
     return /*html*/`
         <div class="edit-contact-dot edit-contact-dot-desktop contact-dot-${color}">${initials}</div>
