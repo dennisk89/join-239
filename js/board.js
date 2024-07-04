@@ -20,7 +20,7 @@ function addCardsToBoards(columnID, filterArray, stringForEmptyColumn) {
         element.innerHTML = boardPlaceholderHTML(stringForEmptyColumn);
     } else {
         for (let i = 0; i < filterArray.length; i++) {
-            element.innerHTML += taskCardHTML(filterArray[i].id, filterArray[i].type, filterArray[i].title, shortText(filterArray[i].description), prioIcons[filterArray[i].prio]);
+            element.innerHTML += taskCardHTML(filterArray[i].id, filterArray[i].type, filterArray[i].title, shortText(filterArray[i].description), prioIcons[filterArray[i].prio], filterArray[i].status);
         }
     }
 }
@@ -346,8 +346,6 @@ function allowDrop(ev) {
 
 async function moveTo(id, taskStatus) {
     highlight(id);
-    taskArray[taskArray.findIndex(t => t.id === currentDraggedElement)].taskStatus;
-    console.log();
     taskArray[taskArray.findIndex(t => t.id === currentDraggedElement)].taskStatus = taskStatus;
     await putData(endpointTasks, taskArray)
     removeHighlight(id)
