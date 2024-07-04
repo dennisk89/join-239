@@ -133,11 +133,11 @@ function taskSubTaskDoneHTML(i, subtaskText) {
 // ANCHOR edit task
 function editTaksOverlayHTML(id) {
     return /*html*/`
-        <div id="editFor${id}" class="open-task">
+        <div id="editFor${id}" class="open-task less-padding-for-edit-scroll">
             <div class="task-header flex-end">
                 <img id="closeEditOverlay" class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask('taskOverlay')">
             </div>
-            <form class="edit-form" onsubmit="confirmEditTask('${id}'); return false">
+            <form class="edit-form task-edit-scroll" onsubmit="confirmEditTask('${id}'); return false">
                 <div class="input-group">
                     <label class="font-16" for="titleInput">Title<span class="color-red">*</span></label>
                     <input id="titleInput" class="enter-input font-16" placeholder="Enter a title" type="text"

@@ -496,6 +496,7 @@ p {
     height: 136px;
     line-height: 24px;
     padding: 18px 16px 18px 16px;
+    font-family: 'Inter';
     font-weight: 400;
     resize: none;
     box-sizing: border-box;
@@ -644,6 +645,10 @@ p {
 }
 
 /* ANCHOR edit form overlay */
+.task-edit-scroll {
+    overflow-y: scroll;
+}
+
 .priority-btn-edit {
     height: 41px;
     width: 122px;
@@ -662,6 +667,11 @@ p {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding: 0 12px;
+}
+
+.less-padding-for-edit-scroll {
+    padding: 32px 12px;
 }
 
 .font-16 {
