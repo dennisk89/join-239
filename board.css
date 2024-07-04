@@ -840,6 +840,7 @@ p {
     .card-container {
         flex-direction: column;
         overflow-x: visible;
+        height: 100%;
     }
 
     .hide-over-1400p {
@@ -854,8 +855,5 @@ p {
         flex-direction: row;
         justify-content: space-between;
         padding: 0;
-    }
-    .card-container{
-        min-height: 100vh;
     }
 }
