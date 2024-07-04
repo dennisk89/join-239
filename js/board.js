@@ -289,9 +289,16 @@ function openAddTaskOverlay() {
 }
 
 
+function handleAddTask() {
+    if (window.innerWidth > 768) {
+        openAddTaskOverlay();
+    } else {
+        window.location.href = 'add_task.html';
+    }
+}
 
 // ANCHOR eventListener add tasks
-document.getElementById('boardAddBtn').addEventListener('click', openAddTaskOverlay);
+document.getElementById('boardAddBtn').addEventListener('click', handleAddTask);
 
 
 document.getElementById('addTaskInTodo').addEventListener('click', openAddTaskOverlay);
