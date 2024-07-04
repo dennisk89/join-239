@@ -191,7 +191,7 @@ function openEdit(id) {
     let taskIndex = taskArray.findIndex(t => t.id === id)
     document.getElementById('taskOverlay').innerHTML = editTaksOverlayHTML(id);
     fillEditForm(taskIndex);
-    tempAssignees = taskArray[taskIndex].assigned;
+    tempAssignees = pushTaskAssigneeInfosToArray(taskArray[taskIndex]);
     tempSubtasks = taskArray[taskIndex].subTask;
     tempSubtasksStatus = taskArray[taskIndex].subTaskStatus;
     document.getElementById('closeEditOverlay').addEventListener('click', resetGlobalTaskVariables);

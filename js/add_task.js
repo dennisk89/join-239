@@ -75,10 +75,12 @@ function closeSelectContacts() {
 
 
 function checkForPreSelectContacts(assigneeArray) {
+    console.log(tempAssignees);
+    console.log(assigneeArray);
     if (assigneeArray.length > 0 && tempAssignees.length > 0) {
         for (let i = 0; i < assigneeArray.length; i++) {
             if (tempAssignees.indexOf(assigneeArray[i]) > -1) {
-                updateCheckboxes(assigneeArray[i], 'rgba(42, 54, 71, 1)', 'white', 'checkbox-img', 'checkbox-img-checked');
+                updateCheckboxes(assigneeArray[i].id, 'rgba(42, 54, 71, 1)', 'white', 'checkbox-img', 'checkbox-img-checked');
             }
         }
         renderContactBadgeUnderSelectField();
@@ -116,7 +118,7 @@ function deSelectContact(contactId) {
 
 
 function updateCheckboxes(contactId, bgColor, textColor, checkbox1Css, checkbox2Css) {
-    document.getElementById(contactId).parentNode.style.background = bgColor;
+    document.getElementById(contactId).parentNode.style.backgroundColor = bgColor;
     document.getElementById(contactId).parentNode.style.color = textColor;
     document.getElementById(contactId).classList.remove(checkbox1Css);
     document.getElementById(contactId).classList.add(checkbox2Css)
@@ -127,7 +129,9 @@ function renderContactBadgeUnderSelectField() {
     document.getElementById('preSelectedContainer').innerHTML = '';
     for (let i = 0; i < tempAssignees.length; i++) {
         const assign = getContactByContactID(tempAssignees[i]);
-        document.getElementById('preSelectedContainer').innerHTML += profileBatchHTML(assign.color, assign.initials);
+        if (assign != 'not found') {
+            document.getElementById('preSelectedContainer').innerHTML += profileBatchHTML(assign.color, assign.initials);
+        }
     }
 }
 
@@ -142,16 +146,7 @@ function filterContacts(e) {
             renderContactsToSelectList(results);
         }
     });
-    getResultsIdsForPreselectCheck(results);
-}
-
-
-function getResultsIdsForPreselectCheck(results) {
-    if (results.length > 0) {
-        let resultsIds = [];
-        results.forEach(r => resultsIds.push(r.id));
-        checkForPreSelectContacts(resultsIds);
-    }
+    checkForPreSelectContacts(results);
 }
 
 

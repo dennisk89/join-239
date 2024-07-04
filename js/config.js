@@ -64,6 +64,7 @@ async function putData(url, data = {}) {
     return await response.json();
 }
 
+
 function errorFunction() {
     console.error('Fehler aufgetreten');
     if (confirm('Oops, something went wrong. Please reload and try again')) {
