@@ -1,13 +1,3 @@
-body {
-    margin: 0;
-    font-family: 'Inter-VariableFont', sans-serif;
-}
-
-@font-face {
-    font-family: 'Inter-VariableFont';
-    src: local(''), url(./assets/fonts/Inter-VariableFont_slnt,wght.ttf);
-}
-
 .d-none {
     display: none ;
 }
