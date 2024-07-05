@@ -63,7 +63,7 @@ function boardPlaceholderHTML(column) {
 // ANCHOR task details
 function taskHTML(id, type, title, description, dueDate, prio) {
     return /*html*/`
-        <div id="detailsFor${id}" class="open-task">
+        <div onclick="stopP(event)" id="detailsFor${id}" class="open-task">
             <div class="task-header">
             <div class="type-container type-container-overlay ${taskTypeColor[type]}">${type}</div>
                 <img class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask('taskOverlay')">
@@ -133,7 +133,7 @@ function taskSubTaskDoneHTML(i, subtaskText) {
 // ANCHOR edit task
 function editTaksOverlayHTML(id) {
     return /*html*/`
-        <div onclick="closeSelectContacts()" id="editFor${id}" class="open-task less-padding-for-edit-scroll">
+        <div onclick="closeSelectContacts(), stopP(event)" id="editFor${id}" class="open-task less-padding-for-edit-scroll">
             <div class="task-header flex-end">
                 <img id="closeEditOverlay" class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask('taskOverlay')">
             </div>

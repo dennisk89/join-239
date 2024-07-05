@@ -329,16 +329,12 @@ document.getElementById('addTaskInFeedback').addEventListener('click', () => {
 });
 
 
-document.getElementById('closeAddBtn').addEventListener('click', () => {
-    closeTask('addTaskOverlay');
+['closeAddBtn', 'addTaskOverlay', 'taskOverlay'].forEach(id => document.getElementById(id).addEventListener('click', () => {
+    id == 'taskOverlay' ? closeTask(id) : closeTask('addTaskOverlay');
     resetSubtaskInput();
-});
+    resetGlobalTaskVariables();
+}));
 
-
-document.getElementById('addTaskOverlay').addEventListener('click', () => {
-    closeTask('addTaskOverlay');
-    resetSubtaskInput();
-});
 
 // !SECTION
 
