@@ -155,7 +155,7 @@ textarea::-webkit-input-placeholder {
     background-image: url("./assets/img/event.svg");
     background-repeat: no-repeat;
     background-position: right 24px top 50%;
-    font-size: 16px;
+    font-size: 20px;
     margin-right: 50px;
 }
 
@@ -230,6 +230,13 @@ textarea::-webkit-input-placeholder {
 
 .low-selected span, .urgent-selected span, .medium-selected span {
     font-weight: 700;
+}
+
+.category-input{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 8px;
 }
 
 
