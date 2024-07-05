@@ -239,6 +239,13 @@ function blueBorder(id) {
 }
 
 
+document.getElementById('subtaskInput').addEventListener('keypress', e => {
+    if (e.key == 'Enter') {
+        addSubtaskToTempSubtasks();
+    }
+});
+
+
 // ANCHOR id translation or verification functions
 function pushTaskAssigneeInfosToArray(task) {
     if (task.assigned) {

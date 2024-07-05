@@ -50,7 +50,7 @@
                 <h1 class="add-task-headline">Add Task</h1>
                 <img id="closeAddBtn" class="clickable close-add-btn" src="assets/img/close-black.svg" alt="close Task">
             </div>
-            <form>
+            <div>
                 <div class="overlay-form">
                     <div class="form-half-side">
                         <div class="input-group">
@@ -120,7 +120,7 @@
                         <div class="input-group">
                             <label class="font-20" for="selectInput">Subtasks</label>
                             <div id="subtaskInputFrame" class="enter-input outer-input">
-                                <input class="inner-input font-16" placeholder="Add new subtask" type="text"
+                                <input onkeypress="stopP(event)" class="inner-input font-16" placeholder="Add new subtask" type="text"
                                     name="add subtasks" id="subtaskInput">
                                 <div id="subBtnContainer" class="sub-btn-container">
                                     <div id="addSubtaskBtn" class="sub-plus-image inner-input-img clickable"></div>
@@ -139,12 +139,12 @@
                             <span>Cancel</span><img class="cancel-btn-img-dark" src="./assets/img/cancel-x-dark.svg" alt="Cancel button create task">
                             <img class="cancel-btn-img-blue" src="./assets/img/cancel_x_blue.svg" alt="Cancel button">
                         </button>
-                        <button onclick="validateTaskForm(event, initBoard); return false" class="board-btn-dark board-create-btn clickable" type="submit">
+                        <button onclick="validateTaskForm(event, initBoard); return false" class="board-btn-dark board-create-btn clickable">
                             <span>Create Task</span><img src="assets/img/check.svg" alt="Create task Button">
                         </button>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     </section>
 
