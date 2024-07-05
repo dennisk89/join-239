@@ -47,7 +47,7 @@ body {
 
 .blue-underline {
     width: 88px;
-    border: 2px solid rgb(41, 171, 221);
+    border: 2px solid var(--underline-blue);
     border-radius: 3px;
 }
 
@@ -256,7 +256,7 @@ body {
 }
 
 .highlighted-text {
-    color: rgb(92, 190, 232);
+    color: var(--highlight-text-blue);
 }
 
 .center-signup {
@@ -285,7 +285,7 @@ body {
     font-size: 12px;
     font-weight: 400;
     margin-top: 8px;
-    color: rgba(255, 129, 144, 1);
+    color: var(--warning-red);
     width: 366px;
     text-align: left;
 }
@@ -294,7 +294,7 @@ body {
     font-size: 12px;
     font-weight: 400;
     margin-top: 8px;
-    color: rgba(255, 129, 144, 1);
+    color: var(--warning-red);
     width: 366px;
     text-align: center;
 }

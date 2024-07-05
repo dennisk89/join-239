@@ -76,34 +76,6 @@
     justify-content: center;
 }
 
-/* .contact-dot-orange {
-    background-color: rgba(255, 122, 0, 1);
-}
-
-.contact-dot-purple {
-    background-color: rgba(147, 39, 255, 1);
-}
-
-.contact-dot-blue {
-    background-color: rgba(110, 82, 255, 1);
-}
-
-.contact-dot-pink {
-    background-color: rgba(252, 113, 255, 1);
-}
-
-.contact-dot-yellow {
-    background-color: rgba(255, 187, 43, 1);
-}
-
-.contact-dot-mint {
-    background-color: rgba(31, 215, 193, 1);
-}
-
-.contact-dot-green {
-    background-color: rgb(72, 190, 72);
-} */
-
 .contact-list-name {
     font-size: 20px;
     font-weight: 400;
@@ -111,7 +83,7 @@
 }
 
 .contact-mail {
-    color: rgba(0, 124, 238, 1);
+    color: var(--mail-blue);
     font-size: 16px;
     font-weight: 400;
     line-height: 19.2px;
@@ -161,7 +133,7 @@
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
-    color: rgba(42, 54, 71, 1);
+    color: var(--bg-color-dark-grey);
 }
 
 .hr-contacts-mobile {
@@ -234,7 +206,7 @@
 }
 
 .contact-info-mail {
-    color: rgba(0, 124, 238, 1);
+    color: var(--mail-blue);
     margin-bottom: 22px;
 }
 
@@ -247,13 +219,13 @@
     bottom: 112px;
     height: 56px;
     width: 56px;
-    background-color: rgba(42, 54, 71, 1);
+    background-color: var(--bg-color-dark-grey);
     border-radius: 56px;
-    border: 1px solid rgba(42, 54, 71, 1);
+    border: 1px solid var(--bg-color-dark-grey);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px var(--shadow-light-grey-25);
 }
 
 .contact-menu-btn img, .add-contact-btn img {
@@ -408,7 +380,7 @@
     }    
 
     .contact-container:hover {
-        background-image: linear-gradient(rgba(249, 249, 249, 1),rgba(240, 240, 240, 1));
+        background-image: linear-gradient(var(--hover-gradient-light),var(--hover-gradient-dark));
     }
     
     .highlightContact {

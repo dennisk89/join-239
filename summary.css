@@ -36,7 +36,7 @@ body {
 }
 
 .user-name {
-    color: rgb(92, 190, 232);
+    color: var(--highlight-text-blue);
     font-size: 47px;
     font-weight: 700;
     text-align: center;
@@ -97,7 +97,7 @@ body {
 }
 
 .bg-add-task {
-    background-color: rgb(246, 247, 248);
+    background-color: var(--bg-color-grey);
 }
 
 .todo-done-container {
@@ -110,7 +110,7 @@ body {
     justify-content: center;
     gap: 10px;
     transition: transform 0.1s ease-in-out;
-    box-shadow: 0 0 10px var(--shadow-light-grey);
+    box-shadow: 0 0 10px var(--shadow-light-grey-1);
 }
 
 .todo-done-container:hover {
@@ -129,7 +129,7 @@ body {
 .todo-done-container:hover .check-container {
     background-image: url('./assets/img/summary-check-hover.svg');
     background-color: var(--white);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px 0px var(--shadow-light-grey-25);
 }
 
 .pencil-container-desktop{
@@ -170,7 +170,7 @@ body {
 }
 
 .priority-urgent {
-    background-color: rgb(255, 61, 0);
+    background-color: var(--prio-urgent-red);
     width: 40px;
     height: 40px;
     display: flex;
@@ -190,7 +190,7 @@ body {
     height: 110px;
     margin-left: 16px;
     transition: transform 0.1s ease-in-out;
-    box-shadow: 0 0 10px var(--shadow-light-grey);
+    box-shadow: 0 0 10px var(--shadow-light-grey-1);
 }
 
 .priority-container:hover{
@@ -208,7 +208,7 @@ body {
     border: 1px solid;
     width: 0px;
     border-radius: 2px;
-    color: rgb(246, 247, 248);
+    color: var(--bg-color-grey);
 }
 
 .date-text {
@@ -243,7 +243,7 @@ body {
     border-radius: 20px;
     gap: 13px;
     transition: transform 0.1s ease-in-out;
-    box-shadow: 0 0 10px var(--shadow-light-grey);
+    box-shadow: 0 0 10px var(--shadow-light-grey-1);
 }
 
 .tasks-in-board:hover{

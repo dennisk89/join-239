@@ -30,15 +30,15 @@ body{
 }
 
 .highlighted-text{
-    color: rgb(92, 190, 232);
+    color: var(--highlight-text-blue);
 }
 
 .color-red{
-    color: rgb(255, 129, 144);
+    color: var(--warning-red);
 }
 
 .bg-add-task{
-    background-color: rgb(246, 247, 248);
+    background-color: var(--bg-color-grey);
 }
 
 .add-task-headline{
@@ -124,11 +124,11 @@ textarea::-webkit-input-placeholder {
     }
 
 .bg-red{
-    background-color: rgb(255, 73, 16) !important;
+    background-color: var(--bg-color-red) !important;
 }
 
 .bg-green{
-    background-color: rgb(122, 226, 41) !important;
+    background-color: var(--prio-low-green) !important;
 }
 
 .height-88px{
@@ -181,7 +181,7 @@ textarea::-webkit-input-placeholder {
     height: 41px;
     border-radius: 10px;
     width: 121px; 
-    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08); 
+    box-shadow: 0px 0px 10px 3px var(--shadow-light-grey-08); 
 }
 
 .gap16px{
@@ -217,18 +217,18 @@ textarea::-webkit-input-placeholder {
     margin-bottom: 0px;
 }
 
-.medium-selected {
-    background: rgba(255, 168, 0, 1);
+.medium-selected { /* TODO doppelt? */
+    background: var(--prio-medium-orange);
     color: var(--white);
 }
 
-.urgent-selected {
-    background: rgba(255, 61, 0, 1);
+.urgent-selected { /* TODO doppelt? */
+    background: var(--prio-urgent-red);
     color: var(--white);
 }
 
-.low-selected {
-    background: rgba(122, 226, 41, 1);
+.low-selected { /* TODO doppelt? */
+    background: var(--prio-low-green);
     color: var(--white);
 }
 
@@ -272,7 +272,7 @@ textarea::-webkit-input-placeholder {
     .add-task-desktop-border{
         margin-right: 48px;
         height: 424px;
-        color: black;
+        color: var(--black);
         border: 1px solid var(--light-grey);
     }
     .add-task-headline{
@@ -410,7 +410,7 @@ textarea::-webkit-input-placeholder {
     .add-task-desktop-border{
         margin-right: 48px;
         height: 424px;
-        color: black;
+        color: var(--black);
         border: 1px solid var(--light-grey);
     }
     .add-task-headline{

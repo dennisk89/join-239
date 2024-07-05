@@ -1,17 +1,38 @@
 :root {
     --bg-color-grey: rgba(246, 247, 248, 1);
     --bg-color-dark-grey: rgba(42, 54, 71, 1);
+    --task-p-bold: rgba(66, 82, 110, 1);
+    --bg-color-overlay: rgba(0, 0, 0, 0.2);
+    --column-placeholder-grey: rgba(231, 231, 231, 1);
+    --progress-bar-grey: rgba(244, 244, 244, 1);
+    --progress-bar-blue: rgba(69, 137, 255, 1);
+    --hover-grey: rgba(238, 238, 238, 1);
     --menu-hover-blue: rgba(41, 170, 226, 0.2);
     --menu-selected-dark-blue: rgba(9, 25, 49, 1);
+    --transparency: rgba(0, 0, 0, 0);
     --shadow-grey: rgba(42, 54, 71, 0.5);
-    --shadow-light-grey: rgba(0, 0, 0, 0.1);
+    --shadow-light-grey-08: rgba(0, 0, 0, 0.08);
+    --shadow-light-grey-1: rgba(0, 0, 0, 0.1);
+    --shadow-light-grey-16: rgba(0, 0, 0, 0.16);
+    --shadow-light-grey-25: rgba(0, 0, 0, 0.25);
+    --hover-gradient-light: rgba(249, 249, 249, 1);
+    --hover-gradient-dark: rgba(240, 240, 240, 1);
     --black: rgba(0, 0, 0, 1);
     --white: rgba(255, 255, 255, 1);
     --light-grey: rgba(209, 209, 209, 1);
     --scrollbar-grey: rgba(168, 168, 168, 1);
     --grey: rgba(155, 154, 154, 1);     /* --grey:  rgba(205, 205, 205, 1); */
+    --underline-blue: rgba(41, 171, 221, 1);
+    --highlight-text-blue: rgba(92, 190, 232, 1);
     --highlight-blue: rgba(41, 171, 226, 1);
-    --orange: rgba(255, 122, 0, 1);    
+    --warning-red: rgba(255, 129, 144, 1);
+    --prio-urgent-red: rgba(255, 61, 0, 1);
+    --bg-color-red: rgba(255, 73, 16, 1);
+    --prio-medium-orange: rgba(255, 168, 0, 1);
+    --prio-low-green: rgba(122, 226, 41, 1);
+    --type-blue: rgba(0, 93, 255, 1);
+    --mail-blue: rgba(0, 124, 238, 1);
+    --orange: rgba(255, 122, 0, 1);
     --purple: rgba(147, 39, 255, 1);    
     --blue: rgba(110, 82, 255, 1);    
     --pink: rgba(252, 113, 255, 1);    
@@ -155,7 +176,7 @@ select:focus {
 .warning-message-field-required{
     height: 12px;
     font-size: 12px;
-    color: rgb(255, 129, 144);
+    color: var(--warning-red);
     font-weight: 400;
 }
 
@@ -172,7 +193,7 @@ select:focus {
 }
 
 .border-red{
-    border: 1px solid rgb(255, 129, 144) !important;
+    border: 1px solid var(--warning-red) !important;
 }
 
 /* ANCHOR Scrollbar */
@@ -188,7 +209,7 @@ select:focus {
   ::-webkit-scrollbar-thumb {
     background-color: var(--scrollbar-grey);
     background-clip: padding-box;
-    border: 0.05em solid #eeeeee;
+    border: 0.05em solid var(--hover-grey);
     border-radius: 8px;
   }
   
@@ -275,7 +296,7 @@ textarea:focus, input:focus{
     background-color: var(--white);
     max-height: 200px;
     overflow-y: auto;
-    box-shadow: 0px 0px 14px 3px #0000000A;
+    box-shadow: 0px 0px 14px 3px var(--black);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     
@@ -297,8 +318,7 @@ textarea:focus, input:focus{
 }
 
 .contacts-select-list-row:hover {
-    background-color: rgba(238, 238, 238, 1);
-    
+    background-color: var(--hover-grey);
 }
 
 .checkbox-img {
@@ -403,7 +423,7 @@ textarea:focus, input:focus{
 }
 
 .subtask-list-row:hover {
-    background-color: rgb(234, 231, 231);
+    background-color: var(--hover-grey);
     .hide-for-hover {
         display: block;
     }
@@ -412,7 +432,7 @@ textarea:focus, input:focus{
 .sub-outer-input {
     border: none;
     border-radius: 0;
-    border-bottom: solid 1px rgba(0, 93, 255, 1);
+    border-bottom: solid 1px var(--type-blue);
     width: 100%;
     height: 32px;
 }
@@ -507,7 +527,7 @@ textarea:focus, input:focus{
 .overlay-menu-links{
     height: 46px;
     width: 130px;
-    color: rgb(246, 247, 248);
+    color: var(--bg-color-grey);
     padding-top: 16px;
     padding-left: 18px;
     
