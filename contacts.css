@@ -4,7 +4,7 @@
     display: flex;
     overflow: hidden;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 1);
+    background-color: var(--white);
 }
 
 .contacts-hide-on-mobile {
@@ -14,7 +14,7 @@
 /* ANCHOR Contact List */
 
 .main-contact-list {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: var(--white);
     height: calc(100vh - 187px);
     overflow-y: scroll;
     overflow-x: hidden;
@@ -35,7 +35,7 @@
 }
 
 .hr-contact-list {
-    border: 1px solid rgba(209, 209, 209, 1);
+    border: 1px solid var(--light-grey);
     width: 90%;
     margin: 8px 0;
 }
@@ -54,7 +54,7 @@
 }
 
 .contact-container {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: var(--white);
     display: flex;
     align-items: center;
     gap: 35px;
@@ -65,8 +65,8 @@
 .contact-list-dot {
     height: 42px;
     width: 42px;
-    border: 2px solid rgba(255, 255, 255, 1);
-    color: rgba(255, 255, 255, 1);
+    border: 2px solid var(--white);
+    color: var(--white);
     font-size: 12px;
     font-weight: 400;
     line-height: 14.4px;
@@ -121,7 +121,7 @@
 /* ANCHOR Contacts */
 
 .main-contacts {
-    background-color: var(--bg-color);
+    background-color: var(--bg-color-grey);
     position: fixed;
     top: 82px;
     left: 0;
@@ -151,7 +151,7 @@
 }
 
 .hr-contacts-desktop {
-    border: 3px solid rgba(41, 171, 226, 1);
+    border: 3px solid var(--highlight-blue);
     height: 59px;
     margin: 0;
     display: none;
@@ -165,7 +165,7 @@
 }
 
 .hr-contacts-mobile {
-    border: 3px solid rgba(41, 171, 226, 1);
+    border: 3px solid var(--highlight-blue);
     width: 90px;
     margin-left: 0;
 }
@@ -180,8 +180,8 @@
 .contact-info-dot {
     min-height: 80px;
     min-width: 80px;
-    border: 3px solid rgba(255, 255, 255, 1);
-    color: rgba(255, 255, 255, 1);
+    border: 3px solid var(--white);
+    color: var(--white);
     font-size: 27px;
     font-weight: 400;
     border-radius: 70px;
@@ -361,7 +361,7 @@
     /* ANCHOR Main */
 
     .contacts-main {
-        background-color: var(--bg-color);
+        background-color: var(--bg-color-grey);
         justify-content: flex-start;
         width: 100%;
     }
@@ -379,13 +379,13 @@
     .contact-list-top {
         padding-top: 24px;
         padding-left: 14px;
-        background-color: rgba(255, 255, 255, 1);
+        background-color: var(--white);
         display: unset;
     }
 
     .add-contact-btn-desktop {
         width: 352px;
-        color: rgba(255, 255, 255, 1);
+        color: var(--white);
         font-size: 21px;
         font-weight: 700;
         line-height: 25.2px;    
@@ -412,9 +412,9 @@
     }
     
     .highlightContact {
-        background-color: var(--buttons-dark);
-        border: 1px solid var(--buttons-dark);    
-        color: rgba(255, 255, 255, 1);
+        background-color: var(--bg-color-dark-grey);
+        border: 1px solid var(--bg-color-dark-grey);    
+        color: var(--white);
     }
     
     .highlightContact:hover {

@@ -59,7 +59,7 @@ body {
 
 .email {
     border-radius: 10px;
-    border: 1px solid rgb(209, 209, 209);
+    border: 1px solid var(--light-grey);
     width: 341px;
     height: 48px;
     padding-left: 21px;
@@ -73,7 +73,7 @@ body {
 }
 
 .email::placeholder {
-    color: rgb(209, 209, 209);
+    color: var(--light-grey);
 }
 
 .password {
@@ -88,12 +88,12 @@ body {
 }
 
 .password::placeholder {
-    color: rgb(209, 209, 209);
+    color: var(--light-grey);
 }
 
 .name-input {
     border-radius: 10px;
-    border: 1px solid rgb(209, 209, 209);
+    border: 1px solid var(--light-grey);
     width: 341px;
     height: 48px;
     padding-left: 21px;
@@ -107,7 +107,7 @@ body {
 }
 
 .name-input::placeholder {
-    color: rgb(209, 209, 209);
+    color: var(--light-grey);
 }
 
 .remember-me {
@@ -130,7 +130,7 @@ body {
 
 .login-white-bg {
     margin-top: 200px;
-    background-color: white;
+    background-color: var(--white);
     border-radius: 30px;
     margin-left: 16px;
     margin-right: 16px;
@@ -138,7 +138,7 @@ body {
 }
 
 .login-white-bg-signup {
-    background-color: white;
+    background-color: var(--white);
     border-radius: 30px;
     margin-left: 16px;
     margin-right: 16px;
@@ -156,8 +156,8 @@ body {
     width: 180px;
     font-size: 16px;
     font-weight: 700;
-    /* background-color: rgb(42, 54, 71); */
-    color: white;
+    /* background-color: var(--bg-color-dark-grey); */
+    color: var(--white);
     margin-top: 34px;
 }
 
@@ -170,8 +170,8 @@ body {
     width: 180px;
     font-size: 16px;
     font-weight: 700;
-    /* background-color: rgb(42, 54, 71); */
-    color: white;
+    /* background-color: var(--bg-color-dark-grey); */
+    color: var(--white);
     margin-top: 34px;
 }
 
@@ -184,9 +184,9 @@ body {
     width: 180px;
     font-size: 16px;
     font-weight: 700;
-    /* background-color: white; */
-    color: rgb(42, 54, 71);
-    /* border: 1px solid rgb(42, 54, 71); */
+    /* background-color: var(--white); */
+    color: var(--bg-color-dark-grey);
+    /* border: 1px solid var(--bg-color-dark-grey); */
     margin-bottom: 32px;
 }
 
@@ -216,8 +216,8 @@ body {
     width: 104px;
     font-size: 16px;
     font-weight: 700;
-    /* background-color: rgb(42, 54, 71); */
-    color: white;
+    /* background-color: var(--bg-color-dark-grey); */
+    color: var(--white);
 }
 
 .login-links-align {
@@ -231,12 +231,12 @@ body {
 }
 
 .login-links {
-    color: rgb(209, 209, 209);
+    color: var(--light-grey);
     text-decoration: none;
 }
 
 .color-grey {
-    color: rgb(209, 209, 209)
+    color: var(--light-grey);
 }
 
 .login-arrow-back {
@@ -309,7 +309,7 @@ body {
     background-image: url("./assets/img/lock.svg");
     background-repeat: no-repeat;
     background-position: center;
-    border: 1px solid rgb(209, 209, 209);
+    border: 1px solid var(--light-grey);
     border-radius: 10px;
 
 }
@@ -332,8 +332,8 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    background-color: rgb(42, 54, 71);
-    color: white;
+    background-color: var(--bg-color-dark-grey);
+    color: var(--white);
     font-size: 20px;
     font-weight: 400;
     border-radius: 20px;

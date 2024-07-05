@@ -17,7 +17,7 @@
 .overlay-content {
     display: flex;
     flex-direction: column;
-    color: rgba(255, 255, 255, 1);
+    color: var(--white);
     width: 396px;
     position: relative;
     transform: translateY(150%); /* Initial position, before sliding in */
@@ -109,13 +109,13 @@
 }
 
 .hr-contacts-overlays {
-    border: 3px solid rgba(41, 171, 226, 1);
+    border: 3px solid var(--highlight-blue);
     width: 90px;
     margin-left: 0;
 }
 
 .overlay-form-bg {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: var(--white);
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
 }
@@ -130,7 +130,7 @@
 
 .overlay-form input {
     height: 41px;
-    border: 1px solid rgba(209, 209, 209, 1);
+    border: 1px solid var(--light-grey);
     border-radius: 10px;
     font-size: 20px;
     font-weight: 400;
@@ -143,7 +143,7 @@
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
-    color: rgba(209, 209, 209, 1);
+    color: var(--light-grey);
     padding-left: 21px;
 }
 
@@ -187,7 +187,7 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 19.2px;
-    background-color: rgba(255, 255, 255, 1);
+    background-color: var(--white);
     padding: 10px;
     border-radius: 20px 20px 0 20px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -250,8 +250,8 @@
 }
 
 .new-contact-dot {
-    background-color: rgba(209, 209, 209, 1);
-    border: 3px solid rgba(255, 255, 255, 1);
+    background-color: var(--light-grey);
+    border: 3px solid var(--white);
     border-radius: 70px;
     width: 120px;
     height: 120px;
@@ -303,7 +303,7 @@
 }
 
 .create-contact-btn {
-    color: rgba(255, 255, 255, 1);
+    color: var(--white);
     font-size: 21px;
     font-weight: 700;
     line-height: 25.2px;
@@ -320,7 +320,7 @@
 /* ANCHOR #overlayEditContact */
 
 .edit-contact-dot {
-    border: 3px solid rgba(255, 255, 255, 1);
+    border: 3px solid var(--white);
     border-radius: 70px;
     width: 120px;
     height: 120px;
@@ -366,7 +366,7 @@
 }
 
 .save-btn {
-    color: rgba(255, 255, 255, 1);
+    color: var(--white);
     font-size: 21px;
     font-weight: 700;
     line-height: 25.2px;
@@ -395,9 +395,9 @@
 }
 
 .overlay-new-contact-ok-content {
-    background-color: rgba(42, 54, 71, 1);
+    background-color: var(--bg-color-dark-grey);
     border-radius: 20px;
-    color: rgba(255, 255, 255, 1);
+    color: var(--white);
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;

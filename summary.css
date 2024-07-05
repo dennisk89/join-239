@@ -23,7 +23,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--bg-color);
+    background-color: var(--bg-color-grey);
 }
 
 .greet-user-desktop {
@@ -43,7 +43,7 @@ body {
 }
 
 .blue-line90px {
-    border: 2px solid rgb(41, 171, 226);
+    border: 2px solid var(--highlight-blue);
     width: 90px;
     border-radius: 3px;
     margin-top: 8px;
@@ -83,7 +83,7 @@ body {
 }
 
 .summary-todo {
-    background-color: rgb(42, 54, 71);
+    background-color: var(--bg-color-dark-grey);
     width: 40px;
     height: 40px;
     display: flex;
@@ -104,19 +104,19 @@ body {
     width: 186px;
     height: 110px;
     border-radius: 20px;
-    background-color: white;
+    background-color: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     transition: transform 0.1s ease-in-out;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+    box-shadow: 0 0 10px var(--shadow-light-grey);
 }
 
 .todo-done-container:hover {
     transform: scale(1.07); 
-    background-color: rgb(42, 54, 71);
-    color: white;
+    background-color: var(--bg-color-dark-grey);
+    color: var(--white);
 }
 
 .check-container {
@@ -128,7 +128,7 @@ body {
 
 .todo-done-container:hover .check-container {
     background-image: url('./assets/img/summary-check-hover.svg');
-    background-color: white;
+    background-color: var(--white);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -140,7 +140,7 @@ body {
 }
 
 .todo-done-container:hover .pencil-container-desktop{
-    background-color: white;
+    background-color: var(--white);
     background-image: url('./assets/img/pencil-desktop-hover.svg');
 }
 
@@ -152,7 +152,7 @@ body {
 }
 
 .todo-done-container:hover .pencil-container-mobile{
-    background-color: white;
+    background-color: var(--white);
     background-image: url('./assets/img/pencil-desktop-hover.svg');
 }
 
@@ -184,23 +184,23 @@ body {
     align-items: center;
     justify-content: center;
     gap: 18px;
-    background-color: white;
+    background-color: var(--white);
     margin-top: 30px;
     border-radius: 20px;
     height: 110px;
     margin-left: 16px;
     transition: transform 0.1s ease-in-out;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+    box-shadow: 0 0 10px var(--shadow-light-grey);
 }
 
 .priority-container:hover{
     transform: scale(1.07); 
-    background-color: rgb(42, 54, 71);
-    color: white;
+    background-color: var(--bg-color-dark-grey);
+    color: var(--white);
 }
 
 .priority-container:hover .date-text{
-    color: white;
+    color: var(--white);
 }
 
 .middle-line {
@@ -212,7 +212,7 @@ body {
 }
 
 .date-text {
-    color: rgb(42, 54, 71);
+    color: var(--bg-color-dark-grey);
     font-size: 16px;
     font-weight: 700;
 }
@@ -239,17 +239,17 @@ body {
     text-align: center;
     height: 116px;
     width: 116px;
-    background-color: white;
+    background-color: var(--white);
     border-radius: 20px;
     gap: 13px;
     transition: transform 0.1s ease-in-out;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+    box-shadow: 0 0 10px var(--shadow-light-grey);
 }
 
 .tasks-in-board:hover{
     transform: scale(1.07); 
-    background-color: rgb(42, 54, 71);
-    color: white;
+    background-color: var(--bg-color-dark-grey);
+    color: var(--white);
 }
 
 .flex-align-center{
@@ -382,7 +382,7 @@ body {
     .menu-overlay{
         height: 158px;
         width: 150px;
-        background-color: rgb(42, 54, 71);
+        background-color: var(--bg-color-dark-grey);
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;

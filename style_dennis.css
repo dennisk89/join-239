@@ -50,7 +50,7 @@ body{
 .enter-title-input {
     box-sizing: border-box;
     border-radius: 10px;
-    border: 1px solid rgba(209, 209, 209, 1);
+    border: 1px solid var(--light-grey);
     width: 100%;
     height: 48px;
     padding-left: 21px;
@@ -60,12 +60,12 @@ body{
 }
 
 .enter-title-input:focus {
-    border-color: rgba(41, 171, 226, 1);
+    border-color: var(--highlight-blue);
 }
 
 .enter-subtask-input{
     border-radius: 10px;
-    border: 1px solid rgba(209, 209, 209, 1);
+    border: 1px solid var(--light-grey);
     width: 371px;
     height: 40px;
     padding-left: 21px;
@@ -79,7 +79,7 @@ body{
 
 .enter-description-input{
     border-radius: 10px;
-    border: 1px solid rgba(209, 209, 209, 1);
+    border: 1px solid var(--light-grey);
     height: 88px;
     line-height: 24px;
     padding-top: 20px;
@@ -96,16 +96,16 @@ body{
 }
 
 .enter-title-input::placeholder{
-    color: rgb(209, 209, 209);
+    color: var(--light-grey);
 }
 
 .enter-subtask-input::placeholder{
-    color: rgb(209, 209, 209);
+    color: var(--light-grey);
 }
 
 .select-contacts-field{
     border-radius: 10px;
-    border: 1px solid rgba(209, 209, 209, 1);
+    border: 1px solid var(--light-grey);
     width: 100%;
     height: 48px;
     line-height: 24px;
@@ -120,7 +120,7 @@ body{
 }
 
 textarea::-webkit-input-placeholder {
-    color: rgb(209, 209, 209);
+    color: var(--light-grey);
     }
 
 .bg-red{
@@ -151,7 +151,7 @@ textarea::-webkit-input-placeholder {
     box-sizing: border-box;
     height: 48px;
     width: 100%;
-    border: 1px solid rgba(209, 209, 209, 1);
+    border: 1px solid var(--light-grey);
     border-radius: 10px;
     padding-left: 21px;
     padding-right: 21px;
@@ -163,19 +163,19 @@ textarea::-webkit-input-placeholder {
 }
 
 .date-input::placeholder{
-    color: rgb(209, 209, 209);
+    color: var(--light-grey);
 }
 
 .date-input:focus{
     background-image: none;
-    border-color: rgba(41, 171, 226, 1);
+    border-color: var(--highlight-blue);
 }
 
 .priority-section{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: white;
+    background-color: var(--white);
     gap: 8px;
     font-size: 16px;
     height: 41px;
@@ -193,11 +193,11 @@ textarea::-webkit-input-placeholder {
 }
 
 .create-task-btn{
-    background-color: rgb(42, 54, 71);
+    background-color: var(--bg-color-dark-grey);
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: var(--white);
     font-size: 20px;
     font-weight: 700;
     width: 183px;
@@ -219,17 +219,17 @@ textarea::-webkit-input-placeholder {
 
 .medium-selected {
     background: rgba(255, 168, 0, 1);
-    color: white;
+    color: var(--white);
 }
 
 .urgent-selected {
     background: rgba(255, 61, 0, 1);
-    color: white;
+    color: var(--white);
 }
 
 .low-selected {
     background: rgba(122, 226, 41, 1);
-    color: white;
+    color: var(--white);
 }
 
 .low-selected span, .urgent-selected span, .medium-selected span {
@@ -273,7 +273,7 @@ textarea::-webkit-input-placeholder {
         margin-right: 48px;
         height: 424px;
         color: black;
-        border: 1px solid rgb(209, 209, 209);
+        border: 1px solid var(--light-grey);
     }
     .add-task-headline{
         margin-left: 20px;
@@ -328,7 +328,7 @@ textarea::-webkit-input-placeholder {
         height: 37px;
     }
     .color-blue{
-        color: rgb(42, 54, 71);
+        color: var(--bg-color-dark-grey);
     }
     .category-input{
         display: flex;
@@ -361,17 +361,17 @@ textarea::-webkit-input-placeholder {
         font-size: 21px;
     }
     .clear-task-btn{
-        background-color: white;
+        background-color: var(--white);
         height: 56px;
         display: flex;
         align-items: center;
         gap: 4px;
         width: 110px;
         justify-content: center;
-        border: 1px solid rgb(42, 54, 71);
+        border: 1px solid var(--bg-color-dark-grey);
         border-radius: 10px;
         margin-top: 146px;
-        color: rgb(42, 54, 71);
+        color: var(--bg-color-dark-grey);
         font-size: 20px;
     }
     .desktop-btns{
@@ -411,7 +411,7 @@ textarea::-webkit-input-placeholder {
         margin-right: 48px;
         height: 424px;
         color: black;
-        border: 1px solid rgb(209, 209, 209);
+        border: 1px solid var(--light-grey);
     }
     .add-task-headline{
         margin-left: 90px;
@@ -468,7 +468,7 @@ textarea::-webkit-input-placeholder {
         height: 37px;
     }
     .color-blue{
-        color: rgb(42, 54, 71);
+        color: var(--bg-color-dark-grey);
     }
     .category-input{
         display: flex;
@@ -500,17 +500,17 @@ textarea::-webkit-input-placeholder {
         margin-top: 146px;
     }
     .clear-task-btn{
-        background-color: white;
+        background-color: var(--white);
         height: 56px;
         display: flex;
         align-items: center;
         gap: 4px;
         width: 110px;
         justify-content: center;
-        border: 1px solid rgb(42, 54, 71);
+        border: 1px solid var(--bg-color-dark-grey);
         border-radius: 10px;
         margin-top: 146px;
-        color: rgb(42, 54, 71);
+        color: var(--bg-color-dark-grey);
         font-size: 20px;
     }
     .desktop-btns{
@@ -523,8 +523,3 @@ textarea::-webkit-input-placeholder {
     }
     
 }
-
-
-
-
-
