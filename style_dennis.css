@@ -52,7 +52,7 @@ body{
     border-radius: 10px;
     border: 1px solid rgba(209, 209, 209, 1);
     width: 100%;
-    height: 40px;
+    height: 48px;
     padding-left: 21px;
     font-weight: 400;
     font-size: 16px;
@@ -137,7 +137,7 @@ textarea::-webkit-input-placeholder {
 }
 
 .hint-container{
-    margin-top: 150px;
+    margin-top: 142px;
 }
 
 .font-16{
@@ -155,7 +155,7 @@ textarea::-webkit-input-placeholder {
     background-image: url("./assets/img/event.svg");
     background-repeat: no-repeat;
     background-position: right 24px top 50%;
-    font-size: 20px;
+    font-size: 16px;
     margin-right: 50px;
 }
 
@@ -194,7 +194,7 @@ textarea::-webkit-input-placeholder {
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 21px;
+    font-size: 20px;
     font-weight: 700;
     width: 183px;
     height: 56px;
@@ -241,6 +241,144 @@ textarea::-webkit-input-placeholder {
 
 
 @media (min-width: 768px) {
+    .add-task-desktop{
+        display: flex;
+    }
+    .add-task-desktop-gap{
+        margin-left: 20px;
+        margin-right: 48px;
+    }
+    .enter-title-input{
+        font-size: 20px;
+        height: 48px;
+        width: 100%;
+    }
+    .margintop-32px{
+        margin-top: 32px !important;
+    }
+    .enter-description-input{
+        font-size: 20px;
+        height: 120px;
+        margin-bottom: 32px;
+        width: 100%;
+    }
+    .select-contacts-field{
+        width: 440px;
+    }
+    .add-task-desktop-border{
+        margin-right: 48px;
+        height: 424px;
+        color: black;
+        border: 1px solid rgb(209, 209, 209);
+    }
+    .add-task-headline{
+        margin-left: 20px;
+        margin-top: 210px;
+        margin-bottom: 48px;
+    }
+    .enter-description-input{
+        resize: vertical;
+    }
+    .font-20px{
+        font-size: 20px;
+        margin-top: 0;
+    }
+    .desktop-help{
+        width: 1014px;
+        margin-left: 96px;
+    }
+    .h1-d{
+        font-size: 61px;
+        margin-top: 110px;
+        margin-bottom: 32px;
+    }
+    .align-center{
+        display: flex;
+        align-items: center;
+        
+    }
+    .legal-notice-arrow-left{
+        margin-top: 78px;
+    }
+    .font-weight400{
+        font-weight: 400;
+    }
+    .h2-d{
+       font-size: 27px; 
+       font-weight: 700;
+    }
+    .priority-section img{
+       width: 20px;
+    }
+    .date-input{
+        width: 100%;
+        font-size: 20px;
+    }
+    .width-396px{
+        width: 440px;
+    }
+    .right-section-addTask{
+        width: 305px;
+    }
+    .legal-notice-arrow-left{
+        height: 37px;
+    }
+    .color-blue{
+        color: rgb(42, 54, 71);
+    }
+    .category-input{
+        display: flex;
+        flex-direction: column;
+        margin-top: 24px;
+        gap: 8px;
+        margin-bottom: 24px;
+    }
+    .enter-subtask-input{
+        font-size: 20px;
+        height: 48px;
+        margin-bottom: 32px;
+        width: 416px;
+    
+    }
+    .d-none-desktop{
+        display: none;
+    }
+    .subtask{
+        display: flex;
+        flex-direction: column;  
+        gap: 8px;
+    }
+    .required-text{
+        padding-top: 170px;
+        font-size: 20px;
+    }
+    .create-task-btn{
+        margin-top: 146px;
+        font-size: 21px;
+    }
+    .clear-task-btn{
+        background-color: white;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        width: 110px;
+        justify-content: center;
+        border: 1px solid rgb(42, 54, 71);
+        border-radius: 10px;
+        margin-top: 146px;
+        color: rgb(42, 54, 71);
+        font-size: 20px;
+    }
+    .desktop-btns{
+        display: flex;
+        justify-content: flex-end;
+        gap: 16px;
+    }
+    
+}
+
+@media (min-width: 1100px) {
     .add-task-desktop{
         display: flex;
     }
@@ -375,6 +513,9 @@ textarea::-webkit-input-placeholder {
         display: flex;
         justify-content: flex-end;
         gap: 16px;
+    }
+    .right-section-addTask{
+        width: 440px;
     }
     
 }

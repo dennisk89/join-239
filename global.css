@@ -422,7 +422,7 @@ textarea:focus, input:focus{
 
 .font-20 {
     font-weight: 400;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 24px;
 }
 
@@ -545,6 +545,11 @@ textarea:focus, input:focus{
         right: 40px;
         z-index: 999;
         
+    }
+    .font-20 {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
     }
 
 }

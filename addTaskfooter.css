@@ -76,6 +76,12 @@ a {
     background-color: rgba(41, 170, 226, 0.2);
 }
 
+@media (min-width: 768px) {
+    .hide-on-mobile2 {
+        display: block;
+    }
+}
+
 @media (min-width: 1380px) {
     .hide-on-mobile {
         display: block;
