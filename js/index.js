@@ -125,7 +125,7 @@ function openGuestAccess() {
 
 
 async function addUser(name, email) {
-  const user = { name: name, email: email };
+  const user = { name: name, email: email.toLowerCase() };
   usersArray.push(user);
   await putData(endpointUser, usersArray);
   console.log(usersArray);

@@ -22,7 +22,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 
 function createNewUser() {
-    const email = document.getElementById('e-mail').value;
+    const email = document.getElementById('e-mail').value.toLowerCase();
     const name = document.getElementById('name').value;
     const password = document.getElementById('confirmPassword').value;
     createUserWithEmailAndPassword(auth, email, password)
