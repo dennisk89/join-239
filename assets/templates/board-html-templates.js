@@ -137,7 +137,7 @@ function editTaksOverlayHTML(id) {
             <div class="task-header flex-end">
                 <img id="closeEditOverlay" class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask('taskOverlay')">
             </div>
-            <form class="edit-form task-edit-scroll" onsubmit="confirmEditTask('${id}'); return false">
+            <div class="edit-form task-edit-scroll">
                 <div class="input-group">
                     <label class="font-16" for="titleInput">Title<span class="color-red">*</span></label>
                     <input id="titleInput" class="enter-input font-16" placeholder="Enter a title" type="text"
@@ -185,7 +185,7 @@ function editTaksOverlayHTML(id) {
                 <div class="input-group">
                     <label class="font-20" for="selectInput">Subtasks</label>
                     <div id="editOverlaySubtaskInputFrame" onclick="changeSubtaskInput()" class="enter-input outer-input">
-                        <input class="inner-input font-16" placeholder="Add new subtask" type="text"
+                        <input onkeypress="checkKeyForEnter(event), stopP(event)" class="inner-input font-16" placeholder="Add new subtask" type="text"
                             name="add subtasks" id="subtaskInput">
                         <div id="subBtnContainer" class="sub-btn-container">
                             <div id="addSubtaskBtn" class="sub-plus-image inner-input-img clickable"></div>
@@ -194,11 +194,11 @@ function editTaksOverlayHTML(id) {
                     <div class="subtask-ul" id="subtaskEditList"></div>
                 </div>
                 <div class="form-btn-container padding-top-0">
-                    <button class="board-btn-dark board-edit-btn clickable" type="submit">
+                    <button class="board-btn-dark board-edit-btn clickable" onclick="confirmEditTask('${id}')">
                         <span>Ok</span><img src="assets/img/check.svg" alt="Edit board button">
                     </button>
                 </div>
-            </form>
+            </div>
         </div>
     `
 }

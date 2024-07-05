@@ -250,13 +250,14 @@ function renderEditSubtasks(task) {
 }
 
 
-function checkSubTask(subtaskId) {
+async function checkSubTask(subtaskId) {
     let taskId = document.getElementsByClassName('open-task')[0].id.replace('detailsFor', '');
     let taskArrayIndex = taskArray.findIndex(t => t.id === taskId)
     subtaskId = subtaskId.replace('sub', '');
     taskArray[taskArrayIndex].subTaskStatus[subtaskId] = changeSubTaskStatus(taskArray[taskArrayIndex].subTaskStatus[subtaskId]);
     renderSubTasks(getTaskById(taskId));
     addSubTaskProgressToCards(taskArray, taskArrayIndex);
+    await putData(endpointTasks, taskArray);
 }
 
 
@@ -266,13 +267,16 @@ function changeSubTaskStatus(currentStatusBoolean) {
 
 
 async function confirmEditTask(id) {
+    debugger
     let contentArray = [document.getElementById('titleInput').value, document.getElementById('descriptionInput').value, document.getElementById('dateInput').value]
     if (contentArray[0].length > 1 && contentArray[2].length > 0) {
         let i = taskArray.findIndex(t => t.id === id);
         setValuesToTaskArray(i, contentArray);
         await putData(endpointTasks, taskArray);
         initBoard()
-    } 
+    } else {
+        // TODO form validation
+    }
     closeTask('taskOverlay');    
 }
 
