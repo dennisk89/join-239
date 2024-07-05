@@ -114,6 +114,10 @@ p {
     background-color: var(--bg-color);
 }
 
+.search-box:focus-within {
+    border: solid 1px var(--highlight);
+}
+
 .board-columns {
     display: flex;
     flex-direction: column;

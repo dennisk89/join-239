@@ -234,6 +234,11 @@ function setTempSubtasksStatus() {
 document.getElementById('subtaskInputFrame').addEventListener('click', changeSubtaskInput);
 
 
+function blueBorder(id) {
+    document.getElementById(id).style.borderColor = 'rgba(41, 171, 226, 1)'
+}
+
+
 // ANCHOR id translation or verification functions
 function pushTaskAssigneeInfosToArray(task) {
     if (task.assigned) {

@@ -110,6 +110,7 @@ function checkSearch() {
     if (searchString.length > 0) {
         filterTaskBySearch(searchString)
     } else {
+        document.getElementById('noTaskFound').style.display = 'none';
         initBoard();
     }
 }
@@ -122,11 +123,20 @@ function filterTaskBySearch(searchString) {
             results.push(t);
         }
     });
+    showResults(results)
+}
+
+
+function showResults(results) {
     addCardsToBoards('toDoColumn', results.filter(t => t.taskStatus == 'todo'), 'To do');
     addCardsToBoards('inProgressColumn', results.filter(t => t.taskStatus == 'progress'), 'In progress');
     addCardsToBoards('feedbackColumn', results.filter(t => t.taskStatus == 'feedback'), 'Await feedback');
     addCardsToBoards('doneColumn', results.filter(t => t.taskStatus == 'done'), 'Done');
     addInfosToCards(results);
+    document.getElementById('noTaskFound').style.display = 'none';
+    if (results.length == 0) {
+        document.getElementById('noTaskFound').style.display = 'flex';
+    }
 }
 
 
@@ -262,10 +272,7 @@ async function confirmEditTask(id) {
         setValuesToTaskArray(i, contentArray);
         await putData(endpointTasks, taskArray);
         initBoard()
-    } else {
-        console.log('Kein Titel oder Datum');
-        // TODO hier die Fehlermeldung wie im Design ausführen
-    }
+    } 
     closeTask('taskOverlay');    
 }
 

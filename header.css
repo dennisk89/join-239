@@ -6,12 +6,6 @@ header {
     z-index: 99;
 }
 
-.flex-all-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .gap-16 {
     gap: 16px;
 }
