@@ -56,8 +56,11 @@ body{
     padding-left: 21px;
     font-weight: 400;
     font-size: 16px;
-    line-height: 19.2px;
-    
+    line-height: 19.2px; 
+}
+
+.enter-title-input:focus {
+    border-color: rgba(41, 171, 226, 1);
 }
 
 .enter-subtask-input{
@@ -165,6 +168,7 @@ textarea::-webkit-input-placeholder {
 
 .date-input:focus{
     background-image: none;
+    border-color: rgba(41, 171, 226, 1);
 }
 
 .priority-section{

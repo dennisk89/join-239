@@ -334,6 +334,12 @@ document.getElementById('closeAddBtn').addEventListener('click', () => {
     resetSubtaskInput();
 });
 
+
+document.getElementById('addTaskOverlay').addEventListener('click', () => {
+    closeTask('addTaskOverlay');
+    resetSubtaskInput();
+});
+
 // !SECTION
 
 /*ANCHOR - Drag and Drop*/

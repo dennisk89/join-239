@@ -133,7 +133,7 @@ function taskSubTaskDoneHTML(i, subtaskText) {
 // ANCHOR edit task
 function editTaksOverlayHTML(id) {
     return /*html*/`
-        <div id="editFor${id}" class="open-task less-padding-for-edit-scroll">
+        <div onclick="closeSelectContacts()" id="editFor${id}" class="open-task less-padding-for-edit-scroll">
             <div class="task-header flex-end">
                 <img id="closeEditOverlay" class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask('taskOverlay')">
             </div>

@@ -45,7 +45,7 @@
 
     <!-- ANCHOR add Task overlay -->
     <section id="addTaskOverlay" class="overlay-bg">
-        <div onclick="closeSelectContacts()" class="add-task-container">
+        <div onclick="closeSelectContacts(), stopP(event)" class="add-task-container">
             <div class="add-Task-header">
                 <h1 class="add-task-headline">Add Task</h1>
                 <img id="closeAddBtn" class="clickable close-add-btn" src="assets/img/close-black.svg" alt="close Task">
