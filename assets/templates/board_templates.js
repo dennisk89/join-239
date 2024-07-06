@@ -244,7 +244,7 @@ function showContactsSelect(id, color, initials, name) {
 
 function addNewSubtaskHTML() {
     return /*html*/`
-        <div id="addSubtaskBtn" class="sub-plus-image inner-input-img clickable"></div>    
+        <div id="addSubtaskBtn" class="sub-plus-image inner-input-img clickable"></div>
     `
 }
 
