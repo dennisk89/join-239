@@ -196,6 +196,25 @@ select:focus {
     border: 1px solid var(--warning-red) !important;
 }
 
+.medium-selected {
+    background: var(--prio-medium-orange);
+    color: var(--white);
+}
+
+.urgent-selected {
+    background: var(--prio-urgent-red);
+    color: var(--white);
+}
+
+.low-selected {
+    background: var(--prio-low-green);
+    color: var(--white);
+}
+
+.low-selected span, .urgent-selected span, .medium-selected span {
+    font-weight: 700;
+}
+
 /* ANCHOR Scrollbar */
 
 ::-webkit-scrollbar {
@@ -487,7 +506,7 @@ textarea:focus, input:focus{
     gap: 8px;
 }
 
-.profile-batch { /* TODO Doppelt? */
+.profile-batch {
     width: 32px;
     height: 32px;
     border-radius: 100%;

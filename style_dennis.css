@@ -206,25 +206,6 @@ textarea::-webkit-input-placeholder {
     margin-bottom: 0px;
 }
 
-.medium-selected { /* TODO doppelt? */
-    background: var(--prio-medium-orange);
-    color: var(--white);
-}
-
-.urgent-selected { /* TODO doppelt? */
-    background: var(--prio-urgent-red);
-    color: var(--white);
-}
-
-.low-selected { /* TODO doppelt? */
-    background: var(--prio-low-green);
-    color: var(--white);
-}
-
-.low-selected span, .urgent-selected span, .medium-selected span {
-    font-weight: 700;
-}
-
 .category-input{
     display: flex;
     flex-direction: column;

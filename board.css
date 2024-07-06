@@ -390,20 +390,6 @@ p {
     display: flex;
 }
 
-.profile-batch {
-    width: 32px;
-    height: 32px;
-    border-radius: 100%;
-    border: solid 1px var(--white);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--white);
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 14.4px;
-}
-
 .overlap-1 {
     transform: translatex(-8px);
 }
@@ -537,27 +523,6 @@ p {
     font-weight: 400;
     line-height: 19.2px;
     text-align: left;
-}
-
-.medium-selected {
-    background: var(--prio-medium-orange);
-    color: var(--white);
-}
-
-.urgent-selected {
-    background: var(--prio-urgent-red);
-    color: var(--white);
-}
-
-.low-selected {
-    background: var(--prio-low-green);
-    color: var(--white);
-}
-
-.low-selected span,
-.urgent-selected span,
-.medium-selected span {
-    font-weight: 700;
 }
 
 /* TODO will be rplaced by subtaks from add contacts */
