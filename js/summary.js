@@ -60,7 +60,7 @@ function findEarliestDate() {
  */
 function showGreeting() {
     let checkGuestUserStatus = localStorage.getItem('guestUserActive');
-    if (JSON.parse(checkGuestUserStatus) === true) { 
+    if (JSON.parse(checkGuestUserStatus) === true) {
         showGreetingGuestUser();        
     } else {
         showGreetingLoggedInUser();

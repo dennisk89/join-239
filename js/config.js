@@ -160,6 +160,12 @@ class Task {
     }
 }
 
+/**
+ * This function is used to generate a new ID for each new task or contact.
+ * @param {*} initLetter - This is either "t" if the ID is needed for a new task or "c" if it's needed for a new contact.
+ * @param {*} array - This is either the "taskArray" or "contacts".
+ * @returns new ID consisting of "t" or "c" and a random number
+ */
 function generateUniqueId(initLetter, array) {
     let newId;
     do { // Do-While-Schleife: Sie sorgt dafür, dass so lange eine neue ID generiert wird, bis eine ID gefunden wurde, die noch nicht vergeben ist.
@@ -231,6 +237,6 @@ function proofIfContactIsLoggedIn(name) {
         return ' (You)';
     } else {
         return ''; 
-        // TODO brauchen wir das else statement?
+        // TODO brauchen wir das else statement? -> Ja, denn sonst wird neben jedem Contact in der Contact List, der nicht eingeloggt ist, "undefined" angezeigt.
     }
 }

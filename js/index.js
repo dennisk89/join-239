@@ -123,7 +123,6 @@ function openGuestAccess() {
   window.location.href = "./summary.html";
 }
 
-
 async function addUser(name, email) {
   const user = { name: name, email: email.toLowerCase() };
   usersArray.push(user);
