@@ -3,14 +3,18 @@
 // ANCHOR load Task cards in board
 
 /**
- * This function calls the initJoin() function so that all data from firebase is loaded. With this data every function will be called to load task cards.
+ * Initializes the board by fetching and displaying tasks in their respective columns.
  * 
- *  @async
- *  @param {array} todoTasks all task with status 'todo'
- *  @param {array} progressTasks all task with status 'progress'
- *  @param {array} feedbackTasks all task with status 'feedback'
- *  @param {array} doneTasks all task with status 'done'
- *  @param {array} taskArray unfiltered array with all tasks with any status
+ * This async function performs the following steps:
+ * 1. Calls the `initJoin` function to fetch and prepare task data.
+ * 2. Adds task cards to the 'To do', 'In progress', 'Await feedback', and 'Done' columns.
+ * 3. Adds additional information to the task cards.
+ * 4. Closes the task overlay.
+ * 5. Resets the subtask input fields.
+ * 
+ * @async
+ * @function initBoard
+ * @returns {Promise<void>} A promise that resolves when the board initialization is complete.
  */
 async function initBoard() {
     await initJoin();
@@ -25,12 +29,17 @@ async function initBoard() {
 
 
 /**
- * This function adds task card to a specific html container (column) 
+ * Adds task cards to a specified board column based on a filtered array of tasks.
  * 
- *  @async
- *  @param {string} columnID id of the html element
- *  @param {array} filterArray unfiltered array with all tasks with any status
- *  @param {string} stringForEmptyColumn string to show the empty message in case of an empty column
+ * This function performs the following steps:
+ * 1. Clears the content of the specified column element.
+ * 2. If the filtered array is empty, it displays a placeholder message.
+ * 3. If the filtered array is not empty, it iterates through the array and adds task cards to the column.
+ * 
+ * @function addCardsToBoards
+ * @param {string} columnID - The ID of the board column element where the cards will be added.
+ * @param {Array} filterArray - The array of filtered task objects to be added to the column.
+ * @param {string} stringForEmptyColumn - The placeholder message to display if the column is empty.
  */
 function addCardsToBoards(columnID, filterArray, stringForEmptyColumn) {
     let element = document.getElementById(columnID);
@@ -45,6 +54,11 @@ function addCardsToBoards(columnID, filterArray, stringForEmptyColumn) {
 }
 
 
+/**
+ * This function shortens a text to the last space before the 55. character. 
+ * 
+ *  @param {string} text Description of a task
+ */
 function shortText(text) {
     if (text.length > 55) {
         let shortText = text.substring(0, 55)
@@ -55,6 +69,11 @@ function shortText(text) {
 }
 
 
+/**
+ * This function starts a loop that calls the functions that add assignees and progress information to the task 
+ * 
+ *  @param {array} taskArray array with all tasks or filtered array with tasks
+ */
 function addInfosToCards(taskArray) {
     for (let i = 0; i < taskArray.length; i++) {
         taskArray[i].assigned ? addContactLabelsToCards(taskArray, i) : '';
@@ -63,6 +82,12 @@ function addInfosToCards(taskArray) {
 }
 
 
+/**
+ * This function adds the maximum of 5 contact batches to the task cards. The rest will be indicated by a number batch.
+ * 
+ *  @param {array} taskArray array with all tasks or filtered array with tasks
+ *  @param {array} i loop index
+ */
 function addContactLabelsToCards(taskArray, i) {
     let container = document.getElementById(taskArray[i].id).children[3].children[0];
     container.innerHTML = '';
@@ -78,6 +103,19 @@ function addContactLabelsToCards(taskArray, i) {
 }
 
 
+/**
+ * Defines the contact icon overlap for a given assignee and appends the HTML to the container.
+ * This function performs the following steps:
+ * 1. If the index `j` is 0, it appends the HTML for a non-overlapping contact icon.
+ * 2. If the index `j` is not 0, it appends the HTML for an overlapping contact icon.
+ * 
+ * @function defineContactIconOverlap
+ * @param {number} j - The index of the assignee in the list.
+ * @param {Object} assignee - The assignee object containing details about the assignee.
+ * @param {string} assignee.initials - The initials of the assignee.
+ * @param {string} assignee.color - The color associated with the assignee.
+ * @param {HTMLElement} container - The container element to which the HTML will be appended.
+ */
 function defineContactIconOverlap(j, assignee, container) {
     if (j == 0) {
         container.innerHTML += addAssignHTML(assignee.initials, assignee.color);
@@ -87,6 +125,17 @@ function defineContactIconOverlap(j, assignee, container) {
 }
 
 
+/**
+ * Gets the maximum number of labels to be displayed based on the number of contacts.
+ * 
+ * This function returns the maximum number of labels as follows:
+ * 1. If the length of the `contacts` array is 6 or more, it returns 6.
+ * 2. Otherwise, it returns the length of the `contacts` array.
+ * 
+ * @function getLabelMaximum
+ * @param {Array} contacts - The array of contacts.
+ * @returns {number} The maximum number of labels to be displayed.
+ */
 function getLabelMaximum(contacts) {
     if (contacts.length >= 6) {
         return 6;
@@ -96,12 +145,35 @@ function getLabelMaximum(contacts) {
 }
 
 
+/**
+ * Calculates the number of additional assignees beyond a specified limit and returns it as a string.
+ * 
+ * This function calculates the number of additional valid assignees beyond the first 5 and returns 
+ * this number prefixed with a '+' sign as a string.
+ * 
+ * @function getRest
+ * @param {Array} validAssignees - The array of valid assignees.
+ * @returns {string} The number of additional assignees beyond the first 5, prefixed with a '+' sign.
+ */
 function getRest(validAssignees) {
     let rest = validAssignees.length - 5;
     return '+' + String(rest);
 }
 
 
+/**
+ * Updates the progress bar and label for subtasks in task cards.
+ * 
+ * This function performs the following steps:
+ * 1. Retrieves the progress bar and label elements for the specified task card.
+ * 2. Counts the number of completed subtasks.
+ * 3. Updates the label to show the number of completed subtasks out of the total subtasks.
+ * 4. Updates the width of the progress bar to reflect the percentage of completed subtasks.
+ * 
+ * @function addSubTaskProgressToCards
+ * @param {Array} taskArray - The array of task objects.
+ * @param {number} i - The index of the task in the task array.
+ */
 function addSubTaskProgressToCards(taskArray, i) {
     let pbar = document.getElementById(taskArray[i].id).children[2].children[0].children[0];
     let label = document.getElementById(taskArray[i].id).children[2].children[1];
@@ -111,6 +183,16 @@ function addSubTaskProgressToCards(taskArray, i) {
 }
 
 
+/**
+ * Closes a task overlay by hiding it with an animation and resetting global task variables.
+ * 
+ * This function performs the following steps:
+ * 1. Removes the 'show' class and adds the 'hide' class to the task overlay element to start the hiding animation.
+ * 2. After a delay, it resets global task variables, hides the task overlay element, and removes the 'hide' class.
+ * 
+ * @function closeTask
+ * @param {string} id - The ID of the task overlay element to be closed.
+ */
 function closeTask(id) {
     let taskOverlay = document.getElementById(id);
     taskOverlay.classList.remove('show');
@@ -124,6 +206,17 @@ function closeTask(id) {
 
 
 // ANCHOR task search
+
+/**
+ * Checks the search input and filters tasks based on the search string.
+ * 
+ * This function performs the following steps:
+ * 1. Retrieves the search string from the search input element.
+ * 2. If the search string is not empty, it filters tasks by the search string.
+ * 3. If the search string is empty, it hides the 'no task found' message and initializes the board.
+ * 
+ * @function checkSearch
+ */
 function checkSearch() {
     let searchString = document.getElementById('taskSearch').children[0].value;
     if (searchString.length > 0) {
@@ -135,6 +228,17 @@ function checkSearch() {
 }
 
 
+/**
+ * Filters tasks based on a search string and displays the results.
+ * 
+ * This function performs the following steps:
+ * 1. Iterates through the `taskArray` to find tasks where the title or description contains the search string (case-insensitive).
+ * 2. Adds matching tasks to the results array.
+ * 3. Displays the filtered tasks by calling the `showResults` function.
+ * 
+ * @function filterTaskBySearch
+ * @param {string} searchString - The search string used to filter tasks.
+ */
 function filterTaskBySearch(searchString) {
     let results = [];
     taskArray.forEach(t => {
