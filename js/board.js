@@ -250,6 +250,19 @@ function filterTaskBySearch(searchString) {
 }
 
 
+/**
+ * Displays the filtered task results in their respective board columns.
+ * 
+ * This function performs the following steps:
+ * 1. Adds task cards to the 'To do', 'In progress', 'Await feedback', and 'Done' columns based on their status in the filtered results.
+ * 2. Adds additional information to the displayed task cards.
+ * 3. Hides the 'no task found' message.
+ * 4. If no tasks are found in the results, displays the 'no task found' message.
+ * 
+ * @function showResults
+ * @param {Array} results - The array of filtered task objects to be displayed.
+ */
+
 function showResults(results) {
     addCardsToBoards('toDoColumn', results.filter(t => t.taskStatus == 'todo'), 'To do');
     addCardsToBoards('inProgressColumn', results.filter(t => t.taskStatus == 'progress'), 'In progress');
@@ -267,18 +280,50 @@ document.getElementById('taskSearch').addEventListener('keyup', checkSearch);
 
 
 // ANCHOR open Task details
+
+/**
+ * Opens and displays the details of a task in an overlay.
+ * 
+ * This function performs the following steps:
+ * 1. Retrieves the task details by its ID using `getTaskById`.
+ * 2. Stores the subtasks of the retrieved task in a temporary variable.
+ * 3. Displays the task overlay by setting its `display` style to 'flex'.
+ * 4. Populates the overlay with the task details using the `taskHTML` function.
+ * 5. If the task has assignees, renders them using the `renderAssignees` function.
+ * 6. If the task has subtasks, renders them using the `renderSubTasks` function.
+ * 7. Adds the 'show' class to the overlay to trigger any associated animations or styles.
+ * 
+ * @function openTasks
+ * @param {string} id - The ID of the task to be opened.
+ */
 function openTasks(id) {
     let task = getTaskById(id);
     tempSubtasks = task.subTask;
     let taskOverlay = document.getElementById('taskOverlay');
     taskOverlay.style.display = 'flex';
     taskOverlay.innerHTML = taskHTML(task.id, task.type, task.title, task.description, task.dueDate, prioIcons[task.prio]);
-    if (task.assigned) renderAssignees(task);
-    if (task.subTask) renderSubTasks(task);
+    if (task.assigned) {
+        renderAssignees(task)
+    }
+    if (task.subTask) {
+        renderSubTasks(task)
+    }
     taskOverlay.classList.add('show');
 }
 
 
+/**
+ * Renders the list of assignees for a given task and updates the task assignment section in the UI.
+ * 
+ * This function performs the following steps:
+ * 1. Retrieves assignee information for the task using the `pushTaskAssigneeInfosToArray` function.
+ * 2. Iterates through the retrieved assignees and checks if they are valid.
+ * 3. For each valid assignee, it determines if the assignee is currently logged in using `proofIfContactIsLoggedIn`.
+ * 4. Updates the HTML of the task assignment section by appending the HTML for each assignee using the `taskAssignHTML` function.
+ * 
+ * @function renderAssignees
+ * @param {Object} task - The task object containing task assignee information.
+ */
 function renderAssignees(task) {
     let taskAssignees = pushTaskAssigneeInfosToArray(task);
     for (let i = 0; i < taskAssignees.length; i++) {
@@ -400,7 +445,7 @@ async function confirmEditTask(id) {
     } else {
         // TODO form validation
     }
-    closeTask('taskOverlay');    
+    closeTask('taskOverlay');
 }
 
 
