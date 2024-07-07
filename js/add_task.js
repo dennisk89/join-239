@@ -270,7 +270,7 @@ function getContactByContactID(contactID) {
     }
 }
 
-function validateTaskForm(event) {
+function validateTaskForm(event, nextFunction) {
     event.preventDefault(); 
 
     let isTitleValid = validateTitle();
