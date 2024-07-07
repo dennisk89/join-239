@@ -34,6 +34,14 @@ function resetGlobalTaskVariables() {
     taskStatus = 'todo';
 }
 
+
+/**
+ * Initializes the join process by fetching and filtering data from various endpoints.
+ * 
+ * @async
+ * @function initJoin
+ * @returns {Promise<void>} A promise that resolves when the initialization is complete.
+ */
 async function initJoin() {
     contacts = await getData(endpointContacts);
     taskArray = await getData(endpointTasks);
@@ -45,12 +53,28 @@ async function initJoin() {
     urgentTasks = taskArray.filter(t => t.prio === 'urgent' && t.dueDate);
 }
 
+
+/**
+ * This function fetches any endpoint that is given by the url parameter. The response status will get logged 
+ * 
+ *  @async
+ *  @param {string} url Endpoint to fetch.
+ *  @returns {Promise<void>} Returns the response in json format.
+ */
 async function getData(url) {
     let response = await fetch(url + ".json").catch(errorFunction);
     console.log(response.status);
     return await response.json();
 }
 
+
+/**
+ * This function fetches any endpoint that is given by the url parameter with the method PUT. The response status will get logged 
+ * 
+ *  @async
+ *  @param {string} url Endpoint to fetch.
+ *  @returns {Promise<void>} Returns the response in json format.
+ */
 async function putData(url, data = {}) {
     let response = await fetch(url + ".json", {
         method: 'PUT',
@@ -64,6 +88,9 @@ async function putData(url, data = {}) {
 }
 
 
+/**
+ * This function gets called (.catch) when the promise in other functions is not resolved. It logs an error message and gives the user a confirm with a reload option. 
+ */
 function errorFunction() {
     console.error('Fehler aufgetreten');
     if (confirm('Oops, something went wrong. Please reload and try again')) {
@@ -203,6 +230,7 @@ function proofIfContactIsLoggedIn(name) {
     if (name === loggedInUser) {
         return ' (You)';
     } else {
-        return '';
+        return ''; 
+        // TODO brauchen wir das else statement?
     }
 }

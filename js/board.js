@@ -1,6 +1,17 @@
 
 
 // ANCHOR load Task cards in board
+
+/**
+ * This function calls the initJoin() function so that all data from firebase is loaded. With this data every function will be called to load task cards.
+ * 
+ *  @async
+ *  @param {array} todoTasks all task with status 'todo'
+ *  @param {array} progressTasks all task with status 'progress'
+ *  @param {array} feedbackTasks all task with status 'feedback'
+ *  @param {array} doneTasks all task with status 'done'
+ *  @param {array} taskArray unfiltered array with all tasks with any status
+ */
 async function initBoard() {
     await initJoin();
     addCardsToBoards('toDoColumn', todoTasks, 'To do');
@@ -13,6 +24,14 @@ async function initBoard() {
 }
 
 
+/**
+ * This function adds task card to a specific html container (column) 
+ * 
+ *  @async
+ *  @param {string} columnID id of the html element
+ *  @param {array} filterArray unfiltered array with all tasks with any status
+ *  @param {string} stringForEmptyColumn string to show the empty message in case of an empty column
+ */
 function addCardsToBoards(columnID, filterArray, stringForEmptyColumn) {
     let element = document.getElementById(columnID);
     element.innerHTML = '';
