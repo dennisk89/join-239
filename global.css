@@ -624,3 +624,27 @@ textarea:focus, input:focus{
     }
 
 }
+
+.successfull-task{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    height: 74px;
+    width: 312px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    background-color: var(--bg-color-dark-grey);
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 200;
+    border-radius: 20px;
+    background-image: url('./assets/img/menu_icon_board.svg');
+    background-repeat: no-repeat;
+    background-position: right 24px top 50%;
+}
+
+.successfull-task p{
+    padding-right: 60px;
+}
