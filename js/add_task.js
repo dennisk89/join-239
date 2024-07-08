@@ -78,6 +78,7 @@ function checkForPreSelectContacts(assigneeArray) {
     if (assigneeArray.length > 0 && tempAssignees.length > 0) {
         for (let i = 0; i < assigneeArray.length; i++) {
             if (tempAssignees.indexOf(assigneeArray[i]) > -1) {
+                console.log(assigneeArray[i].id);
                 updateCheckboxes(assigneeArray[i].id, 'rgba(42, 54, 71, 1)', 'white', 'checkbox-img', 'checkbox-img-checked');
             }
         }
@@ -103,7 +104,7 @@ function checkSelectContact(e) {
 
 function preSelectContact(contactId) {
     updateCheckboxes(contactId, 'rgba(42, 54, 71, 1)', 'white', 'checkbox-img', 'checkbox-img-checked');
-    tempAssignees.push(contactId);
+    tempAssignees.push(getContactByContactID(contactId));
     renderContactBadgeUnderSelectField();
 }
 
@@ -126,7 +127,7 @@ function updateCheckboxes(contactId, bgColor, textColor, checkbox1Css, checkbox2
 function renderContactBadgeUnderSelectField() {
     document.getElementById('preSelectedContainer').innerHTML = '';
     for (let i = 0; i < tempAssignees.length; i++) {
-        const assign = getContactByContactID(tempAssignees[i]);
+        const assign = tempAssignees[i];
         if (assign != 'not found') {
             document.getElementById('preSelectedContainer').innerHTML += profileBatchHTML(assign.color, assign.initials);
         }
@@ -240,6 +241,7 @@ function blueBorder(id) {
 
 
 document.getElementById('subtaskInput').addEventListener('keypress', e => checkKeyForEnter(e));
+
 
 function checkKeyForEnter(e) {
     if (e.key == 'Enter') {
