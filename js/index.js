@@ -1,8 +1,14 @@
-function init() {
-  animation();  
+/**
+ * This function initialized the Join app.
+ */
+function init() { 
   initJoin();
 }
 
+
+/**
+ * This function is used to open the signup form.
+ */
 function openSignup() {
     let login = document.getElementById('start-page-login');
     let signup = document.getElementById('signup-startpage');
@@ -10,6 +16,10 @@ function openSignup() {
     signup.classList.remove('d-none');
 }
 
+
+/**
+ * This function is used to go back, to the login page.
+ */
 function backToLogin() {
     let login = document.getElementById('start-page-login');
     let signup = document.getElementById('signup-startpage');
@@ -17,6 +27,14 @@ function backToLogin() {
     signup.classList.add('d-none');
 }
 
+
+/**
+ * Toggles the visibility of a password field by changing its type between 'password' and 'text'.
+ * Also updates the background image of a related field to indicate the visibility state.
+ * 
+ * @param {string} id - The ID of the HTML element whose background image should be updated.
+ * @param {string} container - The ID of the password field whose visibility is being toggled.
+ */
 function showPassword(id, container) {
   let password = document.getElementById(container)
   let field = document.getElementById(id);
@@ -29,23 +47,51 @@ function showPassword(id, container) {
   }
 }
 
+
+/**
+ * Updates the background image of a specified HTML element to indicate focus.
+ *
+ * @param {string} id - The ID of the HTML element whose background image should be updated.
+ */
 function handleFocus(id) {
   let field = document.getElementById(id);
   field.style.backgroundImage = "url('./assets/img/visibility_off.svg')";
 }
 
+// Add event listeners for focus events on specific elements
+
+/**
+ * Adds a focus event listener to the element with the ID 'passwordForm'.
+ * When the element gains focus, it calls the handleFocus function with the ID 'passwordClick1'.
+ */
 document.getElementById('passwordForm').addEventListener('focus', function() {
   handleFocus('passwordClick1');
 });
 
+/**
+ * Adds a focus event listener to the element with the ID 'confirmPassword'.
+ * When the element gains focus, it calls the handleFocus function with the ID 'passwordClick2'.
+ */
 document.getElementById('confirmPassword').addEventListener('focus', function() {
   handleFocus('passwordClick2');
 });
 
+/**
+ * Adds a focus event listener to the element with the ID 'password'.
+ * When the element gains focus, it calls the handleFocus function with the ID 'passwordClick'.
+ */
 document.getElementById('password').addEventListener('focus', function() {
   handleFocus('passwordClick');
 });
- 
+
+
+/**
+ * Checks if the password and confirm password fields match.
+ * If they do not match, displays an error message and adds a red border to the password field.
+ * If they match, hides the error message.
+ *
+ * @returns {boolean} Returns true if the passwords match, false otherwise.
+ */
 function checkPasswordMatch() {
   let password = document.getElementById('passwordForm').value;
   let confirmPassword = document.getElementById('confirmPassword').value;
@@ -61,6 +107,10 @@ function checkPasswordMatch() {
   }
 }
 
+
+/**
+ * This function is used to change the image depending on whether the privacy policy has been accepted or not.
+ */
 function handleCheckBoxPrivacyPolicy() {
   let image = document.getElementById('privacyCheckBox');
   if (image.src.includes('checkbox.svg')) {
@@ -70,8 +120,17 @@ function handleCheckBoxPrivacyPolicy() {
   }
 }
 
+
+/**
+ * Validates the form by checking if the passwords match and if the privacy checkbox is checked.
+ * If validation passes, creates a new user and adds the user information.
+ * If validation fails, prevents form submission and displays error messages.
+ *
+ * @param {Event} event - The form submission event.
+ * @returns {boolean} Returns false if the validation fails, true otherwise.
+ */
 function validateForm(event) {
-  event.preventDefault(); // Verhindert das Standard-Formular-Submit
+  event.preventDefault(); 
   let privacyerrormessage = document.getElementById('privacyError')
   let isPasswordMatch = checkPasswordMatch();
   let privacyCheckBox = document.getElementById('privacyCheckBox').src.includes('checkbox-checked.svg');
@@ -86,17 +145,19 @@ function validateForm(event) {
   };
 }
 
-function animation() {
-  setTimeout(function() {
-      document.getElementById("whiteB").style.zIndex = "-1";
-  }, 3000);
-}
 
+/**
+ * This function is used to change the image depending on whether the remember me checkbox is clicked or not.
+ */
 function showSuccessMessage() {
   const successMessage = document.getElementById('successfullSignup');
   successMessage.classList.add('show');
 }
 
+
+/**
+ * This function is used to toggle the checkbox image
+ */
 function handleCheckBoxRememberMe() {
   let checkbox = document.getElementById('rememberMe');
   if (checkbox.src.includes('checkbox.svg')) {
@@ -106,6 +167,10 @@ function handleCheckBoxRememberMe() {
   }
 }
 
+
+/**
+ * This function is used to check whether the remember me checkbox was clicked or not. If so, loginwithpersistence will be executed if not the standard login.
+ */
 function validateLogin() {
   let checkBox = document.getElementById('rememberMe');
   if (checkBox.src.includes('checkbox-checked.svg')) {
@@ -123,6 +188,13 @@ function openGuestAccess() {
   window.location.href = "./summary.html";
 }
 
+
+/**
+ * Adds a new user to the users array and updates the data on the server.
+ *
+ * @param {string} name - The name of the user.
+ * @param {string} email - The email address of the user.
+ */
 async function addUser(name, email) {
   const user = { name: name, email: email.toLowerCase() };
   usersArray.push(user);

@@ -1,11 +1,15 @@
-// Import the functions you need from the SDKs you need
+/**
+ * @fileoverview This script initializes the Firebase app and handles user authentication, 
+ * login, login with persistance, logout and state change management.
+ */
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, setPersistence, signInWithEmailAndPassword, browserLocalPersistence, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+/**
+ * Firebase configuration object
+ * @type {Object}
+ */
 const firebaseConfig = {
     apiKey: "AIzaSyDpP5Vobsp5Ph26puR1me-zdqethD43dl0",
     authDomain: "join-239.firebaseapp.com",
@@ -19,10 +23,22 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+
+// Initializing Firebase's authentication service
 const auth = getAuth(app);
+
+
+/**
+ * Make variables for loggedInUser and loggedInEmail available globally.
+ */
 window.loggedInEmail = null;
 window.loggedInUser = null;
 
+
+/**
+ * This function logs in the user, using email and password.
+ */
 function login() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -40,6 +56,10 @@ function login() {
         });
 }
 
+
+/**
+ * This function logs in the user with session persistence using email and password.
+ */
 function loginWithPersistence() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -63,6 +83,9 @@ function loginWithPersistence() {
 }
 
 
+/**
+ * This function handles authentication state changes.
+ */
 onAuthStateChanged(auth, async (user) => {
     if (user) {
         let usersFromFirebase = await getUsers('https://join-239-default-rtdb.europe-west1.firebasedatabase.app/users');
@@ -78,6 +101,9 @@ onAuthStateChanged(auth, async (user) => {
 })
 
 
+/**
+ * This function is used to update the user interface based on login status.
+ */
 function updateUserInterfaceWithLogInStatus() {
     if (['/summary.html', '/add_task.html', '/contacts.html', '/board.html'].includes(window.location.pathname)) {
         redirectOrShowUserIcon();
@@ -87,17 +113,23 @@ function updateUserInterfaceWithLogInStatus() {
     }
 }
 
+/**
+ * This function is used to logout the currently signed in user.
+ */
 
 function logOut() {
     const auth = getAuth();
     signOut(auth).then(() => {
-        // Sign-out successful.
     }).catch((error) => {
-        // An error happened.
     });
 }
 
 
+/**
+ * Fetches users from the specified URL.
+ * @param {string} url - The URL to fetch users from.
+ * @returns {Promise<Object[]>} - A promise that resolves to the list of users.
+ */
 async function getUsers(url) {
     let response = await fetch(url + ".json").catch(errorFunction);
     console.log(response.status);
@@ -105,16 +137,30 @@ async function getUsers(url) {
 }
 
 
+/**
+ * This function is used to handle errors.
+ */
 function errorFunction() {
     console.error('Fehler aufgetreten');
 }
 
+
+/**
+ * Gets the username by the logged-in user's email.
+ * @param {string} loggedInEmail - The email of the logged-in user.
+ * @param {Object[]} usersFromFirebase - The list of users from Firebase.
+ * @returns {string|null} - The username of the logged-in user, or null if not found.
+ */
 function getUserNameByLoggedInEmail(loggedInEmail, usersFromFirebase) {
     const user = usersFromFirebase.filter(user => user.email === loggedInEmail);
     return user.length > 0 ? user[0].name : null;
     // return user ? user[0].name : null;
 }
 
+
+/**
+ * Assigning the functions to global variables so that they are available throughout the window.
+ */
 window.logOut = logOut;
 window.loginWithPersistence = loginWithPersistence;
 window.login = login;

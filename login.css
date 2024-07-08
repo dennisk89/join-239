@@ -1,6 +1,6 @@
 body {
     margin-top: 0 !important;
-    animation: fadeInAnimation ease-in 3s;
+    animation: fadeInAnimation ease-in 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     margin: 0 auto;
@@ -361,7 +361,7 @@ body {
     left: 50%;
     z-index: 2;
     transform: translate(-50%, -50%);
-    animation: moveImage 2s forwards;
+    animation: moveImage 600ms forwards;
     animation-delay: 0.5s;
 }
 
@@ -381,7 +381,7 @@ body {
   }
   to {
     left: 20%;
-    top: 10%;
+    top: 8%;
     width: 80px;
     height: 80px;
   }

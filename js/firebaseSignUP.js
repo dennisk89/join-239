@@ -1,11 +1,15 @@
-// Import the functions you need from the SDKs you need
+/**
+ * @fileoverview This script initializes the Firebase app and handles user authentication 
+ * and creates users with email and password.
+ */
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+/**
+ * Firebase configuration object
+ * @type {Object}
+ */
 const firebaseConfig = {
     apiKey: "AIzaSyDpP5Vobsp5Ph26puR1me-zdqethD43dl0",
     authDomain: "join-239.firebaseapp.com",
@@ -19,8 +23,14 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+// Initializes Firebase´s authentication service
 const auth = getAuth(app)
 
+
+
+/**
+ * This function is used to create a new user by signup with email and password.
+ */
 function createNewUser() {
     const email = document.getElementById('e-mail').value.toLowerCase();
     const name = document.getElementById('name').value;
@@ -43,4 +53,7 @@ function createNewUser() {
 }
 
 
+/**
+ * Assigning the function to global variable so that it is available throughout the window.
+ */
 window.createNewUser = createNewUser;

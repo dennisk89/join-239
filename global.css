@@ -218,8 +218,8 @@ select:focus {
 /* ANCHOR Scrollbar */
 
 ::-webkit-scrollbar {
-    width: 8px; /* Breite der vertikalen Scrollbar */
-    height: 8px; /* Höhe der horizontalen Scrollbar */
+    width: 8px; 
+    height: 8px; 
     background-color: var(--scrollbar-grey);
     border-radius: 8px;
 }
@@ -235,7 +235,7 @@ select:focus {
   ::-webkit-scrollbar-track {
     background-color: var(--white);
   }
-  /* Buttons */
+  
   ::-webkit-scrollbar-button:single-button {
     background-color: var(--scrollbar-grey);
     display: block;
@@ -249,13 +249,13 @@ select:focus {
     display: none;
   }
 
-  /* Up */
+  
   ::-webkit-scrollbar-button:single-button:vertical:decrement {
     border-width: 0 8px 8px 8px;
     border-color: var(--white) var(--white) var(--scrollbar-grey) var(--white);
   }
   
-  /* Down */
+  
   ::-webkit-scrollbar-button:single-button:vertical:increment {
     border-width: 8px 8px 0 8px;
     border-color: var(--scrollbar-grey) var(--white) var(--white) var(--white);
