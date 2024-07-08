@@ -22,6 +22,7 @@
     bottom: 0;
     right: 0;
     padding-left: 16px;
+    padding-bottom: 80px;
     overflow: hidden;
 }
 
@@ -153,6 +154,27 @@
 .contact-menu-btn img, .add-contact-btn img {
     width: 32px;
     height: 32px;
+}
+
+/* ANCHOR max 370px Responsiveness */
+
+@media screen and (max-width: 370px) {
+
+    /* ANCHOR Contacts */
+
+    .contacts-header {
+        margin: 24px 0;
+        gap: 8px;
+    }
+
+    .contact-info-name {
+        font-size: 30px;
+    }
+
+    .contact-info-bold {
+        margin-bottom: 5px;
+    }
+
 }
 
 
