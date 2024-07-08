@@ -435,7 +435,6 @@ function changeSubTaskStatus(currentStatusBoolean) {
 
 
 async function confirmEditTask(id) {
-    debugger
     let contentArray = [document.getElementById('titleInput').value, document.getElementById('descriptionInput').value, document.getElementById('dateInput').value]
     if (contentArray[0].length > 1 && contentArray[2].length > 0) {
         let i = taskArray.findIndex(t => t.id === id);
