@@ -1,3 +1,7 @@
+.landscape-warning {
+    display: none;
+}
+
 .justify-space-between{
     display: flex;
     justify-content: space-between;
@@ -506,4 +510,37 @@ textarea::-webkit-input-placeholder {
     .add-task-headline{
         margin-top: -100px;
     }
+}
+
+
+/* ANCHOR Landscape Orientation */
+
+@media screen and (orientation: landscape) {
+
+    .landscape-warning {
+        display: block;
+        padding: 10px;
+        text-align: center;
+    }
+
+    header {
+        display: none;
+    }
+
+    .add-task-main-container {
+        display: none;
+    }
+
+    .menu-overlay {
+        display: none;
+    }
+
+    footer {
+        display: none;
+    }
+
+    .successfull-task {
+        display: none;
+    }
+
 }

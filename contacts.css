@@ -1,5 +1,9 @@
 /* ANCHOR Main */
 
+.landscape-warning {
+    display: none;
+}
+
 .contacts-main {
     display: flex;
     overflow: hidden;
@@ -312,6 +316,46 @@
     /* ANCHOR Buttons */
 
     .contact-menu-btn, .add-contact-btn {
+        display: none;
+    }
+
+}
+
+/* ANCHOR Landscape Orientation */
+
+@media screen and (orientation: landscape) {
+
+    .landscape-warning {
+        display: block;
+        padding: 10px;
+        text-align: center;
+    }
+
+    header {
+        display: none;
+    }
+
+    .contacts-main {
+        display: none;
+    }
+
+    #overlayAddContact {
+        display: none;
+    }
+
+    #overlayNewContactOk {
+        display: none;
+    }
+
+    #overlayEditContact {
+        display: none;
+    }
+
+    .menu-overlay {
+        display: none;
+    }
+
+    footer {
         display: none;
     }
 

@@ -1,3 +1,7 @@
+.landscape-warning {
+    display: none;
+}
+
 h1 {
     margin: 0;
     font-size: 47px;
@@ -816,4 +820,41 @@ p {
         justify-content: space-between;
         padding: 0;
     }
+}
+
+
+/* ANCHOR Landscape Orientation */
+
+@media screen and (orientation: landscape) {
+
+    .landscape-warning {
+        display: block;
+        padding: 10px;
+        text-align: center;
+    }
+
+    header {
+        display: none;
+    }
+
+    .overlay-bg {
+        display: none;
+    }
+
+    .board {
+        display: none;
+    }
+
+    .menu-overlay {
+        display: none;
+    }
+
+    footer {
+        display: none;
+    }
+
+    .successfull-task {
+        display: none;
+    }
+
 }
