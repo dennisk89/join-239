@@ -6,6 +6,11 @@ body {
     margin: 0 auto;
     
 }
+
+.landscape-warning {
+    display: none;
+}
+
 @keyframes fadeInAnimation {
     0% {
         opacity: 0;
@@ -323,7 +328,7 @@ body {
     height: 48px;
 }
 
-.succesfully-signUp{
+.successfully-signup{
     display: none;
     justify-content: center;
     align-items: center;
@@ -339,7 +344,7 @@ body {
     border-radius: 20px;
 }
 
-.succesfully-signUp.show{
+.successfully-signup.show{
     display: flex;
     animation: successAnimation 800ms forwards;
 }
@@ -545,4 +550,29 @@ body {
             height: 100px;
         }
 }
+}
+
+
+/* ANCHOR Landscape Orientation */
+
+@media screen and (orientation: landscape) and (max-height: 450px) {
+
+    .landscape-warning {
+        display: block;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .start-page {
+        display: none;
+    }
+
+    #signup-startpage {
+        display: none;
+    }
+
+    .successfully-signup {
+        display: none;
+    }
+
 }
