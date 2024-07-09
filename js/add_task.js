@@ -11,7 +11,7 @@ async function createTask(nextFunction) {
         document.getElementById('titleInput').value, 
         document.getElementById('descriptionInput').value, 
         document.getElementById('dateInput').value, 
-        tempAssignees, 
+        getIDofAssignee(tempAssignees),
         currentTaskPrio, 
         taskStatus, 
         tempSubtasks, 
@@ -20,6 +20,14 @@ async function createTask(nextFunction) {
     await putData(endpointTasks, taskArray);
     nextFunction();
 }
+
+
+function getIDofAssignee(assignees) {
+    let assignIDs = [];
+    assignees.forEach(a => assignIDs.push(a.id));
+    return assignIDs;
+}
+
 
 
 function redirectToBoard() {
@@ -78,7 +86,6 @@ function checkForPreSelectContacts(assigneeArray) {
     if (assigneeArray.length > 0 && tempAssignees.length > 0) {
         for (let i = 0; i < assigneeArray.length; i++) {
             if (tempAssignees.indexOf(assigneeArray[i]) > -1) {
-                console.log(assigneeArray[i].id);
                 updateCheckboxes(assigneeArray[i].id, 'rgba(42, 54, 71, 1)', 'white', 'checkbox-img', 'checkbox-img-checked');
             }
         }
@@ -199,7 +206,6 @@ function renderTempSubtasks() {
 
 // ANCHOR edit subtask
 function editSubtask(index) {
-    console.log(index);
     document.getElementById('subtaskEditList').children[index].innerHTML = renderEditSubtaskInputHTML(tempSubtasks[index], index);
     document.getElementById('subtaskEditList').children[index].classList.remove('subtask-list-row')
 }
