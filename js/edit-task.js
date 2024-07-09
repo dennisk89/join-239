@@ -73,25 +73,22 @@ function changeSubTaskStatus(currentStatusBoolean) {
 
 
 async function confirmEditTask(id) {
-    let contentArray = [document.getElementById('titleInput').value, document.getElementById('descriptionInput').value, document.getElementById('dateInput').value]
-    if (contentArray[0].length > 1 && contentArray[2].length > 0) {
+    if (validateDate() && validateTitle()) {
         let i = taskArray.findIndex(t => t.id === id);
-        setValuesToTaskArray(i, contentArray);
+        setValuesToTaskArray(i);
         await putData(endpointTasks, taskArray);
-        initBoard()
-    } else {
-        // TODO form validation
-    }
-    closeTask('taskOverlay');
+        initBoard();
+        closeTask('taskOverlay');
+    } 
 }
 
 
-function setValuesToTaskArray(i, contentArray) {
+function setValuesToTaskArray(i) {
     taskArray[i].assigned = getIDofAssignee(tempAssignees);
     taskArray[i].subTask = tempSubtasks;
     taskArray[i].subTaskStatus = tempSubtasksStatus;
-    taskArray[i].title = contentArray[0];
-    taskArray[i].description = contentArray[1];
-    taskArray[i].dueDate = contentArray[2];
+    taskArray[i].title = document.getElementById('titleInput').value.trim();
+    taskArray[i].description = document.getElementById('descriptionInput').value.trim();
+    taskArray[i].dueDate = document.getElementById('dateInput').value.trim();
     taskArray[i].prio = currentTaskPrio;
 }

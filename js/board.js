@@ -336,6 +336,15 @@ function renderAssignees(task) {
 }
 
 
+/**
+ * Renders the subtasks of a given task in the task overlay.
+ * 
+ * This function populates the subtask container with HTML elements representing each subtask.
+ * It checks the status of each subtask and uses different HTML templates for completed and incomplete subtasks.
+ * 
+ * @function renderSubTasks
+ * @param {Object} task - The task object containing subtasks to be rendered.
+ */
 function renderSubTasks(task) {
     let subtaskContainer = document.getElementById('taskOverlaySubtasks');
     subtaskContainer.innerHTML = '';
@@ -348,13 +357,34 @@ function renderSubTasks(task) {
     }
 }
 
-
+/**
+ * Retrieves a task object by its ID.
+ * 
+ * This function searches the `taskArray` for a task with the specified ID and returns the task object.
+ * 
+ * @function getTaskById
+ * @param {string} id - The ID of the task to retrieve.
+ * @returns {Object} The task object with the specified ID.
+ */
 function getTaskById(id) {
-    return taskArray[taskArray.findIndex(t => t.id === id)]
+    return taskArray[taskArray.findIndex(t => t.id === id)];
 }
 
 
 // ANCHOR delete Task
+/**
+ * Deletes a task by its ID and updates the task data on the server.
+ * 
+ * This asynchronous function performs the following steps:
+ * 1. Finds and removes the task with the specified ID from the `taskArray`.
+ * 2. Updates the task data on the server by calling `putData`.
+ * 3. Closes the task overlay.
+ * 4. Re-initializes the board to reflect the updated task list.
+ * 
+ * @async
+ * @function deleteTask
+ * @param {string} id - The ID of the task to delete.
+ */
 async function deleteTask(id) {
     taskArray.splice(taskArray.findIndex(t => t.id === id), 1);
     await putData(endpointTasks, taskArray);
@@ -404,6 +434,17 @@ document.getElementById('addTaskInFeedback').addEventListener('click', () => {
 });
 
 
+/**
+ * Adds click event listeners to specified elements to handle closing overlays and resetting inputs.
+ * 
+ * This code block iterates over an array of element IDs and attaches a click event listener to each element.
+ * When an element is clicked, it performs the following actions:
+ * 1. Closes the corresponding overlay by calling `closeTask`, using `'addTaskOverlay'` for most elements, and `'taskOverlay'` for the element with ID `'taskOverlay'`.
+ * 2. Resets the subtask input by calling `resetSubtaskInput`.
+ * 3. Resets global task variables by calling `resetGlobalTaskVariables`.
+ * 
+ * @function
+ */
 ['closeAddBtn', 'addTaskOverlay', 'taskOverlay'].forEach(id => document.getElementById(id).addEventListener('click', () => {
     id == 'taskOverlay' ? closeTask(id) : closeTask('addTaskOverlay');
     resetSubtaskInput();
@@ -417,31 +458,76 @@ document.getElementById('addTaskInFeedback').addEventListener('click', () => {
 let currentDraggedElement;
 
 
+/**
+ * Initializes the dragging process by storing the ID of the dragged element.
+ * 
+ * This function is called when a drag operation starts. It logs the ID of the element being dragged
+ * and stores this ID in the `currentDraggedElement` variable.
+ * 
+ * @function startDragging
+ * @param {string} id - The ID of the element being dragged.
+ */
 function startDragging(id) {
     console.log('Start dragging:', id);
     currentDraggedElement = id;
 }
 
-
+/**
+ * Prevents the default handling of the dragover event to allow dropping.
+ * 
+ * This function is used as an event handler for dragover events. It prevents the default action of the event,
+ * which is required to allow dropping elements.
+ * 
+ * @function allowDrop
+ * @param {Event} ev - The dragover event.
+ */
 function allowDrop(ev) {
     ev.preventDefault();
 }
 
-
+/**
+ * Moves a task to a new status and updates the task data on the server.
+ * 
+ * This asynchronous function performs the following steps:
+ * 1. Highlights the drop area for the task.
+ * 2. Updates the status of the task in the `taskArray` based on the `taskStatus` parameter.
+ * 3. Sends the updated task data to the server by calling `putData`.
+ * 4. Removes the highlight from the drop area.
+ * 5. Re-initializes the board to reflect the updated task list.
+ * 
+ * @async
+ * @function moveTo
+ * @param {string} id - The ID of the drop area element.
+ * @param {string} taskStatus - The new status to assign to the task.
+ */
 async function moveTo(id, taskStatus) {
     highlight(id);
     taskArray[taskArray.findIndex(t => t.id === currentDraggedElement)].taskStatus = taskStatus;
-    await putData(endpointTasks, taskArray)
-    removeHighlight(id)
+    await putData(endpointTasks, taskArray);
+    removeHighlight(id);
     initBoard();
 }
 
-
+/**
+ * Adds a highlight class to the specified element.
+ * 
+ * This function adds a CSS class to visually highlight the drop area for drag-and-drop operations.
+ * 
+ * @function highlight
+ * @param {string} id - The ID of the element to highlight.
+ */
 function highlight(id) {
     document.getElementById(id).classList.add('drag-area-highlight');
 }
 
-
+/**
+ * Removes the highlight class from the specified element.
+ * 
+ * This function removes a CSS class that visually highlights the drop area for drag-and-drop operations.
+ * 
+ * @function removeHighlight
+ * @param {string} id - The ID of the element to remove the highlight from.
+ */
 function removeHighlight(id) {
     document.getElementById(id).classList.remove('drag-area-highlight');
 }

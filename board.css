@@ -21,12 +21,6 @@ p {
     display: none;
 }
 
-.flex-all-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 /* ANCHOR board */
 .board {
     padding-top: 24px;
@@ -184,7 +178,9 @@ p {
     border-radius: 30px;
     position: relative;
     max-width: 396px;
+    max-height: 100vh;
     box-sizing: border-box;
+    overflow-y: auto;
 }
 
 .task-header {
@@ -238,7 +234,8 @@ p {
 }
 
 .card-details-assignees {
-    overflow-y: scroll;
+    overflow-y: auto;
+    min-height: 60px;
 }
 
 .task-assigned {
@@ -525,13 +522,6 @@ p {
     text-align: left;
 }
 
-/* TODO will be rplaced by subtaks from add contacts */
-/* .subtask-enter {
-    background-image: url('./assets/img/subtask-plus.svg');
-    background-repeat: no-repeat;
-    background-position: right 16px top 50%;
-} */
-
 .add-task-container form {
     display: flex;
     flex-direction: column;
@@ -607,7 +597,7 @@ p {
 
 /* ANCHOR edit form overlay */
 .task-edit-scroll {
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .priority-btn-edit {
@@ -629,6 +619,10 @@ p {
     flex-direction: column;
     gap: 20px;
     padding: 0 12px;
+}
+
+.edit-form #titleWarningMessage, .edit-form #dateWarningMessage  {
+    margin-top: -4px;
 }
 
 .less-padding-for-edit-scroll {
@@ -704,7 +698,7 @@ p {
 
 
 /* ANCHOR Media querries */
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) and (min-height: 900px) {
     .open-task {
         max-width: none;
         width: 525px;
