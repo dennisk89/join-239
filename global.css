@@ -649,3 +649,21 @@ textarea:focus, input:focus{
 .successfull-task p{
     padding-right: 60px;
 }
+
+.successfull-task.open{
+    display: flex;
+    animation: taskadded 125ms ease-in-out 0s forwards
+}
+
+.successfull-task.closed{
+    display: none;
+}
+
+@keyframes taskadded {
+    from {
+        bottom: -2000px; 
+      }
+      to {
+        bottom: 0; 
+      }
+    }

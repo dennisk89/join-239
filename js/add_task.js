@@ -332,3 +332,7 @@ function validateCategory() {
     }
 }
 
+function successfullyAddedTaskAnimation() {
+    let succesAnimation = document.getElementById('successfullAddedTask');
+    succesAnimation.classList.add('open');
+}
