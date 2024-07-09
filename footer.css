@@ -141,3 +141,18 @@ a {
         padding-left: 56px;
     }
 }
+
+
+/* ANCHOR Landscape Orientation */
+
+@media screen and (orientation: landscape) and (max-height: 450px) {
+
+    body {
+        margin: 0;
+    }
+
+    .mobile-footer {
+        display: none;
+    }
+    
+}

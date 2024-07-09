@@ -559,8 +559,12 @@ body {
 
     .landscape-warning {
         display: block;
-        padding: 10px;
         text-align: center;
+        padding-top: 20px;
+    }
+
+    body {
+        margin: 0;
     }
 
     .start-page {

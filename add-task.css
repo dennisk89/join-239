@@ -519,8 +519,12 @@ textarea::-webkit-input-placeholder {
 
     .landscape-warning {
         display: block;
-        padding: 10px;
         text-align: center;
+        padding-top: 20px;
+    }
+
+    body {
+        margin: 0;
     }
 
     header {
@@ -532,10 +536,6 @@ textarea::-webkit-input-placeholder {
     }
 
     .menu-overlay {
-        display: none;
-    }
-
-    footer {
         display: none;
     }
 

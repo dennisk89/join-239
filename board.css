@@ -829,8 +829,12 @@ p {
 
     .landscape-warning {
         display: block;
-        padding: 10px;
         text-align: center;
+        padding-top: 20px;
+    }
+
+    body {
+        margin: 0;
     }
 
     header {
@@ -846,10 +850,6 @@ p {
     }
 
     .menu-overlay {
-        display: none;
-    }
-
-    footer {
         display: none;
     }
 
