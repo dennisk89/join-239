@@ -357,14 +357,6 @@ textarea:focus, input:focus{
     background-image: url('assets/img/checkbox-checked-white.svg');
 }
 
-/* ANCHOR badges container */
-.pre-select-badges {
-    height: 40px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
 /* !SECTION end select */
 
 /* SECTION add subtask */
@@ -503,8 +495,10 @@ textarea:focus, input:focus{
 .pre-select-badges {
     height: 40px;
     display: flex;
-    align-items: center;
     gap: 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
 }
 
 .profile-batch {
@@ -519,6 +513,7 @@ textarea:focus, input:focus{
     font-size: 12px;
     font-weight: 400;
     line-height: 14.4px;
+    flex: none;
 }
 
 /*ANCHOR - overlay-animation*/

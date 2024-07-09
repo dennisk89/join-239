@@ -369,9 +369,13 @@ function openEdit(id) {
     let taskIndex = taskArray.findIndex(t => t.id === id)
     document.getElementById('taskOverlay').innerHTML = editTaksOverlayHTML(id);
     fillEditForm(taskIndex);
-    tempAssignees = pushTaskAssigneeInfosToArray(taskArray[taskIndex]);
-    tempSubtasks = taskArray[taskIndex].subTask;
-    tempSubtasksStatus = taskArray[taskIndex].subTaskStatus;
+    if (taskArray[taskIndex].assigned) {
+        tempAssignees = pushTaskAssigneeInfosToArray(taskArray[taskIndex]);
+    }
+    if (taskArray[taskIndex].subTask) {
+        tempSubtasks = taskArray[taskIndex].subTask;
+        tempSubtasksStatus = taskArray[taskIndex].subTaskStatus;
+    }
     document.getElementById('closeEditOverlay').addEventListener('click', resetGlobalTaskVariables);
 }
 
@@ -404,7 +408,7 @@ function setTaskPrio(prio) {
 
 function renderAssigneesToTaskEdit(task) {
     if (task.assigned != undefined) {
-        tempAssignees = task.assigned;
+        tempAssignees = pushTaskAssigneeInfosToArray(task);
         renderContactBadgeUnderSelectField();
     }
 }
@@ -449,7 +453,7 @@ async function confirmEditTask(id) {
 
 
 function setValuesToTaskArray(i, contentArray) {
-    taskArray[i].assigned = tempAssignees;
+    taskArray[i].assigned = getIDofAssignee(tempAssignees);
     taskArray[i].subTask = tempSubtasks;
     taskArray[i].subTaskStatus = tempSubtasksStatus;
     taskArray[i].title = contentArray[0];
