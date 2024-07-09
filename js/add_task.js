@@ -278,6 +278,13 @@ function getContactByContactID(contactID) {
     }
 }
 
+
+/**
+ * This function validates the task form, preventing default submission behavior, 
+ * and if all fields are valid, shows an animation and then creates the task.
+ * @param {Event} event - The event object.
+ * @param {Function} nextFunction - The function to call after successful validation and animation.
+ */
 function validateTaskForm(event, nextFunction) {
     event.preventDefault(); 
 
@@ -286,10 +293,18 @@ function validateTaskForm(event, nextFunction) {
     let isCategoryValid = validateCategory();
     
     if (isTitleValid && isDateValid && isCategoryValid) {
-        createTask(nextFunction);
+        successfullyAddedTaskAnimation();
+        setTimeout(() => {
+        createTask(nextFunction);  
+        }, 1000);
     }
 }
 
+
+/**
+ * This function validates that a title is entered.
+ * @returns {boolean} - Returns true if the title is valid, false otherwise.
+ */
 function validateTitle() {
     let titleWarning = document.getElementById('titleWarningMessage');
     let title = document.getElementById('titleInput').value.trim();
@@ -306,6 +321,11 @@ function validateTitle() {
     }
 }
 
+
+/**
+ * This function validates that a date is entered.
+ * @returns {boolean} - Returns true if the date is valid, false otherwise.
+ */
 function validateDate() {
     let dateWarning = document.getElementById('dateWarningMessage');
     let date = document.getElementById('dateInput').value.trim();
@@ -322,6 +342,11 @@ function validateDate() {
     }
 }
 
+
+/**
+ * This function validates that a category is selected.
+ * @returns {boolean} - Returns true if the category is valid, false otherwise.
+ */
 function validateCategory() {
     let categoryWarning = document.getElementById('categoryWarningMessage');
     let category = document.getElementById('selectCategory').value;
@@ -338,7 +363,14 @@ function validateCategory() {
     }
 }
 
+
+/**
+ * This function is used to show a success animation when a task is successfully added.
+ */
 function successfullyAddedTaskAnimation() {
     let succesAnimation = document.getElementById('successfullAddedTask');
     succesAnimation.classList.add('open');
+    setTimeout(() => {
+        succesAnimation.classList.add('closed');
+    }, 1000);
 }

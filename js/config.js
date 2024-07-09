@@ -179,6 +179,10 @@ function stopP(event) {
     event.stopPropagation();
 }
 
+
+/**
+ * Shows the user menu by setting the display style and adding the 'show' class.
+ */
 function showMenu() {
     let menuAnimation = document.getElementById('userMenu');
     let pageOverlay = document.getElementById('pageOverlay');
@@ -187,6 +191,11 @@ function showMenu() {
     menuAnimation.classList.add('show');
 }
 
+
+/**
+ * Hides the user menu by removing the 'show' class, adding the 'hide' class,
+ * and then setting the display style to 'none' after a delay.
+ */
 function hideMenu() {
     let menuAnimation = document.getElementById('userMenu');
     let pageOverlay = document.getElementById('pageOverlay');
@@ -199,6 +208,11 @@ function hideMenu() {
     }, 125); 
 }
 
+
+/**
+ * Toggles the user menu visibility by checking for the 'show' class and calling
+ * the appropriate function to either show or hide the menu.
+ */
 function toggleMenu() {
     let menuAnimation = document.getElementById('userMenu');
     if (menuAnimation.classList.contains('show')) {
@@ -208,13 +222,18 @@ function toggleMenu() {
     }
 }
 
+
+/**
+ * Determines if the event listener for hiding the menu should be added based
+ * on the current page.
+ * @returns {boolean} - Returns true if the current page is in the list of specified pages, false otherwise.
+ */
 function shouldAddEventListener() {
-    // Seiten auf denen der Eventlistener hinzugefügt werden soll.
     const pages = ['/summary.html', '/add_task.html', '/contacts.html', '/board.html'];
     return pages.includes(window.location.pathname);
 }
 
-// Event-Listener hinzufügen, um das Menü zu schließen, wenn außerhalb des Menüs geklickt wird
+
 if (shouldAddEventListener()) {
     document.getElementById('pageOverlay').addEventListener('click', hideMenu);
 }

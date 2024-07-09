@@ -633,12 +633,14 @@ textarea:focus, input:focus{
     left: 50%;
     background-color: var(--bg-color-dark-grey);
     color: var(--white);
+    transform: translateX(-50%);
     font-size: 20px;
     font-weight: 200;
     border-radius: 20px;
     background-image: url('./assets/img/menu_icon_board.svg');
     background-repeat: no-repeat;
     background-position: right 24px top 50%;
+    z-index: 2000;
 }
 
 .successfull-task p{
@@ -647,7 +649,7 @@ textarea:focus, input:focus{
 
 .successfull-task.open{
     display: flex;
-    animation: taskadded 125ms ease-in-out 0s forwards
+    animation: taskadded 125ms ease-in-out 0s;
 }
 
 .successfull-task.closed{
@@ -656,9 +658,9 @@ textarea:focus, input:focus{
 
 @keyframes taskadded {
     from {
-        bottom: -2000px; 
-      }
-      to {
-        bottom: 0; 
-      }
+        transform: translate(-50%, 100vh);
     }
+    to {
+        transform: translate(-50%, 0);
+    }
+}
