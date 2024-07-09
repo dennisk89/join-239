@@ -478,7 +478,7 @@
 
 /* ANCHOR Landscape Orientation */
 
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape) and (max-height: 450px) {
 
     .landscape-warning {
         display: block;
