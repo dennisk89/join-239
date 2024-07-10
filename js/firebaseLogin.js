@@ -75,6 +75,7 @@ function loginWithPersistence() {
             // Signed in
             const user = userCredential.user;
             window.location.href = "./summary.html";
+            loginUser(email)
         })
         .catch((error) => {
             warningmessage.classList.remove('d-none');
@@ -120,6 +121,7 @@ function logOut() {
     signOut(auth).then(() => {
     }).catch((error) => {
     });
+    localStorage.removeItem('loggedInEmail');
 }
 
 
