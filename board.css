@@ -181,6 +181,7 @@ p {
     box-shadow: 0px 0px 4px 0px var(--shadow-light-grey-16);
     border-radius: 30px;
     position: relative;
+    width: 100%;
     max-width: 396px;
     max-height: 100vh;
     box-sizing: border-box;

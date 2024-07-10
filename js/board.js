@@ -396,8 +396,20 @@ async function deleteTask(id) {
 // SECTION add task
 function openAddTaskOverlay() {
     let addTaskOverlay = document.getElementById('addTaskOverlay');
+    resetValuesInAddOverlay();
     addTaskOverlay.style.display = 'flex';
     addTaskOverlay.classList.add('show');
+}
+
+
+function resetValuesInAddOverlay() {
+    document.getElementById('catSelectValue').dataset.tasktype = ''; 
+    document.getElementById('catSelectValue').innerHTML = 'Select task Category'
+    document.getElementById('titleInput').value = '';
+    document.getElementById('descriptionInput').value = ''; 
+    document.getElementById('dateInput').value = '';
+    setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg', 'medium');
+    resetGlobalTaskVariables();
 }
 
 
@@ -445,7 +457,7 @@ document.getElementById('addTaskInFeedback').addEventListener('click', () => {
  * 
  * @function
  */
-['closeAddBtn', 'addTaskOverlay', 'taskOverlay'].forEach(id => document.getElementById(id).addEventListener('click', () => {
+['closeAddBtn', 'addTaskOverlay', 'taskOverlay', 'cancelAdd'].forEach(id => document.getElementById(id).addEventListener('click', () => {
     id == 'taskOverlay' ? closeTask(id) : closeTask('addTaskOverlay');
     resetSubtaskInput();
     resetGlobalTaskVariables();
