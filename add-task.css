@@ -374,7 +374,7 @@ textarea::-webkit-input-placeholder {
         width: 100%;
     }
     .margintop-32px{
-        margin-top: 32px !important;
+        margin-top: 32px;
     }
     .enter-description-input{
         font-size: 20px;
