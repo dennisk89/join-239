@@ -239,7 +239,7 @@ if (shouldAddEventListener()) {
 }
 
 /**
- * This function is used to store the information wheter a guest user is logged in or not into the local storage.
+ * This function is used to store the information whether a guest user is logged in or not into the local storage.
  * @param {boolean} yesOrNo This variable is either filled with "true" or "false".
  */
 function handleGuestUser(trueOrFalse) {
@@ -259,3 +259,23 @@ function proofIfContactIsLoggedIn(name) {
         // TODO brauchen wir das else statement? -> Ja, denn sonst wird neben jedem Contact in der Contact List, der nicht eingeloggt ist, "undefined" angezeigt.
     }
 }
+
+
+/**
+ * Initializes the page once the DOM content is loaded.
+ * - Checks if a guest user is active or if a user is logged in based on local storage values.
+ * - If no guest user is active and no user is logged in, hides footer links in the mobile footer.
+ *
+ * @event DOMContentLoaded
+ */
+document.addEventListener("DOMContentLoaded", function() {
+    const guestUserActive = JSON.parse(localStorage.getItem('guestUserActive'));
+    const loggedInEmail = localStorage.getItem('loggedInEmail');
+
+    if (!guestUserActive && !loggedInEmail) {
+        const footerLinks = document.querySelectorAll('.mobile-footer .footer-menu');
+        footerLinks.forEach(link => {
+            link.style.display = 'none';
+        });
+    }
+});
