@@ -1,0 +1,24 @@
+.justify-space-between{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.legal-notice-arrow-left{
+    margin-top: -25px;
+    cursor: pointer;
+}
+
+.padding-left-right-16px{
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.margin-bottom-96px{
+    margin-bottom: 96px;
+}
+
+.highlighted-text{
+    color: var(--highlight-text-blue);
+}
