@@ -69,7 +69,7 @@ function showTasksAwaitingFeedbackCount() {
 
 
 /**
- * This function is used to fing the earliest due date among the urgent tasks and updates the UI with this date.
+ * This function is used to find the earliest due date among the urgent tasks and updates the UI with this date.
  */
 function findEarliestDate() {
     let earliestDueDate = null;
