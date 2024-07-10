@@ -20,6 +20,14 @@ body {
     }
 }
 
+input:focus {
+    border-color: var(--highlight-blue);
+}
+
+.password-container:focus-within {
+    border-color: var(--highlight-blue);
+}
+
 .login-headline {
     font-size: 47px;
     font-weight: 700;

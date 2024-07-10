@@ -46,7 +46,6 @@ function login() {
     const passwordContainer = document.getElementById('passwordContainer')
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-
             const user = userCredential.user;
             window.location.href = "./summary.html"
         })
@@ -89,12 +88,12 @@ function loginWithPersistence() {
  */
 onAuthStateChanged(auth, async (user) => {
     if (user) {
+        console.log(user);
         let usersFromFirebase = await getUsers('https://join-239-default-rtdb.europe-west1.firebasedatabase.app/users');
         loggedInEmail = user.email;
         loggedInUser = getUserNameByLoggedInEmail(loggedInEmail, usersFromFirebase);
         if (window.location.pathname == '/index.html') 
             {window.location.href = "./summary.html";}
-    } else {
     }
     updateUserInterfaceWithLogInStatus();
 })
@@ -152,10 +151,17 @@ function errorFunction() {
  */
 function getUserNameByLoggedInEmail(loggedInEmail, usersFromFirebase) {
     const user = usersFromFirebase.filter(user => user.email === loggedInEmail);
-    return user.length > 0 ? user[0].name : null;
-    // return user ? user[0].name : null;
+    return user.length > 0 ? user[0].name : askAgainForName();
 }
 
+
+function askAgainForName() {
+    let newName = prompt('Oops, we lost your name in Signup process. Sorry! Please type in your name here')
+    if (newName.length > 0) {
+        console.log(newName);
+        createNewContactArrayOutOfNewUserArray(loggedInEmail, newName);
+    }
+}
 
 /**
  * Assigning the functions to global variables so that they are available throughout the window.
@@ -164,3 +170,4 @@ window.logOut = logOut;
 window.loginWithPersistence = loginWithPersistence;
 window.login = login;
 window.getUserNameByLoggedInEmail = getUserNameByLoggedInEmail;
+window.askAgainForName = askAgainForName;

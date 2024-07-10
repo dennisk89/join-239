@@ -50,7 +50,7 @@ async function addNewContact(newContact) {
  * @param {string} email - email of the new registered user
  * @param {string} name - name of the new registered user
  */
-function createNewContactArrayOutOfNewUserArray(email, name) {
+function createNewContactArrayOutOfNewUserArray (email, name) {
     let newId = generateUniqueId('c', contacts);
     let randomColor = getRandomColor();
     let newContact = {
@@ -63,6 +63,7 @@ function createNewContactArrayOutOfNewUserArray(email, name) {
     }
     addNewUserToContacts(newContact);
 }
+
 
 /**
  * This function is used to add new users to the contacts array on the database.

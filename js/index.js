@@ -1,7 +1,7 @@
 /**
  * This function initialized the Join app.
  */
-function init() { 
+function init() {
   initJoin();
 }
 
@@ -10,10 +10,10 @@ function init() {
  * This function is used to open the signup form.
  */
 function openSignup() {
-    let login = document.getElementById('start-page-login');
-    let signup = document.getElementById('signup-startpage');
-    login.classList.add('d-none');
-    signup.classList.remove('d-none');
+  let login = document.getElementById('start-page-login');
+  let signup = document.getElementById('signup-startpage');
+  login.classList.add('d-none');
+  signup.classList.remove('d-none');
 }
 
 
@@ -21,10 +21,10 @@ function openSignup() {
  * This function is used to go back, to the login page.
  */
 function backToLogin() {
-    let login = document.getElementById('start-page-login');
-    let signup = document.getElementById('signup-startpage');
-    login.classList.remove('d-none');
-    signup.classList.add('d-none');
+  let login = document.getElementById('start-page-login');
+  let signup = document.getElementById('signup-startpage');
+  login.classList.remove('d-none');
+  signup.classList.add('d-none');
 }
 
 
@@ -64,7 +64,7 @@ function handleFocus(id) {
  * Adds a focus event listener to the element with the ID 'passwordForm'.
  * When the element gains focus, it calls the handleFocus function with the ID 'passwordClick1'.
  */
-document.getElementById('passwordForm').addEventListener('focus', function() {
+document.getElementById('passwordForm').addEventListener('focus', function () {
   handleFocus('passwordClick1');
 });
 
@@ -72,7 +72,7 @@ document.getElementById('passwordForm').addEventListener('focus', function() {
  * Adds a focus event listener to the element with the ID 'confirmPassword'.
  * When the element gains focus, it calls the handleFocus function with the ID 'passwordClick2'.
  */
-document.getElementById('confirmPassword').addEventListener('focus', function() {
+document.getElementById('confirmPassword').addEventListener('focus', function () {
   handleFocus('passwordClick2');
 });
 
@@ -80,7 +80,7 @@ document.getElementById('confirmPassword').addEventListener('focus', function() 
  * Adds a focus event listener to the element with the ID 'password'.
  * When the element gains focus, it calls the handleFocus function with the ID 'passwordClick'.
  */
-document.getElementById('password').addEventListener('focus', function() {
+document.getElementById('password').addEventListener('focus', function () {
   handleFocus('passwordClick');
 });
 
@@ -130,11 +130,12 @@ function handleCheckBoxPrivacyPolicy() {
  * @returns {boolean} Returns false if the validation fails, true otherwise.
  */
 function validateForm(event) {
-  event.preventDefault(); 
+  event.preventDefault();
+  debugger
   let privacyerrormessage = document.getElementById('privacyError')
   let isPasswordMatch = checkPasswordMatch();
   let privacyCheckBox = document.getElementById('privacyCheckBox').src.includes('checkbox-checked.svg');
-  if (isPasswordMatch && privacyCheckBox) {
+  if (isPasswordMatch && privacyCheckBox && document.getElementById('name').value.length > 0 &&  document.getElementById('e-mail').value.length > 0) {
     createNewUser();
     addUser(document.getElementById('name').value, document.getElementById('e-mail').value);
   } else {
@@ -172,11 +173,13 @@ function handleCheckBoxRememberMe() {
  * This function is used to check whether the remember me checkbox was clicked or not. If so, loginwithpersistence will be executed if not the standard login.
  */
 function validateLogin() {
+  let inputValues = [document.getElementById('email').value, document.getElementById('password').value]
   let checkBox = document.getElementById('rememberMe');
-  if (checkBox.src.includes('checkbox-checked.svg')) {
-    loginWithPersistence();
+  if (inputValues[0].length > 0 && inputValues[1].length > 0) {
+    checkBox.src.includes('checkbox-checked.svg') ? loginWithPersistence() : login();
   } else {
-    login();
+    document.getElementById('passwordContainer').classList.add('border-red');
+    document.getElementById('wrongPassword').style.display = 'block';
   }
 }
 
@@ -200,3 +203,5 @@ async function addUser(name, email) {
   usersArray.push(user);
   await putData(endpointUser, usersArray);
 }
+
+
