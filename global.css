@@ -601,7 +601,7 @@ textarea:focus, input:focus{
 }
 
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1200px) {
 
     body {
         margin-top: 105px;

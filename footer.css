@@ -68,7 +68,7 @@ a {
     background-color: var(--menu-hover-blue);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
     .hide-on-mobile {
         display: block;
     }

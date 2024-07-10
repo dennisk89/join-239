@@ -54,7 +54,7 @@ header {
 }
 
 
-@media(min-width: 768px) {
+@media(min-width: 1200px) {
 
     header {
         left: 232px;
