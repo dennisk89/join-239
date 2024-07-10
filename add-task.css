@@ -219,7 +219,7 @@ textarea::-webkit-input-placeholder {
     }
 }
 
-@media (min-width: 780px) {
+@media (min-width: 824px) {
     body{
         display: flex;
         justify-content: center;
@@ -232,6 +232,7 @@ textarea::-webkit-input-placeholder {
     }
     .add-task-desktop-gap{
         margin-right: 48px;
+        width: 348px;
     }
     .enter-title-input{
         font-size: 20px;
@@ -239,8 +240,9 @@ textarea::-webkit-input-placeholder {
         width: 100%;
     }
     .margintop-32px{
-        margin-top: 32px !important;
+        margin-top: 32px;
     }
+
     .enter-description-input{
         font-size: 20px;
         height: 120px;
@@ -367,6 +369,7 @@ textarea::-webkit-input-placeholder {
     }
     .add-task-desktop-gap{
         margin-right: 48px;
+        width: 440px;
     }
     .enter-title-input{
         font-size: 20px;
@@ -379,8 +382,7 @@ textarea::-webkit-input-placeholder {
     .enter-description-input{
         font-size: 20px;
         height: 120px;
-        margin-bottom: 32px;
-        width: 440px;
+        margin-bottom: 32px;;
     }
     .select-contacts-field{
         width: 440px;
@@ -399,7 +401,6 @@ textarea::-webkit-input-placeholder {
     }
     .font-20px{
         font-size: 20px;
-        margin-top: 0;
     }
     .desktop-help{
         width: 1014px;
