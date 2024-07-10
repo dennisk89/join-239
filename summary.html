@@ -13,10 +13,12 @@
     <script defer type="module" src="js/firebaseLogin.js"></script>
     <script defer src="js/config.js"></script>
     <script defer src="js/summary.js"></script>
-    <script defer src="js/contacts.js"></script>
 </head>
 
 <body class="bg-add-task" onload="initSummary()">
+
+    <div class="landscape-warning">Please rotate your device to portrait mode.</div>
+
     <header>
         <div class="inner-header">
             <p class="hide-on-mobile">Kanban Project Management Tool</p>
@@ -130,8 +132,7 @@
         </div>
         <div class="overlay-menu-links">
             <a onclick="logOut(); handleGuestUser(false)" href="index.html" rel="noopener noreferrer">Log out</a>
-        </div>
-        
+        </div>        
     </div>
 
     <footer class="mobile-footer">

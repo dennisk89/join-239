@@ -69,7 +69,7 @@ function taskHTML(id, type, title, description, dueDate, prio) {
                 <img class="clickable" src="assets/img/close-black.svg" alt="close Task" onclick="closeTask('taskOverlay')">
             </div>
             <h1>${title}</h1>
-            <p>${description}</p>
+            <div class="task-description"><p>${description}</p></div>
             <div class="task-line">
                 <p class="task-p-bold">Due date:</p>
                 <p>${dueDate}</p>
@@ -95,6 +95,7 @@ function taskHTML(id, type, title, description, dueDate, prio) {
                 </div>
             </div>
         </div>  
+        
     `
 }
 
@@ -140,8 +141,8 @@ function editTaksOverlayHTML(id) {
             <div class="edit-form task-edit-scroll">
                 <div class="input-group">
                     <label class="font-16" for="titleInput">Title<span class="color-red">*</span></label>
-                    <input id="titleInput" class="enter-input font-16" placeholder="Enter a title" type="text"
-                        name="Title" id="titleInput" required>
+                    <input id="titleInput" class="enter-input font-16" placeholder="Enter a title" type="text" name="Title" id="titleInput">
+                    <div id="titleWarningMessage" class="warning-message-field-required d-none">Please enter a title</div>    
                 </div>
                 <div class="input-group">
                     <label class="font-16" for="descriptionInput">Description</label>
@@ -151,8 +152,8 @@ function editTaksOverlayHTML(id) {
                 <div class="input-group font-16">
                     <label class="font-16" for="dateInput">Due date<span class="color-red">*</span></label>
                     <input id="dateInput" class="enter-input font-16" placeholder="dd/mm/yyyy" type="text"
-                        onfocus="(this.type='date')" onblur="(this.type='text'); this.placeholder='dd/mm/yyyy';"
-                        required>
+                        onfocus="(this.type='date')" onblur="(this.type='text'); this.placeholder='dd/mm/yyyy';">
+                    <div id="dateWarningMessage" class="warning-message-field-required d-none">Please select a date</div>
                 </div>
                 <div class="input-group">
                     <label class="font-16">Prio</label>

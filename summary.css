@@ -1,3 +1,7 @@
+.landscape-warning {
+    display: none;
+}
+
 .d-none {
     display: none ;
 }
@@ -472,3 +476,38 @@
 
 }
 
+/* ANCHOR Landscape Orientation */
+
+@media screen and (orientation: landscape) and (max-height: 450px) {
+
+    .landscape-warning {
+        display: block;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header {
+        display: none;
+    }
+
+    .greet-user-bg {
+        display: none;
+    }
+
+    .summary-headline {
+        display: none;
+    }
+
+    .main-container {
+        display: none;
+    }
+
+    .menu-overlay {
+        display: none;
+    }
+
+}
