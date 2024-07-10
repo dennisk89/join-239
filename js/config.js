@@ -257,3 +257,41 @@ function proofIfContactIsLoggedIn(name) {
         // TODO brauchen wir das else statement? -> Ja, denn sonst wird neben jedem Contact in der Contact List, der nicht eingeloggt ist, "undefined" angezeigt.
     }
 }
+
+
+
+function openLegalNotice() {
+    window.open('legal_notice.html', '_blank', 'noopener,noreferrer');
+    localStorage.setItem('openedByLegalNotice', 'true');
+}
+
+
+function openPrivacyPolicy() {
+    window.open('privacy_policy.html', '_blank', 'noopener,noreferrer');
+    localStorage.setItem('openedByPrivacyPolicy', 'true');
+}
+
+function hideFooterLinks() {
+    const footer = document.querySelector('.mobile-footer');
+    if (footer) {
+        const footerLinks = footer.querySelectorAll('.footer-menu');
+        footerLinks.forEach(link => {
+            link.style.display = 'none';
+        });
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    const openedByLegalNotice = localStorage.getItem('openedByLegalNotice');
+    const openedByPrivacyPolicy = localStorage.getItem('openedByPrivacyPolicy');
+
+    if (openedByLegalNotice === 'true') {
+        hideFooterLinks();
+        localStorage.removeItem('openedByLegalNotice');
+    }
+
+    if (openedByPrivacyPolicy === 'true') {
+        hideFooterLinks();
+        localStorage.removeItem('openedByPrivacyPolicy');
+    }
+});

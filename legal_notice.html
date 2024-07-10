@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="privacyLegalNotice.css">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="footer.css">  
-    <script defer src="js/config.js"></script>  
+    <script defer src="js/config.js"></script>
+    <script defer src="js/legalPrivacy.js"></script>   
     <script defer type="module" src="js/firebaseLogin.js"></script>
-    <script defer src="js/legalNotice_privacy.js"></script> 
 </head>
 
 <body>
@@ -29,7 +29,7 @@
     <div class="padding-left-right-16px margin-bottom-96px desktop-help">
         <div class="justify-space-between">
             <h1 class="h1-d">Legal Notice</h1>
-            <a href="summary.html"><img class="legal-notice-arrow-left" src="./assets/img/arrow-left-line.svg" alt="Back to login"></a>
+            <a href="summary.html"><img id="backArrows" class="legal-notice-arrow-left" src="./assets/img/arrow-left-line.svg" alt="Back to login"></a>
         </div>
         <h2 class="h2-d margin-bottom0">Imprint</h2>
         <ul>
@@ -79,7 +79,7 @@
     <footer class="mobile-footer">
         <img class="logo hide-on-mobile" src="assets/img/join-logo-big.svg" alt="Logo">
 
-        <div class="menu-container">
+        <div id="footerLinks" class="menu-container d-none">
             <a href="summary.html" class="footer-menu">
                 <img src="./assets/img/menu_icon_summary.svg" alt="link to summary">
                 <p>Summary</p>
