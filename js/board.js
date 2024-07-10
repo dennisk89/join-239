@@ -468,7 +468,6 @@ let currentDraggedElement;
  * @param {string} id - The ID of the element being dragged.
  */
 function startDragging(id) {
-    console.log('Start dragging:', id);
     currentDraggedElement = id;
 }
 

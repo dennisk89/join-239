@@ -90,12 +90,10 @@ onAuthStateChanged(auth, async (user) => {
     if (user) {
         let usersFromFirebase = await getUsers('https://join-239-default-rtdb.europe-west1.firebasedatabase.app/users');
         loggedInEmail = user.email;
-        console.log("User is signed in:", user);
         loggedInUser = getUserNameByLoggedInEmail(loggedInEmail, usersFromFirebase);
         if (window.location.pathname == '/index.html') 
             {window.location.href = "./summary.html";}
     } else {
-        console.log("No user is signed in");
     }
     updateUserInterfaceWithLogInStatus();
 })
@@ -132,7 +130,6 @@ function logOut() {
  */
 async function getUsers(url) {
     let response = await fetch(url + ".json").catch(errorFunction);
-    console.log(response.status);
     return await response.json();
 }
 

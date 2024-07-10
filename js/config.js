@@ -63,7 +63,6 @@ async function initJoin() {
  */
 async function getData(url) {
     let response = await fetch(url + ".json").catch(errorFunction);
-    console.log(response.status);
     return await response.json();
 }
 
@@ -83,7 +82,6 @@ async function putData(url, data = {}) {
         },
         body: JSON.stringify(data)
     }).catch(errorFunction);
-    console.log(response.status);
     return await response.json();
 }
 
