@@ -417,7 +417,7 @@ function handleAddTask() {
     if (window.innerWidth > 1200) {
         openAddTaskOverlay();
     } else {
-        window.location.href = 'add_task.html';
+        window.location.href = 'addTask.html';
     }
 }
 

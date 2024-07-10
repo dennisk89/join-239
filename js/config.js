@@ -227,7 +227,7 @@ function toggleMenu() {
  * @returns {boolean} - Returns true if the current page is in the list of specified pages, false otherwise.
  */
 function shouldAddEventListener() {
-    const pages = ['/summary.html', '/add_task.html', '/contacts.html', '/board.html'];
+    const pages = ['/summary.html', '/addTask.html', '/contacts.html', '/board.html'];
     return pages.includes(window.location.pathname);
 }
 
@@ -261,13 +261,13 @@ function proofIfContactIsLoggedIn(name) {
 
 
 function openLegalNotice() {
-    window.open('legal_notice.html', '_blank', 'noopener,noreferrer');
+    window.open('legalNotice.html', '_blank', 'noopener,noreferrer');
     localStorage.setItem('openedByLegalNotice', 'true');
 }
 
 
 function openPrivacyPolicy() {
-    window.open('privacy_policy.html', '_blank', 'noopener,noreferrer');
+    window.open('privacyPolicy.html', '_blank', 'noopener,noreferrer');
     localStorage.setItem('openedByPrivacyPolicy', 'true');
 }
 

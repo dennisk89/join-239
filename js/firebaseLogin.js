@@ -103,7 +103,7 @@ onAuthStateChanged(auth, async (user) => {
  * This function is used to update the user interface based on login status.
  */
 function updateUserInterfaceWithLogInStatus() {
-    if (['/summary.html', '/add_task.html', '/contacts.html', '/board.html'].includes(window.location.pathname)) {
+    if (['/summary.html', '/addTask.html', '/contacts.html', '/board.html'].includes(window.location.pathname)) {
         redirectOrShowUserIcon();
         if (window.location.pathname == '/summary.html') {
             showGreeting();
