@@ -32,7 +32,7 @@ async function initAddTask() {
 async function createTask(nextFunction) {
     setTempSubtasksStatus();
     let newTask = new Task(generateUniqueId('t', taskArray), 
-        document.getElementById('selectCategory').value, 
+        document.getElementById('catSelectValue').dataset.tasktype, 
         document.getElementById('titleInput').value, 
         document.getElementById('descriptionInput').value, 
         document.getElementById('dateInput').value, 
@@ -133,6 +133,14 @@ function openSelectContacts() {
     document.getElementById('selectInput').setAttribute('onclick', 'closeSelectContacts()');
 }
 
+
+function openSelectCat() {
+    document.getElementById('selectCatList').style.display = 'flex';
+    changeSelectIcon('selectFieldBtnCat', 'select-image', 'select-image-up');
+    document.getElementById('selectCategory').setAttribute('onclick', 'closeSelectCats()');
+}
+
+
 /**
  * Renders the contact list in the selection dropdown.
  * 
@@ -164,6 +172,23 @@ function closeSelectContacts() {
     changeSelectIcon('selectFieldBtn', 'select-image-up', 'select-image');
     document.getElementById('selectInput').setAttribute('onclick', 'openSelectContacts(); stopP(event)');
 }
+
+
+function closeSelectCats() {
+    document.getElementById('selectCatList').style.display = 'none';
+    changeSelectIcon('selectFieldBtnCat', 'select-image-up', 'select-image');
+    document.getElementById('selectCategory').setAttribute('onclick', 'openSelectCat(); stopP(event)');
+}
+
+
+function preSetTaskType(taskType) {
+    console.log(taskType);
+    document.getElementById('catSelectValue').dataset.tasktype = taskType;
+    document.getElementById('catSelectValue').innerHTML = taskType;
+    console.log(document.getElementById('catSelectValue').dataset.tasktype);
+    closeSelectCats();
+}
+
 
 /**
  * Checks for pre-selected contacts and updates their display.
@@ -446,8 +471,9 @@ function validateDate() {
  */
 function validateCategory() {
     let categoryWarning = document.getElementById('categoryWarningMessage');
-    let category = document.getElementById('selectCategory').value;
+    let category = document.getElementById('catSelectValue').dataset.tasktype
     let categoryBorder = document.getElementById('selectCategory');
+
     
     if (category === "") {
         categoryWarning.classList.remove('d-none');

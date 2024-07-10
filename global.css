@@ -301,7 +301,7 @@ textarea:focus, input:focus{
     outline: none;
 }
 
-/* ANCHOR open contacts list under select */
+/* ANCHOR open list under select */
 .select-rel {
     position: relative;
 }
@@ -318,8 +318,22 @@ textarea:focus, input:focus{
     overflow-y: auto;
     box-shadow: 0px 0px 14px 3px var(--shadow-light-grey-1);
     border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    
+    border-bottom-right-radius: 10px; 
+}
+
+.category-select-list {
+    position: absolute;
+    top: 47px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 4px;
+    background-color: var(--white);
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0px 0px 14px 3px var(--shadow-light-grey-1);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px; 
 }
 
 .contacts-select-list-row {

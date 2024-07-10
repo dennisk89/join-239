@@ -80,13 +80,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="category-input">
-                    <span class="font-20px color-blue">Category <span class="color-red">*</span></span>
-                    <select onclick="arrowChanger(); stopP(event)" class="enter-input select-input font-20 select-image" name="select category" id="selectCategory" required>
-                        <option value="">Select task category</option>
-                        <option value="Technical Task">Technical Task</option>
-                        <option value="User Story">User Story</option>
-                    </select>
+                <div class="input-group">
+                    <label class="font-20" for="selectCategory">Category<span class="color-red">*</span></label>
+                    <div id="selectCategory" onclick="openSelectCat(), stopP(event)" class="enter-input outer-input select-rel">
+                        <div id="catSelectValue" data-tasktype="">Select task Category</div>
+                        <div id="selectFieldBtnCat" class="select-image inner-input-img clickable"></div>
+                        <div id="selectCatList" class="contact-select-list d-none">
+                            <div class="contacts-select-list-row" onclick="preSetTaskType('Technical Task'), stopP(event)">Technical Task</div>
+                            <div class="contacts-select-list-row" onclick="preSetTaskType('User Story'), stopP(event)">User Story</div>
+                        </div>
+                    </div>
                     <span id="categoryWarningMessage" class="warning-message-field-required d-none">Please choose a category</span>
                 </div>
                 <div class="input-group">

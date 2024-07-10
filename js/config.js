@@ -268,9 +268,9 @@ function proofIfContactIsLoggedIn(name) {
  */
 document.addEventListener("DOMContentLoaded", function() {
     const guestUserActive = JSON.parse(localStorage.getItem('guestUserActive'));
-    const loggedInEmail = localStorage.getItem('loggedInEmail');
 
-    if (!guestUserActive && !loggedInEmail) {
+    if (guestUserActive == false && loggedInEmail) {
+        console.log(true);
         const footerLinks = document.querySelectorAll('.mobile-footer .footer-menu');
         footerLinks.forEach(link => {
             link.style.display = 'none';
