@@ -134,6 +134,15 @@ function openSelectContacts() {
 }
 
 
+/**
+ * Opens the category selection dropdown.
+ * 
+ * This function sets the display of the category selection list to 'flex',
+ * changes the select icon and sets the onclick attribute 
+ * to close the selection when clicked.
+ * 
+ * @function openSelectCat
+ */
 function openSelectCat() {
     document.getElementById('selectCatList').style.display = 'flex';
     changeSelectIcon('selectFieldBtnCat', 'select-image', 'select-image-up');
@@ -174,6 +183,14 @@ function closeSelectContacts() {
 }
 
 
+/**
+ * Closes the category selection dropdown.
+ * 
+ * This function hides the category selection list,
+ * changes the select icon back, and sets the onclick attribute to open the selection when clicked.
+ * 
+ * @function closeSelectContacts
+ */
 function closeSelectCats() {
     document.getElementById('selectCatList').style.display = 'none';
     changeSelectIcon('selectFieldBtnCat', 'select-image-up', 'select-image');
@@ -181,11 +198,20 @@ function closeSelectCats() {
 }
 
 
+/**
+ * Pre-sets the task type in the category selection element and closes the category selection dropdown.
+ * 
+ * This function performs the following steps:
+ * 1. Sets the `data-tasktype` attribute of the category selection element (`catSelectValue`) to the specified task type.
+ * 2. Updates the inner HTML of the category selection element to display the selected task type.
+ * 3. Closes the category selection dropdown by calling `closeSelectCats`.
+ * 
+ * @function preSetTaskType
+ * @param {string} taskType - The task type to set in the category selection element.
+ */
 function preSetTaskType(taskType) {
-    console.log(taskType);
     document.getElementById('catSelectValue').dataset.tasktype = taskType;
     document.getElementById('catSelectValue').innerHTML = taskType;
-    console.log(document.getElementById('catSelectValue').dataset.tasktype);
     closeSelectCats();
 }
 
