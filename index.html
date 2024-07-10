@@ -61,9 +61,9 @@
             <div class="small-signup-btn btn-color clickable" onclick="openSignup()">Sign up</div>
         </div>
         <div class="login-links-align">
-            <a class="login-links" href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy
-                Policy</a>
-            <a class="login-links" href="legal_notice.html" target="_blank" rel="noopener noreferrer">Legal Notice</a>
+            <div onclick="openPrivacyPolicy()" class="login-links">Privacy
+                Policy</div>
+            <div onclick="openLegalNotice()" class="login-links">Legal Notice</div>
         </div>
     </div>
     <div id="signup-startpage" class="d-none">
@@ -96,18 +96,18 @@
                 <div class="accept-terms">
                     <img id="privacyCheckBox" onclick="handleCheckBoxPrivacyPolicy()" src="./assets/img/checkbox.svg"
                         alt="Accept Privacy checkbox">
-                    <span class="color-grey">I accept the <a class="highlighted-text no-decoration"
-                            href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy
-                            Policy</a></span>
+                    <span class="color-grey">I accept the <div class="highlighted-text no-decoration"
+                            onclick="openPrivacyPolicy()">Privacy
+                            Policy</div></span>
                 </div>
                 <span class="privacy-error-message d-none clickable" id="privacyError">Please accept the privacy policy</span>
                 <button onclick="validateForm(event)" type="submit" class="sign-up-btn btn-color margin-bottom32px clickable" id="signupBtn">Sign up</button>
             </form>
         </div>
         <div class="login-links-align margin-top108">
-            <a class="login-links" href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy
-                policy</a>
-            <a class="login-links" href="legal_notice.html" target="_blank" rel="noopener noreferrer">Legal Notice</a>
+            <div onclick="openPrivacyPolicy()" class="login-links">Privacy
+                policy</div>
+            <div onclick="openLegalNotice()" class="login-links">Legal Notice</div>
         </div>
     </div>
     <div class="successfully-signup" id="successfullSignup">

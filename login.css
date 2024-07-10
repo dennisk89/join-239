@@ -242,6 +242,8 @@ body {
 
 .color-grey {
     color: var(--light-grey);
+    display: flex;
+    gap: 8px;
 }
 
 .login-arrow-back {
@@ -258,6 +260,11 @@ body {
 
 .no-decoration {
     text-decoration: none;
+    cursor: pointer;
+}
+
+.no-decoration:hover{
+    text-decoration: underline;
 }
 
 .highlighted-text {
@@ -376,6 +383,11 @@ body {
     font-size: 14px;
     margin-top: 8px;
     
+}
+
+.login-links:hover {
+    color: var(--highlight-blue);
+    font-weight: 600;
 }
 
 @keyframes moveImage {
