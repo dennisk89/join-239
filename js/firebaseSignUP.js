@@ -60,8 +60,8 @@ async function createNewUser() {
         })
         .catch((error) => {
             console.log(error.code);
-            const errorMessage = error.message;
-            alert(errorMessage);
+            console.log(error.message);
+            errorFunction();
         });
 }
 
