@@ -88,7 +88,6 @@ function loginWithPersistence() {
  */
 onAuthStateChanged(auth, async (user) => {
     if (user) {
-        console.log(user);
         let usersFromFirebase = await getUsers('https://join-239-default-rtdb.europe-west1.firebasedatabase.app/users');
         loggedInEmail = user.email;
         loggedInUser = getUserNameByLoggedInEmail(loggedInEmail, usersFromFirebase);

@@ -1,9 +1,9 @@
 /**
  * This function initialized the Join app.
  */
-function init() {
-  initJoin();
-}
+// function init() {
+//   initJoin();
+// }
 
 
 /**
@@ -137,7 +137,6 @@ function validateForm(event) {
   let privacyCheckBox = document.getElementById('privacyCheckBox').src.includes('checkbox-checked.svg');
   if (isPasswordMatch && privacyCheckBox && document.getElementById('name').value.length > 0 &&  document.getElementById('e-mail').value.length > 0) {
     createNewUser();
-    addUser(document.getElementById('name').value, document.getElementById('e-mail').value);
   } else {
     if (!privacyCheckBox) {
       privacyerrormessage.classList.remove('d-none');
@@ -192,16 +191,6 @@ function openGuestAccess() {
 }
 
 
-/**
- * Adds a new user to the users array and updates the data on the server.
- *
- * @param {string} name - The name of the user.
- * @param {string} email - The email address of the user.
- */
-async function addUser(name, email) {
-  const user = { name: name, email: email.toLowerCase() };
-  usersArray.push(user);
-  await putData(endpointUser, usersArray);
-}
+
 
 
