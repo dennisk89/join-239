@@ -115,6 +115,8 @@ function updateUserInterfaceWithLogInStatus() {
  */
 
 function logOut() {
+    debugger
+    handleGuestUser(false);
     const auth = getAuth();
     signOut(auth).then(() => {
     }).catch((error) => {
@@ -161,6 +163,18 @@ function askAgainForName() {
         createNewContactArrayOutOfNewUserArray(loggedInEmail, newName);
     }
 }
+
+
+/**
+ * This function is used to store the information whether a guest user is logged in or not into the local storage.
+ * @param {boolean} yesOrNo This variable is either filled with "true" or "false".
+ */
+function handleGuestUser(trueOrFalse) {
+    console.log(trueOrFalse);
+    guestUserActive = trueOrFalse;
+    localStorage.setItem('guestUserActive', JSON.stringify(guestUserActive));
+  }
+  
 
 /**
  * Assigning the functions to global variables so that they are available throughout the window.

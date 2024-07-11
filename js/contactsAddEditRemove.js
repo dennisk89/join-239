@@ -36,14 +36,50 @@ function getRandomColor() {
  */
 async function addNewContact(newContact) {
     contacts.push(newContact);
+    disableBtnsOnLoad(true);
     await putData(endpointContacts, contacts);
     emptyAddContactForm();
     hideOverlayAddContact();
-    contacts = await getData(endpointContacts);
-    showContactList();
-    showNewContactDetails(newContact['id'], newContact['name'], newContact['initials'], newContact['color'], newContact['email'], newContact['phone']);
+    await initUpdatedContactData(newContact);
     showOverlayNewContactOk();
 }
+
+
+
+/**
+ * Initializes and updates the contact data by fetching the latest contacts and displaying the new contact details.
+ * 
+ * This asynchronous function performs the following steps:
+ * 1. Disables buttons during the data loading process by calling `disableBtnsOnLoad` with `false`.
+ * 2. Fetches the latest contacts data from the specified endpoint and assigns it to the `contacts` variable.
+ * 3. Displays the contact list by calling `showContactList`.
+ * 4. Shows the details of the newly added or updated contact by calling `showNewContactDetails` with the provided data.
+ * 
+ * @async
+ * @function initUpdatedContactData
+ * @param {Object} data - The contact data to be displayed.
+ * @param {string} data.id - The ID of the contact.
+ * @param {string} data.name - The name of the contact.
+ * @param {string} data.initials - The initials of the contact.
+ * @param {string} data.color - The color associated with the contact.
+ * @param {string} data.email - The email of the contact.
+ * @param {string} data.phone - The phone number of the contact.
+ */
+async function initUpdatedContactData(data) {
+    disableBtnsOnLoad(false);
+    contacts = await getData(endpointContacts);
+    showContactList();
+    showNewContactDetails(data['id'], data['name'], data['initials'], data['color'], data['email'], data['phone']);
+}
+
+
+function checkForNewUsersAndAddToContacts() {
+    usersArray.forEach(user => {
+        if (contacts.findIndex(contact => contact.email.toLowerCase() == user.email.toLowerCase()) == -1) {
+            createNewContactArrayOutOfNewUserArray (user.email, user.name) 
+        }})
+}
+
 
 /**
  * This function is used to create a new contact array out of the data of a new registered user and evoces that the new array is added to the contacts array on the database.
@@ -51,9 +87,10 @@ async function addNewContact(newContact) {
  * @param {string} name - name of the new registered user
  */
 function createNewContactArrayOutOfNewUserArray (email, name) {
+
     let newId = generateUniqueId('c', contacts);
     let randomColor = getRandomColor();
-    let newContact = {
+    let newContact = {                  //TODO das newContact könntest in eine eigene Funktion oder Klasse packen und id, name usw als Prameter übergeben, weil oben in createNewContactArray() gibts das auch schon mal.
         'id': newId,
         'name': name,
         'email': email,
@@ -111,16 +148,16 @@ async function deleteContact(contactId) {
  * @param {string} contactId - ID of the edited contact
  */
 async function saveEditedContact(newContactData, contactId) {
+    disableBtnsOnLoad(true);
     contacts = await getData(endpointContacts);
     let indexOfChangedContact = contacts.findIndex(x => x.id === contactId);
     contacts.splice(indexOfChangedContact, 1);
     contacts.push(newContactData);
     await putData(endpointContacts, contacts);
     emptyEditContactForm();
-    contacts = await getData(endpointContacts);
-    showContactList();
-    showNewContactDetails(newContactData['id'], newContactData['name'], newContactData['initials'], newContactData['color'], newContactData['email'], newContactData['phone']);
+    await initUpdatedContactData(newContactData);
 }
+
 
 /**
  * This function is used when editing a contact; it creates a new array containing the contact's data. It then evoces that the changes are saved.
