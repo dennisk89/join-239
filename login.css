@@ -134,6 +134,18 @@ input:focus {
     margin-right: 192px;
 }
 
+.remember-me img:hover{
+    background-color: var(--light-grey);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.accept-terms img:hover{
+    background-color: var(--light-grey);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .join-logo-login-signup {
     width: 64px;
     margin-top: 37px;
@@ -212,7 +224,7 @@ input:focus {
 }
 
 .not-a-user {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: flex-end;
     gap: 35px;
@@ -461,6 +473,7 @@ input:focus {
 
     .not-a-user {
         margin-right: 110px;
+        display: flex;
     }
 
     .align-center {
