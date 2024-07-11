@@ -236,14 +236,6 @@ if (shouldAddEventListener()) {
     document.getElementById('pageOverlay').addEventListener('click', hideMenu);
 }
 
-/**
- * This function is used to store the information whether a guest user is logged in or not into the local storage.
- * @param {boolean} yesOrNo This variable is either filled with "true" or "false".
- */
-function handleGuestUser(trueOrFalse) {
-    guestUserActive = trueOrFalse;
-    localStorage.setItem('guestUserActive', JSON.stringify(guestUserActive));
-}
 
 /**
  * This function is used to proof if the current contact is logged in. In case the contact is logged in, "(You)" is added to his*her name in the contact list.

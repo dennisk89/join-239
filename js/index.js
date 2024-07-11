@@ -191,6 +191,16 @@ function openGuestAccess() {
 }
 
 
+/**
+ * This function is used to store the information whether a guest user is logged in or not into the local storage.
+ * @param {boolean} yesOrNo This variable is either filled with "true" or "false".
+ */
+function handleGuestUser(trueOrFalse) {
+  guestUserActive = trueOrFalse;
+  localStorage.setItem('guestUserActive', JSON.stringify(guestUserActive));
+}
+
+
 
 
 
