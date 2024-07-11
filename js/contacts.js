@@ -54,14 +54,11 @@ function showContactListContent() {
     sortContacts();
     for (i = 0; i < contacts.length; i++) {
         let contact = contacts[i];
-        let contactName = contact['name']; // TODO hier könntest du die variable weglassen und unten direkt contact[name] verwenden. Ist ähnlich aussagekräftig wie contactName 
-        let firstInitial = contactName.charAt(0);
-        let firstInitialUpper = firstInitial.toUpperCase(); // TODO hier könntest du die variable weglassen und unten direkt firstInitial.toUpperCase() verwenden.
-        let initials = getInitials(contactName);
-        let color = contact['color']; // TODO hier könntest du die variable weglassen und unten direkt contact['color'] verwenden.
-        let userIsLoggedIn = proofIfContactIsLoggedIn(contactName);
-        let contactsContainer = document.getElementById('contactsContainer' + firstInitialUpper);
-        contactsContainer.innerHTML += generateContactListContentHTML(contact, initials, color, userIsLoggedIn);        
+        let firstInitial = contact['name'].charAt(0);
+        let initials = getInitials(contact['name']);
+        let userIsLoggedIn = proofIfContactIsLoggedIn(contact['name']);
+        let contactsContainer = document.getElementById('contactsContainer' + firstInitial.toUpperCase());
+        contactsContainer.innerHTML += generateContactListContentHTML(contact, initials, contact['color'], userIsLoggedIn);        
     }
 }
 
@@ -99,8 +96,7 @@ function showContactDetails(contactId, contactName, initials, color, email, phon
     document.getElementById('mainContacts').classList.remove('contacts-hide-on-mobile');
     let contactDetailsContainer = document.getElementById('contactDetailsContainer');
     contactDetailsContainer.innerHTML = '';
-    contactDetailsContainer.classList.remove('contact-details-slide-in'); // TODO Zeile 101 und 102 kannst du zusammenfassen: contactDetailsContainer.classList.remove('contact-details-slide-in', 'contact-details-show')
-    contactDetailsContainer.classList.remove('contact-details-show');
+    contactDetailsContainer.classList.remove('contact-details-slide-in', 'contact-details-show');
     contactDetailsContainer.innerHTML = generateContactDetailsContainerHTML(contactId, contactName, initials, color, email, phone);
     void contactDetailsContainer.offsetWidth; /* Force reflow to reset the animation */
     contactDetailsContainer.classList.add('contact-details-slide-in');

@@ -1,20 +1,30 @@
 /**
+ * This class is used to create new contact arrays or to change existing contact arrays.
+ */
+
+class NewContact {
+    constructor(id, name, email, phone, color, initials) {
+        this.id = id,
+        this.name = name,
+        this.email = email,
+        this.phone = phone,
+        this.color = color,
+        this.initials = initials
+    }
+}
+
+/**
  * This function is used to create a new contact array and evoces that this new array is added to the contacts array on the database.
  */
 function createNewContactArray() {
-    let addContactInputName = document.getElementById('addContactInputName');
-    let addContactInputMail = document.getElementById('addContactInputMail');
-    let addContactInputPhone = document.getElementById('addContactInputPhone');        
-    let newId = generateUniqueId('c', contacts);
-    let randomColor = getRandomColor();
-    let newContact = {
-        'id': newId,
-        'name': addContactInputName.value,
-        'email': addContactInputMail.value,
-        'phone': addContactInputPhone.value,
-        'color': randomColor,
-        'initials': getInitials(addContactInputName.value)
-    };
+    let newContact = new NewContact (
+        generateUniqueId('c', contacts),
+        document.getElementById('addContactInputName').value,
+        document.getElementById('addContactInputMail').value,
+        document.getElementById('addContactInputPhone').value,
+        getRandomColor(),
+        getInitials(addContactInputName.value)
+    );
     addNewContact(newContact);
 }
 
@@ -87,17 +97,14 @@ function checkForNewUsersAndAddToContacts() {
  * @param {string} name - name of the new registered user
  */
 function createNewContactArrayOutOfNewUserArray (email, name) {
-
-    let newId = generateUniqueId('c', contacts);
-    let randomColor = getRandomColor();
-    let newContact = {                  //TODO das newContact könntest in eine eigene Funktion oder Klasse packen und id, name usw als Prameter übergeben, weil oben in createNewContactArray() gibts das auch schon mal.
-        'id': newId,
-        'name': name,
-        'email': email,
-        'phone': '',
-        'color': randomColor,
-        'initials': getInitials(name)
-    }
+    let newContact = new NewContact (
+        generateUniqueId('c', contacts),
+        name,
+        email,
+        '',
+        getRandomColor(),
+        getInitials(name)
+    );
     addNewUserToContacts(newContact);
 }
 
@@ -165,17 +172,14 @@ async function saveEditedContact(newContactData, contactId) {
  * @param {string} color - color of the edited contact's dot
  */
 function editContact(contactId, color) {
-    let editContactInputName = document.getElementById('editContactInputName');
-    let editContactInputMail = document.getElementById('editContactInputMail');
-    let editContactInputPhone = document.getElementById('editContactInputPhone');
-    let newContactData = {
-        'id': contactId,
-        'name': editContactInputName.value,
-        'email': editContactInputMail.value,
-        'phone': editContactInputPhone.value,
-        'color': color,
-        'initials': getInitials(editContactInputName.value)
-    };
+    let newContactData = new NewContact (
+        contactId,
+        document.getElementById('editContactInputName').value,
+        document.getElementById('editContactInputMail').value,
+        document.getElementById('editContactInputPhone').value,
+        color,
+        getInitials(editContactInputName.value)
+    );
     saveEditedContact(newContactData, contactId);
 }
 
