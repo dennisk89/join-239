@@ -258,6 +258,9 @@ textarea::-webkit-input-placeholder {
         margin-bottom: 32px;
         width: 100%;
     }
+    .hide-on-mobile2 {
+        display: block;
+    }
     .select-contacts-field{
         width: 440px;
     }
@@ -363,11 +366,13 @@ textarea::-webkit-input-placeholder {
         margin-top: 146px;
         color: var(--bg-color-dark-grey);
         font-size: 20px;
+        margin-right: 100px;
     }
     .desktop-btns{
         display: flex;
         justify-content: flex-end;
         gap: 16px;
+        margin-bottom: 60px;
     }
     
 }
