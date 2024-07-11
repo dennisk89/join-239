@@ -19,7 +19,6 @@ let feedbackTasks;
 let doneTasks;
 let urgentTasks;
 let currentTaskPrio = 'medium';
-let taskStatus = 'todo';
 let tempSubtasks = [];
 let tempAssignees = [];
 let tempSubtasksStatus = [];
@@ -31,7 +30,6 @@ function resetGlobalTaskVariables() {
     tempSubtasksStatus = [];
     tempAssignees = [];
     currentTaskPrio = 'medium';
-    taskStatus = 'todo';
 }
 
 
