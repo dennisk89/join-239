@@ -388,6 +388,7 @@ function getTaskById(id) {
 async function deleteTask(id) {
     taskArray.splice(taskArray.findIndex(t => t.id === id), 1);
     await putData(endpointTasks, taskArray);
+    showTaskDeletedMessage()
     closeTask('taskOverlay');
     initBoard();
 }

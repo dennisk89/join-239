@@ -105,3 +105,15 @@ function showTaskEditedMessage() {
         successMessage.classList.remove('show')
     }, 1500);
   }
+
+
+/**
+ * This function is used to show a message, when a task was successfully deleted.
+ */
+function showTaskDeletedMessage() {
+    const successMessage = document.getElementById('taskDeleted');
+    successMessage.classList.add('show');
+    setTimeout(() => {
+        successMessage.classList.remove('show')
+    }, 1500);
+  }
