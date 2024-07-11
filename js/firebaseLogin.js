@@ -158,7 +158,6 @@ function getUserNameByLoggedInEmail(loggedInEmail, usersFromFirebase) {
 function askAgainForName() {
     let newName = prompt('Oops, we lost your name in Signup process. Sorry! Please type in your name here')
     if (newName.length > 0) {
-        console.log(newName);
         createNewContactArrayOutOfNewUserArray(loggedInEmail, newName);
     }
 }
@@ -169,7 +168,6 @@ function askAgainForName() {
  * @param {boolean} yesOrNo This variable is either filled with "true" or "false".
  */
 function handleGuestUser(trueOrFalse) {
-    console.log(trueOrFalse);
     let guestUserActive = trueOrFalse;
     localStorage.setItem('guestUserActive', JSON.stringify(guestUserActive));
   }
