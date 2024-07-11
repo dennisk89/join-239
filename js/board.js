@@ -18,6 +18,7 @@
  */
 async function initBoard() {
     await initJoin();
+    checkForNewUsersAndAddToContacts();
     addCardsToBoards('toDoColumn', todoTasks, 'To do');
     addCardsToBoards('inProgressColumn', progressTasks, 'In progress');
     addCardsToBoards('feedbackColumn', feedbackTasks, 'Await feedback');
@@ -410,41 +411,27 @@ function resetValuesInAddOverlay() {
     document.getElementById('descriptionInput').value = ''; 
     document.getElementById('dateInput').value = '';
     setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg', 'medium');
-    resetGlobalTaskVariables();
 }
 
 
-function handleAddTask() {
-    if (window.innerWidth > 1200) {
-        openAddTaskOverlay();
-    } else {
-        window.location.href = 'addTask.html';
-    }
+function handleAddTask(taskStatus = 'todo') {
+    if (taskStatus != 'todo') {
+        sessionStorage.setItem("preSetTaskStatus", JSON.stringify(taskStatus));
+    } 
+    window.innerWidth > 1200 ? openAddTaskOverlay() : window.location.href = 'addTask.html';
 }
 
 // ANCHOR eventListener add tasks
-document.getElementById('boardAddBtn').addEventListener('click', handleAddTask);
+document.getElementById('boardAddBtn').addEventListener('click', () => handleAddTask('todo'));
 
 
-document.getElementById('addTaskInTodo').addEventListener('click', openAddTaskOverlay);
+document.getElementById('addTaskInTodo').addEventListener('click', () => handleAddTask('todo'));
 
 
-document.getElementById('addTaskInTodo').addEventListener('click', () => {
-    openAddTaskOverlay();
-    taskStatus = 'progress';
-});
+document.getElementById('addTaskInProgress').addEventListener('click', () => handleAddTask('progress'));
 
 
-document.getElementById('addTaskInProgress').addEventListener('click', () => {
-    openAddTaskOverlay();
-    taskStatus = 'progress';
-});
-
-
-document.getElementById('addTaskInFeedback').addEventListener('click', () => {
-    openAddTaskOverlay();
-    taskStatus = 'feedback';
-});
+document.getElementById('addTaskInFeedback').addEventListener('click', () => handleAddTask('feedback'));
 
 
 /**

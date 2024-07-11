@@ -32,21 +32,40 @@ async function initAddTask() {
 async function createTask(nextFunction) {
     disableBtnsOnLoad(true);
     setTempSubtasksStatus();
-    let newTask = new Task(generateUniqueId('t', taskArray), 
+    let newTask = useTaskClass(); 
+    taskArray.push(newTask);
+    await putData(endpointTasks, taskArray);
+    sessionStorage.removeItem("preSetTaskStatus")
+    disableBtnsOnLoad(false);
+    nextFunction();
+}
+
+
+/**
+ * Creates a new instance of the Task class using the provided form data and settings.
+ * 
+ * This function collects data from various form elements and settings to instantiate a new Task object.
+ * The collected data includes the task type, title, description, due date, assignees, priority, status,
+ * subtasks, and their statuses.
+ * 
+ * @function useTaskClass
+ * @returns {Task} A new Task object populated with the collected data.
+ */
+function useTaskClass() {
+    return new Task(
+        generateUniqueId('t', taskArray), 
         document.getElementById('catSelectValue').dataset.tasktype, 
         document.getElementById('titleInput').value, 
         document.getElementById('descriptionInput').value, 
         document.getElementById('dateInput').value, 
         getIDofAssignee(tempAssignees),
         currentTaskPrio, 
-        taskStatus, 
+        JSON.parse(sessionStorage.getItem("preSetTaskStatus")) || 'todo', 
         tempSubtasks, 
-        tempSubtasksStatus);
-    taskArray.push(newTask);
-    await putData(endpointTasks, taskArray);
-    disableBtnsOnLoad(false);
-    nextFunction();
+        tempSubtasksStatus
+    );
 }
+
 
 /**
  * Retrieves the IDs of the given assignees.

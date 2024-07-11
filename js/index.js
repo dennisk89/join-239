@@ -131,7 +131,6 @@ function handleCheckBoxPrivacyPolicy() {
  */
 function validateForm(event) {
   event.preventDefault();
-  debugger
   let privacyerrormessage = document.getElementById('privacyError')
   let isPasswordMatch = checkPasswordMatch();
   let privacyCheckBox = document.getElementById('privacyCheckBox').src.includes('checkbox-checked.svg');

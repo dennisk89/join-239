@@ -99,7 +99,7 @@ function showContactDetails(contactId, contactName, initials, color, email, phon
     document.getElementById('mainContacts').classList.remove('contacts-hide-on-mobile');
     let contactDetailsContainer = document.getElementById('contactDetailsContainer');
     contactDetailsContainer.innerHTML = '';
-    contactDetailsContainer.classList.remove('contact-details-slide-in'); // TODO Zeile 101 und 102 kannst du zusammenfassen: contactDetailsContainer.classList.remove('contact-details-slide-in contact-details-show')
+    contactDetailsContainer.classList.remove('contact-details-slide-in'); // TODO Zeile 101 und 102 kannst du zusammenfassen: contactDetailsContainer.classList.remove('contact-details-slide-in', 'contact-details-show')
     contactDetailsContainer.classList.remove('contact-details-show');
     contactDetailsContainer.innerHTML = generateContactDetailsContainerHTML(contactId, contactName, initials, color, email, phone);
     void contactDetailsContainer.offsetWidth; /* Force reflow to reset the animation */
