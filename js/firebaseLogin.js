@@ -21,6 +21,7 @@ const firebaseConfig = {
     measurementId: "G-70J970H5ZC"
 }
 
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
@@ -110,10 +111,10 @@ function updateUserInterfaceWithLogInStatus() {
     }
 }
 
+
 /**
  * This function is used to logout the currently signed in user.
  */
-
 function logOut() {
     handleGuestUser(false);
     const auth = getAuth();

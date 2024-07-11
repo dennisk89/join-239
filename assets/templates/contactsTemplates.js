@@ -11,6 +11,7 @@ function generateContactListHTML(contactListLetter) {
     `;
 }
 
+
 /**
  * This function is used to generate the HTML code to show colored dot with initials, name and email of each contact. If one of the contacts is logged in, "(You)" is shown besides the contact name.
  * @param {object} contact - This is the array containing the data of the current contact.
@@ -30,6 +31,7 @@ function generateContactListContentHTML(contact, initials, color, userIsLoggedIn
         </div>
     `;
 }
+
 
 /**
  * This function is used to generate the HTML code to show the detail information of a contact.
@@ -73,6 +75,7 @@ function generateContactDetailsContainerHTML(contactId, contactName, initials, c
     `;
 }
 
+
 /**
  * This function is used to generate the HTML code for the overlay menu that allows the user to select if he*she wants to edit or delete a contact.
  * @param {string} contactId - ID of the contact
@@ -100,6 +103,7 @@ function generateOverlayEditDeleteHTML(contactId, contactName, initials, color, 
     `;
 }
 
+
 /**
  * This function is used to generate the HTML code for the mobile version of the colored dot of the contact to be edited; it is shown on the overlay with the form to edit contacts.
  * @param {string} initials - initials of the edited contact's name
@@ -111,6 +115,7 @@ function generateEditContactDotMobileHTML(initials, color) {
         <div class="edit-contact-dot edit-contact-dot-mobile ${color}">${initials}</div>
     `;
 }
+
 
 /**
  * This function is used to generate the HTML code for the desktop version of the colored dot of the contact to be edited; it is shown on the overlay with the form to edit contacts.

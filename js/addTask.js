@@ -83,6 +83,7 @@ function getIDofAssignee(assignees) {
     return assignIDs;
 }
 
+
 /**
  * Redirects the user to the board page.
  * 
@@ -120,6 +121,7 @@ function setPrioBtn(id, cssClass, iconPath, prio) {
     document.getElementById(id).children[1].src = iconPath;
 }
 
+
 /**
  * Resets the icons of all priority buttons to their standard state.
  * 
@@ -133,7 +135,6 @@ function setPrioBtnStandardIcon() {
     document.getElementById('prioMedium').children[1].src = './assets/img/priority-medium.svg';
     document.getElementById('prioLow').children[1].src = './assets/img/priority-low.svg';
 }
-
 
 
 // ANCHOR Select assign in add task
@@ -186,6 +187,7 @@ function renderContactsToSelectList(contacts) {
         document.getElementById('selectContactsList').innerHTML += showContactsSelect(contacts[i].id, contacts[i].color, contacts[i].initials, contacts[i].name);
     }
 }
+
 
 /**
  * Closes the contact selection dropdown and resets its contents.
@@ -258,6 +260,7 @@ function checkForPreSelectContacts(assigneeArray) {
     }
 }
 
+
 /**
  * Changes the icon of a select element.
  * 
@@ -272,6 +275,7 @@ function changeSelectIcon(id, cssClass, cssClass2) {
     document.getElementById(id).classList.remove(cssClass);
     document.getElementById(id).classList.add(cssClass2);
 }
+
 
 /**
  * Checks or unchecks a contact in the selection list based on its current state.
@@ -289,6 +293,7 @@ function checkSelectContact(e) {
     }
 }
 
+
 /**
  * Pre-selects a contact and updates the display.
  * 
@@ -304,6 +309,7 @@ function preSelectContact(contactId) {
     renderContactBadgeUnderSelectField();
 }
 
+
 /**
  * Deselects a contact and updates the display.
  * 
@@ -318,6 +324,7 @@ function deSelectContact(contactId) {
     tempAssignees.splice(tempAssignees.indexOf(contactId), 1);
     renderContactBadgeUnderSelectField();
 }
+
 
 /**
  * Updates the checkbox styles for a contact.
@@ -337,6 +344,7 @@ function updateCheckboxes(contactId, bgColor, textColor, checkbox1Css, checkbox2
     document.getElementById(contactId).classList.remove(checkbox1Css);
     document.getElementById(contactId).classList.add(checkbox2Css);
 }
+
 
 /**
  * Renders the contact badges for pre-selected contacts under the select field.
@@ -421,8 +429,6 @@ function checkKeyForEnter(e) {
         addSubtaskToTempSubtasks()
     }
 }
-
-
 
 
 // ANCHOR id translation or verification functions

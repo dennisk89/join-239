@@ -13,6 +13,7 @@ class NewContact {
     }
 }
 
+
 /**
  * This function is used to create a new contact array and evoces that this new array is added to the contacts array on the database.
  */
@@ -28,6 +29,7 @@ function createNewContactArray() {
     addNewContact(newContact);
 }
 
+
 /**
  * This function is used to get a random entry out of the global array "colors".
  * @returns random color out of the array "colors"
@@ -39,6 +41,7 @@ function getRandomColor() {
     }    
     return colors[randomIndex];
 }
+
 
 /**
  * This function is used to add a new contact to the database. It then evoces that the contact form is emptied and hidden again and that the new contact is shown in the contact list; a short message informs the user that the new contact was successfully created and the details of the new contact are displayed.
@@ -53,7 +56,6 @@ async function addNewContact(newContact) {
     await initUpdatedContactData(newContact);
     showOverlayNewContactOk();
 }
-
 
 
 /**
@@ -118,6 +120,7 @@ async function addNewUserToContacts(newUser) {
     await putData(endpointContacts, contacts);
 }
 
+
 /**
  * This function is used to display the details of a new added contact and evoces that this contact is highlighted in the contact list (desktop version).
  * @param {string} contactId - ID of the new contact
@@ -136,6 +139,7 @@ function showNewContactDetails(contactId, contactName, initials, color, email, p
     highlightContactContainer(contactId);
 }
 
+
 /**
  * This function is used to delete a contact. It then evoces that the contact list is actualized and that no contact details are shown.
  * @param {string} contactId - ID of the contact
@@ -148,6 +152,7 @@ async function deleteContact(contactId) {
     emptyContactDetailsContainer();
     showDeleteContactMessage()
 }
+
 
 /**
  * This function is used to save the changes when editing an existing contact. It also evoces that the form that is used to edit contacts is emptied and that the actualized contact list and contact details are shown.
@@ -196,6 +201,7 @@ function showOverlayAddContact() {
     overlayAddContact.classList.remove('overlay-slide-out');
 }
 
+
 /**
  * This function is used to hide the overlay containing the form to add new contacts. It also evoces that the form is emptied.
  */
@@ -209,6 +215,7 @@ function hideOverlayAddContact() {
     emptyAddContactForm();
 }
 
+
 /**
  * This function is used to empty the form that is used to add new contacts.
  */
@@ -217,6 +224,7 @@ function emptyAddContactForm() {
     document.getElementById('addContactInputMail').value = '';
     document.getElementById('addContactInputPhone').value = '';
 }
+
 
 /**
  * This function is used to show the overlay containing the form to edit contacts. It evoces that the colored dot of the contact that is being edited is created and that the name, email and phone number of the contact are already shown in the form.
@@ -238,6 +246,7 @@ function showOverlayEditContact(contactId, contactName, initials, color, email, 
     overlayEditContact.classList.remove('overlay-slide-out');
 }
 
+
 /**
  * This function is used to hide the overlay containing the form to edit contacts. It also evoces that the form is emptied.
  */
@@ -253,6 +262,7 @@ function hideOverlayEditContact() {
     document.getElementById('editContactInputPhone').value= '';
 }
 
+
 /**
  * This function is used to empty the form that is used to edit contacts.
  */
@@ -261,6 +271,7 @@ function emptyEditContactForm() {
     document.getElementById('editContactInputMail').value = '';
     document.getElementById('editContactInputPhone').value = '';
 }
+
 
 /**
  * This function is used to create the colored dot of the contact to be edited; it is shown on the overlay containing the form to edit contacts.
@@ -271,6 +282,7 @@ function createOverlayEditContactDot(initials, color) {
     document.getElementById('editContactDotMobile').innerHTML = generateEditContactDotMobileHTML(initials, color);
     document.getElementById('editContactDotDesktop').innerHTML = generateEditContactDotDesktopHTML(initials, color);
 }
+
 
 /**
  * This function is used to insert the name, email and phone number of the contact to be edited into the form that is used to edit contacts.
@@ -283,6 +295,7 @@ function insertInputValues(contactName, email, phone) {
     document.getElementById('editContactInputMail').value = email;
     document.getElementById('editContactInputPhone').value = phone;
 }
+
 
 /**
  * This function is used to show the overlay menu that allows the user to select if he*she wants to edit or delete a contact.
@@ -302,6 +315,7 @@ function showOverlayEditDelete(contactId, contactName, initials, color, email, p
     overlayEditDelete.classList.remove('overlay-slide-out');
 }
 
+
 /**
  * This function is used to hide the overlay menu that allows the user to select if he*she wants to edit or delete a contact.
  */
@@ -313,6 +327,7 @@ function hideOverlayEditDelete() {
         overlayEditDelete.classList.add('d-none');        
     }, 500); /* same duration as slide out animation */
 }
+
 
 /**
  * This function is used to show a short message to inform the user that the new contact was successfully created.
@@ -326,6 +341,7 @@ function showOverlayNewContactOk() {
         hideOverlayNewContactOk();
     }, 1000);    
 }
+
 
 /**
  * This function is used to hide the short message again that informs the user that the new contact was successfully created.

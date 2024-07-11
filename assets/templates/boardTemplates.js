@@ -1,5 +1,3 @@
-
-
 function taskCardHTML(id, type, title, description, prioIcon, status) {
     return /*html*/`
     <div draggable="true" ondragstart="startDragging('${id}')" id="${id}" onclick="openTasks('${id}'); stopP(event)" class="card clickable">

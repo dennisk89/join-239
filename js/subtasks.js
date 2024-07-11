@@ -13,6 +13,7 @@ function changeSubtaskInput() {
     }
 }
 
+
 /**
  * Resets the subtask input field and button container to their default state.
  * 
@@ -25,6 +26,7 @@ function resetSubtaskInput() {
     document.getElementById('subtaskInput').value = '';
     document.getElementById('subBtnContainer').innerHTML = addNewSubtaskHTML();
 }
+
 
 /**
  * Adds the current subtask input to the temporary subtasks list.
@@ -48,6 +50,7 @@ function addSubtaskToTempSubtasks() {
     }
     renderTempSubtasks(); 
 }
+
 
 /**
  * Renders the list of temporary subtasks in the subtask edit list.
@@ -82,6 +85,7 @@ function editSubtask(index) {
     document.getElementById('subtaskEditList').children[index].classList.remove('subtask-list-row');
 }
 
+
 /**
  * Confirms the edit of a subtask at a specified index.
  * 
@@ -102,6 +106,7 @@ function confirmEditSubtask(i) {
     }
 }
 
+
 /**
  * Deletes a subtask at a specified index.
  * 
@@ -116,6 +121,7 @@ function deleteSubtask(i) {
     renderTempSubtasks();
     resetSubtaskInput();
 }
+
 
 /**
  * Sets the status of temporary subtasks to false.

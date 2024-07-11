@@ -25,6 +25,7 @@ let tempSubtasksStatus = [];
 let loggedInUser;
 let guestUserActive = false;
 
+
 function resetGlobalTaskVariables() {
     tempSubtasks = [];
     tempSubtasksStatus = [];
@@ -112,6 +113,7 @@ function redirectOrShowUserIcon() {
     }
 }
 
+
 /**
  * This function is used to show the initials of the currently logged in user in the header's user icon.
  * @param {string} name This is the name of the currently logged in user.
@@ -120,6 +122,7 @@ function updateUserIcon(name) {
     const userInitials = getInitials(name);
     document.getElementById('userIcon').innerHTML = userInitials;
 }
+
 
 /**
  * This function is used to get the initials of a name.
@@ -134,12 +137,14 @@ function getInitials(name) {
     return initials;
 }
 
+
 /**
  * This function is used to show the header's icon for guest user.
  */
 function showGuestUserIcon() {
     document.getElementById('userIcon').innerHTML = 'G';
 }
+
 
 class Task {
     constructor(id, type, title, description, dueDate, assigned, prio, taskStatus, subTask, subtaskStatus) {
@@ -155,6 +160,7 @@ class Task {
             this.subTaskStatus = subtaskStatus
     }
 }
+
 
 /**
  * This function is used to generate a new ID for each new task or contact.
@@ -258,7 +264,6 @@ function proofIfContactIsLoggedIn(name) {
 }
 
 
-
 /**
  * Opens the legal notice page in a new tab and sets a flag in localStorage.
  */
@@ -267,6 +272,7 @@ function openLegalNotice() {
     localStorage.setItem('openedByLegalNotice', 'true');
 }
 
+
 /**
  * Opens the privacy policy page in a new tab and sets a flag in localStorage.
  */
@@ -274,6 +280,7 @@ function openPrivacyPolicy() {
     window.open('privacyPolicy.html', '_blank', 'noopener,noreferrer');
     localStorage.setItem('openedByPrivacyPolicy', 'true');
 }
+
 
 /**
  * Hides the footer links in the mobile footer.
@@ -287,6 +294,7 @@ function hideFooterLinks() {
         });
     }
 }
+
 
 /**
  * Event listener for DOMContentLoaded to check localStorage flags and hide footer links if necessary.

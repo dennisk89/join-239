@@ -7,6 +7,7 @@ let colors = ['orange', 'purple', 'blue', 'pink', 'yellow', 'mint', 'green'];
 let usedLetters = [];
 let contactListLetters = [];
 
+
 /**
  * This function is used to get all data from the database and to show the contact list onload of contacts.html.
  */
@@ -15,6 +16,7 @@ async function initContacts() {
     checkForNewUsersAndAddToContacts();
     showContactList();
 }
+
 
 /**
  * This function is used to show the contact list.
@@ -30,6 +32,7 @@ function showContactList() {
     }
     showContactListContent();
 }
+
 
 /**
  * This function is used to excerpt the initial letter of the first name of each contact, to sort out duplicates and push them into the array "contactListLetters" sorted from A to Z.
@@ -47,6 +50,7 @@ function excerptContactListLetters() {
     contactListLetters.push(usedLettersUniqueSorted);
 }
 
+
 /**
  * This function is used to show the content of the contact list: colored dot, name and email of each contact. It also gives the information if one of the contacts is currently logged in by adding "(You)" to his*her name.
  */
@@ -62,6 +66,7 @@ function showContactListContent() {
     }
 }
 
+
 /**
  * This function is used to sort the contacts-array alphabetically by name.
  */
@@ -70,6 +75,7 @@ function sortContacts() {
         return compareStrings(a.name, b.name);
     });
 }
+
 
 /**
  * This function is used to compare the contacts' names. They are converted into lowercase to be sorted without case sensitivity. 
@@ -82,6 +88,7 @@ function compareStrings(a, b) {
     b = b.toLowerCase();
     return (a < b) ? -1 : (a > b) ? 1 : 0;
 }
+
 
 /**
  * This function is used to show detailed information about the contact that is clicked on in the contact list. The needed HTML code is generated and shown in the div with the id "contactDetailsContainer". This function also causes that the contact details container is sliding in and that the contact clicked on in the contact list is highlighted in the desktop version.
@@ -107,6 +114,7 @@ function showContactDetails(contactId, contactName, initials, color, email, phon
     highlightContactContainer(contactId);
 }
 
+
 /**
  * This function is used to empty the div with the id "contactDetailsContainer".
  */
@@ -115,12 +123,14 @@ function emptyContactDetailsContainer() {
     contactDetailsContainer.innerHTML = '';
 }
 
+
 /**
  * This function is used to hide the contact details on mobile devices.
  */
 function hideContactDetailsMobile() {
     document.getElementById('mainContacts').classList.add('contacts-hide-on-mobile');
 }
+
 
 /**
  * This function is used to highlight the contact clicked on in the contact list (desktop version). If there was a contact highlighted before, this highlighting is removed.
@@ -137,6 +147,7 @@ function highlightContactContainer(contactId) {
         }
     }
 }
+
 
 /**
  * This function is used to show a message, when a user was successfully added.

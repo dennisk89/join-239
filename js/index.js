@@ -31,7 +31,6 @@ function backToLogin() {
 /**
  * Toggles the visibility of a password field by changing its type between 'password' and 'text'.
  * Also updates the background image of a related field to indicate the visibility state.
- * 
  * @param {string} id - The ID of the HTML element whose background image should be updated.
  * @param {string} container - The ID of the password field whose visibility is being toggled.
  */
@@ -50,7 +49,6 @@ function showPassword(id, container) {
 
 /**
  * Updates the background image of a specified HTML element to indicate focus.
- *
  * @param {string} id - The ID of the HTML element whose background image should be updated.
  */
 function handleFocus(id) {
@@ -58,7 +56,9 @@ function handleFocus(id) {
   field.style.backgroundImage = "url('./assets/img/visibility_off.svg')";
 }
 
+
 // Add event listeners for focus events on specific elements
+
 
 /**
  * Adds a focus event listener to the element with the ID 'passwordForm'.
@@ -68,6 +68,7 @@ document.getElementById('passwordForm').addEventListener('focus', function () {
   handleFocus('passwordClick1');
 });
 
+
 /**
  * Adds a focus event listener to the element with the ID 'confirmPassword'.
  * When the element gains focus, it calls the handleFocus function with the ID 'passwordClick2'.
@@ -75,6 +76,7 @@ document.getElementById('passwordForm').addEventListener('focus', function () {
 document.getElementById('confirmPassword').addEventListener('focus', function () {
   handleFocus('passwordClick2');
 });
+
 
 /**
  * Adds a focus event listener to the element with the ID 'password'.
@@ -89,7 +91,6 @@ document.getElementById('password').addEventListener('focus', function () {
  * Checks if the password and confirm password fields match.
  * If they do not match, displays an error message and adds a red border to the password field.
  * If they match, hides the error message.
- *
  * @returns {boolean} Returns true if the passwords match, false otherwise.
  */
 function checkPasswordMatch() {
@@ -125,7 +126,6 @@ function handleCheckBoxPrivacyPolicy() {
  * Validates the form by checking if the passwords match and if the privacy checkbox is checked.
  * If validation passes, creates a new user and adds the user information.
  * If validation fails, prevents form submission and displays error messages.
- *
  * @param {Event} event - The form submission event.
  * @returns {boolean} Returns false if the validation fails, true otherwise.
  */
@@ -183,6 +183,7 @@ function validateLogin() {
   }
 }
 
+
 /**
  * This function is used to open the summary page for guest users and to execute the function handleGuestUser commiting the variable "true".
  */
@@ -195,7 +196,6 @@ function openGuestAccess() {
 /**
  * Checks if the entered name is valid.
  * A valid name has at least 2 characters.
- *
  * @returns {boolean} Returns true if the name is valid, otherwise false.
  */
 function checkEnteredName() {
@@ -210,10 +210,10 @@ function checkEnteredName() {
   }
 }
 
+
 /**
  * Checks if the entered email is valid.
  * A valid email follows the standard email pattern.
- *
  * @returns {boolean} Returns true if the email is valid, otherwise false.
  */
 function checkEnteredEmail() {
@@ -228,6 +228,7 @@ function checkEnteredEmail() {
     return true;
   }
 }
+
 
 /**
  * Checks if the password is entered and meets the minimum length requirement.
@@ -246,7 +247,6 @@ function checkIfPasswordIsEntered() {
 
 /**
  * Validates the password by checking if it is entered and if it matches the confirmation.
- *
  * @returns {boolean} Returns true if the password is valid and matches the confirmation, otherwise false.
  */
 function validatePassword() {

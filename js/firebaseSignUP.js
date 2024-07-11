@@ -34,11 +34,11 @@ const firebaseConfig = {
     measurementId: "G-70J970H5ZC"
 };
 
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 // Initializes Firebase´s authentication service
 const auth = getAuth(app)
-
 
 
 /**
@@ -75,8 +75,7 @@ async function createNewUser() {
 async function storeNameAndEmail(name, email) {
     const user = { name: name, email: email.toLowerCase() };
     await putUserData(user);
-  }
-  
+}
 
 
 /**

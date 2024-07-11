@@ -27,7 +27,6 @@ function fillEditForm(taskIndex) {
 }
 
 
-
 function setTaskPrio(prio) {
     currentTaskPrio = prio
     const prioFunctions = {

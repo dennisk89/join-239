@@ -1,5 +1,3 @@
-
-
 // ANCHOR load Task cards in board
 
 /**
@@ -358,6 +356,7 @@ function renderSubTasks(task) {
     }
 }
 
+
 /**
  * Retrieves a task object by its ID.
  * 
@@ -421,6 +420,7 @@ function handleAddTask(taskStatus = 'todo') {
     window.innerWidth > 1200 ? openAddTaskOverlay() : window.location.href = 'addTask.html';
 }
 
+
 // ANCHOR eventListener add tasks
 document.getElementById('boardAddBtn').addEventListener('click', () => handleAddTask('todo'));
 
@@ -471,6 +471,7 @@ function startDragging(id) {
     currentDraggedElement = id;
 }
 
+
 /**
  * Prevents the default handling of the dragover event to allow dropping.
  * 
@@ -483,6 +484,7 @@ function startDragging(id) {
 function allowDrop(ev) {
     ev.preventDefault();
 }
+
 
 /**
  * Moves a task to a new status and updates the task data on the server.
@@ -507,6 +509,7 @@ async function moveTo(id, taskStatus) {
     initBoard();
 }
 
+
 /**
  * Adds a highlight class to the specified element.
  * 
@@ -518,6 +521,7 @@ async function moveTo(id, taskStatus) {
 function highlight(id) {
     document.getElementById(id).classList.add('drag-area-highlight');
 }
+
 
 /**
  * Removes the highlight class from the specified element.
