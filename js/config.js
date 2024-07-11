@@ -172,9 +172,19 @@ function generateUniqueId(initLetter, array) {
     return newId;
 }
 
+
 // ANCHOR Menu functionality
 function stopP(event) {
     event.stopPropagation();
+}
+
+
+function disableBtnsOnLoad(boolean) {
+    let buttons = document.getElementsByClassName('disable-on-load');
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].disabled = boolean;
+        boolean ? buttons[i].classList.add('btn-disabled') : buttons[i].classList.remove('btn-disabled');
+    }
 }
 
 
@@ -254,7 +264,6 @@ function proofIfContactIsLoggedIn(name) {
         return ' (You)';
     } else {
         return ''; 
-        // TODO brauchen wir das else statement? -> Ja, denn sonst wird neben jedem Contact in der Contact List, der nicht eingeloggt ist, "undefined" angezeigt.
     }
 }
 
@@ -280,6 +289,7 @@ function hideFooterLinks() {
         });
     }
 }
+
 
 document.addEventListener("DOMContentLoaded", function() {
     const openedByLegalNotice = localStorage.getItem('openedByLegalNotice');

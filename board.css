@@ -648,9 +648,23 @@ p {
     padding-top: 0;
 }
 
+/* ANCHOR btn overwrite */
+.btn-disabled {
+    background-color: var(--bg-color-grey);
+}
+
+.btn-disabled:hover {
+    background-color: var(--bg-color-grey);
+}
+
+.btn-disabled.btn-white:hover {
+    border: 1px solid var(--bg-color-dark-grey);
+    box-shadow: none;
+    color: var(--bg-color-dark-grey);
+}
+
+
 /*ANCHOR - drag and drop*/
-
-
 .drag-area-highlight {
     border-radius: 20px;
     border-style: dashed;

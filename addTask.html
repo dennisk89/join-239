@@ -106,12 +106,13 @@
                 </div>
                 <div class="justify-space-between height-88px desktop-btns">
                     <p class="d-none-desktop font16"><span class="color-red">*</span>This field is requiered</p>
-                    <button class="clear-task-btn d-none btn-white cancel-btn">
+                    <!-- TODO cancel btn kann weg? -->
+                    <button class="clear-task-btn d-none btn-white cancel-btn disable-on-load">
                         <span>Clear</span>
                         <img class="cancel-btn-img-dark" src="./assets/img/cancel-x-dark.svg" alt="Cancel button">
                         <img class="cancel-btn-img-blue d-none" src="./assets/img/cancel_x_blue.svg" alt="Cancel Button">
                     </button>
-                    <button onclick="validateTaskForm(event, redirectToBoard); return false" type="submit" class="create-task-btn btn-color">
+                    <button onclick="validateTaskForm(event, redirectToBoard); return false" type="submit" class="create-task-btn btn-color disable-on-load">
                         <span>Create Task</span>
                         <img src="./assets/img/check.svg" alt="Create task button">
                     </button>

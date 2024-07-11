@@ -213,6 +213,15 @@ textarea::-webkit-input-placeholder {
     margin-bottom: 8px;
 }
 
+.btn-disabled {
+    background-color: var(--bg-color-grey);
+}
+
+.btn-disabled:hover {
+    background-color: var(--bg-color-grey);
+}
+
+
 @media (min-width: 400px) {
     .priority-section{
         font-size: 16px;

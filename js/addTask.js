@@ -30,6 +30,7 @@ async function initAddTask() {
  * @param {Function} nextFunction - The function to call after the task is created and data is updated.
  */
 async function createTask(nextFunction) {
+    disableBtnsOnLoad(true);
     setTempSubtasksStatus();
     let newTask = new Task(generateUniqueId('t', taskArray), 
         document.getElementById('catSelectValue').dataset.tasktype, 
@@ -43,6 +44,7 @@ async function createTask(nextFunction) {
         tempSubtasksStatus);
     taskArray.push(newTask);
     await putData(endpointTasks, taskArray);
+    disableBtnsOnLoad(false);
     nextFunction();
 }
 
@@ -435,12 +437,8 @@ function getContactByContactID(contactID) {
  */
 function validateTaskForm(event, nextFunction) {
     event.preventDefault(); 
-
-    let isTitleValid = validateTitle();
-    let isDateValid = validateDate();
-    let isCategoryValid = validateCategory();
-    
-    if (isTitleValid && isDateValid && isCategoryValid) {
+    validateCategory()
+    if (validateTitle() && validateDate() && validateCategory()) {
         successfullyAddedTaskAnimation();
         setTimeout(() => {
         createTask(nextFunction);  

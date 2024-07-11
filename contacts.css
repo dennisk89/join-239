@@ -160,6 +160,15 @@
     height: 32px;
 }
 
+/* ANCHOR btn overwrite */
+.btn-disabled {
+    background-color: var(--bg-color-grey);
+}
+
+.btn-disabled:hover {
+    background-color: var(--bg-color-grey);
+}
+
 /* ANCHOR max 370px Responsiveness */
 
 @media screen and (max-width: 370px) {
