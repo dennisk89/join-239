@@ -115,7 +115,6 @@ function updateUserInterfaceWithLogInStatus() {
  */
 
 function logOut() {
-    debugger
     handleGuestUser(false);
     const auth = getAuth();
     signOut(auth).then(() => {
@@ -171,7 +170,7 @@ function askAgainForName() {
  */
 function handleGuestUser(trueOrFalse) {
     console.log(trueOrFalse);
-    guestUserActive = trueOrFalse;
+    let guestUserActive = trueOrFalse;
     localStorage.setItem('guestUserActive', JSON.stringify(guestUserActive));
   }
   
@@ -180,6 +179,7 @@ function handleGuestUser(trueOrFalse) {
  * Assigning the functions to global variables so that they are available throughout the window.
  */
 window.logOut = logOut;
+window.handleGuestUser = handleGuestUser;
 window.loginWithPersistence = loginWithPersistence;
 window.login = login;
 window.getUserNameByLoggedInEmail = getUserNameByLoggedInEmail;
