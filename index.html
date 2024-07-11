@@ -74,12 +74,15 @@
             </div>
             <form onsubmit="return register()" class="login-form">
                 <input placeholder="Name" class="name-input" type="text" id="name" required>
+                <span class="password-error-message d-none" id="nameWarning">Please enter your name</span>
                 <input placeholder="Email" class="email" type="email" id="e-mail" required>
+                <span class="password-error-message d-none" id="emailWarning">Please enter your email</span>
                 <div class="password-container">
                     <input placeholder="Password" class="password" type="password" id="passwordForm" required>
                     <div onclick="showPassword('passwordClick1','passwordForm')" id="passwordClick1"
                         class="right-password-box"></div>
                 </div>
+                <span class="password-error-message d-none" id="noPasswordWarning">Please enter a 6 digit password</span>
                 <div class="password-container" id="passwordWarning">
                     <input placeholder="Password" class="password" type="password" id="confirmPassword" required>
                     <div onclick="showPassword('passwordClick2','confirmPassword')" id="passwordClick2"

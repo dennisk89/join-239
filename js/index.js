@@ -131,11 +131,12 @@ function handleCheckBoxPrivacyPolicy() {
  */
 function validateForm(event) {
   event.preventDefault();
-  debugger
   let privacyerrormessage = document.getElementById('privacyError')
-  let isPasswordMatch = checkPasswordMatch();
+  let isPasswordMatch = validatePassword();
   let privacyCheckBox = document.getElementById('privacyCheckBox').src.includes('checkbox-checked.svg');
-  if (isPasswordMatch && privacyCheckBox && document.getElementById('name').value.length > 0 &&  document.getElementById('e-mail').value.length > 0) {
+  let isNameValid = checkEnteredName();
+  let isEmailValid = checkEnteredEmail();
+  if (isPasswordMatch && privacyCheckBox && isNameValid && isEmailValid) {
     createNewUser();
   } else {
     if (!privacyCheckBox) {
@@ -191,8 +192,64 @@ function openGuestAccess() {
 }
 
 
+/**
+ * Checks if the entered name is valid.
+ * A valid name has at least 2 characters.
+ *
+ * @returns {boolean} Returns true if the name is valid, otherwise false.
+ */
+function checkEnteredName() {
+  let name = document.getElementById('name').value;
+  let nameWarning = document.getElementById('nameWarning');
+  if (name.length < 2) {
+    nameWarning.classList.remove('d-none');
+    return false;
+  } else {
+    nameWarning.classList.add('d-none');
+    return true;
+  }
+}
+
+/**
+ * Checks if the entered email is valid.
+ * A valid email follows the standard email pattern.
+ *
+ * @returns {boolean} Returns true if the email is valid, otherwise false.
+ */
+function checkEnteredEmail() {
+  let email = document.getElementById('e-mail').value;
+  let emailWarning = document.getElementById('emailWarning');
+  let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+    emailWarning.classList.remove('d-none');
+    return false;
+  } else {
+    emailWarning.classList.add('d-none');
+    return true;
+  }
+}
+
+/**
+ * Checks if the password is entered and meets the minimum length requirement.
+ * A valid password has at least 6 characters.
+ */
+function checkIfPasswordIsEntered() {
+  let passwordField = document.getElementById('passwordForm').value;
+  let passWarning = document.getElementById('noPasswordWarning');
+  if (passwordField.length < 6) {
+    passWarning.classList.remove('d-none');
+  } else {
+    passWarning.classList.add('d-none');
+  }
+}
 
 
-
-
-
+/**
+ * Validates the password by checking if it is entered and if it matches the confirmation.
+ *
+ * @returns {boolean} Returns true if the password is valid and matches the confirmation, otherwise false.
+ */
+function validatePassword() {
+  checkIfPasswordIsEntered();
+  return checkPasswordMatch();
+}
