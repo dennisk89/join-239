@@ -38,8 +38,8 @@
 }
 
 .overlay-delete-img {
-    width: 16px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
 }
 
 @keyframes overlayEditDeleteSlideIn { /* Keyframe animation for sliding in */

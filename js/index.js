@@ -148,7 +148,7 @@ function validateForm(event) {
 
 
 /**
- * This function is used to change the image depending on whether the remember me checkbox is clicked or not.
+ * This function is used to show a message, when the signup was successfull.
  */
 function showSuccessMessage() {
   const successMessage = document.getElementById('successfullSignup');

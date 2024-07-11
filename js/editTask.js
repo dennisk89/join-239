@@ -79,6 +79,7 @@ async function confirmEditTask(id) {
         await putData(endpointTasks, taskArray);
         initBoard();
         closeTask('taskOverlay');
+        showTaskEditedMessage()
     } 
 }
 
@@ -92,3 +93,15 @@ function setValuesToTaskArray(i) {
     taskArray[i].dueDate = document.getElementById('dateInput').value.trim();
     taskArray[i].prio = currentTaskPrio;
 }
+
+
+/**
+ * This function is used to show a message, when a task was successfully edited.
+ */
+function showTaskEditedMessage() {
+    const successMessage = document.getElementById('taskEdited');
+    successMessage.classList.add('show');
+    setTimeout(() => {
+        successMessage.classList.remove('show')
+    }, 1500);
+  }

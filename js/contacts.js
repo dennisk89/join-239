@@ -140,3 +140,14 @@ function highlightContactContainer(contactId) {
         }
     }
 }
+
+/**
+ * This function is used to show a message, when a user was successfully added.
+ */
+function showDeleteContactMessage() {
+    const successMessage = document.getElementById('contactDeleted');
+    successMessage.classList.add('show');
+    setTimeout(() => {
+        successMessage.classList.remove('show')
+    }, 1500);
+  }

@@ -102,6 +102,7 @@ async function deleteContact(contactId) {
     contacts = await getData(endpointContacts);
     showContactList();
     emptyContactDetailsContainer();
+    showDeleteContactMessage()
 }
 
 /**
