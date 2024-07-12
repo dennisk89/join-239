@@ -224,9 +224,9 @@ input:focus {
 }
 
 .not-a-user {
-    display: none;
+    display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     gap: 35px;
     margin-top: 57px;
     font-size: 20px;
@@ -474,7 +474,7 @@ input:focus {
 
     .not-a-user {
         margin-right: 110px;
-        display: flex;
+        justify-content: flex-end;
     }
 
     .align-center {
