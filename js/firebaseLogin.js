@@ -176,8 +176,7 @@ function handleGuestUser(trueOrFalse) {
 
 
 function removeFooterLinkLock() {
-    localStorage.removeItem('openedByPrivacyPolicy');
-    localStorage.removeItem('openedByLegalNotice');
+    localStorage.removeItem('openedWithoutLogin');
 }
   
 
@@ -190,3 +189,4 @@ window.loginWithPersistence = loginWithPersistence;
 window.login = login;
 window.getUserNameByLoggedInEmail = getUserNameByLoggedInEmail;
 window.askAgainForName = askAgainForName;
+window.removeFooterLinkLock = removeFooterLinkLock;

@@ -16,15 +16,9 @@ function hideFooterLinks() {
  * Event listener for DOMContentLoaded to check localStorage flags and hide footer links if necessary.
  */
 document.addEventListener("DOMContentLoaded", function() {
-    const openedByLegalNotice = localStorage.getItem('openedByLegalNotice');
-    const openedByPrivacyPolicy = localStorage.getItem('openedByPrivacyPolicy');
-
-    if (openedByLegalNotice === 'true') {
+    const openedWithoutLogin = localStorage.getItem('openedWithoutLogin');
+    if (openedWithoutLogin === 'true') {
         hideFooterLinks();
-    }
-
-    if (openedByPrivacyPolicy === 'true') {
-        hideFooterLinks();;
     }
 });
 

@@ -276,7 +276,7 @@ function validatePassword() {
  */
 function openLegalNotice() {
   window.open('legalNotice.html', '_blank', 'noopener,noreferrer');
-  localStorage.setItem('openedByLegalNotice', 'true');
+  localStorage.setItem('openedWithoutLogin', 'true');
 }
 
 
@@ -285,5 +285,5 @@ function openLegalNotice() {
 */
 function openPrivacyPolicy() {
   window.open('privacyPolicy.html', '_blank', 'noopener,noreferrer');
-  localStorage.setItem('openedByPrivacyPolicy', 'true');
+  localStorage.setItem('openedWithoutLogin', 'true');
 }

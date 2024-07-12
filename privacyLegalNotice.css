@@ -22,3 +22,10 @@
 .highlighted-text{
     color: var(--highlight-text-blue);
 }
+
+
+@media (min-width: 1200px) {
+    .desktop-help {
+        padding: 110px 96px 0 96px;
+    }
+}
