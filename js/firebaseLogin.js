@@ -5,7 +5,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, setPersistence, signInWithEmailAndPassword, browserLocalPersistence, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-
 /**
  * Firebase configuration object
  * @type {Object}
@@ -98,6 +97,15 @@ onAuthStateChanged(auth, async (user) => {
 });
 
 
+/**
+ * Triggers actions based on the current window location.
+ * 
+ * This function removes the footer link lock and then performs different actions depending on 
+ * the current window location path. If the path is '/index.html', it redirects the user to 
+ * 'summary.html'. If the path is '/contacts.html', it calls the function to display the contact list.
+ * 
+ * @function triggerLocationBasedActions
+ */
 function triggerLocationBasedActions() {
     removeFooterLinkLock();
     if (window.location.pathname == '/index.html') {
@@ -203,3 +211,4 @@ window.login = login;
 window.getUserNameByLoggedInEmail = getUserNameByLoggedInEmail;
 window.askAgainForName = askAgainForName;
 window.removeFooterLinkLock = removeFooterLinkLock;
+window.triggerLocationBasedActions = triggerLocationBasedActions;

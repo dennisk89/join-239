@@ -105,6 +105,17 @@ function redirectToLoginWhenNotAuth() {
     }
 }
 
+
+
+/**
+ * Updates the user icon based on the current user status.
+ * 
+ * This function checks if a user is logged in or if a guest user is active. If a user is logged in,
+ * it updates the user icon using the `updateUserIcon` function. If a guest user is active, it shows 
+ * the guest user icon using the `showGuestUserIcon` function.
+ * 
+ * @function userIconOrGuestIcon
+ */
 function userIconOrGuestIcon() {
     if (loggedInUser) {
         updateUserIcon(loggedInUser);
@@ -184,6 +195,18 @@ function stopP(event) {
 }
 
 
+/**
+ * Enables or disables buttons with the 'disable-on-load' class based on the given boolean value.
+ * 
+ * This function iterates over all elements with the class 'disable-on-load' and sets their 
+ * `disabled` attribute to the given boolean value. Additionally, it toggles the 'btn-disabled' 
+ * class on these elements based on the same boolean value.
+ * 
+ * @function disableBtnsOnLoad
+ * @param {boolean} boolean - A boolean value to enable or disable the buttons. 
+ *                            `true` disables the buttons and adds the 'btn-disabled' class, 
+ *                            `false` enables the buttons and removes the 'btn-disabled' class.
+ */
 function disableBtnsOnLoad(boolean) {
     let buttons = document.getElementsByClassName('disable-on-load');
     for (let i = 0; i < buttons.length; i++) {
