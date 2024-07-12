@@ -1,14 +1,4 @@
 /**
- * Removes flags from localStorage when the backArrows element is clicked.
- */
-
-
-function removeLocalStorage() {
-    localStorage.removeItem('openedByLegalNotice');
-    localStorage.removeItem('openedByPrivacyPolicy');
-}
-
-/**
  * Hides the footer links in the mobile footer.
  */
 function hideFooterLinks() {
@@ -31,13 +21,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (openedByLegalNotice === 'true') {
         hideFooterLinks();
-        localStorage.removeItem('openedByLegalNotice');
     }
 
     if (openedByPrivacyPolicy === 'true') {
-        hideFooterLinks();
-        localStorage.removeItem('openedByPrivacyPolicy');
+        hideFooterLinks();;
     }
 });
-
 
