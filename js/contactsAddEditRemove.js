@@ -211,7 +211,7 @@ function hideOverlayAddContact() {
     overlayAddContact.classList.add('overlay-slide-out');
     setTimeout(() => {
         overlayAddContact.classList.add('d-none');
-    }, 500); /* same duration as slide out animation */
+    }, 500);
     emptyAddContactForm();
 }
 
@@ -256,7 +256,7 @@ function hideOverlayEditContact() {
     overlayEditContact.classList.add('overlay-slide-out');
     setTimeout(() => {
         overlayEditContact.classList.add('d-none');
-    }, 500); /* same duration as slide out animation */
+    }, 500);
     document.getElementById('editContactInputName').value = '';
     document.getElementById('editContactInputMail').value = '';
     document.getElementById('editContactInputPhone').value= '';
@@ -325,7 +325,7 @@ function hideOverlayEditDelete() {
     overlayEditDelete.classList.add('overlay-slide-out');
     setTimeout(() => {
         overlayEditDelete.classList.add('d-none');        
-    }, 500); /* same duration as slide out animation */
+    }, 500);
 }
 
 
@@ -352,5 +352,5 @@ function hideOverlayNewContactOk(){
     overlayNewContactOk.classList.add('overlay-slide-out');
     setTimeout(() => {
         overlayNewContactOk.classList.add('d-none');
-    }, 500); /* same duration as slide out animation */
+    }, 500);
 }
