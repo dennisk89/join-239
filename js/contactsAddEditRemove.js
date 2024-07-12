@@ -36,7 +36,7 @@ function createNewContactArray() {
  */
 function getRandomColor() {
     let randomIndex;
-    for (let i = 0; i < 20; i++) { // Damit der zufällige Index mehrmals generiert wird -> besserer Zufallsgenerator.
+    for (let i = 0; i < 20; i++) {
         randomIndex = Math.floor(Math.random() * colors.length);        
     }    
     return colors[randomIndex];
