@@ -265,24 +265,6 @@ function proofIfContactIsLoggedIn(name) {
 
 
 /**
- * Opens the legal notice page in a new tab and sets a flag in localStorage.
- */
-function openLegalNotice() {
-    window.open('legalNotice.html', '_blank', 'noopener,noreferrer');
-    localStorage.setItem('openedByLegalNotice', 'true');
-}
-
-
-/**
- * Opens the privacy policy page in a new tab and sets a flag in localStorage.
- */
-function openPrivacyPolicy() {
-    window.open('privacyPolicy.html', '_blank', 'noopener,noreferrer');
-    localStorage.setItem('openedByPrivacyPolicy', 'true');
-}
-
-
-/**
  * Hides the footer links in the mobile footer.
  */
 function hideFooterLinks() {
