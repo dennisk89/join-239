@@ -96,15 +96,12 @@ function errorFunction() {
 }
 
 
-/* ANCHOR Header */
 /**
  * This function is used to redirect to index.html, if there is neither guest nor user logged in.
  */
 function redirectToLoginWhenNotAuth() {
     if (!guestUserActive && (loggedInUser == undefined || loggedInUser == null)) {
         window.location.href = "./index.html";
-    } else {
-        userIconOrGuestIcon();
     }
 }
 
@@ -174,9 +171,9 @@ class Task {
  */
 function generateUniqueId(initLetter, array) {
     let newId;
-    do { // Do-While-Schleife: Sie sorgt dafür, dass so lange eine neue ID generiert wird, bis eine ID gefunden wurde, die noch nicht vergeben ist.
-        newId = initLetter + Math.floor(Math.random() * 10000); // Math.random() erzeugt eine Zufallszahl zwischen 0 (inkl.) und 1 (exkl.); durch * 10000 wird auf einen Bereich von 0 bis 9999.999... skaliert. Math.floor rundet die Zufallszahl auf die nächste ganze Zahl ab, sodass eine Zahl zwischen 0 und 9999 entsteht.
-    } while (array.some(a => a.id === newId)); // Überprüfung, ob die neu generierte ID bereits vergeben ist.
+    do {
+        newId = initLetter + Math.floor(Math.random() * 10000);
+    } while (array.some(a => a.id === newId));
     return newId;
 }
 

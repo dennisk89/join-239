@@ -89,7 +89,6 @@ function loginWithPersistence() {
  */
 onAuthStateChanged(auth, async (user) => {
     if (user) {
-        console.log('changed');
         let usersFromFirebase = await getUsers('https://join-239-default-rtdb.europe-west1.firebasedatabase.app/users');
         loggedInEmail = user.email;
         loggedInUser = getUserNameByLoggedInEmail(loggedInEmail, usersFromFirebase);
@@ -119,6 +118,9 @@ function updateUserInterfaceWithLogInStatus() {
         if (window.location.pathname == '/summary.html') {
             showGreeting();
         }
+    }
+    if (['/summary.html', '/addTask.html', '/contacts.html', '/board.html', '/help.html'].includes(window.location.pathname)) {
+        userIconOrGuestIcon();
     }
 }
 
