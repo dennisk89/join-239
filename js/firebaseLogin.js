@@ -89,15 +89,25 @@ function loginWithPersistence() {
  */
 onAuthStateChanged(auth, async (user) => {
     if (user) {
+        console.log('changed');
         let usersFromFirebase = await getUsers('https://join-239-default-rtdb.europe-west1.firebasedatabase.app/users');
         loggedInEmail = user.email;
         loggedInUser = getUserNameByLoggedInEmail(loggedInEmail, usersFromFirebase);
-        removeFooterLinkLock();
-        if (window.location.pathname == '/index.html') 
-            {window.location.href = "./summary.html";}
+        triggerLocationBasedActions();
     }
     updateUserInterfaceWithLogInStatus();
-})
+});
+
+
+function triggerLocationBasedActions() {
+    removeFooterLinkLock();
+    if (window.location.pathname == '/index.html') {
+        window.location.href = "./summary.html";
+    }
+    if (window.location.pathname == '/contacts.html') {
+        showContactList();
+    }
+}
 
 
 /**
