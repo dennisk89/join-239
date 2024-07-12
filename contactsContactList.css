@@ -145,6 +145,9 @@
 /* ANCHOR min 1300px Responsiveness */
 
 @media screen and (min-width: 1300px) {
+    .contact-list-content {
+        margin-top: 60px;
+    }
 
     .main-contact-list {
         width: 400px;
@@ -170,6 +173,8 @@
         justify-content: center;
         gap: 16px;
         white-space: nowrap;
+        position: fixed;
+        margin-top: 22px;
     }
 
     .add-contact-btn-desktop img {
