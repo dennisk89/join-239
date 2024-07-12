@@ -92,6 +92,7 @@ onAuthStateChanged(auth, async (user) => {
         let usersFromFirebase = await getUsers('https://join-239-default-rtdb.europe-west1.firebasedatabase.app/users');
         loggedInEmail = user.email;
         loggedInUser = getUserNameByLoggedInEmail(loggedInEmail, usersFromFirebase);
+        removeFooterLinkLock();
         if (window.location.pathname == '/index.html') 
             {window.location.href = "./summary.html";}
     }
@@ -172,6 +173,12 @@ function handleGuestUser(trueOrFalse) {
     let guestUserActive = trueOrFalse;
     localStorage.setItem('guestUserActive', JSON.stringify(guestUserActive));
   }
+
+
+function removeFooterLinkLock() {
+    localStorage.removeItem('openedByPrivacyPolicy');
+    localStorage.removeItem('openedByLegalNotice');
+}
   
 
 /**

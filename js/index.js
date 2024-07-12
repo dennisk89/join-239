@@ -198,6 +198,7 @@ function validateLogin() {
  */
 function openGuestAccess() {
   handleGuestUser(true);
+  removeFooterLinkLock();
   window.location.href = "./summary.html";
 }
 
