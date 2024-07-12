@@ -24,6 +24,7 @@ header {
 }
 
 .header-title {
+    margin: 0;
     margin-left: 100px;
 }
 
