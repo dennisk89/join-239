@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Help</title>
-    <link rel="stylesheet" href="privacyLegalNotice.css">
     <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="privacyLegalNotice.css">
+    
     <link rel="icon" type="image/x-icon" href="assets/img/join-logo.svg">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="footer.css">
@@ -22,8 +23,9 @@
             <div class="flex-all-center gap-16">
                 <a class="hide-on-mobile clickable" href="help.html"><img class="hover-scale"
                         src="assets/img/header-help-icon.svg" alt="help"></a>
-                <div class="profile-icon flex-all-center">
-                    <p id="userIcon" class="clickable" onclick="moveOverlayMenu()"></p>
+                <div class="profile-icon flex-all-center" onclick="toggleMenu()">
+                    <p id="userIcon" class="clickable"></p>
+                    <div id="pageOverlay" class="page-overlay"></div>
                 </div>
             </div>
         </div>
@@ -114,6 +116,20 @@
             <a class="clickable" href="legalNotice.html" target="_blank">Legal Notice</a>
         </div>
     </footer>
+    <!--ANCHOR - overlay-animation-->
+    <div class="menu-overlay" id="userMenu">
+        <div class="overlay-menu-links hide-on-desktop">
+            <a href="help.html" target="_blank" rel="noopener noreferrer">Help</a>
+        </div>
+        <div class="overlay-menu-links">
+            <a href="legalNotice.html" target="_blank" rel="noopener noreferrer">Legal Notice</a>
+        </div>
+        <div class="overlay-menu-links">
+            <a href="privacyPolicy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+        </div>
+        <div class="overlay-menu-links">
+            <a onclick="logOut(); handleGuestUser(false)" href="index.html" rel="noopener noreferrer">Log out</a>
+        </div>
 </body>
 
 </html>
