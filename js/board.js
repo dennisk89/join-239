@@ -194,6 +194,7 @@ function addSubTaskProgressToCards(taskArray, i) {
  */
 function closeTask(id) {
     let taskOverlay = document.getElementById(id);
+    sessionStorage.removeItem("preSetTaskStatus");
     taskOverlay.classList.remove('show');
     taskOverlay.classList.add('hide');
     setTimeout(() => {

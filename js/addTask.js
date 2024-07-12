@@ -35,7 +35,7 @@ async function createTask(nextFunction) {
     let newTask = useTaskClass(); 
     taskArray.push(newTask);
     await putData(endpointTasks, taskArray);
-    sessionStorage.removeItem("preSetTaskStatus")
+    sessionStorage.removeItem("preSetTaskStatus");
     disableBtnsOnLoad(false);
     nextFunction();
 }
@@ -519,18 +519,14 @@ function validateDate() {
  * @returns {boolean} - Returns true if the category is valid, false otherwise.
  */
 function validateCategory() {
-    let categoryWarning = document.getElementById('categoryWarningMessage');
     let category = document.getElementById('catSelectValue').dataset.tasktype
-    let categoryBorder = document.getElementById('selectCategory');
-
-    
     if (category === "") {
-        categoryWarning.classList.remove('d-none');
-        categoryBorder.classList.add('border-red');
+        document.getElementById('categoryWarningMessage').classList.remove('d-none');
+        document.getElementById('selectCategory').classList.add('border-red');
         return false;
     } else {
-        categoryWarning.classList.add('d-none');
-        categoryBorder.classList.remove('border-red');
+        document.getElementById('categoryWarningMessage').classList.add('d-none');
+        document.getElementById('selectCategory').classList.remove('border-red');
         return true;
     }
 }
