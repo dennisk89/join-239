@@ -86,9 +86,7 @@
     border-radius: 50%;
 }
 
-.width-396px {
-    width: 396px;
-}
+
 
 .bg-add-task {
     background-color: var(--bg-color-grey);
@@ -185,6 +183,7 @@
     margin-left: 16px;
     transition: transform 0.1s ease-in-out;
     box-shadow: 0 0 10px var(--shadow-light-grey-1);
+    width: 396px;
 }
 
 .priority-container:hover{
@@ -231,11 +230,11 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
-    height: 116px;
+    height: 100px;
     width: 116px;
     background-color: var(--white);
     border-radius: 20px;
-    gap: 13px;
+    gap: 0px;
     transition: transform 0.1s ease-in-out;
     box-shadow: 0 0 10px var(--shadow-light-grey-1);
 }
@@ -262,6 +261,13 @@
     .task-summary{
         width: 290px;
         gap: 6px;
+    }
+}
+
+@media (min-width: 430px) {
+    .tasks-in-board{
+        height: 116px;
+        gap: 13px;
     }
 }
 
