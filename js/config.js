@@ -13,7 +13,7 @@ const taskTypeColor = {
 let contacts;
 let taskArray;
 let usersArray;
-let todoTasks; 
+let todoTasks;
 let progressTasks;
 let feedbackTasks;
 let doneTasks;
@@ -23,7 +23,7 @@ let tempSubtasks = [];
 let tempAssignees = [];
 let tempSubtasksStatus = [];
 let loggedInUser;
-let guestUserActive = false;
+let guestUserActive = JSON.parse(localStorage.getItem('guestUserActive')) || false;
 
 
 function resetGlobalTaskVariables() {
@@ -97,19 +97,23 @@ function errorFunction() {
 
 
 /* ANCHOR Header */
-
 /**
- * This function is used to redirect to index.html, if there is neither guest nor user logged in. If there is a guest user active, the guest user icon is shown in the header; if there is a logged in user, the right user icon is shown on the header.
+ * This function is used to redirect to index.html, if there is neither guest nor user logged in.
  */
-function redirectOrShowUserIcon() {
-    let checkGuestUserStatus = localStorage.getItem('guestUserActive');
-    let guestUserActive = checkGuestUserStatus ? JSON.parse(checkGuestUserStatus) : false;
-    if (!guestUserActive && (loggedInUser === undefined || loggedInUser === null)) {
+function redirectToLoginWhenNotAuth() {
+    if (!guestUserActive && (loggedInUser == undefined || loggedInUser == null)) {
         window.location.href = "./index.html";
-    } else if (guestUserActive) {
-        showGuestUserIcon();
     } else {
+        userIconOrGuestIcon();
+    }
+}
+
+function userIconOrGuestIcon() {
+    if (loggedInUser) {
         updateUserIcon(loggedInUser);
+    }
+    if (guestUserActive) {
+        showGuestUserIcon();
     }
 }
 
@@ -132,7 +136,7 @@ function updateUserIcon(name) {
 function getInitials(name) {
     let initials = name
         .split(' ')
-        .map (word => word.charAt(0).toUpperCase())
+        .map(word => word.charAt(0).toUpperCase())
         .join('');
     return initials;
 }
@@ -198,8 +202,8 @@ function disableBtnsOnLoad(boolean) {
 function showMenu() {
     let menuAnimation = document.getElementById('userMenu');
     let pageOverlay = document.getElementById('pageOverlay');
-    menuAnimation.style.display = 'flex'; 
-    pageOverlay.style.display = 'block'; 
+    menuAnimation.style.display = 'flex';
+    pageOverlay.style.display = 'block';
     menuAnimation.classList.add('show');
 }
 
@@ -216,8 +220,8 @@ function hideMenu() {
     setTimeout(() => {
         menuAnimation.style.display = 'none';
         menuAnimation.classList.remove('hide');
-        pageOverlay.style.display = 'none'; 
-    }, 125); 
+        pageOverlay.style.display = 'none';
+    }, 125);
 }
 
 
@@ -259,7 +263,7 @@ function proofIfContactIsLoggedIn(name) {
     if (name === loggedInUser) {
         return ' (You)';
     } else {
-        return ''; 
+        return '';
     }
 }
 

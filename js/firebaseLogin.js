@@ -53,7 +53,7 @@ function login() {
         .catch((error) => {
             warningmessage.classList.remove('d-none');
             passwordContainer.classList.add('border-red');
-        });
+        });   
 }
 
 
@@ -105,7 +105,7 @@ onAuthStateChanged(auth, async (user) => {
  */
 function updateUserInterfaceWithLogInStatus() {
     if (['/summary.html', '/addTask.html', '/contacts.html', '/board.html'].includes(window.location.pathname)) {
-        redirectOrShowUserIcon();
+        redirectToLoginWhenNotAuth();
         if (window.location.pathname == '/summary.html') {
             showGreeting();
         }
@@ -178,6 +178,7 @@ function handleGuestUser(trueOrFalse) {
 function removeFooterLinkLock() {
     localStorage.removeItem('openedWithoutLogin');
 }
+
   
 
 /**
