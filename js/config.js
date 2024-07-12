@@ -96,15 +96,12 @@ function errorFunction() {
 }
 
 
-/* ANCHOR Header */
 /**
  * This function is used to redirect to index.html, if there is neither guest nor user logged in.
  */
 function redirectToLoginWhenNotAuth() {
     if (!guestUserActive && (loggedInUser == undefined || loggedInUser == null)) {
         window.location.href = "./index.html";
-    } else {
-        userIconOrGuestIcon();
     }
 }
 
