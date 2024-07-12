@@ -100,7 +100,7 @@ function checkPasswordMatch() {
   let passwordWarning = document.getElementById('passwordWarning')
   if (password !== confirmPassword) {
     showError.classList.remove('d-none');
-    passwordWarning.classList.add('border-red')
+    passwordWarning.classList.add('border-red');
     return false;
   } else {
     showError.classList.add('d-none');
@@ -131,19 +131,28 @@ function handleCheckBoxPrivacyPolicy() {
  */
 function validateForm(event) {
   event.preventDefault();
-  let privacyerrormessage = document.getElementById('privacyError')
+  let privacyCheckBox = isPrivacyPolicyChecked();
   let isPasswordMatch = validatePassword();
-  let privacyCheckBox = document.getElementById('privacyCheckBox').src.includes('checkbox-checked.svg');
   let isNameValid = checkEnteredName();
   let isEmailValid = checkEnteredEmail();
   if (isPasswordMatch && privacyCheckBox && isNameValid && isEmailValid) {
     createNewUser();
   } else {
-    if (!privacyCheckBox) {
-      privacyerrormessage.classList.remove('d-none');
-      return false;
-    }
-  };
+    showValidationErrors(privacyCheckBox);
+    return false;
+  }
+}
+
+
+function isPrivacyPolicyChecked() {
+  return document.getElementById('privacyCheckBox').src.includes('checkbox-checked.svg');
+}
+
+
+function showValidationErrors(privacyCheckBox) {
+  if (!privacyCheckBox) {
+    document.getElementById('privacyError').classList.remove('d-none');
+  }
 }
 
 
@@ -203,9 +212,11 @@ function checkEnteredName() {
   let nameWarning = document.getElementById('nameWarning');
   if (name.length < 2) {
     nameWarning.classList.remove('d-none');
+    document.getElementById('name').classList.add('border-red');
     return false;
   } else {
     nameWarning.classList.add('d-none');
+    document.getElementById('name').classList.remove('border-red');
     return true;
   }
 }
@@ -222,9 +233,11 @@ function checkEnteredEmail() {
   let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailPattern.test(email)) {
     emailWarning.classList.remove('d-none');
+    document.getElementById('e-mail').classList.add('border-red');
     return false;
   } else {
     emailWarning.classList.add('d-none');
+    document.getElementById('e-mail').classList.remove('border-red');
     return true;
   }
 }
@@ -239,8 +252,10 @@ function checkIfPasswordIsEntered() {
   let passWarning = document.getElementById('noPasswordWarning');
   if (passwordField.length < 6) {
     passWarning.classList.remove('d-none');
+    document.getElementById('redBorderPassword').classList.add('border-red');
   } else {
     passWarning.classList.add('d-none');
+    document.getElementById('redBorderPassword').classList.remove('border-red');
   }
 }
 
