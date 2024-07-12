@@ -105,7 +105,7 @@ function triggerLocationBasedActions() {
         window.location.href = "./summary.html";
     }
     if (window.location.pathname == '/contacts.html') {
-        showContactListContent();
+        showContactList();
     }
 }
 

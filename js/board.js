@@ -328,7 +328,7 @@ function renderAssignees(task) {
     let taskAssignees = pushTaskAssigneeInfosToArray(task);
     for (let i = 0; i < taskAssignees.length; i++) {
         if (taskAssignees[i] != 'not found') {
-            let assigneeIsLoggedIn = proofIfContactIsLoggedIn(taskAssignees[i].email);
+            let assigneeIsLoggedIn = proofIfContactIsLoggedIn(taskAssignees[i].email, loggedInEmail);
             document.getElementById('taskAssign').innerHTML += taskAssignHTML(taskAssignees[i].color, taskAssignees[i].initials, taskAssignees[i].name, assigneeIsLoggedIn);
         }
     }

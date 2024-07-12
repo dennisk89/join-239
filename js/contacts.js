@@ -13,9 +13,7 @@ let contactListLetters = [];
  */
 async function initContacts() {
     await initJoin();
-    console.log(loggedInEmail);
     checkForNewUsersAndAddToContacts();
-    console.log(loggedInEmail);
     showContactList();
 }
 
@@ -62,7 +60,7 @@ function showContactListContent() {
         let contact = contacts[i];
         let firstInitial = contact['name'].charAt(0);
         let initials = getInitials(contact['name']);
-        let userIsLoggedIn = proofIfContactIsLoggedIn(contact['email']);
+        let userIsLoggedIn = proofIfContactIsLoggedIn(contact['email'], loggedInEmail);
         let contactsContainer = document.getElementById('contactsContainer' + firstInitial.toUpperCase());
         contactsContainer.innerHTML += generateContactListContentHTML(contact, initials, contact['color'], userIsLoggedIn);        
     }
@@ -74,8 +72,8 @@ function showContactListContent() {
 *This function is used to proof if the current contact is logged in. In case the contact is logged in, "(You)" is added to his*her name in the contact list.
 *@param {object} contactName This is the name of the current contact.
 */
-function proofIfContactIsLoggedIn(email) {
-    if (email.toLowerCase() === loggedInEmail.toLowerCase()) {
+function proofIfContactIsLoggedIn(email, loggedInEmail = '') {
+    if (email.toLowerCase() === loggedInEmail) {
         return ' (You)';
     } else {
         return '';
