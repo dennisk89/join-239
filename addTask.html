@@ -84,7 +84,7 @@
                 </div>
                 <div class="input-group margintop-32px">
                     <label class="font-20" for="selectCategory">Category<span class="color-red">*</span></label>
-                    <div id="selectCategory" onclick="openSelectCat(), stopP(event)" class="enter-input outer-input select-rel">
+                    <div id="selectCategory" onclick="openSelectCat(), stopP(event)" class="enter-input outer-input select-rel clickable">
                         <div id="catSelectValue" data-tasktype="">Select task Category</div>
                         <div id="selectFieldBtnCat" class="select-image inner-input-img clickable"></div>
                         <div id="selectCatList" class="contact-select-list d-none">
@@ -114,7 +114,7 @@
                         <img class="cancel-btn-img-dark" src="./assets/img/cancel-x-dark.svg" alt="Cancel button">
                         <img class="cancel-btn-img-blue d-none" src="./assets/img/cancel_x_blue.svg" alt="Cancel Button">
                     </button>
-                    <button onclick="validateTaskForm(event, redirectToBoard); return false" type="submit" class="create-task-btn btn-color disable-on-load">
+                    <button onclick="validateTaskForm(event, redirectToBoard); return false" type="submit" class="create-task-btn btn-color disable-on-load clickable">
                         <span>Create Task</span>
                         <img src="./assets/img/check.svg" alt="Create task button">
                     </button>
