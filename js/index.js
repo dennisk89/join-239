@@ -137,14 +137,23 @@ function validateForm(event) {
 }
 
 
+/**
+ * Checks if the privacy policy checkbox is checked.
+ *
+ * @returns {boolean} - True if the checkbox is checked, false otherwise.
+ */
 function isPrivacyPolicyChecked() {
   return document.getElementById('privacyCheckBox').src.includes('checkbox-checked.svg');
 }
 
-
+/**
+* Displays validation errors based on the state of the privacy policy checkbox.
+*
+* @param {boolean} privacyCheckBox - The state of the privacy policy checkbox.
+*/
 function showValidationErrors(privacyCheckBox) {
   if (!privacyCheckBox) {
-    document.getElementById('privacyError').classList.remove('d-none');
+      document.getElementById('privacyError').classList.remove('d-none');
   }
 }
 
