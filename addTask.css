@@ -2,6 +2,10 @@
     display: none;
 }
 
+.hide-on-mobile2 {
+    display: none;
+}
+
 .justify-space-between{
     display: flex;
     justify-content: space-between;
