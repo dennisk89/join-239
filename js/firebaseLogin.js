@@ -19,21 +19,9 @@ const firebaseConfig = {
     appId: "1:641839341000:web:48660cd7b3f9a196ccf4fd",
     measurementId: "G-70J970H5ZC"
 }
-
-
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
-
-// Initializing Firebase's authentication service
 const auth = getAuth(app);
 
-
-/**
- * Make variables for loggedInUser and loggedInEmail available globally.
- */
-window.loggedInEmail = null;
-window.loggedInUser = null;
 
 
 /**
@@ -212,3 +200,5 @@ window.getUserNameByLoggedInEmail = getUserNameByLoggedInEmail;
 window.askAgainForName = askAgainForName;
 window.removeFooterLinkLock = removeFooterLinkLock;
 window.triggerLocationBasedActions = triggerLocationBasedActions;
+window.loggedInEmail = null;
+window.loggedInUser = null;
