@@ -151,21 +151,15 @@
 }
 
 .input-name {
-    background-image: url(./assets/img/input_person.svg);
-    background-repeat: no-repeat;
-    background-position: 319px;
+    background: url(./assets/img/input_person.svg) no-repeat 97% 50%;
 }
 
 .input-mail {
-    background-image: url(./assets/img/input_mail.svg);
-    background-repeat: no-repeat;
-    background-position: 319px;
+    background: url(./assets/img/input_mail.svg) no-repeat 97% 50%;
 }
 
 .input-phone {
-    background-image: url(./assets/img/input_call.svg);
-    background-repeat: no-repeat;
-    background-position: 319px;
+    background: url(./assets/img/input_call.svg) no-repeat 97% 50%;
 }
 
 .contact-deleted{
@@ -196,12 +190,21 @@
       100% {
         transform: translate(-50%, -50%);
     }
-  }
+}
 
 
 /* ANCHOR min 1300px Responsiveness */
 
-@media screen and (min-width: 1300px){
+/* @media screen and (min-width: 1300px) {
+
+
+} */
+
+
+
+/* ANCHOR min 1300px Responsiveness */
+
+@media screen and (min-width: 1300px) {
 
     .overlay-logo {
         display: unset;
@@ -276,18 +279,6 @@
         margin-top: 137px;
         margin-right: 48px;
         padding: 0;
-    }
-
-    .input-name {
-        background-position: 380px;
-    }
-    
-    .input-mail {
-        background-position: 380px;
-    }
-    
-    .input-phone {
-        background-position: 380px;
     }
 
 }
