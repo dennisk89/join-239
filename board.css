@@ -777,7 +777,7 @@ p {
 
 
 /* ANCHOR Media querries */
-@media screen and (min-width: 768px) and (min-height: 900px) {
+@media (min-width: 768px) and (min-height: 900px) {
     .open-task {
         max-width: none;
         width: 525px;
