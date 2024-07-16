@@ -43,7 +43,7 @@ function resetGlobalTaskVariables() {
  */
 async function initJoin() {
     contacts = await getData(endpointContacts);
-    taskArray = await getData(endpointTasks);
+    taskArray = await getData(endpointTasks) || [];
     usersArray = await getData(endpointUser);
     todoTasks = taskArray.filter(t => t.taskStatus == 'todo');
     progressTasks = taskArray.filter(t => t.taskStatus == 'progress');
