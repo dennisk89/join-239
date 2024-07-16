@@ -154,10 +154,9 @@
     }
 
     .contact-list-top {
-        padding-top: 24px;
-        padding-left: 14px;
-        background-color: var(--white);
         display: unset;
+        background-color: var(--white);
+        position: fixed;
     }
 
     .add-contact-btn-desktop {
@@ -173,8 +172,7 @@
         justify-content: center;
         gap: 16px;
         white-space: nowrap;
-        position: fixed;
-        margin-top: 22px;
+        margin: 22px 0;
     }
 
     .add-contact-btn-desktop img {
