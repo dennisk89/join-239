@@ -1,10 +1,3 @@
-/**
- * This function initialized the Join app.
- */
-// function init() {
-//   initJoin();
-// }
-
 
 /**
  * This function is used to open the signup form.

@@ -6,6 +6,20 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 
+const firebaseConfig = {
+    apiKey: "AIzaSyDpP5Vobsp5Ph26puR1me-zdqethD43dl0",
+    authDomain: "join-239.firebaseapp.com",
+    databaseURL: "https://join-239-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "join-239",
+    storageBucket: "join-239.appspot.com",
+    messagingSenderId: "641839341000",
+    appId: "1:641839341000:web:48660cd7b3f9a196ccf4fd",
+    measurementId: "G-70J970H5ZC"
+};
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+
 /**
  * This function fetches any endpoint that is given by the url parameter. The response status will get logged 
  * 
@@ -17,30 +31,6 @@ async function getData(url) {
     let response = await fetch('https://join-239-default-rtdb.europe-west1.firebasedatabase.app/users' + ".json").catch(errorFunction);
     return await response.json();
 }
-
-
-/**
- * Firebase configuration object
- * @type {Object}
- */
-const firebaseConfig = {
-    apiKey: "AIzaSyDpP5Vobsp5Ph26puR1me-zdqethD43dl0",
-    authDomain: "join-239.firebaseapp.com",
-    databaseURL: "https://join-239-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "join-239",
-    storageBucket: "join-239.appspot.com",
-    messagingSenderId: "641839341000",
-    appId: "1:641839341000:web:48660cd7b3f9a196ccf4fd",
-    measurementId: "G-70J970H5ZC"
-};
-
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-
-// Initializes Firebase´s authentication service
-const auth = getAuth(app)
 
 
 /**
