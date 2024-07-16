@@ -197,6 +197,7 @@ function closeTask(id) {
     sessionStorage.removeItem("preSetTaskStatus");
     taskOverlay.classList.remove('show');
     taskOverlay.classList.add('hide');
+    document.getElementsByTagName('body')[0].style.overflow = 'auto';
     setTimeout(() => {
         resetGlobalTaskVariables();
         taskOverlay.style.display = 'none';
@@ -223,6 +224,7 @@ function closeTask(id) {
  * @param {string} id - The ID of the task to be opened.
  */
 function openTasks(id) {
+    document.getElementsByTagName('body')[0].style.overflow = 'hidden';
     let task = getTaskById(id);
     tempSubtasks = task.subTask;
     let taskOverlay = document.getElementById('taskOverlay');
@@ -324,6 +326,7 @@ async function deleteTask(id) {
 function openAddTaskOverlay() {
     let addTaskOverlay = document.getElementById('addTaskOverlay');
     resetValuesInAddOverlay();
+    document.getElementsByTagName('body')[0].style.overflow = 'hidden';
     addTaskOverlay.style.display = 'flex';
     addTaskOverlay.classList.add('show');
 }
@@ -350,7 +353,7 @@ function handleAddTask(taskStatus = 'todo') {
 // ANCHOR eventListener add tasks
 document.getElementById('boardAddBtn').addEventListener('click', () => handleAddTask('todo'));
 
-
+document.getElementsByTagName('body')[0].style.overflow = 'auto';
 document.getElementById('addTaskInTodo').addEventListener('click', () => handleAddTask('todo'));
 
 
@@ -373,6 +376,7 @@ document.getElementById('addTaskInFeedback').addEventListener('click', () => han
  */
 ['closeAddBtn', 'addTaskOverlay', 'taskOverlay', 'cancelAdd'].forEach(id => document.getElementById(id).addEventListener('click', () => {
     id == 'taskOverlay' ? closeTask(id) : closeTask('addTaskOverlay');
+    document.getElementsByTagName('body')[0].style.overflow = 'auto';
     resetSubtaskInput();
     resetGlobalTaskVariables();
 }));
