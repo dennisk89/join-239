@@ -129,6 +129,7 @@ p {
     gap: 16px;
     overflow-x: auto;
     overflow-y: visible;
+    flex: 1;
 }
 
 .board-column-title {
@@ -879,7 +880,6 @@ p {
     .card-container {
         flex-direction: column;
         overflow-x: visible;
-        height: 100%;
     }
 
     .hide-over-1400p {
