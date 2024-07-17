@@ -283,6 +283,13 @@ function validateDate() {
 }
 
 
+document.addEventListener('DOMContentLoaded', () => {
+    const dateInput = document.getElementById('dateInput');
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
+});
+
+
 /**
  * This function validates that a category is selected.
  * @returns {boolean} - Returns true if the category is valid, false otherwise.
