@@ -6,7 +6,7 @@ function openSignup() {
   let login = document.getElementById('start-page-login');
   let signup = document.getElementById('signup-startpage');
   login.style.display = 'none';
-  signup.style.display = 'flex';
+  signup.style.display = 'block';
 }
 
 
