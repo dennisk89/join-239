@@ -248,7 +248,7 @@ textarea::-webkit-input-placeholder {
 }
 
 .requiered-field-p{
-    margin-top: -40px;
+    margin-top: -32px;
     margin-bottom: 20px;
 }
 
@@ -277,9 +277,6 @@ textarea::-webkit-input-placeholder {
     }
     .clear-task-btn{
     margin-top: 146px;
-    }
-    .btns-add-task{
-        margin-bottom: -60px;
     }
     .add-task-desktop{
         display: flex;
@@ -385,9 +382,11 @@ textarea::-webkit-input-placeholder {
     .desktop-btns{
         display: flex;
         justify-content: flex-end;
+        flex-direction: unset;
         gap: 16px;
-        margin-bottom: 60px;
+        margin-bottom: 20px;
     }
+
     
 }
 
@@ -510,11 +509,7 @@ textarea::-webkit-input-placeholder {
         color: var(--bg-color-dark-grey);
         font-size: 20px;
     }
-    .desktop-btns{
-        display: flex;
-        justify-content: flex-end;
-        gap: 16px;
-    }
+    
     .right-section-addTask{
         width: 440px;
     }
