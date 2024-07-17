@@ -177,15 +177,43 @@
 
     .contacts-header {
         margin: 24px 0;
-        gap: 8px;
+        gap: 0;
+    }
+
+    .contacts-header-bold {
+        font-size: 39px;
+    }
+
+    .contact-info-dot {
+        min-height: 70px;
+        min-width: 70px;
+        font-size: 24px;
     }
 
     .contact-info-name {
-        font-size: 30px;
+        font-size: 26px;
+    }
+
+    .contact-info-header {
+        margin-bottom: 16px;
     }
 
     .contact-info-bold {
-        margin-bottom: 5px;
+        margin-bottom: 3px;
+    }
+
+    .contact-info-mail {
+        margin-bottom: 16px;
+    }
+
+}
+
+/* ANCHOR max 450px Responsiveness */
+
+@media screen and (max-width: 450px) {
+
+    .contacts-header-sub {
+        display: none;
     }
 
 }
