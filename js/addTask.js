@@ -230,7 +230,8 @@ function getContactByContactID(contactID) {
  */
 function validateTaskForm(event, nextFunction) {
     event.preventDefault(); 
-    validateCategory()
+    validateCategory();
+    validateDate();
     if (validateTitle() && validateDate() && validateCategory()) {
         successfullyAddedTaskAnimation();
         setTimeout(() => {
@@ -280,6 +281,13 @@ function validateDate() {
         return true;
     }
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const dateInput = document.getElementById('dateInput');
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
+});
 
 
 /**
