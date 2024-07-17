@@ -191,7 +191,7 @@ textarea::-webkit-input-placeholder {
     justify-content: center;
     align-items: center;
     color: var(--white);
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 700;
     width: 183px;
     height: 56px;
@@ -217,10 +217,37 @@ textarea::-webkit-input-placeholder {
     background-color: var(--bg-color-grey);
 }
 
+.clear-task-btn{
+    background-color: var(--white);
+    height: 56px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: 110px;
+    justify-content: center;
+    border: 1px solid var(--bg-color-dark-grey);
+    border-radius: 10px;
+    color: var(--bg-color-dark-grey);
+    font-size: 16px;
+    font-weight: 700;
+    margin-right: 20px;
+}
+
+
 
 @media (min-width: 400px) {
     .priority-section{
         font-size: 16px;
+    }
+}
+
+@media (min-width: 580px) {
+    .clear-task-btn{
+        height: 56px;
+        font-size: 20px;
+    }
+    .create-task-btn{
+        font-size: 20px;
     }
 }
 
@@ -231,7 +258,9 @@ textarea::-webkit-input-placeholder {
         align-items: center;
         margin: 0; 
     }
-    
+    .clear-task-btn{
+    margin-top: 146px;
+    }
     .add-task-desktop{
         display: flex;
     }
@@ -332,21 +361,6 @@ textarea::-webkit-input-placeholder {
     .create-task-btn{
         margin-top: 146px;
         font-size: 21px;
-    }
-    .clear-task-btn{
-        background-color: var(--white);
-        height: 56px;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        width: 110px;
-        justify-content: center;
-        border: 1px solid var(--bg-color-dark-grey);
-        border-radius: 10px;
-        margin-top: 146px;
-        color: var(--bg-color-dark-grey);
-        font-size: 20px;
-        margin-right: 100px;
     }
     .desktop-btns{
         display: flex;
