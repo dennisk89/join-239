@@ -54,8 +54,10 @@ input:focus {
 }
 
 .start-page {
-    margin: 0 auto;
-    max-width: 1600px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 90vh;
 }
 
 .blue-underline {
@@ -154,7 +156,7 @@ input:focus {
 }
 
 .login-white-bg {
-    margin-top: 200px;
+    margin-top: 140px;
     background-color: var(--white);
     border-radius: 30px;
     margin-left: 16px;
@@ -251,8 +253,7 @@ input:focus {
     font-size: 16px;
     font-weight: 400;
     gap: 24px;
-    margin-top: 42px;
-    margin-bottom: 22px;
+    margin-top: 56px;
 }
 
 .login-links {
@@ -425,6 +426,22 @@ input:focus {
   }
 }
 
+@media (height < 900px) {
+    .start-page {
+        height: auto;
+        gap: 64px;
+    }
+
+    .not-a-user {
+        margin: 0;
+    }
+
+    .login-links-align {
+        margin: 0;
+        margin-bottom: 24px;
+    }
+}
+
 
 @media (max-width: 768px) {
     .hide-on-mobile {
@@ -451,9 +468,9 @@ input:focus {
         margin: auto;
     }
     .login-white-bg {
-        margin-top: 200px !important;
         max-width: 652px;
         margin: auto;
+        width: 60vw;
     }
 
     .login-white-bg-signup{
@@ -479,10 +496,6 @@ input:focus {
 
     .align-center {
         justify-content: space-between;
-    }
-
-    .login-links-align {
-        margin-top: 190px;
     }
 
     .login-arrow-back {

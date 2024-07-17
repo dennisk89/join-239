@@ -5,8 +5,8 @@
 function openSignup() {
   let login = document.getElementById('start-page-login');
   let signup = document.getElementById('signup-startpage');
-  login.classList.add('d-none');
-  signup.classList.remove('d-none');
+  login.style.display = 'none';
+  signup.style.display = 'flex';
 }
 
 
@@ -16,8 +16,8 @@ function openSignup() {
 function backToLogin() {
   let login = document.getElementById('start-page-login');
   let signup = document.getElementById('signup-startpage');
-  login.classList.remove('d-none');
-  signup.classList.add('d-none');
+  login.style.display = 'flex';
+  signup.style.display = 'none';
 }
 
 
