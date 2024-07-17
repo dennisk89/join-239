@@ -162,7 +162,7 @@
     background: url(./assets/img/input_call.svg) no-repeat 97% 50%;
 }
 
-.contact-deleted{
+.contact-deleted {
     display: none;
     justify-content: center;
     align-items: center;
@@ -178,7 +178,7 @@
     border-radius: 20px;
 }
 
-.contact-deleted.show{
+.contact-deleted.show {
     display: flex;
     animation: contact 200ms forwards;
 }
@@ -193,13 +193,33 @@
 }
 
 
-/* ANCHOR min 1300px Responsiveness */
+/* ANCHOR max 450px Responsiveness */
 
-/* @media screen and (min-width: 1300px) {
+@media screen and (max-width: 450px) {
 
+    .overlay-content {
+        width: 300px;
+    }
 
-} */
+    .overlay-header {
+        height: 190px;
+    }
 
+    .overlay-header-bold {
+        font-size: 36px;
+        margin-top: 60px;
+        margin-bottom: 0;
+    }
+
+    .hr-contacts-overlays {
+        width: 80px;
+    }
+
+    .overlay-form {
+        margin-top: 50px;
+    }
+    
+}
 
 
 /* ANCHOR min 1300px Responsiveness */

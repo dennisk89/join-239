@@ -124,6 +124,37 @@
 }
 
 
+/* ANCHOR max 450px Responsiveness */
+
+@media screen and (max-width: 450px) {
+
+    .overlay-header-sub {
+        display: none;
+    }
+
+    .new-contact-dot {
+        width: 90px;
+        height: 90px;
+    }
+
+    .new-contact-dot-mobile {
+        top: 140px;
+        left: 105px;
+    }
+
+    .new-contact-dot img {
+        height: 56px;
+        width: 56px;
+    }
+
+    .add-contact-overlay-buttons {
+        margin-top: 5px;
+        margin-bottom: 15px;
+    }
+
+}
+
+
 /* ANCHOR min 1300px Responsiveness */
 
 @media screen and (min-width: 1300px){

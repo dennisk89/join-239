@@ -128,6 +128,29 @@
 }
 
 
+/* ANCHOR max 450px Responsiveness */
+
+@media screen and (max-width: 450px) {
+
+    .edit-contact-dot {
+        width: 90px;
+        height: 90px;
+        font-size: 39px;
+    }
+
+    .edit-contact-dot-mobile {
+        top: 140px;
+        left: 105px;
+    }
+
+    .edit-contact-overlay-buttons {
+        margin-top: 5px;
+        margin-bottom: 15px;
+    }
+
+}
+
+
 /* ANCHOR min 1200px Responsiveness */
 
 @media only screen and (min-width: 1200px) {
