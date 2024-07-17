@@ -95,6 +95,12 @@ function redirectToBoard() {
     window.location.href = 'board.html';
 }
 
+
+/**
+ * Clears the form inputs and resets temporary variables related to adding a task.
+ * Resets global task variables, clears the pre-selected assignee container,
+ * resets the "Add Task" form, and renders the temporary subtasks.
+ */
 function clearAddTaskAndTempVariables() {
     resetGlobalTaskVariables();
     document.getElementById('preSelectedContainer').innerHTML = '';
@@ -102,6 +108,7 @@ function clearAddTaskAndTempVariables() {
     resetSubtaskInput();
     renderTempSubtasks();
 }
+
 
 /**
  * Resets the "Add Task" form by clearing the task category, title, description, and date inputs. 
