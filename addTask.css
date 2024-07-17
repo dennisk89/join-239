@@ -195,7 +195,7 @@ textarea::-webkit-input-placeholder {
     font-weight: 700;
     width: 183px;
     height: 56px;
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 
 .margin-bottom0{
@@ -233,7 +233,24 @@ textarea::-webkit-input-placeholder {
     margin-right: 20px;
 }
 
+.desktop-btns{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
 
+.btns-add-task{
+    display: flex;
+    margin-right: 4px;
+    margin-left: 4px;
+    
+}
+
+.requiered-field-p{
+    margin-top: -40px;
+    margin-bottom: 20px;
+}
 
 @media (min-width: 400px) {
     .priority-section{
@@ -260,6 +277,9 @@ textarea::-webkit-input-placeholder {
     }
     .clear-task-btn{
     margin-top: 146px;
+    }
+    .btns-add-task{
+        margin-bottom: -60px;
     }
     .add-task-desktop{
         display: flex;
