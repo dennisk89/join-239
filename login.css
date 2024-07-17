@@ -1,10 +1,10 @@
 body {
+
     margin-top: 0 !important;
     animation: fadeInAnimation ease-in 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     margin: 0 auto;
-    
 }
 
 .landscape-warning {
@@ -148,7 +148,7 @@ input:focus {
 
 .join-logo-login-signup {
     width: 64px;
-    margin-top: 37px;
+    margin-top: 37px !important;
     margin-left: 38px;
     margin-bottom: 90px;
 }

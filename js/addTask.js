@@ -230,7 +230,8 @@ function getContactByContactID(contactID) {
  */
 function validateTaskForm(event, nextFunction) {
     event.preventDefault(); 
-    validateCategory()
+    validateCategory();
+    validateDate();
     if (validateTitle() && validateDate() && validateCategory()) {
         successfullyAddedTaskAnimation();
         setTimeout(() => {
