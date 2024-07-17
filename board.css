@@ -171,9 +171,11 @@ p {
     top: 0;
     justify-content: center;
     align-items: center;
+    overflow-y: auto;
 }
 
 .open-task {
+    margin: auto;
     padding: 32px 24px;
     background-color: var(--white);
     display: flex;
@@ -184,9 +186,8 @@ p {
     position: relative;
     width: 100%;
     max-width: 396px;
-    max-height: 100vh;
+    /* max-height: 100vh; */
     box-sizing: border-box;
-    overflow-y: auto;
 }
 
 .task-header {
@@ -242,6 +243,7 @@ p {
 .card-details-assignees {
     overflow-y: auto;
     min-height: 60px;
+    max-height: 200px;
 }
 
 .task-assigned {
@@ -774,15 +776,30 @@ p {
       100% {
         transform: translate(-50%, -50%);
     }
-  }  
+  } 
+  
+@media (height > 1100px) {
+    .open-task h1 {
+        font-size: 61px;
+        font-weight: 700;
+        line-height: 73.2px;
+    }
+
+    .open-task p {
+        font-size: 20px;
+    }
+
+    .open-task {
+        gap: 24px;
+    }
+}
 
 
 /* ANCHOR Media querries */
-@media (min-width: 768px) and (min-height: 900px) {
+@media (height > 768px) and (height > 1100px) {
     .open-task {
         max-width: none;
         width: 525px;
-        max-height: 90vh;
         gap: 24px;
     }
 
