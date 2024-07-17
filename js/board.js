@@ -323,25 +323,26 @@ async function deleteTask(id) {
 
 
 // SECTION add task
+/**
+ * Opens the "Add Task" overlay by resetting the task form, hiding the page overflow, 
+ * displaying the overlay, and adding the 'show' class to it.
+ */
 function openAddTaskOverlay() {
     let addTaskOverlay = document.getElementById('addTaskOverlay');
-    resetValuesInAddOverlay();
+    resetAddTaskForm();
     document.getElementsByTagName('body')[0].style.overflow = 'hidden';
     addTaskOverlay.style.display = 'flex';
     addTaskOverlay.classList.add('show');
 }
 
 
-function resetValuesInAddOverlay() {
-    document.getElementById('catSelectValue').dataset.tasktype = ''; 
-    document.getElementById('catSelectValue').innerHTML = 'Select task Category'
-    document.getElementById('titleInput').value = '';
-    document.getElementById('descriptionInput').value = ''; 
-    document.getElementById('dateInput').value = '';
-    setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg', 'medium');
-}
-
-
+/**
+ * Handles the logic for adding a task. If the task status is not 'todo', 
+ * it stores the task status in sessionStorage. If the window width is greater than 1200 pixels, 
+ * it opens the "Add Task" overlay, otherwise, it redirects the user to the 'addTask.html' page.
+ * 
+ * @param {string} [taskStatus='todo'] - The status of the task to be added. Defaults to 'todo'.
+ */
 function handleAddTask(taskStatus = 'todo') {
     if (taskStatus != 'todo') {
         sessionStorage.setItem("preSetTaskStatus", JSON.stringify(taskStatus));

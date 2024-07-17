@@ -96,6 +96,20 @@ function redirectToBoard() {
 }
 
 
+/**
+ * Resets the "Add Task" form by clearing the task category, title, description, and date inputs. 
+ * Sets the priority button to 'Medium' by default.
+ */
+function resetAddTaskForm() {
+    document.getElementById('catSelectValue').dataset.tasktype = ''; 
+    document.getElementById('catSelectValue').innerHTML = 'Select task Category'
+    document.getElementById('titleInput').value = '';
+    document.getElementById('descriptionInput').value = ''; 
+    document.getElementById('dateInput').value = '';
+    setPrioBtn('prioMedium', 'medium-selected', './assets/img/priority-medium-white.svg', 'medium');
+}
+
+
 // ANCHOR prio selection
 /**
  * Sets the priority button to the selected state and updates the icon.
