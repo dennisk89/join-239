@@ -95,6 +95,13 @@ function redirectToBoard() {
     window.location.href = 'board.html';
 }
 
+function clearAddTaskAndTempVariables() {
+    resetGlobalTaskVariables();
+    document.getElementById('preSelectedContainer').innerHTML = '';
+    resetAddTaskForm();
+    resetSubtaskInput();
+    renderTempSubtasks();
+}
 
 /**
  * Resets the "Add Task" form by clearing the task category, title, description, and date inputs. 
